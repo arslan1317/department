@@ -14,6 +14,8 @@ class AdminDashboard extends Controller
 
     public function index()
     {
-        return view('admin.dashboard');
+    	$title = "Dashboard";
+    	$lefttitle = '<li class="breadcrumb-item"><a href="javascript:;">Dashboard</a></li><li class="breadcrumb-item active">Subdepartment</li></ol>';
+        return view('admin.dashboard', compact('title', 'lefttitle'));
     }
 }

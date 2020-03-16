@@ -8,6 +8,6 @@ class Department extends Model
 {
     public function subdepartment()
     {
-        return $this->hasMany('App\SubDepartment');
+        return $this->hasMany('App\SubDepartment')->orderBy('id', 'desc');
     }
 }

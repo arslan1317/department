@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 16, 2020 at 01:34 AM
+-- Generation Time: Mar 16, 2020 at 05:30 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -70,7 +70,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_03_16_000131_create_departments_table', 2),
-(5, '2020_03_16_000144_create_sub_departments_table', 2);
+(5, '2020_03_16_000144_create_sub_departments_table', 2),
+(6, '2020_03_16_043247_add_more_colum_to_subdepartment', 3);
 
 -- --------------------------------------------------------
 
@@ -95,15 +96,20 @@ CREATE TABLE `sub_departments` (
   `department_id` bigint(20) UNSIGNED DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fax` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `sub_departments`
 --
 
-INSERT INTO `sub_departments` (`id`, `department_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Sub Energy', '2020-03-15 19:00:00', NULL);
+INSERT INTO `sub_departments` (`id`, `department_id`, `name`, `created_at`, `updated_at`, `website`, `address`, `telephone`, `fax`) VALUES
+(1, 1, 'Sub Energy', '2020-03-15 19:00:00', NULL, 'https://www.google.com/', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '+921111111111', 123456789),
+(3, 1, 'Lesley Church', '2020-03-16 00:05:15', '2020-03-16 00:05:15', 'https://www.qonypokynyd.org.uk', 'Doloremque autem rer', '+1 (666) 743-6882', 212324142);
 
 -- --------------------------------------------------------
 
@@ -193,13 +199,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
 --
 ALTER TABLE `sub_departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

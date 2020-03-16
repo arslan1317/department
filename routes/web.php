@@ -28,4 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/dashboard', 'Admin\AdminDashboard@index');
     Route::get('admin/subdepartment', 'Admin\AdminSubDepartmentController@index');
+
+    /*SUBDEPARTMENT*/
+    Route::post('admin/subdepartment', 'Admin\AdminSubDepartmentController@store')->name('subdepartment.store');
 });
