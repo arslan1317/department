@@ -11,8 +11,6 @@
   <link rel="apple-touch-icon" href="">
   <link rel="shortcut icon" type="image/x-icon" href="">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
-  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
-  rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/icheck.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/icheck-custom.css') }}">
@@ -40,7 +38,7 @@
                 <div class="card-header border-0">
                   <div class="card-title text-center">
                     <div class="p-1">
-                      <img src="https://i.dlpng.com/static/png/6456439_preview.png" alt="branding logo" style="width: 25%;">
+                      <img src="{{ asset('admin/images/6456439_preview.png') }}" alt="branding logo" style="width: 25%;">
                     </div>
                   </div>
                 </div>

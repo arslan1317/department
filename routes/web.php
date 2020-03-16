@@ -18,9 +18,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['user']], function () {
+    // Route::get('user/dashboard', 'HomeController@index')->name('home');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('admin/routes', 'HomeController@admin');
+    Route::get('admin/dashboard', 'Admin\AdminDashboard@index');
+    Route::get('admin/subdepartment', 'Admin\AdminSubDepartmentController@index');
 });
