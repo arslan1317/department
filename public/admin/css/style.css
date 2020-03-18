@@ -21,3 +21,14 @@
     display: inline-block;
     margin-right: 4px;
 }
+.modal-title{
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+.table .alert-success{
+    padding: 9px;
+}
+.table .alert-danger{
+    padding: 9px;
+}

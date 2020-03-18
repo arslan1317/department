@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMoreColumToSubdepartment extends Migration
+class AddStatusToSubDepartments extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,7 @@ class AddMoreColumToSubdepartment extends Migration
     public function up()
     {
         Schema::table('sub_departments', function (Blueprint $table) {
-            $table->string('website')->nullable();
-            $table->string('address')->nullable();
-            $table->string('telephone')->nullable();
-            $table->integer('fax')->nullable();
+            $table->boolean('status')->default(1);
         });
     }
 
@@ -29,7 +26,7 @@ class AddMoreColumToSubdepartment extends Migration
     public function down()
     {
         Schema::table('sub_departments', function (Blueprint $table) {
-            $table->dropColumn(['website'], ['address'], ['telephone'], ['fax']);
+            $table->dropColumn(['status']);
         });
     }
 }

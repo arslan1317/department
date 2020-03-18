@@ -149,7 +149,7 @@
 		                                        <th>Address</th>
 		                                        <th>Telephone</th>
 		                                        <th>Fax</th>
-		                                        <th>Created At</th>
+		                                        <th>Status</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </thead>
@@ -163,15 +163,25 @@
 		                            				<td>{{$subdepartments->address}}</td>
 		                            				<td>{{$subdepartments->telephone}}</td>
 		                            				<td>{{$subdepartments->fax}}</td>
-		                            				<td>{{$subdepartments->created_at}}</td>
+		                            				<td>
+		                            					@if($subdepartments->status == 0)
+		                            						<div class="alert alert-danger mb-0 text-center" role="alert">
+		                            							Deactive
+															</div>
+		                            					@else
+		                            						<div class="alert alert-success mb-0 text-center" role="alert">
+																Active
+															</div>
+		                            					@endif
+		                            				</td>
 		                            				<td>
 		                            					<div class="table-action-button">
-		                            						<a href="" class="btn-edit">
+		                            						<a href="javascript:;" class="btn-edit"  data-department_id="{{$departments->id}}" data-name="{{$subdepartments->name}}" data-website="{{$subdepartments->website}}" data-address="{{$subdepartments->address}}" data-telephone="{{$subdepartments->telephone}}" data-fax="{{$subdepartments->fax}}" data-action="{{ route('subdepartment.update', $subdepartments->id) }}" onclick="subdepartment(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="" class="btn-delete">
-		                            							<i class="la la-trash"></i>
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$subdepartments->id}}" data-action="{{ route('subdepartment.destroy', $subdepartments->id)}}">
+		                            							<i class="la la-check"></i>
 		                            						</a>
 		                            					</div>
 		                            				</td>
@@ -199,5 +209,85 @@
 		        </div>
 		    </div>
 		</section>
+	</div>
+
+	
+
+	<!-- Modal -->
+    <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Subdepartment</label>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" method="post">
+                	@csrf
+                    <div class="modal-body">
+                    	<label for="projectinput1">Department Name</label>
+                    	<div class="form-group">
+							<select class="select2 form-control" name="department_id">
+								@foreach($department as $departments)
+									<option value="{{$departments->id}}">{{$departments->name}}</option>
+								@endforeach
+							</select>
+						</div>
+
+                        <label>Subdepartment Name</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name">
+                        </div>
+
+                        <label>Website</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="website">
+                        </div>
+
+                        <label>Address</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="address">
+                        </div>
+
+                        <label>Telephone</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="telephone">
+                        </div>
+
+                        <label>Fax</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="fax">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-outline-primary" value="Update Subdepartment">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h4 class="modal-title" id="myModalLabel1">Status Of Subdepartment</h4>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form action="#" method="post">
+	            	@csrf
+		            <div class="modal-body">
+		                <h5>Are you sure?</h5>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="submit" class="btn btn-outline-primary">Change Status</button>
+		            </div>
+		        </form>
+	        </div>
+	    </div>
 	</div>
 @endsection

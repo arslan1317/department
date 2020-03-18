@@ -260,5 +260,6 @@
     <script src="{{ asset('admin/js/datatables.min.js') }}"></script>
     <script src="{{ asset('admin/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/js/datatable-advanced.min.js') }}"></script>
+    <script src="{{ asset('admin/js/admin-js.js') }}"></script>
 </body>
 </html>

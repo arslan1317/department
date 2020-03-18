@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 16, 2020 at 05:30 AM
+-- Generation Time: Mar 18, 2020 at 06:14 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -71,7 +71,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_03_16_000131_create_departments_table', 2),
 (5, '2020_03_16_000144_create_sub_departments_table', 2),
-(6, '2020_03_16_043247_add_more_colum_to_subdepartment', 3);
+(6, '2020_03_16_043247_add_more_colum_to_subdepartment', 3),
+(7, '2020_03_18_054353_add_status_to_sub_departments', 4);
 
 -- --------------------------------------------------------
 
@@ -100,16 +101,19 @@ CREATE TABLE `sub_departments` (
   `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fax` int(11) DEFAULT NULL
+  `fax` int(11) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `sub_departments`
 --
 
-INSERT INTO `sub_departments` (`id`, `department_id`, `name`, `created_at`, `updated_at`, `website`, `address`, `telephone`, `fax`) VALUES
-(1, 1, 'Sub Energy', '2020-03-15 19:00:00', NULL, 'https://www.google.com/', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '+921111111111', 123456789),
-(3, 1, 'Lesley Church', '2020-03-16 00:05:15', '2020-03-16 00:05:15', 'https://www.qonypokynyd.org.uk', 'Doloremque autem rer', '+1 (666) 743-6882', 212324142);
+INSERT INTO `sub_departments` (`id`, `department_id`, `name`, `created_at`, `updated_at`, `website`, `address`, `telephone`, `fax`, `status`) VALUES
+(1, 1, 'Sub Energy', '2020-03-15 19:00:00', '2020-03-18 01:13:15', 'https://www.google.com/', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '+921111111111', 123456789, 0),
+(3, 1, 'Lesley Church', '2020-03-16 00:05:15', '2020-03-16 00:05:15', 'https://www.qonypokynyd.org.uk', 'Doloremque autem rer', '+1 (666) 743-6882', 212324142, 1),
+(4, 1, 'Amber Holman', '2020-03-18 00:37:54', '2020-03-18 00:39:04', 'https://www.hirova.in', 'Velit laborum quis f', '+1 (719) 154-5448', 657465657, 1),
+(5, 1, 'Kasper Mayo', '2020-03-18 00:50:27', '2020-03-18 00:50:27', 'https://www.temowazusesux.com.au', 'Facilis dolores quo', '+1 (752) 886-9501', 231231231, 1);
 
 -- --------------------------------------------------------
 
@@ -199,13 +203,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
 --
 ALTER TABLE `sub_departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

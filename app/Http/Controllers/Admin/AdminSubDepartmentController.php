@@ -29,12 +29,36 @@ class AdminSubDepartmentController extends Controller
             'website' => 'required',
             'address' => 'required',
             'telephone' => 'required',
-            'fax' => 'required|numeric',
+            'fax' => 'required|numeric|digits_between:1,10',
             'department_id' => 'required',
         ]);
 
         $show = Subdepartment::create($request->input());
    
         return redirect()->back()->with('success', 'Subdepartment is successfully saved');
+    }
+
+    public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'website' => 'required',
+            'address' => 'required',
+            'telephone' => 'required',
+            'fax' => 'required|numeric|digits_between:1,10',
+            'department_id' => 'required',
+        ]);
+        Subdepartment::whereId($id)->update($validatedData);
+        return redirect()->back()->with('success', 'Subdepartment is successfully updated');
+    }
+
+    public function destroy($id){
+        $subdepartment = Subdepartment::find($id);
+        if($subdepartment->status == 1){
+            $subdepartment->status = 0;
+        }else{
+            $subdepartment->status = 1;
+        }
+        $subdepartment->save();
+        return redirect()->back()->with('success', 'Subdepartment is successfully updated');
     }
 }
