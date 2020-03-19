@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use View;
+use App\UserRequest;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $user_request = UserRequest::where('status', '=', 0)->orderby('id', 'ASC')->get();
+        View::share('user_request', $user_request);
     }
 }

@@ -5,6 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="wait-box">
+                    @if (session('status'))
+                    <div class="alert alert-info border-0 alert-dismissible mb-2" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+                </div>
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -38,6 +45,39 @@
                                 @enderror
                             </div>
                         </div>
+
+
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Department</label>
+
+                            <div class="col-md-6">
+                                <select name="department" id="department" class="form-control">
+                                    @foreach($department as $departments)
+                                        <option value="{{$departments->id}}">{{$departments->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Sube Department</label>
+
+                            <div class="col-md-6">
+                                <select name="subdepartment" id="subdepartment" class="form-control">
+                                    @foreach($department as $departments)
+                                        @foreach($departments->subdepartment as $subdepartments)
+                                            @if($subdepartments->status != 0)
+                                                <option value="{{$subdepartments->id}}">{{$subdepartments->name}}</option>
+                                            @endif
+                                        @endforeach
+                                        @break
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

@@ -47,60 +47,47 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up badge-glow">5</span></a>
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                                <i class="ficon ft-bell"></i>
+                                <span class="badge badge-pill badge-danger badge-up badge-glow">{{count($user_request)}}</span>
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
-                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-danger float-right m-0">5 New</span>
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-danger float-right m-0">{{count($user_request)}} New</span>
                                 </li>
                                 <li class="scrollable-container media-list w-100">
-                                    <a href="javascript:void(0)">
+                                    @foreach($user_request as $user_requests)
                                         <div class="media">
-                                            <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan mr-0"></i></div>
                                             <div class="media-body">
-                                                <h6 class="media-heading">You have new order!</h6>
-                                                <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p><small>
-                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time></small>
+                                                <h6 class="media-heading">
+                                                    @php
+                                                        $user = App\User::find($user_requests->user_id);
+                                                    @endphp
+                                                    {{$user->name}} ({{$user->email}})</h6>
+                                                <p class="notification-text font-small-3 text-muted">
+                                                    @php
+                                                        $sub_dep = App\SubDepartment::find($user_requests->sub_dep_id);
+                                                    @endphp
+                                                    Main Category: <strong>{{$sub_dep->department->name}}</strong></p>
+
+                                                <p class="notification-text font-small-3 text-muted">
+                                                    @php
+                                                        $sub_dep = App\SubDepartment::find($user_requests->sub_dep_id);
+                                                    @endphp
+                                                    Requested Category: <strong>{{$sub_dep->name}}</strong></p>
+                                                <small>
+                                                        <time class="media-meta text-muted">
+                                                        {{ Carbon\Carbon::parse($user_requests->created_at)->diffForHumans()}}
+                                                    </time>
+                                                </small>
+                                                <br>
+                                                <a href="javascript:;" class="btn btn-primary btn-sm">
+                                                    Approved Request?
+                                                </a>
                                             </div>
                                         </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="media">
-                                            <div class="media-left align-self-center"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1 mr-0"></i></div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading red darken-1">99% Server load</h6>
-                                                <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p><small>
-                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Five hour ago</time></small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="media">
-                                            <div class="media-left align-self-center"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3 mr-0"></i></div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
-                                                <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p><small>
-                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time></small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="media">
-                                            <div class="media-left align-self-center"><i class="ft-check-circle icon-bg-circle bg-cyan mr-0"></i></div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading">Complete the task</h6><small>
-                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time></small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="media">
-                                            <div class="media-left align-self-center"><i class="ft-file icon-bg-circle bg-teal mr-0"></i></div>
-                                            <div class="media-body">
-                                                <h6 class="media-heading">Generate monthly report</h6><small>
-                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time></small>
-                                            </div>
-                                        </div>
-                                    </a>
+                                    @endforeach
                                 </li>
                                 <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
                             </ul>

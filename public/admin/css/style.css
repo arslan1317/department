@@ -32,3 +32,14 @@
 .table .alert-danger{
     padding: 9px;
 }
+.dropdown-notification h6.media-heading {
+    color: #1e9ff2;
+}
+.dropdown-notification .btn-primary{
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 17px;
+}
+.header-navbar .navbar-container .dropdown-menu-media .media-list .media {
+    padding: 1rem 20px;
+}

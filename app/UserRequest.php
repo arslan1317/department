@@ -1,0 +1,14 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class UserRequest extends Model
+{
+    protected $table = 'user_request';
+
+    protected $fillable = ['user_id', 'sub_dep_id', 'status'];
+
+    
+}
