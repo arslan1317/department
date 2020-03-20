@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 19, 2020 at 05:32 AM
+-- Generation Time: Mar 20, 2020 at 05:35 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -73,7 +73,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2020_03_16_000144_create_sub_departments_table', 2),
 (6, '2020_03_16_043247_add_more_colum_to_subdepartment', 3),
 (7, '2020_03_18_054353_add_status_to_sub_departments', 4),
-(8, '2020_03_19_043017_create_user_request_table', 5);
+(8, '2020_03_19_043017_create_user_request_table', 5),
+(9, '2020_03_20_035131_create_user_categories_table', 6);
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,29 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `isAdmin`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', NULL, 1, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-14 21:11:05', '2020-03-14 21:11:05'),
-(18, 'Noah Vega', 'fymolu@mailinator.net', NULL, 0, '$2y$10$C/oWGV5nimhjAW9P1ZlOKeOmchvTXNbb/HrA6AMDeFw5HxMV4yoM6', NULL, '2020-03-18 23:40:24', '2020-03-18 23:40:24');
+(18, 'Noah Vega', 'fymolu@mailinator.net', NULL, 0, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-18 23:40:24', '2020-03-18 23:40:24'),
+(19, 'Deacon Rush', 'sikip@mailinator.com', NULL, 0, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-19 23:27:14', '2020-03-19 23:27:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_categories`
+--
+
+CREATE TABLE `user_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_categories`
+--
+
+INSERT INTO `user_categories` (`id`, `user_id`, `sub_dep_id`, `created_at`, `updated_at`) VALUES
+(1, 18, 3, '2020-03-19 23:11:16', '2020-03-19 23:11:16');
 
 -- --------------------------------------------------------
 
@@ -162,7 +185,8 @@ CREATE TABLE `user_request` (
 --
 
 INSERT INTO `user_request` (`id`, `user_id`, `sub_dep_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 18, 3, 0, '2020-03-18 23:40:24', '2020-03-18 23:40:24');
+(1, 18, 3, 1, '2020-03-18 23:40:24', '2020-03-19 23:11:16'),
+(2, 19, 4, 0, '2020-03-19 23:27:14', '2020-03-19 23:27:14');
 
 --
 -- Indexes for dumped tables
@@ -207,6 +231,14 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `user_categories`
+--
+ALTER TABLE `user_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_categories_user_id_foreign` (`user_id`),
+  ADD KEY `user_categories_sub_dep_id_foreign` (`sub_dep_id`);
+
+--
 -- Indexes for table `user_request`
 --
 ALTER TABLE `user_request`
@@ -234,7 +266,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
@@ -246,13 +278,19 @@ ALTER TABLE `sub_departments`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `user_categories`
+--
+ALTER TABLE `user_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_request`
 --
 ALTER TABLE `user_request`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -263,6 +301,13 @@ ALTER TABLE `user_request`
 --
 ALTER TABLE `sub_departments`
   ADD CONSTRAINT `sub_departments_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
+
+--
+-- Constraints for table `user_categories`
+--
+ALTER TABLE `user_categories`
+  ADD CONSTRAINT `user_categories_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
+  ADD CONSTRAINT `user_categories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `user_request`

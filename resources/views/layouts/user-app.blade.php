@@ -49,58 +49,14 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-notification nav-item">
-                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
-                                <i class="ficon ft-bell"></i>
-                                <span class="badge badge-pill badge-danger badge-up badge-glow">{{count($user_request)}}</span>
-                            </a>
+                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i>
+                        <span class="badge badge-pill badge-danger badge-up badge-glow">1</span>
+                        </a>
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
-                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-danger float-right m-0">{{count($user_request)}} New</span>
-                                </li>
-                                <li class="scrollable-container media-list w-100">
-                                    @foreach($user_request as $user_requests)
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h6 class="media-heading">
-                                                    @php
-                                                        $user = App\User::find($user_requests->user_id);
-                                                    @endphp
-                                                    {{$user->name}} ({{$user->email}})</h6>
-                                                <p class="notification-text font-small-3 text-muted">
-                                                    @php
-                                                        $sub_dep = App\SubDepartment::find($user_requests->sub_dep_id);
-                                                    @endphp
-                                                    Main Category: <strong>{{$sub_dep->department->name}}</strong></p>
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Messages</span></h6>
 
-                                                <p class="notification-text font-small-3 text-muted">
-                                                    @php
-                                                        $sub_dep = App\SubDepartment::find($user_requests->sub_dep_id);
-                                                    @endphp
-                                                    Requested Category: <strong>{{$sub_dep->name}}</strong></p>
-                                                <small>
-                                                        <time class="media-meta text-muted">
-                                                        {{ Carbon\Carbon::parse($user_requests->created_at)->diffForHumans()}}
-                                                    </time>
-                                                </small>
-                                                <br>
-                                                <form method="post" action="{{ route('subdepartment.approved', $user_requests->id) }}">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-primary btn-sm">
-                                                        Approved Request?
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </li>
-                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                                <li class="dropdown-menu-header">
-                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Messages</span></h6><span class="notification-tag badge badge-warning float-right m-0">4 New</span>
+                                    <span class="notification-tag badge badge-warning float-right m-0">4 New</span>
                                 </li>
                                 <li class="scrollable-container media-list w-100">
                                     <a href="javascript:void(0)">
@@ -170,16 +126,9 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="nav-item">
-                    <a href="{{url('admin/dashboard')}}">
+                    <a href="{{url('user/dashboard')}}">
                         <i class="la la-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
                     </a>
-                </li>
-
-                <li class=" nav-item"><a href="#"><i class="la la-list"></i><span class="menu-title" data-i18n="Department">Department</span></a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="{{url('admin/subdepartment')}}"><i></i><span data-i18n="Subdepartment">Subdepartment</span></a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class=" nav-item"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Events">Events</span></a>
@@ -193,31 +142,9 @@
                     </ul>
                 </li>
 
-                <li class=" nav-item"><a href="#"><i class="la la-newspaper-o"></i><span class="menu-title" data-i18n="News">News</span></a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Crypto</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Sales</span></a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class=" nav-item"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="Category">User</span></a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Crypto</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Sales</span></a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="nav-item">
                     <a href="#" target="_blank">
-                        <i class="la la-bell"></i><span class="menu-title" data-i18n="Dashboard">Notification</span>
+                        <i class="la la-bell"></i><span class="menu-title" data-i18n="Dashboard">Message</span>
                     </a>
                 </li>
             </ul>
@@ -259,7 +186,7 @@
     <script src="{{ asset('admin/js/datatables.min.js') }}"></script>
     <script src="{{ asset('admin/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/js/datatable-advanced.min.js') }}"></script>
-    <script src="{{ asset('admin/js/admin-js.js') }}"></script>
+    <script src="{{ asset('admin/js/user-js.js') }}"></script>
     <script>
         @if(session()->get('notifysuccess'))
             toastr.success("{{ session()->get('notifysuccess') }}");

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Department;
 use App\Subdepartment;
+use App\UserRequest;
+use App\UserCategory;
 
 class AdminSubDepartmentController extends Controller
 {
@@ -60,5 +62,16 @@ class AdminSubDepartmentController extends Controller
         }
         $subdepartment->save();
         return redirect()->back()->with('success', 'Subdepartment is successfully updated');
+    }
+
+    public function approved($id){
+        $user_request = UserRequest::find($id);
+        $user_request->status = 1;
+        UserCategory::create([
+            'user_id' => $user_request->user_id,
+            'sub_dep_id' => $user_request->sub_dep_id,
+        ]);
+        $user_request->save();
+        return redirect()->back()->with('notifysuccess', 'Successfully Approved');
     }
 }

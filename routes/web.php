@@ -16,10 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::group(['middleware' => ['user']], function () {
-    // Route::get('user/dashboard', 'HomeController@index')->name('home');
+    Route::get('user/dashboard', 'UserController@index')->name('home');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,4 +35,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('admin/subdepartment', 'Admin\AdminSubDepartmentController@store')->name('subdepartment.store');
     Route::post('admin/subdepartment/{id}', 'Admin\AdminSubDepartmentController@update')->name('subdepartment.update');
     Route::post('admin/subdepartmentdelete/{id}', 'Admin\AdminSubDepartmentController@destroy')->name('subdepartment.destroy');
+    Route::post('admin/subdepartmentapproved/{id}', 'Admin\AdminSubDepartmentController@approved')->name('subdepartment.approved');
+
 });
