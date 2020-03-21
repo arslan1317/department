@@ -48,4 +48,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('admin/subdepartmentdelete/{id}', 'Admin\AdminSubDepartmentController@destroy')->name('subdepartment.destroy');
     Route::post('admin/subdepartmentapproved/{id}', 'Admin\AdminSubDepartmentController@approved')->name('subdepartment.approved');
 
+    /*notification*/
+    Route::get('admin/notification', 'Admin\Notification@index')->name('notification.show');
+
 });

@@ -26,10 +26,7 @@
     color: black;
     font-size: 18px;
 }
-.table .alert-success{
-    padding: 9px;
-}
-.table .alert-danger{
+.table .alert{
     padding: 9px;
 }
 .dropdown-notification h6.media-heading {

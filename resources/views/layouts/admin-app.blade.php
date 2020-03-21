@@ -94,7 +94,7 @@
                                         </div>
                                     @endforeach
                                 </li>
-                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('notification.show')}}">Read all notifications</a></li>
                             </ul>
                         </li>
                         <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i></a>
@@ -216,7 +216,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" target="_blank">
+                    <a href="{{route('notification.show')}}" target="_blank">
                         <i class="la la-bell"></i><span class="menu-title" data-i18n="Dashboard">Notification</span>
                     </a>
                 </li>
