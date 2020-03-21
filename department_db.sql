@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 20, 2020 at 05:35 AM
+-- Generation Time: Mar 21, 2020 at 03:36 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -74,7 +74,36 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2020_03_16_043247_add_more_colum_to_subdepartment', 3),
 (7, '2020_03_18_054353_add_status_to_sub_departments', 4),
 (8, '2020_03_19_043017_create_user_request_table', 5),
-(9, '2020_03_20_035131_create_user_categories_table', 6);
+(9, '2020_03_20_035131_create_user_categories_table', 6),
+(10, '2020_03_20_215251_create_news_table', 7),
+(11, '2020_03_21_025439_add_status_to_news', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `headline` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `image`, `headline`, `body`, `department_id`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`, `status`) VALUES
+(1, '1584760747.jpeg', 'Fugiat quia omnis es', '<p><br></p>', NULL, 1, 18, '2020-03-20 22:19:07', '2020-03-20 22:19:07', 0),
+(2, '1584761643.jpeg', 'Velit ullamco eiusm', 'Vitae in dolores ut .<b><u>sadfsfsafsf</u></b>', NULL, 1, 18, '2020-03-20 22:34:03', '2020-03-20 22:34:03', 0);
 
 -- --------------------------------------------------------
 
@@ -211,6 +240,15 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `news_department_id_foreign` (`department_id`),
+  ADD KEY `news_sub_dep_id_foreign` (`sub_dep_id`),
+  ADD KEY `news_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -266,7 +304,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
@@ -295,6 +339,14 @@ ALTER TABLE `user_request`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `news`
+--
+ALTER TABLE `news`
+  ADD CONSTRAINT `news_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
+  ADD CONSTRAINT `news_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
+  ADD CONSTRAINT `news_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `sub_departments`
