@@ -12,4 +12,9 @@ class SubDepartment extends Model
     {
         return $this->belongsTo('App\Department');
     }
+
+    public function user_category()
+    {
+        return $this->belongsTo('App\UserCategory', 'sub_dep_id');
+    }
 }

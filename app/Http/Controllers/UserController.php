@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\UserCategory;
+use Auth;
 
 class UserController extends Controller
 {
@@ -14,6 +16,7 @@ class UserController extends Controller
     public function index(){
     	$title = "Dashboard";
     	$lefttitle = '<li class="breadcrumb-item active">Dashboard</li></ol>';
-    	return view('user.dashboard', compact('title', 'lefttitle'));
+    	$access_categories = UserCategory::where('user_id', Auth::id())->first();
+    	return view('user.dashboard', compact('title', 'lefttitle', 'access_categories'));
     }
 }

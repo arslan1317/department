@@ -35,7 +35,7 @@ class AdminSubDepartmentController extends Controller
             'department_id' => 'required',
         ]);
 
-        $show = Subdepartment::create($request->input());
+        Subdepartment::create($request->input());
    
         return redirect()->back()->with('success', 'Subdepartment is successfully saved');
     }

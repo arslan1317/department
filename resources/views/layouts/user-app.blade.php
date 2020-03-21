@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/summernote.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style.css') }}">
 
 </head>
@@ -131,16 +132,21 @@
                     </a>
                 </li>
 
-                <li class=" nav-item"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Events">Events</span></a>
+                <li class=" nav-item"><a href="#"><i class="la la-briefcase"></i><span class="menu-title" data-i18n="Events">{{$access_categories->subdepart->department->name}}</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Crypto</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Sales</span></a>
+                        <li><a class="menu-item" href="#"><i></i><span data-i18n="{{$access_categories->subdepart->name}}">{{$access_categories->subdepart->name}}</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="{{route('news.home')}}" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">News</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">Events</span></a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
+
 
                 <li class="nav-item">
                     <a href="#" target="_blank">
@@ -186,6 +192,7 @@
     <script src="{{ asset('admin/js/datatables.min.js') }}"></script>
     <script src="{{ asset('admin/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/js/datatable-advanced.min.js') }}"></script>
+    <script src="{{ asset('admin/js/summernote.js') }}"></script>
     <script src="{{ asset('admin/js/user-js.js') }}"></script>
     <script>
         @if(session()->get('notifysuccess'))
