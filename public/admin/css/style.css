@@ -46,3 +46,7 @@
 .file.center-block{
     margin-top: 5px;
 }
+img.image-show {
+    width: 100%;
+    margin-bottom: 20px;
+}

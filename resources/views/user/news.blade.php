@@ -154,11 +154,11 @@
 		                            				</td>
 		                            				<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit"  data-department_id="{{$allnews->id}}" data-name="{{$allnews->name}}" data-website="{{$allnews->website}}" data-address="{{$allnews->address}}" data-telephone="{{$allnews->telephone}}" data-fax="{{$allnews->fax}}" data-action="{{ route('subdepartment.update', $allnews->id) }}" onclick="subdepartment(this, '#inlineForm')">
+		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allnews->image}}" data-headline="{{$allnews->headline}}" data-body="{{$allnews->body}}"  data-action="{{ route('news.update', $allnews->id) }}" onclick="news(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allnews->id}}" data-action="{{ route('subdepartment.destroy', $allnews->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allnews->id}}" data-action="{{ route('news.destroy', $allnews->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
@@ -184,6 +184,65 @@
 		    </div>
 		</section>
 
+	</div>
+
+	<div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit News</label>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" method="post" enctype="multipart/form-data">
+                	@csrf
+                    <div class="modal-body">
+                    	<img src="" alt="" class="image-show">
+                        <label>News Image</label>
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="image">
+                        </div>
+
+                        <label>Headline</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="headline">
+                        </div>
+
+                        <label>News Body</label>
+                        <div class="form-group">
+                            <textarea name="body" id="summernote-code-edit" class="summernote-code"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-outline-primary" value="Update News">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h4 class="modal-title" id="myModalLabel1">News Delete</h4>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form action="#" method="post">
+	            	@csrf
+		            <div class="modal-body">
+		                <h5>Are you sure?</h5>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="submit" class="btn btn-outline-primary">Confirm Delete</button>
+		            </div>
+		        </form>
+	        </div>
+	    </div>
 	</div>
 
 @endsection

@@ -22,8 +22,11 @@ Auth::routes();
 
 Route::group(['middleware' => ['user']], function () {
     Route::get('user/dashboard', 'UserController@index')->name('home');
+    /*news*/
     Route::get('user/news', 'NewsController@index')->name('news.home');
     Route::post('user/news', 'NewsController@store')->name('news.store');
+    Route::post('user/news/{id}', 'NewsController@update')->name('news.update');
+    Route::post('user/newsdelete/{id}', 'NewsController@destroy')->name('news.destroy');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

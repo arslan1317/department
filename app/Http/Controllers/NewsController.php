@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\UserCategory;
 use Auth;
 use App\News;
+use File;
 
 class NewsController extends Controller
 {
@@ -43,5 +44,37 @@ class NewsController extends Controller
         $new->save();
 
         return redirect()->back()->with('success', 'News is successfully Added');
+    }
+
+    public function update(Request $request, $id){
+        $news = News::find($id);
+        $validatedData = $request->validate([
+            'headline' => 'required',
+            'body' => 'required',
+        ]);
+        if (request()->hasFile('image') && request('image') != '') {
+            $imagePath = public_path('images/'.$news->image);
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+            $newimageName = time().'.'.$request->image->extension(); 
+            $request->image->move(public_path('images'), $newimageName);
+            $news->image = $newimageName;
+        }
+        $news->headline = $request->input('headline');
+        $news->body = $request->input('body');
+        $news->update();
+        return redirect()->back()->with('success', 'News is successfully updated');
+
+    }
+
+    public function destroy($id){
+        $news = News::findOrFail($id);
+        $imagePath = public_path('images/'.$news->image);
+        if(File::exists($imagePath)){
+            unlink($imagePath);
+        }
+        $news->delete();
+        return redirect()->back()->with('success', 'News is successfully Deleted');
     }
 }

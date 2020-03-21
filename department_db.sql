@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 21, 2020 at 03:36 AM
+-- Generation Time: Mar 21, 2020 at 07:49 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -102,8 +102,7 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `image`, `headline`, `body`, `department_id`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`, `status`) VALUES
-(1, '1584760747.jpeg', 'Fugiat quia omnis es', '<p><br></p>', NULL, 1, 18, '2020-03-20 22:19:07', '2020-03-20 22:19:07', 0),
-(2, '1584761643.jpeg', 'Velit ullamco eiusm', 'Vitae in dolores ut .<b><u>sadfsfsafsf</u></b>', NULL, 1, 18, '2020-03-20 22:34:03', '2020-03-20 22:34:03', 0);
+(1, '1584771616.jpeg', 'Fugiat quia omnis es', '<p>asfdsfsafdsfdd</p>', NULL, 1, 18, '2020-03-20 22:19:07', '2020-03-21 01:20:16', 0);
 
 -- --------------------------------------------------------
 
