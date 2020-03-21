@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 21, 2020 at 07:49 AM
+-- Generation Time: Mar 21, 2020 at 08:58 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -33,6 +33,25 @@ CREATE TABLE `departments` (
 
 INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Energy', '2020-03-15 19:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `details` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -76,7 +95,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2020_03_19_043017_create_user_request_table', 5),
 (9, '2020_03_20_035131_create_user_categories_table', 6),
 (10, '2020_03_20_215251_create_news_table', 7),
-(11, '2020_03_21_025439_add_status_to_news', 8);
+(11, '2020_03_21_025439_add_status_to_news', 8),
+(12, '2020_03_21_194903_create_events_table', 9);
 
 -- --------------------------------------------------------
 
@@ -140,7 +160,7 @@ CREATE TABLE `sub_departments` (
 --
 
 INSERT INTO `sub_departments` (`id`, `department_id`, `name`, `created_at`, `updated_at`, `website`, `address`, `telephone`, `fax`, `status`) VALUES
-(1, 1, 'Sub Energy', '2020-03-15 19:00:00', '2020-03-18 01:13:15', 'https://www.google.com/', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '+921111111111', 123456789, 0),
+(1, 1, 'Sub Energy', '2020-03-15 19:00:00', '2020-03-18 01:13:15', 'https://www.google.com/', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '+921111111111', 123456789, 1),
 (3, 1, 'Lesley Church', '2020-03-16 00:05:15', '2020-03-16 00:05:15', 'https://www.qonypokynyd.org.uk', 'Doloremque autem rer', '+1 (666) 743-6882', 212324142, 1),
 (4, 1, 'Amber Holman', '2020-03-18 00:37:54', '2020-03-18 00:39:04', 'https://www.hirova.in', 'Velit laborum quis f', '+1 (719) 154-5448', 657465657, 1),
 (5, 1, 'Kasper Mayo', '2020-03-18 00:50:27', '2020-03-18 00:50:27', 'https://www.temowazusesux.com.au', 'Facilis dolores quo', '+1 (752) 886-9501', 231231231, 1);
@@ -227,6 +247,15 @@ ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `events_department_id_foreign` (`department_id`),
+  ADD KEY `events_sub_dep_id_foreign` (`sub_dep_id`),
+  ADD KEY `events_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -294,6 +323,12 @@ ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -303,7 +338,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -338,6 +373,14 @@ ALTER TABLE `user_request`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `events`
+--
+ALTER TABLE `events`
+  ADD CONSTRAINT `events_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
+  ADD CONSTRAINT `events_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
+  ADD CONSTRAINT `events_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `news`

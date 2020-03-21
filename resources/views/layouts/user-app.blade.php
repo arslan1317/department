@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/datatables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/daterangepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style.css') }}">
 
 </head>
@@ -140,7 +141,7 @@
                                     <a href="{{route('news.home')}}" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">News</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">Events</span></a>
+                                    <a href="{{route('events.home')}}" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">Events</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -193,6 +194,8 @@
     <script src="{{ asset('admin/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/js/datatable-advanced.min.js') }}"></script>
     <script src="{{ asset('admin/js/summernote.js') }}"></script>
+    <script src="{{ asset('admin/js/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('admin/js/daterangepicker.js') }}"></script>
     <script src="{{ asset('admin/js/user-js.js') }}"></script>
     <script>
         @if(session()->get('notifysuccess'))

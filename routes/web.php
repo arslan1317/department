@@ -27,6 +27,12 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('user/news', 'NewsController@store')->name('news.store');
     Route::post('user/news/{id}', 'NewsController@update')->name('news.update');
     Route::post('user/newsdelete/{id}', 'NewsController@destroy')->name('news.destroy');
+
+    /*events*/
+    Route::get('user/events', 'EventController@index')->name('events.home');
+    Route::post('user/events', 'EventController@store')->name('events.store');
+    Route::post('user/events/{id}', 'EventController@update')->name('events.update');
+    Route::post('user/eventsdelete/{id}', 'EventController@destroy')->name('events.destroy');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

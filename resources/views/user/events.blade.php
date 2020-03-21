@@ -20,31 +20,34 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="{{route('news.store')}}" enctype="multipart/form-data">
+								<form class="form" method="post" action="{{route('events.store')}}" enctype="multipart/form-data">
 									@csrf
 									<input type="hidden" value="{{$access_categories->subdepart->id}}" name="sub_dep_id">
 									<div class="form-body">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="projectinput1">News Image</label>
-													<label class="file center-block">
-														<input type="file" name="image">
-														<span class="file-custom"></span>
-													</label>
-
+													<label>Event Name</label>
+													<input type="text" class="form-control" name="name">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Headline</label>
-													<input type="text" class="form-control" name="headline">
+													<label>Start & End Date</label>
+													<div class='input-group'>
+														<input type='text' class="form-control daterange" />
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<span class="la la-calendar"></span>
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<label>News Body</label>
-													<textarea name="body" id="summernote-code" class="summernote-code"></textarea>
+													<label>Event Detail</label>
+													<textarea name="details" id="summernote-code" class="summernote-code"></textarea>
 												</div>
 											</div>
 										</div>
@@ -126,27 +129,27 @@
 		                            <table class="table table-striped table-bordered  dataex-html5-export dom-jQuery-events">
 		                                <thead>
 		                                    <tr>
-		                                        <th>Image</th>
-		                                        <th>Headline</th>
-		                                        <th>Body</th>
+		                                        <th>Event Name</th>
+		                                        <th>Start & End date</th>
+		                                        <th>Details</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </thead>
 		                                <tbody>
-		                                	@foreach($news as $allnews)
+		                                	@foreach($events as $allevents)
 		                                		<tr>
 		                            				<td>
 		                            					<img src="{{asset('images')}}/{{$allnews->image}}" alt="" width="200">
 		                            				</td>
-		                            				<td>{{$allnews->headline}}</td>
-		                            				<td>{!!$allnews->body!!}</td>
+		                            				<td>{{$allevents->headline}}</td>
+		                            				<td>{!!$allevents->body!!}</td>
 		                            				<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allnews->image}}" data-headline="{{$allnews->headline}}" data-body="{{$allnews->body}}"  data-action="{{ route('news.update', $allnews->id) }}" onclick="news(this, '#inlineForm')">
+		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allevents->image}}" data-headline="{{$allevents->headline}}" data-body="{{$allevents->body}}"  data-action="{{ route('news.update', $allevents->id) }}" onclick="news(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allnews->id}}" data-action="{{ route('news.destroy', $allnews->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('news.destroy', $allevents->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
@@ -156,9 +159,9 @@
 		                                </tbody>
 		                                <tfoot>
 		                                    <tr>
-		                                        <th>Image</th>
-		                                        <th>Headline</th>
-		                                        <th>Body</th>
+		                                        <th>Event Name</th>
+		                                        <th>Start & End date</th>
+		                                        <th>Details</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </tfoot>

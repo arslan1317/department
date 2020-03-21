@@ -32,4 +32,5 @@ $(document).ready(function(){
 		$('#default').find('form').attr('action', action);
 		$('#default').modal('show');
 	})
+	$(".daterange").daterangepicker()
 });
