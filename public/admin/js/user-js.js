@@ -32,5 +32,5 @@ $(document).ready(function(){
 		$('#default').find('form').attr('action', action);
 		$('#default').modal('show');
 	})
-	$(".daterange").daterangepicker()
+	$(".datetime").daterangepicker({timePicker:!0,timePickerIncrement:30,locale:{format:"MM/DD/YYYY h:mm A"}})
 });

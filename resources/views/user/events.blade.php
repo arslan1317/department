@@ -35,7 +35,7 @@
 												<div class="form-group">
 													<label>Start & End Date</label>
 													<div class='input-group'>
-														<input type='text' class="form-control daterange" />
+														<input type='text' class="form-control datetime" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<span class="la la-calendar"></span>
