@@ -94,4 +94,11 @@ class EventController extends Controller
     {
         //
     }
+
+    public function viewbysubdepartmentid($depart, $name, $id){
+        $title = "Events";
+        $lefttitle = '<li class="breadcrumb-item active">Events</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$name.'</li></ol>';
+        $events = Event::where('sub_dep_id', $id)->orderby('id', 'ASC')->get();
+        return view('admin.event-view', compact('title', 'lefttitle', 'events'));
+    }
 }

@@ -77,4 +77,11 @@ class NewsController extends Controller
         $news->delete();
         return redirect()->back()->with('success', 'News is successfully Deleted');
     }
+
+    public function viewbysubdepartmentid($depart, $name, $id){
+        $title = "News";
+        $lefttitle = '<li class="breadcrumb-item active">News</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$name.'</li></ol>';
+        $news = News::where('sub_dep_id', $id)->orderby('id', 'ASC')->get();
+        return view('admin.news-view', compact('title', 'lefttitle', 'news'));
+    }
 }

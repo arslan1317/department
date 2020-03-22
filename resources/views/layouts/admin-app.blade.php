@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/colors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/components.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vertical-menu-modern.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/simple-line-icons.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/palette-gradient.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
@@ -29,7 +30,7 @@
                 <ul class="nav navbar-nav flex-row">
                     <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
                     <li class="nav-item mr-auto">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{url('admin/dashboard')}}">
                             <!-- <img class="brand-logo" alt="modern admin logo" src="../../../app-assets/images/logo/logo.png"> -->
                             <h3 class="brand-text">YOUR LOGO</h3></a>
                     </li>
@@ -169,7 +170,7 @@
     <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->is('admin/dashboard')) ? 'active' : '' }}">
                     <a href="{{url('admin/dashboard')}}">
                         <i class="la la-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
                     </a>
@@ -177,30 +178,56 @@
 
                 <li class=" nav-item"><a href="#"><i class="la la-list"></i><span class="menu-title" data-i18n="Department">Department</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="{{url('admin/subdepartment')}}"><i></i><span data-i18n="Subdepartment">Subdepartment</span></a>
+                        <li class="{{ (request()->is('admin/subdepartment')) ? 'active' : '' }}"><a class="menu-item" href="{{url('admin/subdepartment')}}"><i></i><span data-i18n="Subdepartment">Subdepartment</span></a>
                         </li>
                     </ul>
                 </li>
 
                 <li class=" nav-item"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Events">Events</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Crypto</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Sales</span></a>
-                        </li>
+                        @foreach($department_global as $department_globals)
+                            <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">{{$department_globals->name}}</span></a>
+                                <ul class="menu-content">
+                                    @foreach($department_globals->subdepartment as $subdepartments)
+                                    @php
+                                        $inner_menu_active_events = '';
+                                        if(request()->segment(2) == 'events'){
+                                            if(request()->segment(4) == $subdepartments->name){
+                                                $inner_menu_active_events = 'active';
+                                            }
+                                        }
+                                    @endphp
+                                        <li class="{{$inner_menu_active_events}}">
+                                            <a href="{{route('events.view', ['depart'=>$department_globals->name,'name'=>$subdepartments->name,'id'=>$subdepartments->id])}}" class="menu-item"><i></i><span data-il8n="">{{$subdepartments->name}}</span></a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
 
                 <li class=" nav-item"><a href="#"><i class="la la-newspaper-o"></i><span class="menu-title" data-i18n="News">News</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">eCommerce</span></a>
+                        @foreach($department_global as $department_globals)
+                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">{{$department_globals->name}}</span></a>
+                            <ul class="menu-content">
+                                @foreach($department_globals->subdepartment as $subdepartments)
+                                @php
+                                    $inner_menu_active_news = '';
+                                    if(request()->segment(2) == 'news'){
+                                        if(request()->segment(4) == $subdepartments->name){
+                                            $inner_menu_active_news = 'active';
+                                        }
+                                    }
+                                @endphp
+                                    <li class="{{$inner_menu_active_news}}">
+                                        <a href="{{route('news.view', ['depart'=>$department_globals->name,'name'=>$subdepartments->name,'id'=>$subdepartments->id])}}" class="menu-item"><i></i><span data-il8n="">{{$subdepartments->name}}</span></a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Crypto</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Sales</span></a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
 
@@ -215,8 +242,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{route('notification.show')}}" target="_blank">
+                <li class="nav-item {{ (request()->is('admin/notification')) ? 'active' : '' }}">
+                    <a href="{{route('notification.show')}}">
                         <i class="la la-bell"></i><span class="menu-title" data-i18n="Dashboard">Notification</span>
                     </a>
                 </li>

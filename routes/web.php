@@ -51,4 +51,9 @@ Route::group(['middleware' => ['admin']], function () {
     /*notification*/
     Route::get('admin/notification', 'Admin\Notification@index')->name('notification.show');
 
+    /*event*/
+    Route::get('admin/events/{depart}/{name}/{id}', 'EventController@viewbysubdepartmentid')->name('events.view');
+
+    /*news*/
+    Route::get('admin/news/{depart}/{name}/{id}', 'NewsController@viewbysubdepartmentid')->name('news.view');
 });
