@@ -17,4 +17,9 @@ class SubDepartment extends Model
     {
         return $this->belongsTo('App\UserCategory', 'sub_dep_id');
     }
+
+    public function news()
+    {
+        return $this->hasMany('App\News', 'sub_dep_id');
+    }
 }

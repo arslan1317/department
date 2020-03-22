@@ -56,4 +56,5 @@ Route::group(['middleware' => ['admin']], function () {
 
     /*news*/
     Route::get('admin/news/{depart}/{name}/{id}', 'NewsController@viewbysubdepartmentid')->name('news.view');
+    Route::get('admin/news/single/{depart}/{name}/{id}', 'NewsController@viewsinglenews')->name('news.single');
 });

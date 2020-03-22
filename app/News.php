@@ -10,4 +10,9 @@ class News extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function subdepartment()
+    {
+        return $this->belongsTo('App\SubDepartment', 'id');
+    }
 }

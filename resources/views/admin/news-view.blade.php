@@ -41,8 +41,8 @@
 	                                			<td>{!!substr($news->body, 0, 15)!!}</td>
 	                                			<td>{{$news->user->name}} ({{$news->user->email}})</td>  
 	                                			<td>
-	                                				<a href="" class="btn btn-info btn-min-width mr-1 mb-0">
-	                                					View Body
+	                                				<a href="{{route('news.single', ['depart'=>$news->subdepartment->department->name,'name'=>$news->subdepartment->name,'id'=>$news->id])}}" class="btn btn-info btn-min-width mr-1 mb-0">
+	                                					View Details
 	                                				</a>
 	                                			</td>			
 	                                		</tr>

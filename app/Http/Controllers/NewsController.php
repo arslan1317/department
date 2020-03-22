@@ -7,6 +7,7 @@ use App\UserCategory;
 use Auth;
 use App\News;
 use File;
+use App\SubDepartment;
 
 class NewsController extends Controller
 {
@@ -83,5 +84,14 @@ class NewsController extends Controller
         $lefttitle = '<li class="breadcrumb-item active">News</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$name.'</li></ol>';
         $news = News::where('sub_dep_id', $id)->orderby('id', 'ASC')->get();
         return view('admin.news-view', compact('title', 'lefttitle', 'news'));
+    }
+
+    public function viewsinglenews($depart, $name, $id){
+        $news = News::find($id)->first();
+        $news->status = 1;
+        $news->update();
+        $title = "News";
+        $lefttitle = '<li class="breadcrumb-item active">News</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$name.'</li><li class="breadcrumb-item active">'.$news->headline.'</li></ol>';
+        return view('admin.news-single', compact('title', 'lefttitle', 'news'));
     }
 }

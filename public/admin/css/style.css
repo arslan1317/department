@@ -50,3 +50,6 @@ img.image-show {
 .table .btn {
     padding: 9px;
 }
+.media-body p {
+    margin-bottom: 8px;
+}

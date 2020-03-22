@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/palette-gradient.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/summernote.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/datatables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style.css') }}">
 
@@ -52,12 +53,75 @@
                     <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-notification nav-item">
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
-                                <i class="ficon ft-bell"></i>
-                                <span class="badge badge-pill badge-danger badge-up badge-glow">{{count($user_request)}}</span>
+                                <i class="ficon ft-file-text"></i>
+                                <span class="badge badge-pill badge-info badge-up badge-glow">{{count($new_global_notify)}}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
-                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-danger float-right m-0">{{count($user_request)}} New</span>
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">News</span></h6><span class="notification-tag badge badge-info float-right m-0">{{count($new_global_notify)}} New</span>
+                                </li>
+                                <li class="scrollable-container media-list w-100">
+                                    @foreach($new_global_notify as $new_global_notifys)
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h6 class="media-heading"><a href="{{route('news.single', ['depart'=>$new_global_notifys->subdepartment->department->name,'name'=>$new_global_notifys->subdepartment->name,'id'=>$new_global_notifys->id])}}">{{$new_global_notifys->headline}}</a></h6>
+                                            <p class="notification-text font-small-3 text-muted">
+                                                {!!substr($new_global_notifys->body, 0, 15)!!}</p>
+                                            <p class="notification-text font-small-3 text-muted">
+                                                {{$new_global_notifys->user->name}} ({{$new_global_notifys->user->email}})
+                                            </p>
+                                            <small>
+                                                    <time class="media-meta text-muted">
+                                                        {{ Carbon\Carbon::parse($new_global_notifys->created_at)->diffForHumans()}}
+                                                </time>
+                                            </small>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="">Read all News</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                                <i class="ficon ft-calendar"></i>
+                                <span class="badge badge-pill badge-warning badge-up badge-glow">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                <li class="dropdown-menu-header">
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Events</span></h6><span class="notification-tag badge badge-warning float-right m-0">0 New</span>
+                                </li>
+                                <li class="scrollable-container media-list w-100">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h6 class="media-heading">
+                                                ssfsafas</h6>
+                                            <p class="notification-text font-small-3 text-muted">
+                                                fsasfsf</strong></p>
+
+                                            <p class="notification-text font-small-3 text-muted">
+                                                sfasfsf</p>
+                                            <small>
+                                                    <time class="media-meta text-muted">
+                                                        232323
+                                                </time>
+                                            </small>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('notification.show')}}">Read all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                                <i class="ficon ft-bell"></i>
+                                <span class="badge badge-pill badge-success badge-up badge-glow">{{count($user_request)}}</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                <li class="dropdown-menu-header">
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6><span class="notification-tag badge badge-success float-right m-0">{{count($user_request)}} New</span>
                                 </li>
                                 <li class="scrollable-container media-list w-100">
                                     @foreach($user_request as $user_requests)
@@ -216,7 +280,7 @@
                                 @php
                                     $inner_menu_active_news = '';
                                     if(request()->segment(2) == 'news'){
-                                        if(request()->segment(4) == $subdepartments->name){
+                                        if((request()->segment(4) == $subdepartments->name) || (request()->segment(5) == $subdepartments->name)){
                                             $inner_menu_active_news = 'active';
                                         }
                                     }
@@ -286,6 +350,7 @@
     <script src="{{ asset('admin/js/datatables.min.js') }}"></script>
     <script src="{{ asset('admin/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/js/datatable-advanced.min.js') }}"></script>
+    <script src="{{ asset('admin/js/summernote.js') }}"></script>
     <script src="{{ asset('admin/js/admin-js.js') }}"></script>
     <script>
         @if(session()->get('notifysuccess'))
