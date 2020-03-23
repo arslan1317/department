@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 21, 2020 at 08:58 PM
+-- Generation Time: Mar 23, 2020 at 06:24 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -122,7 +122,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `image`, `headline`, `body`, `department_id`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`, `status`) VALUES
-(1, '1584771616.jpeg', 'Fugiat quia omnis es', '<p>asfdsfsafdsfdd</p>', NULL, 1, 18, '2020-03-20 22:19:07', '2020-03-21 01:20:16', 0);
+(1, '1584771616.jpeg', 'Fugiat quia omnis es', '<p>asfdsfsafdsfdd</p>', NULL, 1, 18, '2020-03-20 22:19:07', '2020-03-21 23:55:24', 1),
+(3, '1584939601.jpeg', 'Aut explicabo Volup', '<p>sfsafasfas</p>', 1, NULL, 1, '2020-03-23 00:00:01', '2020-03-23 00:00:01', 1);
 
 -- --------------------------------------------------------
 
@@ -344,7 +345,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`

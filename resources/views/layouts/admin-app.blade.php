@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/summernote.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/datatables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/daterangepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style.css') }}">
 
 </head>
@@ -249,6 +250,8 @@
 
                 <li class=" nav-item"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Events">Events</span></a>
                     <ul class="menu-content">
+                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">All Events</span></a>
+                        </li>
                         @foreach($department_global as $department_globals)
                             <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">{{$department_globals->name}}</span></a>
                                 <ul class="menu-content">
@@ -273,6 +276,8 @@
 
                 <li class=" nav-item"><a href="#"><i class="la la-newspaper-o"></i><span class="menu-title" data-i18n="News">News</span></a>
                     <ul class="menu-content">
+                        <li class="{{ (request()->is('admin/news-all')) ? 'active' : '' }}"><a class="menu-item" href="{{route('news.all')}}"><i></i><span data-i18n="eCommerce">All News</span></a>
+                        </li>
                         @foreach($department_global as $department_globals)
                         <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">{{$department_globals->name}}</span></a>
                             <ul class="menu-content">
@@ -309,6 +314,18 @@
                 <li class="nav-item {{ (request()->is('admin/notification')) ? 'active' : '' }}">
                     <a href="{{route('notification.show')}}">
                         <i class="la la-bell"></i><span class="menu-title" data-i18n="Dashboard">Notification</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/events')) ? 'active' : '' }}">
+                    <a href="{{route('events.admin.home')}}">
+                        <i class="la la-calendar-plus-o"></i><span class="menu-title" data-i18n="Dashboard">Add Events</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/news')) ? 'active' : '' }}">
+                    <a href="{{route('news.admin.home')}}">
+                        <i class="la la-plus-circle"></i><span class="menu-title" data-i18n="Dashboard">Add News</span>
                     </a>
                 </li>
             </ul>
@@ -351,6 +368,8 @@
     <script src="{{ asset('admin/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/js/datatable-advanced.min.js') }}"></script>
     <script src="{{ asset('admin/js/summernote.js') }}"></script>
+    <script src="{{ asset('admin/js/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('admin/js/daterangepicker.js') }}"></script>
     <script src="{{ asset('admin/js/admin-js.js') }}"></script>
     <script>
         @if(session()->get('notifysuccess'))

@@ -10,4 +10,9 @@ class Department extends Model
     {
         return $this->hasMany('App\SubDepartment')->orderBy('id', 'desc');
     }
+
+    public function news()
+    {
+        return $this->hasMany('App\News');
+    }
 }
