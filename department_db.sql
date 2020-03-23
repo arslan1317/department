@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 23, 2020 at 06:24 AM
+-- Generation Time: Mar 23, 2020 at 10:01 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -49,9 +49,17 @@ CREATE TABLE `events` (
   `department_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `name`, `start_date`, `end_date`, `details`, `department_id`, `sub_dep_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Abel Cannon', '2020-03-24 09:00:00', '2020-04-01 23:00:00', 'Excepturi sit, ipsum.sdfsf', NULL, 1, 18, 0, '2020-03-23 16:42:11', '2020-03-23 16:42:11');
 
 -- --------------------------------------------------------
 
@@ -96,7 +104,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2020_03_20_035131_create_user_categories_table', 6),
 (10, '2020_03_20_215251_create_news_table', 7),
 (11, '2020_03_21_025439_add_status_to_news', 8),
-(12, '2020_03_21_194903_create_events_table', 9);
+(13, '2020_03_23_212257_add_status_to_events', 10),
+(14, '2020_03_21_194903_create_events_table', 11);
 
 -- --------------------------------------------------------
 
@@ -327,7 +336,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -339,7 +348,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `news`

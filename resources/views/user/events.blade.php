@@ -141,11 +141,20 @@
 		                            				<td>
                                                     {{$allevents->name}}
 		                            				</td>
-		                            				<td>{{$allevents->start_date}} to {{$allevents->end_date}}</td>
+		                            				<td>
+		                            					@php
+		                            						$start_time = strtotime($allevents->start_date);
+															$start_date = date('m/d/Y h:i:s A',$start_time);
+
+															$end_time = strtotime($allevents->end_date);
+															$end_date = date('m/d/Y h:i:s A',$end_time);
+															
+		                            					@endphp
+		                            					 {{$start_date}} to {{$end_date}}</td>
 		                            				<td>{!!$allevents->details!!}</td>
 		                            				<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-name="{{$allevents->name}}" data-startdate="{{$allevents->start_date }}" data-enddate="{{$allevents->end_date }}" data-detail="{{$allevents->details}}"  data-action="{{ route('events.update', $allevents->id) }}" onclick="events(this, '#inlineForm')">
+		                            						<a href="javascript:;" class="btn-edit" data-name="{{$allevents->name}}" data-startdate="{{$start_date}}" data-enddate="{{$end_date }}" data-detail="{{$allevents->details}}"  data-action="{{ route('events.update', $allevents->id) }}" onclick="events(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
@@ -195,7 +204,7 @@
 
                         <label>Event Start & End Date</label>
                         <div class='input-group'>
-                            <input type='text' class="form-control datetime" name="datetime" />
+                            <input type='text' class="form-control editdatetime" name="datetime" />
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <span class="la la-calendar"></span>

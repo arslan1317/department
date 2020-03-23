@@ -22,6 +22,7 @@ function news(ele, formName){
 	$(formName).find('.image-show').attr('src', '../images/' + image);
 	$(formName).find('form').attr('action', action);
 	$(formName).find('input[name=headline]').val(headline);
+	$('#summernote-code-edit').summernote('reset');
 	$('#summernote-code-edit').summernote('editor.pasteHTML', body);
 	$(formName).modal('show');
 }
@@ -32,9 +33,17 @@ function events(ele, formName){
     var endDate = $(ele).data('enddate');
 	var detail = $(ele).data('detail');
     var action = $(ele).data('action');
-    $(".dateTime").daterangepicker('setDate', startDate);
+    $(".editdatetime").daterangepicker({
+    	timePicker: true,
+    	startDate: startDate,
+    	endDate: endDate,
+    	locale: {
+	      format: 'MM-DD-YYYY hh:mm:ss A'
+	    }
+    });
     $(formName).find('form').attr('action', action);
     $(formName).find('input[name=name]').val(name);
+    $('#summernote-code-edit').summernote('reset');
 	$('#summernote-code-edit').summernote('editor.pasteHTML', detail);
 	$(formName).modal('show');
 }
@@ -46,4 +55,5 @@ $(document).ready(function(){
 		$('#default').modal('show');
 	})
 	$(".datetime").daterangepicker({timePicker:!0,timePickerIncrement:30,locale:{format:"MM/DD/YYYY h:mm A"}})
+	$(".editdatetime").daterangepicker({timePicker:!0,timePickerIncrement:30,locale:{format:"MM/DD/YYYY h:mm A"}})
 });
