@@ -114,7 +114,7 @@ class EventController extends Controller
             'datetime' => 'required'
         ]);
         $dateRange = $request->input('datetime');
-        $dates = explode("-", $dateRange);
+        $dates = explode(" - ", $dateRange);
         $event->name = $request->input('name');
         $event->details = $request->input('details');
         $event->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
