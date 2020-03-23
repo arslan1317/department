@@ -56,5 +56,19 @@ Route::group(['middleware' => ['admin']], function () {
 
     /*news*/
     Route::get('admin/news/{depart}/{name}/{id}', 'NewsController@viewbysubdepartmentid')->name('news.view');
+    Route::get('admin/news-all', 'NewsController@allnews')->name('news.all');
     Route::get('admin/news/single/{depart}/{name}/{id}', 'NewsController@viewsinglenews')->name('news.single');
+
+
+    /*Add Main department Events*/
+    Route::get('admin/events', 'EventController@adminindex')->name('events.admin.home');
+    Route::post('admin/events', 'EventController@store')->name('events.admin.store');
+    Route::post('admin/events/{id}', 'EventController@update')->name('events.admin.update');
+    Route::post('admin/eventsdelete/{id}', 'EventController@destroy')->name('events.admin.destroy');
+
+    /*Add Main department News*/
+    Route::get('admin/news', 'NewsController@adminindex')->name('news.admin.home');
+    Route::post('admin/news', 'NewsController@adminstore')->name('news.admin.store');
+    Route::post('admin/news/{id}', 'NewsController@adminupdate')->name('news.admin.update');
+    Route::post('admin/newsdelete/{id}', 'NewsController@destroy')->name('news.admin.destroy');
 });

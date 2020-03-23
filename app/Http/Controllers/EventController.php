@@ -6,6 +6,7 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\UserCategory;
 use Auth;
+use App\Department;
 
 class EventController extends Controller
 {
@@ -27,6 +28,14 @@ class EventController extends Controller
         $lefttitle = '<li class="breadcrumb-item active">'.$access_categories->subdepart->department->name.'</li><li class="breadcrumb-item active">'.$access_categories->subdepart->name.'</li><li class="breadcrumb-item active">Events</li></ol>';
         $events = Event::where('user_id', Auth::id())->orderby('id', 'ASC')->get();
         return view('user.events', compact('title', 'lefttitle', 'access_categories', 'events'));
+    }
+
+    public function adminindex(){
+        $title = "Events";
+        $department = Department::all();
+        $lefttitle = '<li class="breadcrumb-item active">Add Events</li></ol>';
+        $events = Event::where('user_id', Auth::id())->orderby('id', 'ASC')->get();
+        return view('admin.events', compact('title', 'lefttitle', 'events','department'));
     }
 
     /**
