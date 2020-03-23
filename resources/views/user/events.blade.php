@@ -35,7 +35,7 @@
 												<div class="form-group">
 													<label>Start & End Date</label>
 													<div class='input-group'>
-														<input type='text' class="form-control datetime" />
+														<input type='text' class="form-control datetime" name="datetime" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<span class="la la-calendar"></span>
@@ -139,17 +139,17 @@
 		                                	@foreach($events as $allevents)
 		                                		<tr>
 		                            				<td>
-		                            					<img src="{{asset('images')}}/{{$allnews->image}}" alt="" width="200">
+                                                    {{$allevents->name}}
 		                            				</td>
-		                            				<td>{{$allevents->headline}}</td>
-		                            				<td>{!!$allevents->body!!}</td>
+		                            				<td>{{$allevents->start_date}} to {{$allevents->end_date}}</td>
+		                            				<td>{!!$allevents->details!!}</td>
 		                            				<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allevents->image}}" data-headline="{{$allevents->headline}}" data-body="{{$allevents->body}}"  data-action="{{ route('news.update', $allevents->id) }}" onclick="news(this, '#inlineForm')">
+		                            						<a href="javascript:;" class="btn-edit" data-name="{{$allevents->name}}" data-startdate="{{$allevents->start_date }}" data-enddate="{{$allevents->end_date }}" data-detail="{{$allevents->details}}"  data-action="{{ route('events.update', $allevents->id) }}" onclick="events(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('news.destroy', $allevents->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('events.destroy', $allevents->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
@@ -180,7 +180,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit News</label>
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Event</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -188,20 +188,23 @@
                 <form action="#" method="post" enctype="multipart/form-data">
                 	@csrf
                     <div class="modal-body">
-                    	<img src="" alt="" class="image-show">
-                        <label>News Image</label>
+                        <label>Event Name</label>
                         <div class="form-group">
-                            <input type="file" class="form-control" name="image">
+                            <input type="text" class="form-control" name="name">
                         </div>
 
-                        <label>Headline</label>
+                        <label>Event Start & End Date</label>
+                        <div class='input-group'>
+                            <input type='text' class="form-control datetime" name="datetime" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <span class="la la-calendar"></span>
+                                </span>
+                            </div>
+						</div>
+                        <label>Event Details</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="headline">
-                        </div>
-
-                        <label>News Body</label>
-                        <div class="form-group">
-                            <textarea name="body" id="summernote-code-edit" class="summernote-code"></textarea>
+                            <textarea name="details" id="summernote-code-edit" class="summernote-code"></textarea>
                         </div>
 
                     </div>

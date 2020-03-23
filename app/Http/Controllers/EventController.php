@@ -47,7 +47,24 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'details' => 'required',
+            'datetime' => 'required'
+        ]);
+
+        $dateRange = $request->input('datetime');
+        $dates = explode("-", $dateRange);
+        $events = new Event();
+        $events->name = $request->input('name');
+        $events->details = $request->input('details');
+        $events->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
+        $events->end_date = date("Y-m-d H:i:s", strtotime(trim($dates[1])));
+        $events->sub_dep_id = $request->input('sub_dep_id');
+        $events->user_id = Auth::id();
+        $events->save();
+
+        return redirect()->back()->with('success', 'Event is successfully Added');
     }
 
     /**
@@ -79,9 +96,22 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($id);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'details' => 'required',
+            'datetime' => 'required'
+        ]);
+        $dateRange = $request->input('datetime');
+        $dates = explode("-", $dateRange);
+        $event->name = $request->input('name');
+        $event->details = $request->input('details');
+        $event->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
+        $event->end_date = date("Y-m-d H:i:s", strtotime(trim($dates[1])));
+        $event->update();
+        return redirect()->back()->with('success', 'Event is successfully updated');
     }
 
     /**
@@ -90,9 +120,11 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->delete();
+        return redirect()->back()->with('success', 'Event is successfully Deleted');
     }
 
     public function viewbysubdepartmentid($depart, $name, $id){

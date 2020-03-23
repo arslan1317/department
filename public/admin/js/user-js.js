@@ -26,6 +26,19 @@ function news(ele, formName){
 	$(formName).modal('show');
 }
 
+function events(ele, formName){
+	var name = $(ele).data('name');
+    var startDate = $(ele).data('startdate');
+    var endDate = $(ele).data('enddate');
+	var detail = $(ele).data('detail');
+    var action = $(ele).data('action');
+    $(".dateTime").daterangepicker('setDate', startDate);
+    $(formName).find('form').attr('action', action);
+    $(formName).find('input[name=name]').val(name);
+	$('#summernote-code-edit').summernote('editor.pasteHTML', detail);
+	$(formName).modal('show');
+}
+
 $(document).ready(function(){
 	$('.btn-delete').click(function(){
 		var action = $(this).data('action');
