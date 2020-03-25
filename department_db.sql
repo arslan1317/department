@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 23, 2020 at 10:01 PM
+-- Generation Time: Mar 25, 2020 at 08:08 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -59,7 +59,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `start_date`, `end_date`, `details`, `department_id`, `sub_dep_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Abel Cannon', '2020-03-24 09:00:00', '2020-04-01 23:00:00', 'Excepturi sit, ipsum.sdfsf', NULL, 1, 18, 0, '2020-03-23 16:42:11', '2020-03-23 16:42:11');
+(1, 'Abel Cannon', '2020-01-01 00:00:00', '2020-02-01 00:00:00', '<p><br></p><p>Excepturi sit, ipsum.sdfsf<br></p><p><br></p>', NULL, 1, 18, 1, '2020-03-23 16:42:11', '2020-03-25 01:37:54'),
+(2, 'Brenden Schneider', '1970-01-01 00:00:00', '1970-01-01 00:00:00', '<p>Testing updating</p>', 1, NULL, 1, 1, '2020-03-25 01:52:43', '2020-03-25 02:06:53');
 
 -- --------------------------------------------------------
 
@@ -336,7 +337,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

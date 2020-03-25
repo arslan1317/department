@@ -54,3 +54,24 @@ $(document).ready(function(){
 	})
 	$(".datetime").daterangepicker({timePicker:!0,timePickerIncrement:30,locale:{format:"MM/DD/YYYY h:mm A"}})
 });
+
+function events(ele, formName){
+	var name = $(ele).data('name');
+    var startDate = $(ele).data('startdate');
+    var endDate = $(ele).data('enddate');
+	var detail = $(ele).data('detail');
+    var action = $(ele).data('action');
+    $(".editdatetime").daterangepicker({
+    	timePicker: true,
+    	startDate: startDate,
+    	endDate: endDate,
+    	locale: {
+	      format: 'MM-DD-YYYY hh:mm:ss A'
+	    }
+    });
+    $(formName).find('form').attr('action', action);
+    $(formName).find('input[name=name]').val(name);
+    $('#summernote-code-edit').summernote('reset');
+	$('#summernote-code-edit').summernote('editor.pasteHTML', detail);
+	$(formName).modal('show');
+}

@@ -81,38 +81,46 @@
                                     </div>
                                     @endforeach
                                 </li>
-                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="">Read all News</a></li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('news.all')}}">Read all News</a></li>
                             </ul>
                         </li>
                         <li class="dropdown dropdown-notification nav-item">
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                                 <i class="ficon ft-calendar"></i>
-                                <span class="badge badge-pill badge-warning badge-up badge-glow">0</span>
+                                <span class="badge badge-pill badge-warning badge-up badge-glow">{{count($event_global_notify)}}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
-                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Events</span></h6><span class="notification-tag badge badge-warning float-right m-0">0 New</span>
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Events</span></h6><span class="notification-tag badge badge-warning float-right m-0">{{count($event_global_notify)}} New</span>
                                 </li>
                                 <li class="scrollable-container media-list w-100">
+                                    @foreach($event_global_notify as $event_global_notifys)
                                     <div class="media">
                                         <div class="media-body">
-                                            <h6 class="media-heading">
-                                                ssfsafas</h6>
+                                            <h6 class="media-heading"><a href="{{route('events.single', ['depart'=>$event_global_notifys->subdepartment->department->name,'name'=>$event_global_notifys->subdepartment->name,'id'=>$event_global_notifys->id])}}">{{$event_global_notifys->name}}</a></h6>
+                                             <p class="notification-text font-small-3 text-muted">
+                                                <strong>Start Date:</strong>
+                                                {{date('M, d D Y h:m:s A', strtotime($event_global_notifys->start_date))}}
+                                            </p>
                                             <p class="notification-text font-small-3 text-muted">
-                                                fsasfsf</strong></p>
-
+                                                <strong>End Date:</strong>
+                                                {{date('M, d D Y h:m:s A', strtotime($event_global_notifys->end_date))}}</p>
                                             <p class="notification-text font-small-3 text-muted">
-                                                sfasfsf</p>
+                                                {!!substr($event_global_notifys->body, 0, 15)!!}</p>
+                                            <p class="notification-text font-small-3 text-muted">
+                                                {{$event_global_notifys->user->name}} ({{$event_global_notifys->user->email}})
+                                            </p>
                                             <small>
                                                     <time class="media-meta text-muted">
-                                                        232323
+                                                        {{ Carbon\Carbon::parse($event_global_notifys->created_at)->diffForHumans()}}
                                                 </time>
                                             </small>
                                             <br>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </li>
-                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('notification.show')}}">Read all notifications</a></li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('events.all')}}">Read all Events</a></li>
                             </ul>
                         </li>
                         <li class="dropdown dropdown-notification nav-item">
@@ -250,7 +258,7 @@
 
                 <li class=" nav-item"><a href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="Events">Events</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">All Events</span></a>
+                        <li class="{{ (request()->is('admin/events-all')) ? 'active' : '' }}"><a class="menu-item" href="{{route('events.all')}}"><i></i><span data-i18n="eCommerce">All Events</span></a>
                         </li>
                         @foreach($department_global as $department_globals)
                             <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">{{$department_globals->name}}</span></a>
@@ -259,7 +267,7 @@
                                     @php
                                         $inner_menu_active_events = '';
                                         if(request()->segment(2) == 'events'){
-                                            if(request()->segment(4) == $subdepartments->name){
+                                            if((request()->segment(4) == $subdepartments->name) || (request()->segment(5) == $subdepartments->name)){
                                                 $inner_menu_active_events = 'active';
                                             }
                                         }
@@ -326,6 +334,12 @@
                 <li class="nav-item {{ (request()->is('admin/news')) ? 'active' : '' }}">
                     <a href="{{route('news.admin.home')}}">
                         <i class="la la-plus-circle"></i><span class="menu-title" data-i18n="Dashboard">Add News</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/basic')) ? 'active' : '' }}">
+                    <a href="{{route('basic.index')}}">
+                        <i class="la la-gear"></i><span class="menu-title" data-i18n="Dashboard">Basic Setting</span>
                     </a>
                 </li>
             </ul>

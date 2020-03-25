@@ -76,6 +76,29 @@ class EventController extends Controller
         return redirect()->back()->with('success', 'Event is successfully Added');
     }
 
+    public function adminstore(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'details' => 'required',
+            'datetime' => 'required'
+        ]);
+
+        $dateRange = $request->input('datetime');
+        $dates = explode("-", $dateRange);
+        $events = new Event();
+        $events->name = $request->input('name');
+        $events->details = $request->input('details');
+        $events->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
+        $events->end_date = date("Y-m-d H:i:s", strtotime(trim($dates[1])));
+        $events->department_id = $request->input('department_id');
+        $events->user_id = Auth::id();
+        $events->status = 1;
+        $events->save();
+
+        return redirect()->back()->with('success', 'Event is successfully Added');
+
+    }
+
     /**
      * Display the specified resource.
      *
@@ -123,6 +146,25 @@ class EventController extends Controller
         return redirect()->back()->with('success', 'Event is successfully updated');
     }
 
+    public function adminupdate(Request $request, $id)
+    {
+        $event = Event::find($id);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'details' => 'required',
+            'datetime' => 'required'
+        ]);
+        $dateRange = $request->input('datetime');
+        $dates = explode(" - ", $dateRange);
+        $event->name = $request->input('name');
+        $event->details = $request->input('details');
+        $event->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
+        $event->end_date = date("Y-m-d H:i:s", strtotime(trim($dates[1])));
+        $event->department_id = $request->input('department_id');
+        $event->update();
+        return redirect()->back()->with('success', 'Event is successfully updated');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -141,5 +183,25 @@ class EventController extends Controller
         $lefttitle = '<li class="breadcrumb-item active">Events</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$name.'</li></ol>';
         $events = Event::where('sub_dep_id', $id)->orderby('id', 'ASC')->get();
         return view('admin.event-view', compact('title', 'lefttitle', 'events'));
+    }
+
+    public function viewsingleevent($depart, $name, $id){
+        $events = Event::find($id);
+        $events->status = 1;
+        $events->update();
+        $title = "Events";
+        if($name != 0){
+            $lefttitle = '<li class="breadcrumb-item active">Events</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$name.'</li><li class="breadcrumb-item active">'.$events->name.'</li></ol>';
+        }else{
+            $lefttitle = '<li class="breadcrumb-item active">Events</li><li class="breadcrumb-item active">'.$depart.'</li><li class="breadcrumb-item active">'.$events->name.'</li></ol>';
+        }
+        return view('admin.event-single', compact('title', 'lefttitle', 'events'));
+    }
+
+    public function allevents(){
+        $events = Event::orderBy('id', 'ASC')->get();
+        $title = "Events";
+        $lefttitle = '<li class="breadcrumb-item active">Events</li><li class="breadcrumb-item active">All Events</li></ol>';
+        return view('admin.events-all', compact('title', 'lefttitle', 'events'));
     }
 }

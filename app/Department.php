@@ -15,4 +15,9 @@ class Department extends Model
     {
         return $this->hasMany('App\News');
     }
+
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
 }

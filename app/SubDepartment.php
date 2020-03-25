@@ -22,4 +22,9 @@ class SubDepartment extends Model
     {
         return $this->hasMany('App\News', 'sub_dep_id');
     }
+
+    public function events()
+    {
+        return $this->hasMany('App\Event', 'sub_dep_id');
+    }
 }

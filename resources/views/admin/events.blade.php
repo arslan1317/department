@@ -20,7 +20,7 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="{{route('events.store')}}" enctype="multipart/form-data">
+								<form class="form" method="post" action="{{route('events.admin.store')}}" enctype="multipart/form-data">
 									@csrf
 									<input type="hidden" value="" name="sub_dep_id">
 									<div class="form-body">
@@ -45,7 +45,7 @@
 												<div class="form-group">
 													<label>Start & End Date</label>
 													<div class='input-group'>
-														<input type='text' class="form-control datetime" />
+														<input type='text' class="form-control datetime" name="datetime" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<span class="la la-calendar"></span>
@@ -139,39 +139,51 @@
 		                            <table class="table table-striped table-bordered  dataex-html5-export dom-jQuery-events">
 		                                <thead>
 		                                    <tr>
-		                                        <th>Event Name</th>
-		                                        <th>Start & End date</th>
+		                                        <th>Name</th>
+		                                        <th>Start Date</th>
+		                                        <th>End Date</th>
 		                                        <th>Details</th>
+		                                        <th>Posted By</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </thead>
 		                                <tbody>
 		                                	@foreach($events as $allevents)
 		                                		<tr>
-		                            				<td>
-		                            					<img src="{{asset('images')}}/{{$allnews->image}}" alt="" width="200">
-		                            				</td>
-		                            				<td>{{$allevents->headline}}</td>
-		                            				<td>{!!$allevents->body!!}</td>
-		                            				<td>
+		                                			<td>{{$allevents->name}}</td>
+		                                			<td>{{date('M, d D Y h:m:s A', strtotime($allevents->start_date))}}</td>
+		                                			<td>{{date('M, d D Y h:m:s A', strtotime($allevents->end_date))}}</td>
+		                                			<td>{!!substr($allevents->details, 0, 15)!!}</td>
+		                                			<td>{{$allevents->user->name}} ({{$allevents->user->email}})</td>  
+		                                			<td>
+		                                				@php
+		                            						$start_time = strtotime($allevents->start_date);
+															$start_date = date('m/d/Y h:i:s A',$start_time);
+
+															$end_time = strtotime($allevents->end_date);
+															$end_date = date('m/d/Y h:i:s A',$end_time);
+															
+		                            					@endphp
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allevents->image}}" data-headline="{{$allevents->headline}}" data-body="{{$allevents->body}}"  data-action="{{ route('news.update', $allevents->id) }}" onclick="news(this, '#inlineForm')">
+		                            						<a href="javascript:;" class="btn-edit" data-name="{{$allevents->name}}" data-startdate="{{$start_date}}" data-enddate="{{$end_date }}" data-detail="{{$allevents->details}}"  data-action="{{ route('events.admin.update', $allevents->id) }}" data-department_id="{{$allevents->department->id}}" onclick="events(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('news.destroy', $allevents->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('events.destroy', $allevents->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
-		                            				</td>
-		                            			</tr>
+		                            				</td>		
+		                                		</tr>
 		                            		@endforeach
 		                                </tbody>
 		                                <tfoot>
 		                                    <tr>
-		                                        <th>Event Name</th>
-		                                        <th>Start & End date</th>
+		                                        <th>Name</th>
+		                                        <th>Start Date</th>
+		                                        <th>End Date</th>
 		                                        <th>Details</th>
+		                                        <th>Posted By</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </tfoot>
@@ -190,7 +202,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit News</label>
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Event</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -198,20 +210,32 @@
                 <form action="#" method="post" enctype="multipart/form-data">
                 	@csrf
                     <div class="modal-body">
-                    	<img src="" alt="" class="image-show">
-                        <label>News Image</label>
+                    	<div class="form-group">
+                    		<label>Department</label>
+	                    	<select class="select2 form-control" name="department_id">
+								@foreach($department as $departments)
+									<option value="{{$departments->id}}">{{$departments->name}}</option>
+								@endforeach
+							</select>
+                    	</div>
                         <div class="form-group">
-                            <input type="file" class="form-control" name="image">
+                        	<label>Event Name</label>
+                            <input type="text" class="form-control" name="name">
                         </div>
-
-                        <label>Headline</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="headline">
+                        	<label>Event Start & End Date</label>
+	                        <div class='input-group'>
+	                            <input type='text' class="form-control editdatetime" name="datetime" />
+	                            <div class="input-group-append">
+	                                <span class="input-group-text">
+	                                    <span class="la la-calendar"></span>
+	                                </span>
+	                            </div>
+							</div>
                         </div>
-
-                        <label>News Body</label>
+                        <label>Event Details</label>
                         <div class="form-group">
-                            <textarea name="body" id="summernote-code-edit" class="summernote-code"></textarea>
+                            <textarea name="details" id="summernote-code-edit" class="summernote-code"></textarea>
                         </div>
 
                     </div>
