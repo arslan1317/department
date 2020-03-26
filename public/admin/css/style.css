@@ -53,3 +53,7 @@ img.image-show {
 .media-body p {
     margin-bottom: 8px;
 }
+.btn-view {
+    display: inline-block;
+    padding: 6px 20px !important;
+}

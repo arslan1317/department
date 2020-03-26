@@ -5,7 +5,6 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-use App\UserRequest;
 
 trait AuthenticatesUsers
 {
@@ -120,15 +119,7 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        if($user->isAdmin != 1){
-            $user_request = UserRequest::where('user_id', $user->id)->first();
-            if($user_request->status == 0){
-                Auth::logout();
-                return redirect()->back()->with('status', 'Your Request has not been approved by the Admin.');
-            }else if($user_request->status == 1){
-
-            }
-        }
+        //
     }
 
     /**
@@ -192,10 +183,5 @@ trait AuthenticatesUsers
     protected function guard()
     {
         return Auth::guard();
-    }
-
-    public function showAdminLoginForm()
-    {
-        return view('auth.admin.login');
     }
 }

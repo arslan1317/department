@@ -33,6 +33,11 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('user/events', 'EventController@store')->name('events.store');
     Route::post('user/events/{id}', 'EventController@update')->name('events.update');
     Route::post('user/eventsdelete/{id}', 'EventController@destroy')->name('events.destroy');
+
+    /*source*/
+    Route::get('user/source', 'SourceController@index')->name('source.home');
+    Route::post('user/import', 'SourceController@importexcel')->name('import.excel');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
