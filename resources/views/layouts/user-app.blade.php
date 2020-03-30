@@ -79,18 +79,18 @@
                     </a>
                 </li>
 
-                <li class=" nav-item"><a href="#"><i class="la la-briefcase"></i><span class="menu-title" data-i18n="Events">{{$access_categories->subdepart->department->name}}</span></a>
+                <li class=" nav-item"><a href="#"><i class="la la-briefcase"></i><span class="menu-title" data-i18n="Events">{{$subdepartment->department->name}}</span></a>
                     <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="{{$access_categories->subdepart->name}}">{{$access_categories->subdepart->name}}</span></a>
+                        <li><a class="menu-item" href="#"><i></i><span data-i18n="{{$subdepartment->name}}">{{$subdepartment->name}}</span></a>
                             <ul class="menu-content">
                                 <li class="{{ (request()->is('user/news')) ? 'active' : '' }}">
-                                    <a href="{{route('news.home')}}" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">News</span></a>
+                                    <a href="{{route('news.home')}}" class="menu-item"><i></i><span data-il8n="{{$subdepartment->name}}">News</span></a>
                                 </li>
                                 <li class="{{ (request()->is('user/events')) ? 'active' : '' }}">
-                                    <a href="{{route('events.home')}}" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">Events</span></a>
+                                    <a href="{{route('events.home')}}" class="menu-item"><i></i><span data-il8n="{{$subdepartment->name}}">Events</span></a>
                                 </li>
                                 <li class="{{ (request()->is('user/source')) ? 'active' : '' }}">
-                                    <a href="{{route('source.home')}}" class="menu-item"><i></i><span data-il8n="{{$access_categories->subdepart->name}}">Sources</span></a>
+                                    <a href="{{route('source.home')}}" class="menu-item"><i></i><span data-il8n="{{$subdepartment->name}}">Sources</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -139,6 +139,7 @@
     <script src="{{ asset('admin/js/summernote.js') }}"></script>
     <script src="{{ asset('admin/js/moment-with-locales.min.js') }}"></script>
     <script src="{{ asset('admin/js/daterangepicker.js') }}"></script>
+    <script src="{{ asset('admin/js/chart.min.js') }}"></script>
     <script src="{{ asset('admin/js/user-js.js') }}"></script>
     <script>
         @if(session()->get('notifysuccess'))

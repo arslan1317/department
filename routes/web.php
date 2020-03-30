@@ -12,9 +12,7 @@
 */
 Route::get('admin/login', 'Auth\LoginController@showAdminLoginForm')->name('adminlogin');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontEndController@index');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -87,9 +85,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('admin/news/{id}', 'NewsController@adminupdate')->name('news.admin.update');
     Route::post('admin/newsdelete/{id}', 'NewsController@destroy')->name('news.admin.destroy');
 
-    /*basic setting*/
-    Route::get('admin/basic', 'BasicSettingController@index')->name('basic.index');
-
     /* Edit Profile */
     Route::get('admin/profile', 'Admin\AdminDashboard@profile')->name('admin.profile.home');
     Route::post('admin/profile/{id}', 'Admin\AdminDashboard@update')->name('admin.profile.update');
@@ -97,4 +92,18 @@ Route::group(['middleware' => ['admin']], function () {
     /* Change Password */
     Route::get('admin/password', 'Admin\AdminDashboard@password')->name('admin.password.home');
     Route::post('admin/password/{id}', 'Admin\AdminDashboard@updatepassword')->name('admin.password.update');
+
+    /*basic setting*/
+    Route::get('admin/basic', 'BasicSettingController@index')->name('basic.index');
+    /* basic setting - Social Icons*/
+    Route::post('admin/basic/social', 'BasicSettingController@social')->name('basic.social');
+    Route::post('admin/basic/social/update/{id}', 'BasicSettingController@updatesocial')->name('basic.social.update');
+    Route::post('admin/basic/delete/{id}', 'BasicSettingController@deletebasic')->name('basic.delete');
+
+    /* basic setting - Slider Lower*/
+    Route::post('admin/basic/sliderlower/update/{id}', 'BasicSettingController@updatesliderlower')->name('basic.sliderlower');
+
+    /* basic setting - Info Box*/
+    Route::post('admin/basic/info/', 'BasicSettingController@infobox')->name('basic.infobox');
+    Route::post('admin/basic/info/update/{id}', 'BasicSettingController@updateinfobox')->name('basic.infobox.update');
 });

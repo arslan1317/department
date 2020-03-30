@@ -234,12 +234,7 @@ body .page .site-main >.ttm-row:not(.intro-section):first-child {margin-top: -92
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
-.col-bg-img-four.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
-    background-image: url(../images/col-bgimage-4.jpg) !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-}
+
 .col-bg-img-five.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
     background-image: url(../images/col-bgimage-5.jpg) !important;
     background-position: center !important;
@@ -939,7 +934,13 @@ h2.title strong{
 .featured-box.style4 .featured-title h5 { margin-bottom: 0;}
 .featured-box.style4 .featured-desc p { color: #020d26; font-size: 18px; font-weight: 400;}
 
-.featured-box.style5{ position: relative; padding: 0px 25px 36px; background-color: #fff; z-index: 9; }
+.featured-box.style5 {
+    position: relative;
+    padding: 0px 25px 20px;
+    background-color: #fff;
+    z-index: 9;
+    height: 100%;
+}
 .featured-box.style5 .featured-icon {display: inline-block; text-align: center; margin-top: -30px;}
 
 .featured-box.style6 { padding: 67px 70px 70px; }
@@ -986,7 +987,12 @@ h2.title strong{
 
 /*  Featured-Item  
 ---------------------------------------------------------------*/
-.featured-item{ position: relative; }
+.featured-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .featured-item.ttm-portfolio-view-topimage:not(.owl-carousel),
 .col-md-4:not(:last-child) .featured-item.ttm-box-view-topimage{ margin-bottom: 30px; }
 .featured-item .content-post{ 

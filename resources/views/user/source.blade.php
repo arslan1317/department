@@ -22,7 +22,7 @@
 							<div class="card-body">
 								<form class="form" method="post" action="{{route('import.excel')}}" enctype="multipart/form-data">
 									@csrf
-									<input type="hidden" value="{{$access_categories->subdepart->id}}" name="sub_dep_id">
+									<input type="hidden" value="{{$subdepartment->id}}" name="sub_dep_id">
 									<div class="form-body">
 										<div class="row">
 											<div class="col-md-6">
@@ -132,7 +132,7 @@
 		                                			</td>
 		                                			<td>
 		                                				<div class="table-action-button">
-		                                					<a href="" class="btn btn-primary btn-view">View In Graphical form</a>
+		                                					<a href="" class="btn btn-primary btn-view btn-view-graph" data-name="{{$sources->name}}" data-source-log="{{$sources->sourcelog}}">View In Graphical form</a>
 		                                				</div>
 		                                			</td>
 		                                			<td>
@@ -226,6 +226,24 @@
 		                <button type="submit" class="btn btn-outline-primary">Confirm Delete</button>
 		            </div>
 		        </form>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="modal fade text-left" id="graph" tabindex="-1" role="dialog" aria-labelledby="graph" aria-hidden="true">
+	    <div class="modal-dialog modal-lg" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h4 class="modal-title" id="myModalLabel1">Graphical View</h4>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+				<div class="modal-body">
+					<div class="chartjs">
+                        <canvas id="line-chart" height="500"></canvas>
+                    </div>
+				</div>
 	        </div>
 	    </div>
 	</div>

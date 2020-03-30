@@ -19,10 +19,11 @@ class NewsController extends Controller
 
     public function index(){
     	$title = "News";
-    	$access_categories = UserCategory::where('user_id', Auth::id())->first();
-    	$lefttitle = '<li class="breadcrumb-item active">'.$access_categories->subdepart->department->name.'</li><li class="breadcrumb-item active">'.$access_categories->subdepart->name.'</li><li class="breadcrumb-item active">News</li></ol>';
+        $access_categories = UserCategory::where('user_id', Auth::id())->first();
+        $subdepartment = SubDepartment::where('id', $access_categories->sub_dep_id)->first();
+    	$lefttitle = '<li class="breadcrumb-item active">'.$subdepartment->department->name.'</li><li class="breadcrumb-item active">'.$subdepartment->name.'</li><li class="breadcrumb-item active">News</li></ol>';
         $news = News::where('user_id', Auth::id())->orderby('id', 'ASC')->get();
-    	return view('user.news', compact('title', 'lefttitle', 'access_categories', 'news'));
+    	return view('user.news', compact('title', 'lefttitle', 'access_categories', 'news', 'subdepartment'));
     }
 
     public function adminindex(){

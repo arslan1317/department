@@ -57,3 +57,19 @@ img.image-show {
     display: inline-block;
     padding: 6px 20px !important;
 }
+.edit-box {
+    border: 2px solid #2d343b;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 30px;
+}
+.edit-box .icon{
+    text-align: center;
+}
+.edit-box .icon i {
+    font-size: 39px;
+    color: black;
+}
+.edit-box .form-group {
+    margin-bottom: 12px;
+}

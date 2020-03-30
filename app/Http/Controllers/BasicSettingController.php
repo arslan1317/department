@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 class BasicSettingController extends Controller
 {
 
+    /* 
+        section_type = 1 (Basic Info)
+        section_type = 2 (Social Info)
+        section_type = 3 (Slider Info)
+        section_type = 4 (Slider Lower Info)
+        section_type = 5 (Info Box)
+    */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -21,72 +29,57 @@ class BasicSettingController extends Controller
     {
         $title = 'Basic Setting';
         $lefttitle = '<li class="breadcrumb-item active"><a>Basic Setting</a></li></ol>';
-        return view('admin.basic', compact('title', 'lefttitle'));
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $slider_lower = BasicSetting::where('section_type', 4)->first();
+        $info_box = BasicSetting::where('section_type', 5)->get();
+        return view('admin.basic', compact('title', 'lefttitle', 'social_icons', 'slider_lower', 'info_box'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function social(Request $request){
+        $basic_setting = new BasicSetting();
+        $basic_setting->link = $request->input('link');
+        $basic_setting->icon = $request->input('icon');
+        $basic_setting->section_type = 2;
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'Social Icon Successfully Added');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function updatesocial(Request $request, $id){
+        $basic_setting = BasicSetting::find($id);
+        $basic_setting->link = $request->input('link');
+        $basic_setting->icon = $request->input('icon');
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'Social Icon Successfully Updated');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Admin\BasicSetting  $basicSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BasicSetting $basicSetting)
-    {
-        //
+    public function deletebasic($id){
+        $basic_setting = BasicSetting::findOrFail($id);
+        $status = '';
+        if($basic_setting->section_type == 2){
+            $status = 'Social Icon';
+        }
+        $basic_setting->delete();
+        return redirect()->back()->with('notifysuccess', $status .' Successfully Deleted');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Admin\BasicSetting  $basicSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BasicSetting $basicSetting)
-    {
-        //
+    public function updatesliderlower(Request $request, $id){
+        $basic_setting = BasicSetting::find($id);
+        $basic_setting->slider_lower_heading = $request->input('slider_lower_heading');
+        $basic_setting->slider_lower_paragraph = $request->input('slider_lower_paragraph');
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'Slider Lower Successfully Updated');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin\BasicSetting  $basicSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BasicSetting $basicSetting)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Admin\BasicSetting  $basicSetting
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BasicSetting $basicSetting)
-    {
-        //
+    public function infobox(Request $request){
+        $basic_setting = new BasicSetting();
+        $imageName = time().'.'.$request->image->extension(); 
+        $request->image->move(public_path('images'), $imageName);
+        $basic_setting->info_image = $imageName;
+        $basic_setting->info_heading = $request->input('info_heading');
+        $basic_setting->info_paragraph = $request->input('info_paragraph');
+        $basic_setting->info_paragraph = $request->input('info_paragraph');
+        $basic_setting->section_type = 5;
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'Info Box Successfully Added');
     }
 }

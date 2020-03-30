@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 25, 2020 at 08:08 AM
+-- Generation Time: Mar 30, 2020 at 08:54 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -13,6 +13,43 @@ SET time_zone = "+00:00";
 --
 -- Database: `department_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `basic_setting`
+--
+
+CREATE TABLE `basic_setting` (
+  `id` int(11) NOT NULL,
+  `logo` varchar(100) DEFAULT NULL,
+  `footer_logo` varchar(100) DEFAULT NULL,
+  `favicon` varchar(100) DEFAULT NULL,
+  `link` varchar(100) DEFAULT NULL,
+  `icon` varchar(100) DEFAULT NULL,
+  `section_type` int(11) DEFAULT NULL,
+  `slider_lower_heading` text,
+  `slider_lower_paragraph` varchar(100) DEFAULT NULL,
+  `info_image` varchar(100) DEFAULT NULL,
+  `info_heading` varchar(100) DEFAULT NULL,
+  `info_paragraph` text,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `basic_setting`
+--
+
+INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `icon`, `section_type`, `slider_lower_heading`, `slider_lower_paragraph`, `info_image`, `info_heading`, `info_paragraph`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:14:25', '2020-03-30 01:36:53'),
+(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:32:33', '2020-03-30 01:32:33'),
+(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:33:27', '2020-03-30 01:33:27'),
+(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-03-30 01:47:13'),
+(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1987', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-03-30 03:16:45'),
+(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-30 03:36:03', '2020-03-30 03:36:03'),
+(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-30 03:45:06', '2020-03-30 03:45:06'),
+(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-30 03:45:55', '2020-03-30 03:45:55');
 
 -- --------------------------------------------------------
 
@@ -106,7 +143,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2020_03_20_215251_create_news_table', 7),
 (11, '2020_03_21_025439_add_status_to_news', 8),
 (13, '2020_03_23_212257_add_status_to_events', 10),
-(14, '2020_03_21_194903_create_events_table', 11);
+(14, '2020_03_21_194903_create_events_table', 11),
+(15, '2020_03_26_064010_create_sources_table', 12),
+(16, '2020_03_26_064025_create_source_logs_table', 12);
 
 -- --------------------------------------------------------
 
@@ -146,6 +185,62 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sources`
+--
+
+CREATE TABLE `sources` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sources`
+--
+
+INSERT INTO `sources` (`id`, `name`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Kennan Schultz', 1, 18, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(2, 'Oleg Dalton', 1, 18, '2020-03-26 03:15:54', '2020-03-26 03:15:54'),
+(3, 'Oleg Dalton', 1, 18, '2020-03-26 03:16:09', '2020-03-26 03:16:09'),
+(4, 'Oleg Dalton', 1, 18, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
+(5, 'Odysseus Schmidt', 4, 19, '2020-03-29 23:59:36', '2020-03-29 23:59:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `source_logs`
+--
+
+CREATE TABLE `source_logs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `area` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `source_logs`
+--
+
+INSERT INTO `source_logs` (`id`, `area`, `price`, `date`, `source`, `source_id`, `created_at`, `updated_at`) VALUES
+(1, 'asff', '123', '2019-03-01', 'soo', NULL, '2020-03-26 03:01:48', '2020-03-26 03:01:48'),
+(2, 'asff', '123', '2019-03-01', 'soo', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(3, 'asff2', '12123', '2018-03-01', 'so2', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(4, 'asff', '123', '2019-03-01', 'soo', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
+(5, 'asff2', '12123', '2018-03-01', 'so2', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
+(6, 'youarea', '1234', '2018-03-01', 'yoursource', 5, '2020-03-29 23:59:36', '2020-03-29 23:59:36'),
+(7, 'youarea2', '1234', '2018-03-02', 'yoursource2', 5, '2020-03-29 23:59:36', '2020-03-29 23:59:36');
 
 -- --------------------------------------------------------
 
@@ -201,7 +296,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `isAdmin`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', NULL, 1, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-14 21:11:05', '2020-03-14 21:11:05'),
 (18, 'Noah Vega', 'fymolu@mailinator.net', NULL, 0, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-18 23:40:24', '2020-03-18 23:40:24'),
-(19, 'Deacon Rush', 'sikip@mailinator.com', NULL, 0, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-19 23:27:14', '2020-03-19 23:27:14');
+(19, 'Deacon Rush', 'sikip@mailinator.com', NULL, 0, '$2y$10$x3q.9NNYqtBmi5XDHr0.Telw1m0UAIF6eUxWWPkPNvF1v5MtFAAF2', NULL, '2020-03-19 23:27:14', '2020-03-19 23:27:14'),
+(22, 'Abraham Reilly', 'ryqoridef@mailinator.com', NULL, 0, '$2y$10$svZFXy2p1FU2bP36oPlQWu9uESJhtntKSRMjy.5EmLlSikIyTHFJC', NULL, '2020-03-29 18:53:04', '2020-03-29 18:53:04');
 
 -- --------------------------------------------------------
 
@@ -222,7 +318,8 @@ CREATE TABLE `user_categories` (
 --
 
 INSERT INTO `user_categories` (`id`, `user_id`, `sub_dep_id`, `created_at`, `updated_at`) VALUES
-(1, 18, 3, '2020-03-19 23:11:16', '2020-03-19 23:11:16');
+(1, 18, 3, '2020-03-19 23:11:16', '2020-03-19 23:11:16'),
+(2, 19, 4, '2020-03-29 23:14:52', '2020-03-29 23:14:52');
 
 -- --------------------------------------------------------
 
@@ -245,11 +342,18 @@ CREATE TABLE `user_request` (
 
 INSERT INTO `user_request` (`id`, `user_id`, `sub_dep_id`, `status`, `created_at`, `updated_at`) VALUES
 (1, 18, 3, 1, '2020-03-18 23:40:24', '2020-03-19 23:11:16'),
-(2, 19, 4, 0, '2020-03-19 23:27:14', '2020-03-19 23:27:14');
+(2, 19, 4, 1, '2020-03-19 23:27:14', '2020-03-29 23:14:52'),
+(5, 22, 5, 0, '2020-03-29 18:53:04', '2020-03-29 18:53:04');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `basic_setting`
+--
+ALTER TABLE `basic_setting`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `departments`
@@ -294,6 +398,21 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `sources`
+--
+ALTER TABLE `sources`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sources_sub_dep_id_foreign` (`sub_dep_id`),
+  ADD KEY `sources_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `source_logs`
+--
+ALTER TABLE `source_logs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `source_logs_source_id_foreign` (`source_id`);
+
+--
 -- Indexes for table `sub_departments`
 --
 ALTER TABLE `sub_departments`
@@ -328,6 +447,12 @@ ALTER TABLE `user_request`
 --
 
 --
+-- AUTO_INCREMENT for table `basic_setting`
+--
+ALTER TABLE `basic_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
@@ -349,13 +474,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `sources`
+--
+ALTER TABLE `sources`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `source_logs`
+--
+ALTER TABLE `source_logs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
@@ -367,19 +504,19 @@ ALTER TABLE `sub_departments`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `user_categories`
 --
 ALTER TABLE `user_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_request`
 --
 ALTER TABLE `user_request`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -400,6 +537,19 @@ ALTER TABLE `news`
   ADD CONSTRAINT `news_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   ADD CONSTRAINT `news_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
   ADD CONSTRAINT `news_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `sources`
+--
+ALTER TABLE `sources`
+  ADD CONSTRAINT `sources_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
+  ADD CONSTRAINT `sources_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `source_logs`
+--
+ALTER TABLE `source_logs`
+  ADD CONSTRAINT `source_logs_source_id_foreign` FOREIGN KEY (`source_id`) REFERENCES `sources` (`id`);
 
 --
 -- Constraints for table `sub_departments`

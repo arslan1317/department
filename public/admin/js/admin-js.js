@@ -75,3 +75,11 @@ function events(ele, formName){
 	$('#summernote-code-edit').summernote('editor.pasteHTML', detail);
 	$(formName).modal('show');
 }
+
+$(document).ready(function(){
+	$('.btn-basic-delete').click(function(){
+		var route = $(this).data('route');
+		$('#default').find('form').attr('action', route);
+		$('#default').modal('show');
+	});
+});

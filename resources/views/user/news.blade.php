@@ -22,7 +22,7 @@
 							<div class="card-body">
 								<form class="form" method="post" action="{{route('news.store')}}" enctype="multipart/form-data">
 									@csrf
-									<input type="hidden" value="{{$access_categories->subdepart->id}}" name="sub_dep_id">
+									<input type="hidden" value="{{$subdepartment->id}}" name="sub_dep_id">
 									<div class="form-body">
 										<div class="row">
 											<div class="col-md-6">

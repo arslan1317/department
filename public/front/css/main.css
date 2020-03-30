@@ -1589,3 +1589,35 @@ section.error-404 .page-content p {
 ------------------------*/
 #map_canvas { margin: 0; padding: 0; height: 100% }
 .map-wrapper{ height: 450px; }
+
+section.ttm-row.bg-layer-section.bg-layer.break-1199-colum.clearfix{
+    background-image: url(../images/col-bgimage-4.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+.col-bg-img-four.ttm-col-bgimage-yes.ttm-bg.padding-12 {
+    padding-top: 50px;
+}
+.featured-thumbnail img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.featured-desc p {
+    margin-bottom: 10px;
+}
+.featured-desc a.ttm-btn {
+    width: 49%;
+    background-color: #3263f1;
+    text-align: center;
+    padding-right: 0px !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+.featured-desc a.ttm-btn:hover {
+    background-color: #020d26;
+    color: white !important;
+}

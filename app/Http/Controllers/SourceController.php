@@ -10,6 +10,7 @@ use App\SourceLog;
 use Maatwebsite\Excel\Facades\Excel;
 use Auth;
 use DB;
+use App\SubDepartment;
 use App\Imports\SourceLogImport;
 
 class SourceController extends Controller
@@ -28,14 +29,15 @@ class SourceController extends Controller
         $title = 'Source';
         $lefttitle = '<li class="breadcrumb-item"><a href="javascript:;">Department</a></li><li class="breadcrumb-item active">Source</li></ol>';
         $access_categories = UserCategory::where('user_id', Auth::id())->first();
+        $subdepartment = SubDepartment::where('id', $access_categories->sub_dep_id)->first();
         $source = Source::where('user_id', Auth::id())->orderby('id', 'ASC')->get();
-        return view('user.source', compact('title', 'lefttitle', 'access_categories', 'source'));
+        return view('user.source', compact('title', 'lefttitle', 'access_categories', 'source', 'subdepartment'));
     }
 
     public function importexcel(Request $request){
         $this->validate($request, [
             'name' => 'required',
-            'file' => 'required|mimes:csv',
+            'file' => 'required|mimes:csv,txt',
         ]);
 
         $source = new Source();

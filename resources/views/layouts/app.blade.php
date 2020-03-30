@@ -84,14 +84,11 @@
                         <div class="topbar-right text-right">
                             <div class="ttm-social-links-wrapper list-inline">
                                 <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                                    </li>
+                                    @foreach($social_icons as $social_icon)
+                                        <li>
+                                            <a href="{{$social_icon->link}}" target="blank">{!!$social_icon->icon!!}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <ul class="top-contact ttm-highlight">

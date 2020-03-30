@@ -89,8 +89,8 @@
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                                 <div class="layer-content">
                                     <div class="section-title clearfix">
-                                        <h2 class="title pb-25">Making the World<strong>Since 1987</strong></h2>
-                                        <h5 class="ttm-textcolor-white text-opecity">We provides best industry and company services</h5>
+                                        <h2 class="title pb-25"><strong class="pl-60 pr-60">{{$slider_lower->slider_lower_heading}}</strong></h2>
+                                        <h5 class="ttm-textcolor-white text-opecity">{{$slider_lower->slider_lower_paragraph}}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -104,80 +104,29 @@
                         <!-- ttm-section-info_box -->
                         <div class="ttm-section-info_box ttm-bgcolor-white clearfix">
                             <div class="row box-shadow row-equal-height ttm-box-seperator">
+                                @foreach($info_box as $info_boxes)
                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                     <!-- featured-box -->
                                     <div class="featured-box style3 text-center">
                                         <div class="featured-icon icon-shape-square icon-bgcolor-grey">
-                                            <i class="flaticon flaticon-factory-2"></i>
+                                            <img src="{{asset('images')}}/{{$info_boxes->info_image}}" alt="" width="80" height="80">
                                         </div>
                                         <div class="featured-content">
                                             <div class="featured-title">
-                                                <h5>Petrolium Refinery</h5>
+                                                <h5>{{$info_boxes->info_heading}}</h5>
                                             </div>
                                             <div class="featured-desc">
-                                                <p>We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.</p>
-                                                <a class="ttm-btn ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mb-20" href="#">Read More<i class="ti ti-arrow-circle-right"></i></a>
+                                                <p>{{$info_boxes->info_paragraph}}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- featured-box end-->
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <!-- featured-box -->
-                                    <div class="featured-box style3 text-center">
-                                        <div class="featured-icon icon-shape-square icon-bgcolor-grey">
-                                            <i class="flaticon flaticon-energy"></i>
-                                        </div>
-                                        <div class="featured-content">
-                                            <div class="featured-title">
-                                                <h5>Power & Energy</h5>
-                                            </div>
-                                            <div class="featured-desc">
-                                                <p>Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.</p>
-                                                <a class="ttm-btn ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mb-20" href="#">Read More<i class="ti ti-arrow-circle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- featured-box end-->
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <!-- featured-box -->
-                                    <div class="featured-box style3 text-center">
-                                        <div class="featured-icon icon-shape-square icon-bgcolor-grey">
-                                            <i class="flaticon flaticon-process"></i>
-                                        </div>
-                                        <div class="featured-content">
-                                            <div class="featured-title">
-                                                <h5>Mechanical Works</h5>
-                                            </div>
-                                            <div class="featured-desc">
-                                                <p>We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.</p>
-                                                <a class="ttm-btn ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mb-20" href="#">Read More<i class="ti ti-arrow-circle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- featured-box end-->
-                                </div>
+                                @endforeach
                             </div>
                             <!-- row end -->
                         </div>
                         <!-- ttm-section-info_box end -->
-                    </div>
-                    <!-- row end -->
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <!-- template-content -->
-                            <div class="template-content text-center ttm-bg ttm-bgcolor-skincolor pt-65 pb-35 mb_1">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content">
-                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-icon-btn-left ttm-btn-color-white mb-35 res-991-mb-0" href="#"><i class="ti ti-arrow-down"></i>Download Brochure</a>
-                                </div>
-                            </div>
-                            <!-- template-content end -->
-                        </div>
-                        <div class="col-md-3"></div>
                     </div>
                     <!-- row end -->
                 </div>
@@ -186,94 +135,26 @@
 
             <!--bg-layer-section-->
             <section class="ttm-row bg-layer-section bg-layer break-1199-colum clearfix">
-                <div class="container-fluid">
+                <div class="container">
                     <!-- row -->
                     <div class="row row-equal-height">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <!-- col-bg-img-four -->
                             <div class="col-bg-img-four ttm-col-bgimage-yes ttm-bg padding-12">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                                 <div class="layer-content">
                                     <div class="ttm-tabs" data-effect="fadeIn">
                                         <ul class="tabs clearfix">
-                                            <li class="active"><a href="#"><i class="fa fa-file-text-o"></i>Quote</a></li>
-                                            <li><a href="#"><i class="fa fa-user"></i>About</a></li>
+                                            <li class="active"><a href="#"><i class="fa fa-user"></i>About</a></li>
                                         </ul>
                                         <div class="content-tab ttm-bgcolor-white">
                                             <!-- content-inner -->
-                                            <div class="content-inner active">
-                                                <h6 class="pb-20">Please fill out the request for quote form below and our expert team will get back to you shortly.</h6>
-                                                <form id="getquote-form" class="getquote-form wrap-form clearfix" method="post" action="#" novalidate="novalidate">
-                                                    <label>
-                                                        <i class="ti-user ttm-bgcolor-skincolor"></i>
-                                                        <span class="text-input"><input name="name" type="text" value="" placeholder="Your Name:*" required="required"></span>
-                                                    </label>
-                                                    <label>
-                                                        <i class="ti-email ttm-bgcolor-skincolor"></i>
-                                                        <span class="text-input"><input name="email" type="text" value="" placeholder="Your email-id:*" required="required"></span>
-                                                    </label>
-                                                    <label>
-                                                        <i class="ti-headphone ttm-bgcolor-skincolor"></i>
-                                                        <span class="text-input"><input name="phone" type="text" value="" placeholder="Your Number:*" required="required"></span>
-                                                    </label>
-                                                    <label>
-                                                        <i class="ti-comment ttm-bgcolor-skincolor"></i>
-                                                        <span class="text-input"><textarea name="message" placeholder="Your Message:*" required="required"></textarea></span>
-                                                    </label>
-                                                    <input name="submit-ttm-icon-btn-right" type="submit" value="Send Request" class="ttm-btn ttm-btn-size-md  ttm-btn-style-border ttm-btn-color-skincolor" id="submit" title="Submit now" />
-                                                </form>
-                                            </div>
                                             <!-- content-inner end-->
                                             <!-- content-inner -->
-                                            <div class="content-inner">
+                                            <div class="content-inner active">
                                                 <h4>Offering you Endless Possibilities to Grow</h4>
                                                 <p><strong>We are one of leading company in manufacturing &amp; petro chemical products. We makes long-term investments goal in global companies in different sectors, mainly in Europe.</strong></p>
-                                                <p>Tectxon has completed hundreds of industrial projects in all industrial sectors. With a long list of products and never ending customer support we are able to guarantee a very high level of satisfaction for our clients.</p>
-                                                <!-- featured-box -->
-                                                <div class="featured-box style4">
-                                                    <div class="featured-icon border-icon">
-                                                        <i class="fa fa-user"></i>
-                                                    </div>
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h5>1500+</h5>
-                                                        </div>
-                                                        <div class="featured-desc">
-                                                            <p>Engineers & Workers</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- featured-box end-->
-                                                <!-- featured-box -->
-                                                <div class="featured-box style4">
-                                                    <div class="featured-icon border-icon">
-                                                        <i class="fa fa-suitcase"></i>
-                                                    </div>
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h5>540+</h5>
-                                                        </div>
-                                                        <div class="featured-desc">
-                                                            <p>Projects Completed</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- featured-box end-->
-                                                <!-- featured-box -->
-                                                <div class="featured-box style4">
-                                                    <div class="featured-icon border-icon">
-                                                        <i class="ti ti-package"></i>
-                                                    </div>
-                                                    <div class="featured-content">
-                                                        <div class="featured-title">
-                                                            <h5>75+</h5>
-                                                        </div>
-                                                        <div class="featured-desc">
-                                                            <p>Products</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- featured-box end-->
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                                             </div>
                                             <!-- content-inner end-->
                                         </div>
@@ -281,55 +162,6 @@
                                 </div>
                             </div>
                             <!-- col-bg-img-four end -->
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-darkgrey padding-3 res-767-p-30">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <!--layer-content-->
-                                <div class="layer-content">
-                                    <!--section-title-->
-                                    <div class="section-title">
-                                        <h5>COMPNY</h5>
-                                        <h2 class="title">Check<strong>Our History</strong></h2>
-                                        <div class="heading-seperator"><span></span></div>
-                                    </div>
-                                    <!--section-title end-->
-                                    <div id="ttmscore-timeline" class="ttmscore-timeline-wrapper clearfix">
-                                        <!--ttmscore-timeline-round-->
-                                        <div class="timeline ttmscore-timeline ttmscore-timeline-style-1 ttmscore-timeline-round">
-                                            <div class="timeline-panel">
-                                                <div class="timeline-date">
-                                                    <span class="timeline-year">2018</span>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <h3 class="title">A Beginning of new ERA</h3>
-                                                    <p>Tectxon joined the Mechanical & Instrument Association of Lorem to build the first smart devices.</p>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-date">
-                                                    <span class="timeline-year">2015</span>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <h3 class="title">Merge with Excepteur Group</h3>
-                                                    <p>Tectxon merge with Excepteur Group and started working in manufacturing auto motive parts and assemble products.</p>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-date">
-                                                    <span class="timeline-year">2012</span>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <h3 class="title">Initial Start Up Of Company</h3>
-                                                    <p>The Tectxon was founded in Los Angeles,USA. The company was initially set up with one binding and 10 workers in the USA.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--ttmscore-timeline-round end-->
-                                    </div>
-                                </div>
-                                <!--layer-content end-->
-                            </div>
                         </div>
                     </div>
                     <!--row end-->
@@ -345,9 +177,8 @@
                         <div class="col-lg-9 col-md-12">
                             <!-- section-title -->
                             <div class="section-title clearfix">
-                                <h2 class="title">Factory Services<strong>For Your Business</strong></h2>
+                                <h2 class="title">Department<strong>Energy</strong></h2>
                                 <div class="heading-seperator"><span></span></div>
-                                <p>Tectxon has 23+ years of experience with providing wide area of specialty services works listed below</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12">
@@ -364,24 +195,37 @@
                 <div class="container">
                     <!-- row -->
                     <div class="row">
-                        <div class="col-md-4">
+                        @foreach($subdeparment as $subdeparments)
+                        <div class="col-md-4 mb-30">
                             <!-- featured-item -->
                             <div class="featured-item">
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="{{ asset('front/images/02.jpg') }}" alt="">
+                                    @if(count($subdeparments->news) != 0)
+                                        @php
+                                            $maxrand = count($subdeparments->news);
+                                            $rand = mt_rand(0, $maxrand - 1)
+                                        @endphp
+                                        <img class="img-fluid" src="{{ asset('images') }}/{{$subdeparments->news[0]->image}}" alt="{{$subdeparments->name}}">
+                                    @else
+                                    <img class="img-fluid" src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png" alt="{{$subdeparments->name}}">
+                                    @endif
                                 </div>
                                 <!-- featured-box -->
                                 <div class="featured-box style5 box-shadow">
                                     <div class="featured-icon icon-shape-square icon-size-md">
-                                        <i class="flaticon flaticon-robot-arm"></i>
+                                        
                                     </div>
                                     <div class="featured-content">
                                         <div class="featured-title">
-                                            <h5>Manufacturing</h5>
+                                            <h5>{{$subdeparments->name}}</h5>
                                         </div>
                                         <div class="featured-desc">
-                                            <p>Since 2003 Tectxon manufacturing services have manufactured auto metal parts and assemble auto parts.</p>
-                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">Read More<i class="ti ti-arrow-circle-right"></i></a>
+                                            <p><strong>Address:</strong> {{$subdeparments->address}}</p>
+                                            <p><strong>Website:</strong> {{$subdeparments->website}}</p>
+                                            <p><strong>Telephone:</strong> {{$subdeparments->telephone}}</p>
+                                            <p><strong>Fax:</strong> {{$subdeparments->fax}}</p>
+                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">News</a>
+                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">Events</a>
                                         </div>
                                     </div>
                                 </div>
@@ -389,45 +233,7 @@
                             </div>
                             <!-- featured-item end-->
                         </div>
-                        <div class="col-md-4 res-767-mb-30">
-                            <!-- featured-item -->
-                            <div class="featured-item">
-                                <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="{{ asset('front/images/03.jpg') }}" alt="">
-                                </div>
-                                <!-- featured-box -->
-                                <div class="featured-box style5 box-shadow">
-                                    <div class="featured-icon icon-shape-square icon-size-md">
-                                        <i class="flaticon flaticon-factory-4"></i>
-                                    </div>
-                                    <div class="featured-content">
-                                        <div class="featured-title">
-                                            <h5>Oil &amp; Gas Enigneering</h5>
-                                        </div>
-                                        <div class="featured-desc">
-                                            <p>Tectxon has strength and experience in this services which allowed in successfully delivering projects to number of clients.</p>
-                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">Read More<i class="ti ti-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- featured-box end -->
-                            </div>
-                            <!-- featured-item end-->
-                        </div>
-                        <div class="col-md-4">
-                            <!-- col-bg-img-five -->
-                            <div class="col-bg-img-five ttm-bg ttm-col-bgimage-yes padding-4">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content pb-35">
-                                    <h2 class="ttm-textcolor-white">Work Place Safety Industries</h2>
-                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-15" href="#">View More</a>
-                                </div>
-                            </div>
-                            <!-- col-bg-img-five end -->
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <div class="row mt-30">
+                        @endforeach
                         <div class="col-md-8 res-767-mb-30">
                             <!-- col-bg-img-six -->
                             <div class="col-bg-img-six ttm-col-bgimage-yes ttm-bg padding-5">
@@ -444,33 +250,7 @@
                             </div>
                             <!-- col-bg-img-six end -->
                         </div>
-                        <div class="col-md-4">
-                            <!-- featured-item -->
-                            <div class="featured-item">
-                                <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="{{ asset('front/images/04.jpg') }}" alt="">
-                                </div>
-                                <!-- featured-box -->
-                                <div class="featured-box style5 box-shadow">
-                                    <div class="featured-icon icon-shape-square icon-size-md">
-                                        <i class="flaticon flaticon-conveyor"></i>
-                                    </div>
-                                    <div class="featured-content">
-                                        <div class="featured-title">
-                                            <h5>Mechanical & Civil</h5>
-                                        </div>
-                                        <div class="featured-desc">
-                                            <p>Tectxon has strength and experience in this services which allowed in successfully delivering projects to number of clients.</p>
-                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">Read More<i class="ti ti-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- featured-box end -->
-                            </div>
-                            <!-- featured-item end-->
-                        </div>
                     </div>
-                    <!-- row end -->
                 </div>
             </section>
             <!--blog-section end-->

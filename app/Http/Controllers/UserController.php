@@ -8,6 +8,7 @@ use Auth;
 use App\News;
 use App\Event;
 use App\Source;
+use App\SubDepartment;
 
 class UserController extends Controller
 {
@@ -26,15 +27,17 @@ class UserController extends Controller
         $dashboard['source'] = count($source);
     	$title = "Dashboard";
     	$lefttitle = '<li class="breadcrumb-item active">Dashboard</li></ol>';
-    	$access_categories = UserCategory::where('user_id', Auth::id())->first();
-    	return view('user.dashboard', compact('title', 'lefttitle', 'access_categories', 'dashboard'));
+        $access_categories = UserCategory::where('user_id', Auth::id())->first();
+        $subdepartment = SubDepartment::where('id', $access_categories->sub_dep_id)->first();
+    	return view('user.dashboard', compact('title', 'lefttitle', 'access_categories', 'dashboard', 'subdepartment'));
     }
 
     public function profile(){
         $title = "Profile";
         $lefttitle = '<li class="breadcrumb-item active">Profile</li></ol>';
         $access_categories = UserCategory::where('user_id', Auth::id())->first();
-        return view('user.profile', compact('title', 'lefttitle', 'access_categories'));
+        $subdepartment = SubDepartment::where('id', $access_categories->sub_dep_id)->first();
+        return view('user.profile', compact('title', 'lefttitle', 'access_categories', 'subdepartment'));
     }
 
     public function update(Request $request, $id){
@@ -45,7 +48,8 @@ class UserController extends Controller
         $title = "Password";
         $lefttitle = '<li class="breadcrumb-item active">Profile</li></ol>';
         $access_categories = UserCategory::where('user_id', Auth::id())->first();
-        return view('user.password', compact('title', 'lefttitle', 'access_categories'));
+        $subdepartment = SubDepartment::where('id', $access_categories->sub_dep_id)->first();
+        return view('user.password', compact('title', 'lefttitle', 'access_categories', 'subdepartment'));
     }
 
     public function updatepassword(Request $request, $id){
