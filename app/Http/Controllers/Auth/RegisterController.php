@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\UserRequest;
+use App\Department;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -81,5 +84,18 @@ class RegisterController extends Controller
 
         return $user;
 
+    }
+
+    public function showRegistrationForm()
+    {
+        $approved_user_request = UserRequest::where('status', '!=', 0)->get();
+        $department = Department::orderby('id', 'desc')->get();
+        return view('auth.register', compact('department', 'approved_user_request'));
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        Auth::logout();
+        return redirect()->back()->with('status', 'Your Request has not been approved from Admin');
     }
 }

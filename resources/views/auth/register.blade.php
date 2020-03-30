@@ -47,7 +47,6 @@
                         </div>
 
 
-
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Department</label>
 
@@ -63,13 +62,16 @@
 
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Sube Department</label>
-
                             <div class="col-md-6">
                                 <select name="subdepartment" id="subdepartment" class="form-control">
                                     @foreach($department as $departments)
                                         @foreach($departments->subdepartment as $subdepartments)
                                             @if($subdepartments->status != 0)
-                                                <option value="{{$subdepartments->id}}">{{$subdepartments->name}}</option>
+                                                @foreach($approved_user_request as $approved)
+                                                    @if($approved->sub_dep_id !=  $subdepartments->id)
+                                                    <option value="{{$subdepartments->id}}">{{$subdepartments->name}}</option>
+                                                    @endif
+                                                @endforeach
                                             @endif
                                         @endforeach
                                         @break

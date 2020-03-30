@@ -29,4 +29,26 @@ class UserController extends Controller
     	$access_categories = UserCategory::where('user_id', Auth::id())->first();
     	return view('user.dashboard', compact('title', 'lefttitle', 'access_categories', 'dashboard'));
     }
+
+    public function profile(){
+        $title = "Profile";
+        $lefttitle = '<li class="breadcrumb-item active">Profile</li></ol>';
+        $access_categories = UserCategory::where('user_id', Auth::id())->first();
+        return view('user.profile', compact('title', 'lefttitle', 'access_categories'));
+    }
+
+    public function update(Request $request, $id){
+        // only update name
+    }
+
+    public function password(){
+        $title = "Password";
+        $lefttitle = '<li class="breadcrumb-item active">Profile</li></ol>';
+        $access_categories = UserCategory::where('user_id', Auth::id())->first();
+        return view('user.password', compact('title', 'lefttitle', 'access_categories'));
+    }
+
+    public function updatepassword(Request $request, $id){
+        // update password
+    }
 }

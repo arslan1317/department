@@ -17,6 +17,7 @@ Route::get('/', function () {
 });
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Auth::routes();
 
@@ -38,6 +39,13 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('user/source', 'SourceController@index')->name('source.home');
     Route::post('user/import', 'SourceController@importexcel')->name('import.excel');
 
+    /* Edit Profile */
+    Route::get('user/profile', 'UserController@profile')->name('profile.home');
+    Route::post('user/profile/{id}', 'UserController@update')->name('profile.update');
+
+    /* Change Password */
+    Route::get('user/password', 'UserController@password')->name('password.home');
+    Route::post('user/password/{id}', 'UserController@updatepassword')->name('password.update');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -81,4 +89,12 @@ Route::group(['middleware' => ['admin']], function () {
 
     /*basic setting*/
     Route::get('admin/basic', 'BasicSettingController@index')->name('basic.index');
+
+    /* Edit Profile */
+    Route::get('admin/profile', 'Admin\AdminDashboard@profile')->name('admin.profile.home');
+    Route::post('admin/profile/{id}', 'Admin\AdminDashboard@update')->name('admin.profile.update');
+
+    /* Change Password */
+    Route::get('admin/password', 'Admin\AdminDashboard@password')->name('admin.password.home');
+    Route::post('admin/password/{id}', 'Admin\AdminDashboard@updatepassword')->name('admin.password.update');
 });

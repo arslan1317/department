@@ -32,4 +32,25 @@ class AdminDashboard extends Controller
     	$lefttitle = '<li class="breadcrumb-item active">Dashboard</li></ol>';
         return view('admin.dashboard', compact('title', 'lefttitle', 'dashboard'));
     }
+
+    public function profile(){
+        $title = "Profile";
+        $lefttitle = '<li class="breadcrumb-item active">Profile</li></ol>';
+        return view('admin.profile', compact('title', 'lefttitle'));
+    }
+
+    public function update(Request $request, $id){
+        // only update name
+    }
+
+    public function password(){
+        $title = "Password";
+        $lefttitle = '<li class="breadcrumb-item active">Profile</li></ol>';
+        return view('admin.password', compact('title', 'lefttitle'));
+    }
+
+    public function updatepassword(Request $request, $id){
+        // update password
+    }
+
 }

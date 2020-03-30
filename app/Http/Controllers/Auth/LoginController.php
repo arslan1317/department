@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\UserRequest;
 use Auth;
 
 class LoginController extends Controller
@@ -48,4 +50,19 @@ class LoginController extends Controller
             return redirect('/admin/login');
         }
     }
+
+    public function showAdminLoginForm()
+    {
+        return view('auth.admin.login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        $access = UserRequest::where('user_id', $user->id)->first();
+        if($access['status'] == 0){
+            Auth::logout();
+            return redirect()->back()->with('status', 'Your Request has not been approved from Admin');
+        }
+    }
+
 }

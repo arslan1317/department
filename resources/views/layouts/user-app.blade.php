@@ -54,9 +54,8 @@
                     <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700">{{ Auth::user()->name }}</span><span class="avatar avatar-online"><img src="{{ asset('admin/images/avatar-s-19.png') }}" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href=""><i class="ft-user"></i> Edit Profile</a>
-                                <a class="dropdown-item" href=""><i class="ft-clipboard"></i> Todo</a>
-                                <a class="dropdown-item" href=""><i class="ft-check-square"></i> Task</a>
+                                <a class="dropdown-item" href="{{route('profile.home')}}"><i class="ft-user"></i> Edit Profile</a>
+                                <a class="dropdown-item" href="{{route('password.home')}}"><i class="ft-lock"></i> Change Password</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="ft-power"></i> Logout</a>
