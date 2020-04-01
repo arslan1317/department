@@ -59,7 +59,7 @@
 /* ttm-row 
 
 ---------------------------------------------------------------*/
-body .page .site-main >.ttm-row:not(.intro-section):first-child {margin-top: -92px; }
+body .page .site-main >.ttm-row:not(.intro-section):first-child {margin-top: -82px; }
 .ttm-row{ padding: 90px 0;}
 .ttm-row.welcome-section{ padding: 90px 0 0; }
 .ttm-row.intro-section{ padding: 0 0; }
@@ -349,15 +349,6 @@ body .page .site-main >.ttm-row:not(.intro-section):first-child {margin-top: -92
 }
 .section-title.style2.with-seprator{ margin-bottom: 35px; }
 .section-title.style2 h2.title{ padding-bottom: 0px; margin-bottom: 15px;}
-.section-title.style2:after{
-    content: "";
-    right: 50%;
-    height: 82%;
-    position: absolute;
-    top: 10%;
-    width: 1px;
-    border-right: 1px solid rgba(122,122,122,.34);
-}
 .ttm-bgcolor-skincolor .section-title.style2:after{ border-right: 1px solid rgba(255,255,255,.16); }
 .section-title.style2 h2{
     display: table-cell;

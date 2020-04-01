@@ -108,148 +108,74 @@
                                 YOUR LOGO
                             </a>
                         </div>
-                        <div class="ttm-top-info-con">
-                            <ul>
-                                <li>
-                                    <div class="icon-box icon-style-border">
-                                        <i class="ti ti-mobile"></i>
-                                    </div>
-                                    <div class="title-box">
-                                        <h5>Call</h5>
-                                        <p>+123 4567 8910</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon-box icon-style-border">
-                                        <i class="ti ti-comment-alt"></i>
-                                    </div>
-                                    <div class="title-box">
-                                        <h5>Email</h5>
-                                        <p>info@example.com</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon-box icon-style-border">
-                                        <i class="ti ti-location-pin"></i>
-                                    </div>
-                                    <div class="title-box">
-                                        <h5>Address</h5>
-                                        <p>24 Fifth st, Los Angeles, USA</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div id="ttm-stickable-header-w" class="ttm-stickable-header-w clearfix">
-                        <div id="site-header-menu" class="site-header-menu">
-                            <div class="site-header-menu-inner ttm-stickable-header">
-                                <div class="container">
-                                    <div id="site-navigation" class="site-navigation">
-                                        <div class="ttm-menu-toggle">
-                                            <input type="checkbox" id="menu-toggle-form" />
-                                            <label for="menu-toggle-form" class="ttm-menu-toggle-block">
-                                                <span class="toggle-block toggle-blocks-1"></span>
-                                                <span class="toggle-block toggle-blocks-2"></span>
-                                                <span class="toggle-block toggle-blocks-3"></span>
-                                            </label>
+                        <div id="ttm-stickable-header-w" class="ttm-stickable-header-w clearfix">
+                            <div id="site-header-menu" class="site-header-menu">
+                                <div class="site-header-menu-inner ttm-stickable-header visible-title">
+                                    <div class="container">
+                                        <div id="site-navigation" class="site-navigation">
+                                            <div class="ttm-menu-toggle">
+                                                <input type="checkbox" id="menu-toggle-form">
+                                                <label for="menu-toggle-form" class="ttm-menu-toggle-block">
+                                                    <span class="toggle-block toggle-blocks-1"></span>
+                                                    <span class="toggle-block toggle-blocks-2"></span>
+                                                    <span class="toggle-block toggle-blocks-3"></span>
+                                                </label>
+                                            </div>
+                                            <nav id="menu" class="menu">
+                                                <ul class="dropdown">
+                                                    <li class="active"><a href="index.html">Home</a>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="#">Pages</a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="aboutus-1.html">About Us 1</a></li>
+                                                            <li><a href="aboutus-2.html">About Us 2</a></li>
+                                                            <li><a href="services-1.html">Service 1</a></li>
+                                                            <li><a href="services-2.html">Service 2</a></li>
+                                                            <li><a href="our-team.html">Our Team</a></li>
+                                                            <li><a href="contact-us.html">Contact Us</a></li>
+                                                            <li class="has-submenu"><a href="#">Shop</a>
+                                                                <ul class="sub-menu">
+                                                                    <li><a href="home-shop.html">Home Shop</a></li>
+                                                                    <li><a href="shop.html">Default Shop</a></li>
+                                                                    <li><a href="product-details.html">Single Product Details</a></li>
+                                                                    <li><a href="cart.html">Cart</a></li>
+                                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><a href="faq.html">FAQs</a></li>
+                                                            <li><a href="error.html">Error Page</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class=""><a href="#">News</a>
+                                                    </li>
+                                                    <li class=""><a href="#">Events</a>
+                                                    </li>
+                                                    <li class=""><a href="element.html">Sources</a></li>
+                                                </ul>
+                                            </nav>
                                         </div>
-                                        <nav id="menu" class="menu">
-                                            <ul class="dropdown">
-                                                <li class="active"><a href="index.html">Home</a>
-                                                    <ul>
-                                                        <li><a href="index.html">Home Classic</a></li>
-                                                        <li><a href="home-2.html">Home Classic 2 <span class="label-new">New</span></a></li>
-                                                        <li class="active"><a href="home-3.html">Home Corporate</a></li>
-                                                        <li><a href="home-4.html">Home Creative</a></li>
-                                                        <li><a href="home-one-page.html">Home One Page <span class="label-new">New</span></a></li>
-                                                        <li><a href="#">Header Styles</a>
-                                                            <ul>
-                                                                <li><a href="index.html">Header Infostack</a></li>
-                                                                <li><a target="_blank" href="header-classic.html">Header Classic</a></li>
-                                                                <li><a target="_blank" href="header-overlay.html">Header Overlay</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Pages</a>
-                                                    <ul>
-                                                        <li><a href="aboutus-1.html">About Us 1</a></li>
-                                                        <li><a href="aboutus-2.html">About Us 2</a></li>
-                                                        <li><a href="services-1.html">Service 1</a></li>
-                                                        <li><a href="services-2.html">Service 2</a></li>
-                                                        <li><a href="our-team.html">Our Team</a></li>
-                                                        <li><a href="contact-us.html">Contact Us</a></li>
-                                                        <li><a href="#">Shop</a>
-                                                            <ul>
-                                                                <li><a href="home-shop.html">Home Shop</a></li>
-                                                                <li><a href="shop.html">Default Shop</a></li>
-                                                                <li><a href="product-details.html">Single Product Details</a></li>
-                                                                <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="faq.html">FAQs</a></li>
-                                                        <li><a href="error.html">Error Page</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Services</a>
-                                                    <ul>
-                                                        <li><a href="oil-and-gas.html">Oil &amp; Gas</a></li>
-                                                        <li><a href="chemical-research.html">Chemical Research</a></li>
-                                                        <li><a href="agricultural-research.html">Agricultural Research</a></li>
-                                                        <li><a href="mechanical-civil.html">Mechanical &amp; Civil</a></li>
-                                                        <li><a href="auto-motive-engineering.html">Auto Motive Engineering</a></li>
-                                                        <li><a href="manufacturing.html">Manufacturing</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Projects</a>
-                                                    <ul>
-                                                        <li><a href="portfolio-classic.html">Project Classic</a></li>
-                                                        <li><a href="portfolio-overlay.html">Project Overlay</a></li>
-                                                        <li><a href="portfolio-full-width.html">Project Full Width</a></li>
-                                                        <li><a href="#">Project Single</a>
-                                                            <ul>
-                                                                <li><a href="portfolio-details-01.html">Style One</a></li>
-                                                                <li><a href="portfolio-details-02.html">Style Two</a></li>
-                                                                <li><a href="portfolio-details-03.html">Style Three</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="element.html">Elements</a></li>
-                                                <li><a href="#">Blog</a>
-                                                    <ul>
-                                                        <li><a href="blog.html">Blog Classic</a></li>
-                                                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                                                        <li><a href="single-blog.html">Single Blog</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <div class="ttm-rt-contact">
-                                        <!-- header-icins -->
-                                        <div class="ttm-header-icons ">
-                                            <div class="ttm-header-icon ttm-header-search-link"><a href="#"><i class="fa fa-search"></i></a>
-                                                <div class="ttm-search-overlay">
-                                                    <form method="get" class="ttm-site-searchform" action="#">
-                                                        <div class="w-search-form-h">
-                                                            <div class="w-search-form-row">
-                                                                <div class="w-search-input">
-                                                                    <input type="search" class="field searchform-s" name="s" placeholder="Type Word Then Enter...">
-                                                                    <button type="submit">
-                                                                        <i class="ti ti-search"></i>
-                                                                    </button>
+                                        <div class="ttm-rt-contact">
+                                            <!-- header-icins -->
+                                            <div class="ttm-header-icons ">
+                                                <div class="ttm-header-icon ttm-header-search-link"><a href="#" class="sclose"><i class="fa fa-search"></i></a>
+                                                    <div class="ttm-search-overlay">
+                                                        <form method="get" class="ttm-site-searchform" action="#">
+                                                            <div class="w-search-form-h">
+                                                                <div class="w-search-form-row">
+                                                                    <div class="w-search-input">
+                                                                        <input type="search" class="field searchform-s" name="s" placeholder="Type Word Then Enter...">
+                                                                        <button type="submit">
+                                                                            <i class="ti ti-search"></i>
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </form>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- header-icons end -->
-                                        <div class="ttm-custombutton">
-                                            <a href="contact-us.html">Get a Quote<i class="fa fa-caret-right"></i></a>
+                                            <!-- header-icons end -->
+                                            
                                         </div>
                                     </div>
                                 </div>

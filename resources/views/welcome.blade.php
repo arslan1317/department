@@ -4,7 +4,6 @@
             
             <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container slide-overlay" data-alias="classic4export" data-source="gallery">
 
-                <!-- START REVOLUTION SLIDER 5.4.8 auto mode -->
                 <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.4.8">
                     <div class="slotholder"></div>
                     <ul>
@@ -78,35 +77,13 @@
         <div class="site-main">
 
             <!--company-template-section-->
-            <section class="ttm-row company-template-section mt_92 clearfix">
+            <section class="ttm-row company-template-section clearfix">
                 <div class="container">
-                    <!-- row -->
                     <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <!-- template-content -->
-                            <div class="template-content text-center ttm-bg ttm-bgcolor-skincolor pt-70 pb-15 mt-10">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content">
-                                    <div class="section-title clearfix">
-                                        <h2 class="title pb-25"><strong class="pl-60 pr-60">{{$slider_lower->slider_lower_heading}}</strong></h2>
-                                        <h5 class="ttm-textcolor-white text-opecity">{{$slider_lower->slider_lower_paragraph}}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- template-content end -->
-                        </div>
-                        <div class="col-md-3"></div>
-                    </div>
-                    <!-- row end -->
-                    <!-- row -->
-                    <div class="row">
-                        <!-- ttm-section-info_box -->
                         <div class="ttm-section-info_box ttm-bgcolor-white clearfix">
                             <div class="row box-shadow row-equal-height ttm-box-seperator">
                                 @foreach($info_box as $info_boxes)
                                 <div class="col-lg-4 col-md-4 col-sm-12">
-                                    <!-- featured-box -->
                                     <div class="featured-box style3 text-center">
                                         <div class="featured-icon icon-shape-square icon-bgcolor-grey">
                                             <img src="{{asset('images')}}/{{$info_boxes->info_image}}" alt="" width="80" height="80">
@@ -120,26 +97,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- featured-box end-->
                                 </div>
                                 @endforeach
                             </div>
-                            <!-- row end -->
                         </div>
-                        <!-- ttm-section-info_box end -->
                     </div>
-                    <!-- row end -->
                 </div>
             </section>
-            <!-- company-template end -->
 
             <!--bg-layer-section-->
             <section class="ttm-row bg-layer-section bg-layer break-1199-colum clearfix">
                 <div class="container">
-                    <!-- row -->
                     <div class="row row-equal-height">
                         <div class="col-lg-12">
-                            <!-- col-bg-img-four -->
                             <div class="col-bg-img-four ttm-col-bgimage-yes ttm-bg padding-12">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                                 <div class="layer-content">
@@ -148,34 +118,26 @@
                                             <li class="active"><a href="#"><i class="fa fa-user"></i>About</a></li>
                                         </ul>
                                         <div class="content-tab ttm-bgcolor-white">
-                                            <!-- content-inner -->
-                                            <!-- content-inner end-->
-                                            <!-- content-inner -->
                                             <div class="content-inner active">
                                                 <h4>Offering you Endless Possibilities to Grow</h4>
                                                 <p><strong>We are one of leading company in manufacturing &amp; petro chemical products. We makes long-term investments goal in global companies in different sectors, mainly in Europe.</strong></p>
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                                             </div>
-                                            <!-- content-inner end-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- col-bg-img-four end -->
                         </div>
                     </div>
                     <!--row end-->
                 </div>
             </section>
-            <!-- bg-layer-section end -->
 
             <!--ttm-row -->
             <section class="ttm-row ttm-bgcolor-grey">
                 <div class="container">
-                    <!-- row -->
                     <div class="row mb-35">
                         <div class="col-lg-9 col-md-12">
-                            <!-- section-title -->
                             <div class="section-title clearfix">
                                 <h2 class="title">Department<strong>Energy</strong></h2>
                                 <div class="heading-seperator"><span></span></div>
@@ -185,19 +147,14 @@
                             <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0 float-right" href="#">More Services</a>
                         </div>
                     </div>
-                    <!-- row end -->
                 </div>
             </section>
-            <!-- ttm-row end -->
 
-            <!-- blog-section -->
             <section class="ttm-row blog-section2 mt_92">
                 <div class="container">
-                    <!-- row -->
                     <div class="row">
                         @foreach($subdeparment as $subdeparments)
                         <div class="col-md-4 mb-30">
-                            <!-- featured-item -->
                             <div class="featured-item">
                                 <div class="featured-thumbnail">
                                     @if(count($subdeparments->news) != 0)
@@ -210,7 +167,6 @@
                                     <img class="img-fluid" src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png" alt="{{$subdeparments->name}}">
                                     @endif
                                 </div>
-                                <!-- featured-box -->
                                 <div class="featured-box style5 box-shadow">
                                     <div class="featured-icon icon-shape-square icon-size-md">
                                         
@@ -229,149 +185,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- featured-box end -->
                             </div>
-                            <!-- featured-item end-->
                         </div>
                         @endforeach
-                        <div class="col-md-8 res-767-mb-30">
-                            <!-- col-bg-img-six -->
-                            <div class="col-bg-img-six ttm-col-bgimage-yes ttm-bg padding-5">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content text-center">
-                                    <div class="title-box-only text-center ttm-textcolor-white">
-                                        <h4>Get Your</h4>
-                                        <h2><strong class="ttm-strongcolor-skincolor">Free</strong> Consulting</h2>
-                                        <p class="text-opecity">Have an idea a dream? We can make it happen.</p>
-                                        <span class="ttm-textcolor-skincolor mt_4">Call: 123 456 78910</span>
-                                    </div>
-                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white  mt-30 mb-35" href="#">Join Us Now</a>
-                                </div>
-                            </div>
-                            <!-- col-bg-img-six end -->
-                        </div>
                     </div>
                 </div>
             </section>
             <!--blog-section end-->
 
-            <!-- testimonial-section -->
-            <section class="ttm-row testimonial-section2 bg-img3 ttm-bgcolor-skincolor ttm-bg ttm-bgimage-yes mt_85 res-991-mt-0 clearfix">
-                <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- title-section -->
-                            <div class="section-title text-center clearfix">
-                                <h5>COMPANY</h5>
-                                <h2 class="title">Testimonial<strong>What Our Client Say</strong></h2>
-                                <div class="heading-seperator text-center"><span></span></div>
-                            </div>
-                            <!-- title-section end -->
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- testimonial-box -->
-                            <div class="testimonial-box testimonial-bgimg-box">
-                                <!-- flat-testimonial -->
-                                <div class="testimonial-slide owl-carousel" data-item="1" data-nav="true" data-dots="false" data-auto="true">
-                                    <!-- testimonials -->
-                                    <div class="testimonials text-center">
-                                        <div class="testimonial-content ttm-bgcolor-white">
-                                            <div class="testimonial-caption">
-                                                <h6>Robert Clarkson</h6>
-                                                <label>CEO, Axura</label>
-                                            </div>
-                                            <p>The team at Tectxon industry is very talented, dedicated, well organized and knowledgeable. I was most satisfied with the quality of the workmanship. They did excellent work.</p>
-                                        </div>
-                                        <div class="testimonial-avatar">
-                                            <div class="testimonial-img">
-                                                <img class="img-center" src="{{ asset('front/images/testi-01.jpg') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--testimonials end-->
-                                    <!-- testimonials -->
-                                    <div class="testimonials text-center">
-                                        <div class="testimonial-content ttm-bgcolor-white">
-                                            <div class="testimonial-caption">
-                                                <h6>Robert Clarkson</h6>
-                                                <label>CEO, Axura</label>
-                                            </div>
-                                            <p>The team at Tectxon industry is very talented, dedicated, well organized and knowledgeable. I was most satisfied with the quality of the workmanship. They did excellent work.</p>
-                                        </div>
-                                        <div class="testimonial-avatar">
-                                            <div class="testimonial-img">
-                                                <img class="img-center" src="{{ asset('front/images/testi-02.jpg') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- testimonials end -->
-                                    <!-- testimonials -->
-                                    <div class="testimonials text-center">
-                                        <div class="testimonial-content ttm-bgcolor-white">
-                                            <div class="testimonial-caption">
-                                                <h6>Robert Clarkson</h6>
-                                                <label>CEO, Axura</label>
-                                            </div>
-                                            <p>The team at Tectxon industry is very talented, dedicated, well organized and knowledgeable. I was most satisfied with the quality of the workmanship. They did excellent work.</p>
-                                        </div>
-                                        <div class="testimonial-avatar">
-                                            <div class="testimonial-img">
-                                                <img class="img-center" src="{{ asset('front/images/testi-03.jpg') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- testimonials end -->
-                                </div>
-                            </div>
-                            <!-- testimonial-box end-->
-                        </div>
-                    </div>
-                    <!-- row end-->
-                </div>
-            </section>
-            <!-- testimonial-section end-->
-
-            <!-- project-section -->
             <section class="ttm-row project-section ttm-bgcolor-darkgrey">
                 <div class="container">
-                    <!-- row -->
                     <div class="row">
                         <div class="col-lg-9 col-md-12">
-                            <!-- section-title -->
                             <div class="section-title style2 clearfix">
                                 <h2 class="title">Work with<strong>Latest Projects</strong></h2>
-                                <p>Tectxon has 23+ years of experience with providing wide area of specialty services works listed below.</p>
                             </div>
-                            <!-- section-title end -->
                         </div>
                         <div class="col-lg-3 col-md-12">
                             <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-30 mb-35 res-991-mt-0 float-right" href="#">More Projects</a>
                         </div>
                     </div>
-                    <!-- row end -->
-                    <!-- row -->
                     <div class="row mb_224">
                         <div class="col-lg-4 col-md-4">
-                            <!-- featured-item -->
                             <div class="featured-item ttm-portfolio-view-topimage">
                                 <div class="featured-portfolio-item ttm-item-view-topimage">
                                     <div class="featured-thumbnail">
                                         <a href="#"> <img class="img-fluid" src="{{ asset('front/images/05.jpg') }}" alt="image"></a>
                                     </div>
-                                    <!-- ttm-box-view-overlay -->
                                     <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
                                         <div class="featured-iconbox ttm-media-link">
                                             <a class="ttm_prettyphoto ttm_image" data-gal="prettyPhoto[gallery1]" title="spring-renovation" href="{{ asset('front/images/05.jpg') }}" data-rel="prettyPhoto"><i class="ti ti-image"></i></a>
                                             <a href="portfolio-details-01.html" class="ttm_link"><i class="ti ti-link"></i></a>
                                         </div>
                                     </div>
-                                    <!-- ttm-box-view-overlay end-->
                                 </div>
                                 <div class="content-post">
                                     <h2 class="title-post"><a href="portfolio-details-01.html">spring-renovation</a></h2>
@@ -380,23 +226,19 @@
                                 </span>
                                 </div>
                             </div>
-                            <!-- featured-item end -->
                         </div>
                         <div class="col-lg-4 col-md-4">
-                            <!-- featured-item -->
                             <div class="featured-item ttm-portfolio-view-topimage">
                                 <div class="featured-portfolio-item ttm-item-view-topimage">
                                     <div class="featured-thumbnail">
                                         <a href="#"><img class="img-fluid" src="{{ asset('front/images/04.jpg') }}" alt="image"></a>
                                     </div>
-                                    <!-- ttm-box-view-overlay -->
                                     <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
                                         <div class="featured-iconbox ttm-media-link">
                                             <a class="ttm_prettyphoto ttm_image" data-gal="prettyPhoto[gallery1]" title="Vam Drilling" href="{{ asset('front/images/04.jpg') }}" data-rel="prettyPhoto"><i class="ti ti-image"></i></a>
                                             <a href="portfolio/vam-drilling.html" class="ttm_link"><i class="ti ti-link"></i></a>
                                         </div>
                                     </div>
-                                    <!-- ttm-box-view-overlay end-->
                                 </div>
                                 <div class="content-post">
                                     <h2 class="title-post"><a href="portfolio-details-02.html">Vam Drilling</a></h2>
@@ -406,23 +248,19 @@
                                 </span>
                                 </div>
                             </div>
-                            <!-- featured-item end -->
                         </div>
                         <div class="col-lg-4 col-md-4">
-                            <!-- featured-item -->
                             <div class="featured-item ttm-portfolio-view-topimage">
                                 <div class="featured-portfolio-item ttm-item-view-topimage">
                                     <div class="featured-thumbnail">
                                         <a href="#"> <img class="img-fluid" src="{{ asset('front/images/06.jpg') }}" alt="image"></a>
                                     </div>
-                                    <!-- ttm-box-view-overlay -->
                                     <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
                                         <div class="featured-iconbox ttm-media-link">
                                             <a class="ttm_prettyphoto ttm_image" data-gal="prettyPhoto[gallery1]" title="Successful Venture" href="{{ asset('front/images/06.jpg') }}" data-rel="prettyPhoto"><i class="ti ti-image"></i></a>
                                             <a href="portfolio-details-03.html" class="ttm_link"><i class="ti ti-link"></i></a>
                                         </div>
                                     </div>
-                                    <!-- ttm-box-view-overlay end-->
                                 </div>
                                 <div class="content-post">
                                     <h2 class="title-post"><a href="portfolio-details-03.html">Successful Venture</a></h2>
@@ -432,155 +270,25 @@
                                 </span>
                                 </div>
                             </div>
-                            <!-- featured-item end-->
                         </div>
                     </div>
-                    <!-- row end -->
                 </div>
             </section>
-            <!-- project-section end-->
 
-            <!-- accordion-section -->
-            <section class="ttm-row accordion-section break-991-colum ttm-bgcolor-grey clearfix">
+
+            <section class="ttm-row blog-section2 break-991-colum bg-layer res-991-mt-0">
                 <div class="container">
-                    <!-- row -->
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="section-title text-center clearfix">
-                                <h5>WHAT WE DO</h5>
-                                <h2 class="title">Dream Big<strong>Inspiring Solutions</strong></h2>
-                                <div class="heading-seperator text-center"><span></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- wrap-acadion -->
-                            <div class="wrap-acadion">
-                                <div class="accordion">
-                                    <!-- toggle -->
-                                    <div class="toggle">
-                                        <div class="toggle-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Why should i choose your company?</a></div>
-                                        <div class="toggle-content">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="toggle-figure">
-                                                        <img class="img-fluid" src="{{ asset('front/images/04.jpg') }}" alt="image">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <p>Tectxon is committed to developing solutions that reduced operating costs and alignment with energy.It also have major resources.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- toggle end -->
-                                    <!-- toggle -->
-                                    <div class="toggle">
-                                        <div class="toggle-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How should i beleive about your services?</a></div>
-                                        <div class="toggle-content">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="toggle-figure">
-                                                        <img class="img-fluid" src="{{ asset('front/images/04.jpg') }}" alt="image">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <p>Tectxon is committed to developing solutions that reduced operating costs and alignment with energy.It also have major resources.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- toggle end -->
-                                    <!-- toggle -->
-                                    <div class="toggle">
-                                        <div class="toggle-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Tectxon standard blog and executive team.</a></div>
-                                        <div class="toggle-content">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="toggle-figure">
-                                                        <img class="img-fluid" src="{{ asset('front/images/04.jpg') }}" alt="image">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <p>Tectxon is committed to developing solutions that reduced operating costs and alignment with energy.It also have major resources.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- toggle end -->
-                                </div>
-                            </div>
-                            <!-- wrap-acadion end-->
-                        </div>
-                        <div class="col-md-6">
-                            <!-- row -->
-                            <div class="row lg-mlr_15">
-                                <div class="col-sm-6">
-                                    <div class="client-box">
-                                        <div class="ttm-client-logo-tooltip" data-tooltip="Gear Service">
-                                            <div class="client">
-                                                <img src="{{ asset('front/images/client-01.png') }}" alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="client-box">
-                                        <div class="ttm-client-logo-tooltip" data-tooltip="GreenHand">
-                                            <div class="client">
-                                                <img src="{{ asset('front/images/client-02.png') }}" alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="client-box">
-                                        <div class="ttm-client-logo-tooltip" data-tooltip="GearInfinite">
-                                            <div class="client">
-                                                <img src="{{ asset('front/images/client-03.png') }}" alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="client-box">
-                                        <div class="ttm-client-logo-tooltip" data-tooltip="Excavator">
-                                            <div class="client">
-                                                <img src="{{ asset('front/images/client-04.png') }}" alt="image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- row end -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- accordion-section end-->
-
-            <!-- blog-section2 -->
-            <section class="ttm-row blog-section2 break-991-colum bg-layer mt_50 res-991-mt-0">
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <!-- about-content -->
                             <div class="about-content ttm-col-bgcolor-yes ttm-bg ttm-left-span padding-6 res-991-pl-15">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content">
-                                    <!-- section title -->
-                                    <div class="section-title clearfix">
+                                <div class="layer-content row">
+                                    <div class="section-title clearfix col-12">
                                         <h5>BLOG</h5>
                                         <h2 class="title">Check<strong>Out Our News</strong></h2>
                                         <div class="heading-seperator"><span></span></div>
                                     </div>
-                                    <!-- section title end -->
-                                    <!-- post -->
-                                    <div class="post row m-0 res-991-mb-30">
+                                    <div class="post row m-0 res-991-mb-30 col-md-6">
                                         <div class="post-image col-sm-4">
                                             <img class="img-fluid" src="{{ asset('front/images/01.jpg') }}" alt="">
                                         </div>
@@ -594,12 +302,9 @@
                                                     <li><i class="fa fa-calendar"></i>August 1, 2018</li>
                                                 </ul>
                                             </div>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...</p>
                                         </div>
                                     </div>
-                                    <!-- post end -->
-                                    <!-- post -->
-                                    <div class="post row m-0 res-991-mb-30">
+                                    <div class="post row m-0 res-991-mb-30 col-md-6">
                                         <div class="post-image col-sm-4">
                                             <img class="img-fluid" src="{{ asset('front/images/02.jpg') }}" alt="">
                                         </div>
@@ -613,37 +318,47 @@
                                                     <li><i class="fa fa-calendar"></i>August 2, 2018</li>
                                                 </ul>
                                             </div>
-                                            <p>We were honoured to receive such a amazing award for selected top Industrial Com...</p>
                                         </div>
                                     </div>
-                                    <!-- post end -->
-                                </div>
-                            </div>
-                            <!-- about-content end-->
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- col-img-img-one -->
-                            <div class="col-bg-img-seven ttm-col-bgimage-yes ttm-bg ttm-right-span">
-                                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                                <div class="layer-content">
-                                    <div class="row pt-100 pl-90 pb-150">
-                                        <div class="col-sm-12">
-                                            <div class="ttm-video-btn video-btn-left btn-size-sm">
-                                                <a class="ttm-play-btn ttm_prettyphoto" href="https://youtu.be/MdLVzXf7v5E"><span class="ttm-btn-play"><i class="fa fa-play"></i></span>See How<br>Factory Work</a>
+                                    <div class="post row m-0 res-991-mb-30 col-md-6">
+                                        <div class="post-image col-sm-4">
+                                            <img class="img-fluid" src="http://127.0.0.1:8000/front/images/01.jpg" alt="">
+                                        </div>
+                                        <div class="post-desc style3 col-sm-8">
+                                            <div class="post-title">
+                                                <h5><a href="single-blog.html">We are best for any industrial &amp; business solution.</a> </h5>
+                                            </div>
+                                            <div class="post-meta">
+                                                <ul class="list-inline">
+                                                    <li><i class="fa fa-user"></i>Alex</li>
+                                                    <li><i class="fa fa-calendar"></i>August 1, 2018</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post row m-0 res-991-mb-30 col-md-6">
+                                        <div class="post-image col-sm-4">
+                                            <img class="img-fluid" src="http://127.0.0.1:8000/front/images/01.jpg" alt="">
+                                        </div>
+                                        <div class="post-desc style3 col-sm-8">
+                                            <div class="post-title">
+                                                <h5><a href="single-blog.html">We are best for any industrial &amp; business solution.</a> </h5>
+                                            </div>
+                                            <div class="post-meta">
+                                                <ul class="list-inline">
+                                                    <li><i class="fa fa-user"></i>Alex</li>
+                                                    <li><i class="fa fa-calendar"></i>August 1, 2018</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- col-img-bg-img-one end-->
                         </div>
                     </div>
-                    <!-- row end -->
                 </div>
             </section>
-            <!-- blog-section2 end-->
 
         </div>
-        <!-- site-main end -->
 
 @endsection

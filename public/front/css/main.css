@@ -980,8 +980,10 @@ ul li .icon-box.icon-style-border i{
     height: 105px;
     line-height: 105px;
 }
-.ttm-header-top-wrapper{
+.ttm-header-top-wrapper {
     position: relative;
+    align-items: center;
+    display: flex;
 }
 .site-branding img {
     max-height: 45px;
@@ -1065,11 +1067,16 @@ ul li .icon-box.icon-style-border i{
 .ttm-header-style-infostack .ttm-rt-contact {
     position: absolute;
     right: -1px;
-    top: 0;
     font-size: 14px;
-    padding: 0 0 0 8px;
+    padding: 0;
     height: 60px;
     line-height: 60px;
+    text-align: CENTER;
+    display: flex;
+    align-items: CENTER;
+    justify-content: CENTER;
+    width: 60px;
+    top: 3px;
 }
 .ttm-header-style-infostack .ttm-rt-contact .ttm-header-icons,
 .ttm-header-icon{
@@ -1620,4 +1627,10 @@ section.ttm-row.bg-layer-section.bg-layer.break-1199-colum.clearfix{
 .featured-desc a.ttm-btn:hover {
     background-color: #020d26;
     color: white !important;
+}
+section.ttm-row.blog-section2.mt_92 {
+    padding-bottom: 50px;
+}
+section.ttm-row.blog-section2.break-991-colum.bg-layer.res-991-mt-0 {
+    margin-top: 40px;
 }

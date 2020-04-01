@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Admin\BasicSetting;
 use App\UserRequest;
 use Auth;
 
@@ -65,6 +66,12 @@ class LoginController extends Controller
                 return redirect()->back()->with('status', 'Your Request has not been approved from Admin');
             }
         }
+    }
+
+    public function showLoginForm()
+    {
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        return view('auth.login', compact('social_icons'));
     }
 
 }

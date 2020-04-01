@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\UserRequest;
+use App\Admin\BasicSetting;
 use App\Department;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -88,9 +89,10 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
+        $social_icons = BasicSetting::where('section_type', 2)->get();
         $approved_user_request = UserRequest::where('status', '!=', 0)->get();
         $department = Department::orderby('id', 'desc')->get();
-        return view('auth.register', compact('department', 'approved_user_request'));
+        return view('auth.register', compact('department', 'approved_user_request', 'social_icons'));
     }
 
     protected function registered(Request $request, $user)
@@ -98,4 +100,5 @@ class RegisterController extends Controller
         Auth::logout();
         return redirect()->back()->with('status', 'Your Request has not been approved from Admin');
     }
+
 }
