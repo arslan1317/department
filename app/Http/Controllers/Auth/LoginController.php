@@ -60,8 +60,8 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $access = UserRequest::where('user_id', $user->id)->first();
-        if($access['isAdmin'] != 0){
-            if($access['status'] == 0){
+        if(isset($access['isAdmin']) != 0){
+            if(isset($access['status']) == 0){
                 Auth::logout();
                 return redirect()->back()->with('status', 'Your Request has not been approved from Admin');
             }
