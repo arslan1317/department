@@ -10,6 +10,7 @@ use App\User;
 use App\News;
 use App\Event;
 use App\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class AdminDashboard extends Controller
 {
@@ -20,7 +21,7 @@ class AdminDashboard extends Controller
 
     public function index()
     {
-        $dashboard = []; 
+        $dashboard = [];
         $dashboard['departments'] = Department::count();
         $dashboard['subdepartments'] = SubDepartment::count();
         $users = User::where('isAdmin', '!=', 1)->get();
@@ -40,7 +41,17 @@ class AdminDashboard extends Controller
     }
 
     public function update(Request $request, $id){
-        // only update name
+        $user = User::find($id);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required'
+        ]);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->update();
+        return redirect()->back()->with('success', 'Name is successfully updated');
+
     }
 
     public function password(){
@@ -50,7 +61,18 @@ class AdminDashboard extends Controller
     }
 
     public function updatepassword(Request $request, $id){
-        // update password
+        $user = User::find($id);
+        $validatedData = $request->validate([
+            'current' => 'required',
+            'new_password' => 'required',
+            'confirm_new_password' => 'required'
+        ]);
+        if( $request->new_password == $request->confirm_new_password && Hash::check($request->current, $user->password)) {
+            $user->password = Hash::make($request->new_password);
+            $user->update();
+            return redirect()->back()->with('success', 'Password is successfully updated');
+        }
+        return redirect()->back()->with('error', 'Password not matched');
     }
 
 }
