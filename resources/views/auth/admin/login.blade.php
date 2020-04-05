@@ -50,15 +50,15 @@
                     <form method="POST" action="{{ route('login') }}" class="form-horizontal">
                       @csrf
                       <fieldset class="form-group floating-label-form-group">
-                        <label for="user-name">Your E-Mail Address</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="user-name" placeholder="Your E-Mail Address" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <label for="user-name">E-Mail Address</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="user-name" placeholder="E-Mail Address" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                           <p class="badge-danger block-tag text-center"><small class="block-area white">{{ $message }}</small></p>
                         @enderror
                       </fieldset>
                       <fieldset class="form-group floating-label-form-group mb-1">
-                        <label for="user-password">Enter Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="user-password" placeholder="Enter Password" required autocomplete="current-password" name="password">
+                        <label for="user-password">Password</label>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="user-password" placeholder="Password" required autocomplete="current-password" name="password">
                         @error('password')
                           <p class="badge-danger block-tag text-center"><small class="block-area white">{{ $message }}</small></p>
                         @enderror
@@ -74,11 +74,8 @@
                       <button type="submit" class="btn btn-outline-info btn-block"><i class="ft-unlock"></i> Login</button>
                     </form>
                   </div>
-                  <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
-                    <span>New to Admin Portal ?</span>
-                  </p>
                   <div class="card-body">
-                    
+
                   </div>
                 </div>
               </div>
