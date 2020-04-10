@@ -92,7 +92,8 @@ class RegisterController extends Controller
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $approved_user_request = UserRequest::where('status', '!=', 0)->get();
         $department = Department::orderby('id', 'desc')->get();
-        return view('auth.register', compact('department', 'approved_user_request', 'social_icons'));
+        $all_department = Department::all();
+        return view('auth.register', compact('department', 'approved_user_request', 'social_icons','all_department'));
     }
 
     protected function registered(Request $request, $user)

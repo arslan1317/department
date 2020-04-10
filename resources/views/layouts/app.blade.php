@@ -125,27 +125,15 @@
                                                 <ul class="dropdown">
                                                     <li class="active"><a href="index.html">Home</a>
                                                     </li>
-                                                    <li class="has-submenu"><a href="#">Pages</a>
+                                                    @foreach($all_department as $all_departments)
+                                                    <li class="has-submenu"><a href="#">{{$all_departments->name}}</a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="aboutus-1.html">About Us 1</a></li>
-                                                            <li><a href="aboutus-2.html">About Us 2</a></li>
-                                                            <li><a href="services-1.html">Service 1</a></li>
-                                                            <li><a href="services-2.html">Service 2</a></li>
-                                                            <li><a href="our-team.html">Our Team</a></li>
-                                                            <li><a href="contact-us.html">Contact Us</a></li>
-                                                            <li class="has-submenu"><a href="#">Shop</a>
-                                                                <ul class="sub-menu">
-                                                                    <li><a href="home-shop.html">Home Shop</a></li>
-                                                                    <li><a href="shop.html">Default Shop</a></li>
-                                                                    <li><a href="product-details.html">Single Product Details</a></li>
-                                                                    <li><a href="cart.html">Cart</a></li>
-                                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a href="faq.html">FAQs</a></li>
-                                                            <li><a href="error.html">Error Page</a></li>
+                                                        @foreach($all_departments->subdepartment as $subdepartments)
+                                                            <li><a href="#">{{$subdepartments->name}}</a></li>
+                                                        @endforeach
                                                         </ul>
                                                     </li>
+                                                    @endforeach
                                                     <li class=""><a href="#">News</a>
                                                     </li>
                                                     <li class=""><a href="#">Events</a>

@@ -61,8 +61,12 @@ $(document).ready(function(){
 		var name = $(this).data('name');
 		var datasource = $(this).data('source-log');
 		var area = []
+		var date = [];
+		var price = [];
 		for(var i = 0; i < datasource.length; i++){
 			area[i] = datasource[i]['area'];
+			date[i] = datasource[i]['date'];
+			price[i] = datasource[i]['price'];
 		}
 		console.log(area);
 		console.log(datasource);
@@ -88,7 +92,7 @@ $(document).ready(function(){
 						},
 						scaleLabel: {
 							display: !0,
-							labelString: "Month"
+							labelString: "Date"
 						}
 					}],
 					yAxes: [{
@@ -99,7 +103,7 @@ $(document).ready(function(){
 						},
 						scaleLabel: {
 							display: !0,
-							labelString: "Value"
+							labelString: "Price"
 						}
 					}]
 				},
@@ -109,36 +113,14 @@ $(document).ready(function(){
 				}
 			},
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: date,
 				datasets: [{
-					label: "My First dataset",
-					data: [65, 59, 80, 81, 56, 40],
+					label: area,
+					data: price,
 					fill: !1,
 					borderDash: [5, 5],
 					borderColor: "#9C27B0",
 					pointBorderColor: "#9C27B0",
-					pointBackgroundColor: "#FFF",
-					pointBorderWidth: 2,
-					pointHoverBorderWidth: 2,
-					pointRadius: 4
-				}, {
-					label: "My Second dataset",
-					data: [28, 48, 40, 19, 86, 27, 90],
-					fill: !1,
-					borderDash: [5, 5],
-					borderColor: "#00A5A8",
-					pointBorderColor: "#00A5A8",
-					pointBackgroundColor: "#FFF",
-					pointBorderWidth: 2,
-					pointHoverBorderWidth: 2,
-					pointRadius: 4
-				}, {
-					label: "My Third dataset - No bezier",
-					data: [45, 25, 16, 36, 67, 18, 76],
-					lineTension: 0,
-					fill: !1,
-					borderColor: "#FF7D4D",
-					pointBorderColor: "#FF7D4D",
 					pointBackgroundColor: "#FFF",
 					pointBorderWidth: 2,
 					pointHoverBorderWidth: 2,
