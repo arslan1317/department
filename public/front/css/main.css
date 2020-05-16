@@ -1644,3 +1644,12 @@ section.ttm-row.blog-section2.break-991-colum.bg-layer.res-991-mt-0 {
 .news-bg{
     background-image: url(../images/new-bg.jpg);
 }
+.post.row.m-0.res-991-mb-30.col-md-6 {
+    margin-bottom: 40px !important;
+}
+hr.new-hr {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    border-color: #3262f1;
+    border-width: 2px;
+}

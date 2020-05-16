@@ -26,9 +26,9 @@ class FrontEndController extends Controller
         $all_department = Department::all();
         $latest_news = News::where('status', 1)->orderBy('id')->take(3)->get();
         $last_7_days_date = \Carbon\Carbon::today()->subDays(7);
-        $last_7_days = News::where('created_at', '>=', $last_7_days_date)->orderBy('id')->take(3)->get();
+        $last_7_days = News::where('created_at', '>=', $last_7_days_date)->orderBy('id')->get();
         $last_30_days_date = \Carbon\Carbon::today()->subDays(30);
-        $last_30_days = News::where('created_at', '>=', $last_30_days_date)->orderBy('id')->take(3)->get();
+        $last_30_days = News::where('status', 1)->whereBetween('created_at', [$last_30_days_date, $last_7_days_date])->orderBy('id')->get();
         return view('news',compact('social_icons', 'subdeparment', 'all_department', 'latest_news','last_7_days', 'last_30_days'));
     }
 

@@ -303,7 +303,15 @@
                                             </div>
                                             <div class="post-meta">
                                                 <ul class="list-inline">
-                                                    <li><i class="fa fa-list"></i>{{$new->subdepartment->name}}</li>
+                                                    <li><i class="fa fa-list"></i>
+                                                    @if($new->subdepartment != null)                                                    
+                                                        {{$new->subdepartment->name}}
+                                                    @else
+                                                        @if($new->department != null)
+                                                            {{$new->department->name}}
+                                                        @endif
+                                                    @endif
+                                                    </li>
                                                     <li><i class="fa fa-calendar"></i>{{$new->created_at->format('M d, Y')}}</li>
                                                 </ul>
                                             </div>

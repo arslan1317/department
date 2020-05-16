@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 30, 2020 at 08:54 AM
+-- Generation Time: May 16, 2020 at 11:11 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -172,6 +172,7 @@ CREATE TABLE `news` (
 
 INSERT INTO `news` (`id`, `image`, `headline`, `body`, `department_id`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`, `status`) VALUES
 (1, '1584771616.jpeg', 'Fugiat quia omnis es', '<p>asfdsfsafdsfdd</p>', NULL, 1, 18, '2020-03-20 22:19:07', '2020-03-21 23:55:24', 1),
+(2, '1584939601.jpeg', 'Aut explicabo Volup', '<p>sfsafasfas</p>', 1, NULL, 1, '2020-03-22 19:00:01', '2020-03-22 19:00:01', 1),
 (3, '1584939601.jpeg', 'Aut explicabo Volup', '<p>sfsafasfas</p>', 1, NULL, 1, '2020-03-23 00:00:01', '2020-03-23 00:00:01', 1);
 
 -- --------------------------------------------------------
@@ -236,9 +237,9 @@ CREATE TABLE `source_logs` (
 INSERT INTO `source_logs` (`id`, `area`, `price`, `date`, `source`, `source_id`, `created_at`, `updated_at`) VALUES
 (1, 'asff', '123', '2019-03-01', 'soo', NULL, '2020-03-26 03:01:48', '2020-03-26 03:01:48'),
 (2, 'asff', '123', '2019-03-01', 'soo', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
-(3, 'asff2', '12123', '2018-03-01', 'so2', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(3, 'asff2', '300', '2018-03-01', 'so2', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
 (4, 'asff', '123', '2019-03-01', 'soo', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
-(5, 'asff2', '12123', '2018-03-01', 'so2', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
+(5, 'asff2', '300', '2018-03-01', 'so2', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
 (6, 'youarea', '1234', '2018-03-01', 'yoursource', 5, '2020-03-29 23:59:36', '2020-03-29 23:59:36'),
 (7, 'youarea2', '1234', '2018-03-02', 'yoursource2', 5, '2020-03-29 23:59:36', '2020-03-29 23:59:36');
 
@@ -480,7 +481,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `sources`
