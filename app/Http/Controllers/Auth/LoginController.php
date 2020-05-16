@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Admin\BasicSetting;
 use App\UserRequest;
 use App\Department;
+use App\News;
 use Auth;
 
 class LoginController extends Controller
@@ -73,7 +74,8 @@ class LoginController extends Controller
     {
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $all_department = Department::all();
-        return view('auth.login', compact('social_icons', 'all_department'));
+        $latest_news = News::where('status', 1)->orderBy('id')->take(3)->get();
+        return view('auth.login', compact('social_icons', 'all_department', 'latest_news'));
     }
 
 }

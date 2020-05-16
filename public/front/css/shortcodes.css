@@ -1623,7 +1623,7 @@ h2.title strong{
     padding: 33px 0 25px 0;
 }
 .post .post-desc.style3{
-    padding: 0 5px 25px 30px;
+    padding: 0 5px 0px 30px;
 }
 .post .post-desc h5 {
     margin-top: 0;
@@ -1683,6 +1683,8 @@ h2.title strong{
 .post-image img {
     width: 100%;
     transition: transform 0.5s ease-in-out;
+    height: 100%;
+    object-fit: cover;
 }
 .post.post-img-left .post-image{ float: left; }
 .post.post-topimage:hover .post-image img{

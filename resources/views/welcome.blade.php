@@ -180,7 +180,7 @@
                                             <p><strong>Website:</strong> {{$subdeparments->website}}</p>
                                             <p><strong>Telephone:</strong> {{$subdeparments->telephone}}</p>
                                             <p><strong>Fax:</strong> {{$subdeparments->fax}}</p>
-                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">News</a>
+                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/news/department')}}/{{$subdeparments->id}}">News</a>
                                             <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">Events</a>
                                         </div>
                                     </div>
@@ -283,75 +283,34 @@
                             <div class="about-content ttm-col-bgcolor-yes ttm-bg ttm-left-span padding-6 res-991-pl-15">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                                 <div class="layer-content row">
-                                    <div class="section-title clearfix col-12">
-                                        <h5>BLOG</h5>
-                                        <h2 class="title">Check<strong>Out Our News</strong></h2>
-                                        <div class="heading-seperator"><span></span></div>
+                                    <div class="col-lg-9 col-md-12">
+                                        <div class="section-title clearfix">
+                                            <h2 class="title">Check<strong>Out Our News</strong></h2>
+                                            <div class="heading-seperator"><span></span></div>
+                                        </div>
                                     </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0 float-right" href="{{url('/news')}}">More News</a>
+                                    </div>
+                                    @foreach($news as $new)
                                     <div class="post row m-0 res-991-mb-30 col-md-6">
                                         <div class="post-image col-sm-4">
-                                            <img class="img-fluid" src="{{ asset('front/images/01.jpg') }}" alt="">
+                                            <img class="img-fluid" src="{{ asset('images') }}/{{$new->image}}" alt="{{$new->headline}}">
                                         </div>
                                         <div class="post-desc style3 col-sm-8">
                                             <div class="post-title">
-                                                <h5><a href="single-blog.html">We are best for any industrial &amp; business solution.</a> </h5>
+                                                <h5><a href="#">{{$new->headline}}</a> </h5>
                                             </div>
                                             <div class="post-meta">
                                                 <ul class="list-inline">
-                                                    <li><i class="fa fa-user"></i>Alex</li>
-                                                    <li><i class="fa fa-calendar"></i>August 1, 2018</li>
+                                                    <li><i class="fa fa-list"></i>{{$new->subdepartment->name}}</li>
+                                                    <li><i class="fa fa-calendar"></i>{{$new->created_at->format('M d, Y')}}</li>
                                                 </ul>
                                             </div>
+                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/news/single')}}/{{$new->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                                         </div>
                                     </div>
-                                    <div class="post row m-0 res-991-mb-30 col-md-6">
-                                        <div class="post-image col-sm-4">
-                                            <img class="img-fluid" src="{{ asset('front/images/02.jpg') }}" alt="">
-                                        </div>
-                                        <div class="post-desc style3 col-sm-8">
-                                            <div class="post-title">
-                                                <h5><a href="single-blog.html">We won best industry award of the year 2017 & 18.</a> </h5>
-                                            </div>
-                                            <div class="post-meta">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-user"></i>Alex</li>
-                                                    <li><i class="fa fa-calendar"></i>August 2, 2018</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post row m-0 res-991-mb-30 col-md-6">
-                                        <div class="post-image col-sm-4">
-                                            <img class="img-fluid" src="http://127.0.0.1:8000/front/images/01.jpg" alt="">
-                                        </div>
-                                        <div class="post-desc style3 col-sm-8">
-                                            <div class="post-title">
-                                                <h5><a href="single-blog.html">We are best for any industrial &amp; business solution.</a> </h5>
-                                            </div>
-                                            <div class="post-meta">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-user"></i>Alex</li>
-                                                    <li><i class="fa fa-calendar"></i>August 1, 2018</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post row m-0 res-991-mb-30 col-md-6">
-                                        <div class="post-image col-sm-4">
-                                            <img class="img-fluid" src="http://127.0.0.1:8000/front/images/01.jpg" alt="">
-                                        </div>
-                                        <div class="post-desc style3 col-sm-8">
-                                            <div class="post-title">
-                                                <h5><a href="single-blog.html">We are best for any industrial &amp; business solution.</a> </h5>
-                                            </div>
-                                            <div class="post-meta">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-user"></i>Alex</li>
-                                                    <li><i class="fa fa-calendar"></i>August 1, 2018</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

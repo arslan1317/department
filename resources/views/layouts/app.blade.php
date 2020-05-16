@@ -22,54 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/responsive.css') }}" />
 </head>
 <body>
-    <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <ul class="navbar-nav ml-auto">
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
-    <div class="page">
+    <div class="page ttm-sidebar-true">
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
@@ -103,7 +56,7 @@
                 <div class="container">
                     <div class="ttm-header-top-wrapper clearfix">
                         <div class="site-branding">
-                            <a class="home-link" href="" title="Tectxon" rel="home">
+                            <a class="home-link" href="{{url('/')}}" title="Tectxon" rel="home">
                                 <!-- <img id="logo-img" class="img-center" src="" alt="logo-img"> -->
                                 YOUR LOGO
                             </a>
@@ -123,7 +76,7 @@
                                             </div>
                                             <nav id="menu" class="menu">
                                                 <ul class="dropdown">
-                                                    <li class="active"><a href="index.html">Home</a>
+                                                    <li class="active"><a href="{{url('/')}}">Home</a>
                                                     </li>
                                                     @foreach($all_department as $all_departments)
                                                     <li class="has-submenu"><a href="#">{{$all_departments->name}}</a>
@@ -134,7 +87,7 @@
                                                         </ul>
                                                     </li>
                                                     @endforeach
-                                                    <li class=""><a href="#">News</a>
+                                                    <li class=""><a href="{{url('/news')}}">News</a>
                                                     </li>
                                                     <li class=""><a href="#">Events</a>
                                                     </li>
@@ -217,10 +170,11 @@
                                     </ul>
                                     <div class="social-icons social-hover mt-15">
                                         <ul class="list-inline">
-                                            <li class="social-facebook"><a class="tooltip-top" target="_blank" href="#" data-tooltip="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li class="social-twitter"><a class="tooltip-top" target="_blank" href="#" data-tooltip="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li class="social-gplus"><a class=" tooltip-top" target="_blank" href="#" data-tooltip="Google+"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                            <li class="social-linkedin"><a class=" tooltip-top" target="_blank" href="" data-tooltip="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        @foreach($social_icons as $social_icon)
+                                            <li>
+                                                <a href="{{$social_icon->link}}" target="blank">{!!$social_icon->icon!!}</a>
+                                            </li>
+                                        @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -229,12 +183,13 @@
                                 <div class="widget style2 widget-out-link clearfix">
                                     <h3 class="widget-title">Our Services</h3>
                                     <ul id="menu-footer-services">
-                                        <li><a href="#">Oil &amp; Gas Engineering</a></li>
-                                        <li><a href="#">Manufacturing</a></li>
-                                        <li><a href="#">Chemical Research</a></li>
-                                        <li><a href="#">Auto Motive</a></li>
-                                        <li><a href="#">Agricultural</a></li>
-                                        <li><a href="#">Mechanical</a></li>
+                                    @foreach($all_department as $all_departments)
+                                    <li><a href="#" class="main">{{$all_departments->name}}</a></li>
+                                        @foreach($all_departments->subdepartment as $subdepartments)
+                                            <li><a href="#">{{$subdepartments->name}}</a></li>
+                                        @endforeach
+                                    </li>
+                                    @endforeach
                                     </ul>
                                 </div>
                                 <div class="widget style2 widget-out-link clearfix">
@@ -258,21 +213,13 @@
                                 <div class="widget style2 widget-out-link clearfix">
                                     <h3 class="widget-title">Latest News</h3>
                                     <ul class="widget-post ttm-recent-post-list mt-15">
+                                        @foreach($latest_news as $latest_new)
                                         <li>
-                                            <a href="single-blog.html"><img src="{{ asset('front/images/01.jpg') }}" alt="post-img"></a>
-                                            <a href="single-blog.html">We are best for any industrial & business solution.</a>
-                                            <span class="post-date clearfix">August 1, 2018</span>
+                                            <a href="#"><img class="img-fluid" src="{{ asset('images') }}/{{$latest_new->image}}" alt="{{$latest_new->headline}}"></a>
+                                            <a href="#">{{$latest_new->headline}}</a>
+                                            <span class="post-date clearfix">{{$latest_new->created_at->format('M d, Y')}}</span>
                                         </li>
-                                        <li>
-                                            <a href="single-blog.html"><img src="{{ asset('front/images/02.jpg') }}" alt="post-img"></a>
-                                            <a href="single-blog.html">We won best industry award of the year 2017 & 18.</a>
-                                            <span class="post-date clearfix">August 1, 2018</span>
-                                        </li>
-                                        <li>
-                                            <a href="single-blog.html"><img src="{{ asset('front/images/03.jpg') }}" alt="post-img"></a>
-                                            <a href="single-blog.html">10 reason why should choose our industry</a>
-                                            <span class="post-date clearfix">August 05, 2018</span>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

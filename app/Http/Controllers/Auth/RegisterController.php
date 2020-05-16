@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\News;
 use App\UserRequest;
 use App\Admin\BasicSetting;
 use App\Department;
@@ -93,7 +94,8 @@ class RegisterController extends Controller
         $approved_user_request = UserRequest::where('status', '!=', 0)->get();
         $department = Department::orderby('id', 'desc')->get();
         $all_department = Department::all();
-        return view('auth.register', compact('department', 'approved_user_request', 'social_icons','all_department'));
+        $latest_news = News::where('status', 1)->orderBy('id')->take(3)->get();
+        return view('auth.register', compact('department', 'approved_user_request', 'social_icons','all_department', 'latest_news'));
     }
 
     protected function registered(Request $request, $user)

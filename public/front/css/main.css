@@ -1349,6 +1349,7 @@ ul.ttm-recent-post-list>li img {
     height: 80px;
     float: left;
     margin-right: 18px;
+    object-fit: cover;
 }
 ul.ttm-recent-post-list>li {
     margin: 0 0 20px 0;
@@ -1633,4 +1634,13 @@ section.ttm-row.blog-section2.mt_92 {
 }
 section.ttm-row.blog-section2.break-991-colum.bg-layer.res-991-mt-0 {
     margin-top: 40px;
+}
+.widget ul#menu-footer-services li a.main:before {
+    width: 20px;
+}
+.widget ul#menu-footer-services li a.main{
+    padding-left: 20px;
+}
+.news-bg{
+    background-image: url(../images/new-bg.jpg);
 }
