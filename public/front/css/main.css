@@ -1701,3 +1701,6 @@ hr.new-hr {
     border: 1px solid #3262f1;
     margin-bottom: 15px;
 }
+.featured-desc a.ttm-btn.ttm-btn-color-skincolor.btn-inline:hover {
+    color: #ffffff !important;
+}
