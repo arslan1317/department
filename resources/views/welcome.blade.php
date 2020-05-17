@@ -228,6 +228,7 @@
                                         {!! \Illuminate\Support\Str::limit($content, $limit = 50, $end = '...') !!}
                                         </div>
                                     </span>
+                                    <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/events/single')}}/{{$event->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

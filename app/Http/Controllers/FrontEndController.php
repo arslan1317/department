@@ -66,11 +66,17 @@ class FrontEndController extends Controller
         $subdeparment = SubDepartment::where('department_id', 1)->inRandomOrder()->limit(3)->get();
         $all_department = Department::all();
         $latest_news = News::orderBy('id', 'desc')->take(3)->get();
-        $last_7_days_date = \Carbon\Carbon::today()->subDays(7);
-        $last_7_days = News::where('created_at', '>=', $last_7_days_date)->orderBy('id', 'desc')->get();
-        $last_30_days_date = \Carbon\Carbon::today()->subDays(30);
-        $last_30_days = News::whereBetween('created_at', [$last_30_days_date, $last_7_days_date])->orderBy('id', 'desc')->get();
-        return view('news',compact('social_icons', 'subdeparment', 'all_department', 'latest_news','last_7_days', 'last_30_days'));
+        $upcoming_events = Event::where('start_date', '>=', date('Y-m-d'))->orderBy('start_date')->get();
+        return view('events',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'upcoming_events'));
+    }
+
+    public function events_single($id){
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->inRandomOrder()->limit(3)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $get_news = Event::find($id);
+        return view('events_single',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'get_news'));
     }
 
 }

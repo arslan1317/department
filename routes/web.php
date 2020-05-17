@@ -18,6 +18,7 @@ Route::get('/events', 'FrontEndController@events');
 Route::get('/news/department/{id}', 'FrontEndController@news_department');
 Route::get('/news/main-department/{id}', 'FrontEndController@news_main_department');
 Route::get('/news/single/{id}', 'FrontEndController@news_single');
+Route::get('/events/single/{id}', 'FrontEndController@events_single');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

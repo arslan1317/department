@@ -89,7 +89,7 @@
                                                     @endforeach
                                                     <li class=""><a href="{{url('/news')}}">News</a>
                                                     </li>
-                                                    <li class=""><a href="#">Events</a>
+                                                    <li class=""><a href="{{url('/events')}}">Events</a>
                                                     </li>
                                                     <li class=""><a href="element.html">Sources</a></li>
                                                 </ul>
