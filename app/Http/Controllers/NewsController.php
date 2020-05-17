@@ -9,6 +9,7 @@ use App\News;
 use File;
 use App\SubDepartment;
 use App\Department;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class NewsController extends Controller
 {
@@ -44,10 +45,33 @@ class NewsController extends Controller
 
         $imageName = time().'.'.$request->image->extension(); 
         $request->image->move(public_path('images'), $imageName);
+        $message = $request->input('body');
+        $dom = new \DOMDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach($images as $img){
+			$src = $img->getAttribute('src');
 
+			if(preg_match('/data:image/', $src)){
+
+				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+				$mimetype = $groups['mime'];
+			
+				$filename = uniqid();
+				$filepath = "/images/$filename.$mimetype";
+
+				$image = Image::make($src)
+				  ->encode($mimetype, 100)
+				  ->save(public_path($filepath));
+				
+				$new_src = asset($filepath);
+				$img->removeAttribute('src');
+				$img->setAttribute('src', $new_src);
+			}
+        }
         $new = new News();
         $new->headline = $request->input('headline');
-        $new->body = $request->input('body');
+        $new->body = $dom->saveHTML();
         $new->image = $imageName;
         $new->sub_dep_id = $request->input('sub_dep_id');
         $new->user_id = Auth::id();
@@ -66,10 +90,34 @@ class NewsController extends Controller
 
         $imageName = time().'.'.$request->image->extension(); 
         $request->image->move(public_path('images'), $imageName);
+        $message = $request->input('body');
+        $dom = new \DOMDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach($images as $img){
+			$src = $img->getAttribute('src');
 
+			if(preg_match('/data:image/', $src)){
+
+				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+				$mimetype = $groups['mime'];
+			
+				$filename = uniqid();
+				$filepath = "/images/$filename.$mimetype";
+
+				$image = Image::make($src)
+				  ->encode($mimetype, 100)
+				  ->save(public_path($filepath));
+				
+				$new_src = asset($filepath);
+				$img->removeAttribute('src');
+				$img->setAttribute('src', $new_src);
+			}
+        }
+        
         $new = new News();
         $new->headline = $request->input('headline');
-        $new->body = $request->input('body');
+        $new->body = $dom->saveHTML();
         $new->image = $imageName;
         $new->department_id = $request->input('department_id');
         $new->user_id = Auth::id();

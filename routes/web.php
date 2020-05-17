@@ -14,7 +14,9 @@ Route::get('admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admi
 
 Route::get('/', 'FrontEndController@index');
 Route::get('/news', 'FrontEndController@news');
+Route::get('/events', 'FrontEndController@events');
 Route::get('/news/department/{id}', 'FrontEndController@news_department');
+Route::get('/news/main-department/{id}', 'FrontEndController@news_main_department');
 Route::get('/news/single/{id}', 'FrontEndController@news_single');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');

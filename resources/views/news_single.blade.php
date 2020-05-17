@@ -40,7 +40,13 @@
                         <div class="post-desc ttm-blog-classic-content style2 mb-20">
                             <div class="post-meta">
                                 <ul class="list-inline">
-                                    <li><i class="fa fa-list"></i>{{$get_news->subdepartment->name}}</li>
+                                    <li><i class="fa fa-list"></i>
+                                    @if($get_news->subdepartment != null)
+                                        {{$get_news->subdepartment->name}}
+                                    @else
+                                        {{$get_news->department->name}}
+                                    @endif
+                                    </li>
                                     <li><i class="fa fa-calendar"></i>{{$get_news->created_at->format('M d, Y')}}</li>
                                 </ul>
                             </div>

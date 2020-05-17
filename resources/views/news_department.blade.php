@@ -9,7 +9,13 @@
                 <div class="title-box">
                     <div class="page-title-heading">
                         @if(count($get_news) != 0)
-                        <h1 class="title">{{$get_news[0]->subdepartment->name}}</h1>
+                        <h1 class="title">
+                            @if($get_news[0]->subdepartment != null)
+                                {{$get_news[0]->subdepartment->name}}
+                            @else
+                                {{$get_news[0]->department->name}}
+                            @endif
+                            </h1>
                         @endif
                     </div>
                     <div class="breadcrumb-wrapper">
@@ -19,7 +25,11 @@
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span>
                         @if(count($get_news) != 0)
-                            <a title="Homepage" href="{{url('/news/department/')}}/{{$get_news[0]->subdepartment->id}}">{{$get_news[0]->subdepartment->name}}</a>
+                            @if($get_news[0]->subdepartment != null)
+                                <a title="Homepage" href="{{url('/news/department/')}}/{{$get_news[0]->subdepartment->id}}">{{$get_news[0]->subdepartment->name}}</a>
+                            @else
+                            <a title="Homepage" href="{{url('/news/main-department/')}}/{{$get_news[0]->department->id}}">{{$get_news[0]->department->name}}</a>
+                            @endif
                         @endif
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
@@ -31,7 +41,7 @@
     </div>                   
 </div>
 
-<div class="site-main">
+<div class="site-main all-news-div">
 
     <!-- intro-section -->
     <section class="ttm-row pt-100 pb-80 ttm-bgcolor-grey break-991-colum clearfix">
@@ -50,11 +60,22 @@
                             </div>
                             <div class="post-meta">
                                 <ul class="list-inline">
-                                    <li><i class="fa fa-list"></i>{{$news->subdepartment->name}}</li>
+                                    <li><i class="fa fa-list"></i>
+                                    @if($get_news[0]->subdepartment != null)
+                                    {{$news->subdepartment->name}}
+                                    @else
+                                    {{$news->department->name}}
+                                    @endif
+                                    </li>
                                     <li><i class="fa fa-calendar"></i>{{$news->created_at->format('M d, Y')}}</li>
                                 </ul>
                             </div>
-                            {!! \Illuminate\Support\Str::limit($news->body, 10, $end='...</p>'); !!}
+                            <div class="limited-text">
+                            @php
+                                $content = strip_tags($news->body);
+                            @endphp
+                            {!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+                            </div>
                             <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/news/single')}}/{{$news->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                         </div>
                     </div><!-- post end -->

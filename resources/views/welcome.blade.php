@@ -198,79 +198,40 @@
                     <div class="row">
                         <div class="col-lg-9 col-md-12">
                             <div class="section-title style2 clearfix">
-                                <h2 class="title">Work with<strong>Latest Projects</strong></h2>
+                                <h2 class="title">Showing<strong>Upcoming Events</strong></h2>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12">
-                            <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-30 mb-35 res-991-mt-0 float-right" href="#">More Projects</a>
+                            <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-30 mb-35 res-991-mt-0 float-right" href="#">More Events</a>
                         </div>
                     </div>
                     <div class="row mb_224">
+                        @foreach($events as $event)
                         <div class="col-lg-4 col-md-4">
                             <div class="featured-item ttm-portfolio-view-topimage">
-                                <div class="featured-portfolio-item ttm-item-view-topimage">
-                                    <div class="featured-thumbnail">
-                                        <a href="#"> <img class="img-fluid" src="{{ asset('front/images/05.jpg') }}" alt="image"></a>
-                                    </div>
-                                    <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
-                                        <div class="featured-iconbox ttm-media-link">
-                                            <a class="ttm_prettyphoto ttm_image" data-gal="prettyPhoto[gallery1]" title="spring-renovation" href="{{ asset('front/images/05.jpg') }}" data-rel="prettyPhoto"><i class="ti ti-image"></i></a>
-                                            <a href="portfolio-details-01.html" class="ttm_link"><i class="ti ti-link"></i></a>
-                                        </div>
-                                    </div>
+                                @php
+                                    $old_date = date($event->start_date);
+                                    $old_date_timestamp = strtotime($old_date);
+                                    $new_date = date('d M Y H:i:s', $old_date_timestamp);   
+                                @endphp
+                                <div class="timer" data-timer="{{$new_date}}">
+                                <span>Started At:</span>
+                                    <p>{{$new_date}}</p>
                                 </div>
                                 <div class="content-post">
-                                    <h2 class="title-post"><a href="portfolio-details-01.html">spring-renovation</a></h2>
+                                    <h2 class="title-post"><a href="">{{$event->name}}</a></h2>
                                     <span class="category">
-                                    <a href="portfolio-category.html">Chemical Research</a>
-                                </span>
+                                        <div class="limited-text">
+                                        @php
+                                            $content = strip_tags($event->details);
+                                        @endphp
+                                        {!! \Illuminate\Support\Str::limit($content, $limit = 50, $end = '...') !!}
+                                        </div>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="featured-item ttm-portfolio-view-topimage">
-                                <div class="featured-portfolio-item ttm-item-view-topimage">
-                                    <div class="featured-thumbnail">
-                                        <a href="#"><img class="img-fluid" src="{{ asset('front/images/04.jpg') }}" alt="image"></a>
-                                    </div>
-                                    <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
-                                        <div class="featured-iconbox ttm-media-link">
-                                            <a class="ttm_prettyphoto ttm_image" data-gal="prettyPhoto[gallery1]" title="Vam Drilling" href="{{ asset('front/images/04.jpg') }}" data-rel="prettyPhoto"><i class="ti ti-image"></i></a>
-                                            <a href="portfolio/vam-drilling.html" class="ttm_link"><i class="ti ti-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-post">
-                                    <h2 class="title-post"><a href="portfolio-details-02.html">Vam Drilling</a></h2>
-                                    <span class="category">
-                                    <a href="portfolio-category.html">Mechanical</a>,
-                                    <a href="portfolio-category.html">Oil And Gas</a>
-                                </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="featured-item ttm-portfolio-view-topimage">
-                                <div class="featured-portfolio-item ttm-item-view-topimage">
-                                    <div class="featured-thumbnail">
-                                        <a href="#"> <img class="img-fluid" src="{{ asset('front/images/06.jpg') }}" alt="image"></a>
-                                    </div>
-                                    <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
-                                        <div class="featured-iconbox ttm-media-link">
-                                            <a class="ttm_prettyphoto ttm_image" data-gal="prettyPhoto[gallery1]" title="Successful Venture" href="{{ asset('front/images/06.jpg') }}" data-rel="prettyPhoto"><i class="ti ti-image"></i></a>
-                                            <a href="portfolio-details-03.html" class="ttm_link"><i class="ti ti-link"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-post">
-                                    <h2 class="title-post"><a href="portfolio-details-03.html">Successful Venture</a></h2>
-                                    <span class="category">
-                                    <a href="portfolio-category.html">Mechanical</a>,
-                                    <a href="portfolio-category.html">Petro Chemicals</a>
-                                </span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>

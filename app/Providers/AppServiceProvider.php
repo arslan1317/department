@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $user_request = UserRequest::where('status', '=', 0)->orderby('id', 'ASC')->get();
         $department_global = Department::orderby('id', 'ASC')->get();
-        $new_global_notify = News::where('status', '=', 0)->orderby('id', 'ASC')->get();
+        $new_global_notify = News::where('status', '=', 0)->orderby('id', 'ASC')->get();                
         $event_global_notify = Event::where('status', '=', 0)->orderby('id', 'ASC')->get();
         View::share('user_request', $user_request);
         View::share('department_global', $department_global);

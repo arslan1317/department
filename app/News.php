@@ -13,7 +13,7 @@ class News extends Model
 
     public function subdepartment()
     {
-        return $this->belongsTo('App\SubDepartment', 'id');
+        return $this->belongsTo('App\SubDepartment', 'sub_dep_id');
     }
 
     public function department()

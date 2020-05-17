@@ -61,20 +61,24 @@
                                 <li class="dropdown-menu-header">
                                     <h6 class="dropdown-header m-0"><span class="grey darken-2">News</span></h6><span class="notification-tag badge badge-info float-right m-0">{{count($new_global_notify)}} New</span>
                                 </li>
-                                <li class="scrollable-container media-list w-100">
+                                <li class="scrollable-container media-list w-100">                                
                                     @foreach($new_global_notify as $new_global_notifys)
-                                    <div class="media">
-                                        <div class="media-body">
+                                    <div class="media">                                    
+                                        <div class="media-body"> 
                                             <h6 class="media-heading"><a href="{{route('news.single', ['depart'=>$new_global_notifys->subdepartment->department->name,'name'=>$new_global_notifys->subdepartment->name,'id'=>$new_global_notifys->id])}}">{{$new_global_notifys->headline}}</a></h6>
                                             <p class="notification-text font-small-3 text-muted">
-                                                {!!substr($new_global_notifys->body, 0, 15)!!}</p>
+                                            @php
+                                                $content = strip_tags($new_global_notifys->body);
+                                            @endphp
+                                            {!! \Illuminate\Support\Str::limit($content, $limit = 15, $end = '...') !!}
+                                            </p>
                                             <p class="notification-text font-small-3 text-muted">
                                                 {{$new_global_notifys->user->name}} ({{$new_global_notifys->user->email}})
                                             </p>
                                             <small>
                                                     <time class="media-meta text-muted">
                                                         {{ Carbon\Carbon::parse($new_global_notifys->created_at)->diffForHumans()}}
-                                                </time>
+                                                    </time>
                                             </small>
                                             <br>
                                         </div>
