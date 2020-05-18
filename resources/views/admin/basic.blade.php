@@ -21,7 +21,8 @@
 					</div>
 					<div class="card-content collapse show" style="">
 						<div class="card-body">
-							<form action="">
+							<form method="post" action="{{route('basic.setting')}}">
+                            @csrf
 								<div class="form-body">
 									<div class="row">
 										<div class="col-md-4">
@@ -142,7 +143,7 @@
 										<div class="edit-box">
 											<div class="icon">
 												{!!$social_icon->icon!!}
-											</div>								
+											</div>
 											<div class="form-group">
 												<label>Link</label>
 												<input type="text" class="form-control" name="link" value="{{$social_icon->link}}">
@@ -171,7 +172,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -221,7 +222,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -268,7 +269,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								@if(count($info_box) < 3)
 								<div class="form-actions text-right">
 									<button type="submit" class="btn btn-primary">
@@ -290,11 +291,11 @@
 										<div class="edit-box">
 											<div class="icon mb-1">
 											<img src="{{asset('images')}}/{{$info_boxs->info_image}}" width="80" height="80">
-											</div>	
+											</div>
 											<div class="form-group">
 												<label>Info Image</label>
 												<input type="file" class="form-control" name="image">
-											</div>							
+											</div>
 											<div class="form-group">
 												<label>Heading</label>
 												<input type="text" class="form-control" name="info_heading" value="{{$info_boxs->info_heading}}">
@@ -323,7 +324,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>

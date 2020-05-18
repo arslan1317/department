@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BasicSettingController extends Controller
 {
 
-    /* 
+    /*
         section_type = 1 (Basic Info)
         section_type = 2 (Social Info)
         section_type = 3 (Slider Info)
@@ -72,7 +72,7 @@ class BasicSettingController extends Controller
 
     public function infobox(Request $request){
         $basic_setting = new BasicSetting();
-        $imageName = time().'.'.$request->image->extension(); 
+        $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
         $basic_setting->info_image = $imageName;
         $basic_setting->info_heading = $request->input('info_heading');
@@ -81,5 +81,17 @@ class BasicSettingController extends Controller
         $basic_setting->section_type = 5;
         $basic_setting->save();
         return redirect()->back()->with('notifysuccess', 'Info Box Successfully Added');
+    }
+
+    public function setting(Request $request) {
+
+        $basic_setting = new BasicSetting();
+        $basic_setting->phone = $request->input('phone');
+        $basic_setting->email = $request->input('email');
+        $basic_setting->address = $request->input('address');
+        $basic_setting->footer_text = $request->input('footertext');
+        $basic_setting->copyright = $request->input('copyright');
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'Basic Setting is successfully Added');
     }
 }
