@@ -181,7 +181,7 @@
                                             <p><strong>Telephone:</strong> {{$subdeparments->telephone}}</p>
                                             <p><strong>Fax:</strong> {{$subdeparments->fax}}</p>
                                             <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/news/department')}}/{{$subdeparments->id}}">News</a>
-                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="#">Events</a>
+                                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('events/department')}}/{{$subdeparments->id}}">Events</a>
                                         </div>
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12">
-                            <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-30 mb-35 res-991-mt-0 float-right" href="#">More Events</a>
+                            <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-30 mb-35 res-991-mt-0 float-right" href="{{url('/events')}}">More Events</a>
                         </div>
                     </div>
                     <div class="row mb_224">

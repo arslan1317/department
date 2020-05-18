@@ -52,6 +52,15 @@ class FrontEndController extends Controller
         return view('news_department',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'get_news'));
     }
 
+    public function events_department($id){
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->inRandomOrder()->limit(3)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $get_news = Event::where('sub_dep_id', $id)->orderBy('id', 'desc')->get();    
+        return view('events_department',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'get_news'));
+    }
+
     public function news_main_department($id){
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $subdeparment = SubDepartment::where('department_id', 1)->inRandomOrder()->limit(3)->get();
@@ -59,6 +68,15 @@ class FrontEndController extends Controller
         $latest_news = News::orderBy('id', 'desc')->take(3)->get();
         $get_news = News::where('department_id', $id)->orderBy('id', 'desc')->get();    
         return view('news_department',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'get_news'));
+    }
+
+    public function events_main_department($id){
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->inRandomOrder()->limit(3)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $get_news = Event::where('department_id', $id)->orderBy('id', 'desc')->get();    
+        return view('events_department',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'get_news'));
     }
 
     public function events(){
@@ -77,6 +95,10 @@ class FrontEndController extends Controller
         $latest_news = News::orderBy('id', 'desc')->take(3)->get();
         $get_news = Event::find($id);
         return view('events_single',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'get_news'));
+    }
+
+    public function all_data($id){
+        
     }
 
 }
