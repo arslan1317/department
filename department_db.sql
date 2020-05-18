@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: May 17, 2020 at 04:36 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.8
+-- Host: 127.0.0.1
+-- Generation Time: May 18, 2020 at 02:17 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `department_db`
@@ -28,28 +36,34 @@ CREATE TABLE `basic_setting` (
   `link` varchar(100) DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `section_type` int(11) DEFAULT NULL,
-  `slider_lower_heading` text,
+  `slider_lower_heading` text DEFAULT NULL,
   `slider_lower_paragraph` varchar(100) DEFAULT NULL,
   `info_image` varchar(100) DEFAULT NULL,
   `info_heading` varchar(100) DEFAULT NULL,
-  `info_paragraph` text,
+  `info_paragraph` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `footer_text` varchar(200) DEFAULT NULL,
+  `copyright` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `basic_setting`
 --
 
-INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `icon`, `section_type`, `slider_lower_heading`, `slider_lower_paragraph`, `info_image`, `info_heading`, `info_paragraph`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:14:25', '2020-03-30 01:36:53'),
-(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:32:33', '2020-03-30 01:32:33'),
-(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:33:27', '2020-03-30 01:33:27'),
-(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-03-30 01:47:13'),
-(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1987', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-03-30 03:16:45'),
-(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-30 03:36:03', '2020-03-30 03:36:03'),
-(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-30 03:45:06', '2020-03-30 03:45:06'),
-(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-30 03:45:55', '2020-03-30 03:45:55');
+INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `icon`, `section_type`, `slider_lower_heading`, `slider_lower_paragraph`, `info_image`, `info_heading`, `info_paragraph`, `created_at`, `updated_at`, `phone`, `email`, `address`, `footer_text`, `copyright`) VALUES
+(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:14:25', '2020-03-30 01:36:53', NULL, NULL, NULL, NULL, ''),
+(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:32:33', '2020-03-30 01:32:33', NULL, NULL, NULL, NULL, ''),
+(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:33:27', '2020-03-30 01:33:27', NULL, NULL, NULL, NULL, ''),
+(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-03-30 01:47:13', NULL, NULL, NULL, NULL, ''),
+(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1986', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-05-17 17:49:47', NULL, NULL, NULL, NULL, ''),
+(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-30 03:36:03', '2020-03-30 03:36:03', NULL, NULL, NULL, NULL, ''),
+(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-30 03:45:06', '2020-03-30 03:45:06', NULL, NULL, NULL, NULL, ''),
+(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-30 03:45:55', '2020-03-30 03:45:55', NULL, NULL, NULL, NULL, ''),
+(10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-05-17 18:14:12', '2020-05-17 18:14:12', '03471670249', 'arslan@gmail.com', 'dskfsjaf', 'abc124', 'abc1234');
 
 -- --------------------------------------------------------
 
@@ -86,7 +100,7 @@ CREATE TABLE `events` (
   `department_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -112,7 +126,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -164,7 +178,7 @@ CREATE TABLE `news` (
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0'
+  `status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -266,7 +280,7 @@ CREATE TABLE `sub_departments` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fax` int(11) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -339,7 +353,7 @@ CREATE TABLE `user_request` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -458,7 +472,7 @@ ALTER TABLE `user_request`
 -- AUTO_INCREMENT for table `basic_setting`
 --
 ALTER TABLE `basic_setting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -578,3 +592,8 @@ ALTER TABLE `user_categories`
 ALTER TABLE `user_request`
   ADD CONSTRAINT `user_request_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
   ADD CONSTRAINT `user_request_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
