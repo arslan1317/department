@@ -38,7 +38,12 @@
 	                                				<img src="{{asset('images')}}/{{$news->image}}" alt="" width="200">
 	                                			</td>			
 	                                			<td>{{$news->headline}}</td>
-	                                			<td>{!!substr($news->body, 0, 15)!!}</td>
+												<td>
+												@php
+													$content = strip_tags($news->body);
+												@endphp
+												{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+												</td>	                                			
 	                                			<td>{{$news->user->name}} ({{$news->user->email}})</td>  
 	                                			<td>
 	                                				<a href="{{route('news.single', ['depart'=>$news->subdepartment->department->name,'name'=>$news->subdepartment->name,'id'=>$news->id])}}" class="btn btn-info btn-min-width mr-1 mb-0">

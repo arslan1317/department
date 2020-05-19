@@ -311,17 +311,6 @@
                     </ul>
                 </li>
 
-                <li class=" nav-item"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="Category">User</span></a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Crypto</span></a>
-                        </li>
-                        <li><a class="menu-item" href="#"><i></i><span data-i18n="Crypto">Sales</span></a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="nav-item {{ (request()->is('admin/notification')) ? 'active' : '' }}">
                     <a href="{{route('notification.show')}}">
                         <i class="la la-bell"></i><span class="menu-title" data-i18n="Dashboard">Notification</span>

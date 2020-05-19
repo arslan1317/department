@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Department;
-use App\Subdepartment;
+use App\SubDepartment;
 use App\UserRequest;
 use App\UserCategory;
 
@@ -35,7 +35,7 @@ class AdminSubDepartmentController extends Controller
             'department_id' => 'required',
         ]);
 
-        Subdepartment::create($request->input());
+        SubDepartment::create($request->input());
    
         return redirect()->back()->with('success', 'Subdepartment is successfully saved');
     }
@@ -49,12 +49,12 @@ class AdminSubDepartmentController extends Controller
             'fax' => 'required|numeric|digits_between:1,10',
             'department_id' => 'required',
         ]);
-        Subdepartment::whereId($id)->update($validatedData);
+        SubDepartment::whereId($id)->update($validatedData);
         return redirect()->back()->with('success', 'Subdepartment is successfully updated');
     }
 
     public function destroy($id){
-        $subdepartment = Subdepartment::find($id);
+        $subdepartment = SubDepartment::find($id);
         if($subdepartment->status == 1){
             $subdepartment->status = 0;
         }else{

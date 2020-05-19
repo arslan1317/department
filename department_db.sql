@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 02:17 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Host: localhost:8889
+-- Generation Time: May 19, 2020 at 07:32 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `department_db`
@@ -36,17 +28,17 @@ CREATE TABLE `basic_setting` (
   `link` varchar(100) DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `section_type` int(11) DEFAULT NULL,
-  `slider_lower_heading` text DEFAULT NULL,
+  `slider_lower_heading` text,
   `slider_lower_paragraph` varchar(100) DEFAULT NULL,
   `info_image` varchar(100) DEFAULT NULL,
   `info_heading` varchar(100) DEFAULT NULL,
-  `info_paragraph` text DEFAULT NULL,
+  `info_paragraph` text,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `footer_text` varchar(200) DEFAULT NULL,
+  `footer_text` text,
   `copyright` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,15 +47,15 @@ CREATE TABLE `basic_setting` (
 --
 
 INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `icon`, `section_type`, `slider_lower_heading`, `slider_lower_paragraph`, `info_image`, `info_heading`, `info_paragraph`, `created_at`, `updated_at`, `phone`, `email`, `address`, `footer_text`, `copyright`) VALUES
-(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:14:25', '2020-03-30 01:36:53', NULL, NULL, NULL, NULL, ''),
-(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:32:33', '2020-03-30 01:32:33', NULL, NULL, NULL, NULL, ''),
-(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:33:27', '2020-03-30 01:33:27', NULL, NULL, NULL, NULL, ''),
-(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-03-30 01:47:13', NULL, NULL, NULL, NULL, ''),
-(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1986', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-30 01:47:13', '2020-05-17 17:49:47', NULL, NULL, NULL, NULL, ''),
-(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-30 03:36:03', '2020-03-30 03:36:03', NULL, NULL, NULL, NULL, ''),
-(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-30 03:45:06', '2020-03-30 03:45:06', NULL, NULL, NULL, NULL, ''),
-(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-30 03:45:55', '2020-03-30 03:45:55', NULL, NULL, NULL, NULL, ''),
-(10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-05-17 18:14:12', '2020-05-17 18:14:12', '03471670249', 'arslan@gmail.com', 'dskfsjaf', 'abc124', 'abc1234');
+(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:14:25', '2020-03-29 20:36:53', NULL, NULL, NULL, NULL, ''),
+(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:32:33', '2020-03-29 20:32:33', NULL, NULL, NULL, NULL, ''),
+(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:33:27', '2020-03-29 20:33:27', NULL, NULL, NULL, NULL, ''),
+(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:47:13', '2020-03-29 20:47:13', NULL, NULL, NULL, NULL, ''),
+(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1986', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-29 20:47:13', '2020-05-17 12:49:47', NULL, NULL, NULL, NULL, ''),
+(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-29 22:36:03', '2020-03-29 22:36:03', NULL, NULL, NULL, NULL, ''),
+(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-29 22:45:06', '2020-03-29 22:45:06', NULL, NULL, NULL, NULL, ''),
+(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-29 22:45:55', '2020-03-29 22:45:55', NULL, NULL, NULL, NULL, ''),
+(10, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, '2020-05-17 13:14:12', '2020-05-19 02:06:00', '0 (143) 456 7897', 'info@example.com', 'Evanto HQ 24 Fifth st., Los Angeles, USA', 'Department has very good strength in innovative technology and tools with over 35 years of experience. We makes long-term investments goal in global companies in different sectors, mainly in Europe and other countries.', 'Copyright © 2019 Tectxon. All rights reserved.');
 
 -- --------------------------------------------------------
 
@@ -100,7 +92,7 @@ CREATE TABLE `events` (
   `department_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -112,7 +104,7 @@ CREATE TABLE `events` (
 INSERT INTO `events` (`id`, `name`, `start_date`, `end_date`, `details`, `department_id`, `sub_dep_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Abel Cannon', '2020-01-01 00:00:00', '2020-02-01 00:00:00', '<p><br></p><p>Excepturi sit, ipsum.sdfsf<br></p><p><br></p>', NULL, 1, 18, 1, '2020-03-23 16:42:11', '2020-03-25 01:37:54'),
 (2, 'Brenden Schneider', '1970-01-01 00:00:00', '1970-01-01 00:00:00', '<p>Testing updating</p>', 1, NULL, 1, 1, '2020-03-25 01:52:43', '2020-03-25 02:06:53'),
-(3, 'Brenden Schneider', '2020-08-01 00:00:00', '2020-08-31 00:00:00', '<p>Testing updating</p>', 1, NULL, 1, 1, '2020-03-25 01:52:43', '2020-03-25 02:06:53');
+(4, 'Claire Richardson', '2020-05-13 11:00:00', '2020-06-30 23:00:00', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p><br></p><p><img data-filename=\"Marco.JPG\" style=\"width: 675.328px;\" src=\"http://127.0.0.1:8000/images/5ec1e78f28cd0.jpeg\"></p><p></p><p><br></p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br></p></p>\n', NULL, 3, 18, 0, '2020-05-17 20:40:31', '2020-05-17 20:40:31');
 
 -- --------------------------------------------------------
 
@@ -126,7 +118,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -178,7 +170,7 @@ CREATE TABLE `news` (
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0
+  `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -280,7 +272,7 @@ CREATE TABLE `sub_departments` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fax` int(11) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -353,7 +345,7 @@ CREATE TABLE `user_request` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -484,7 +476,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -592,8 +584,3 @@ ALTER TABLE `user_categories`
 ALTER TABLE `user_request`
   ADD CONSTRAINT `user_request_sub_dep_id_foreign` FOREIGN KEY (`sub_dep_id`) REFERENCES `sub_departments` (`id`),
   ADD CONSTRAINT `user_request_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

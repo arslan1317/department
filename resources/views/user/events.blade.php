@@ -151,7 +151,12 @@
 															
 		                            					@endphp
 		                            					 {{$start_date}} to {{$end_date}}</td>
-		                            				<td>{!!$allevents->details!!}</td>
+													<td>
+													@php
+														$content = strip_tags($allevents->details);
+													@endphp
+													{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+													</td>
 		                            				<td>
 		                            					<div class="table-action-button">
 		                            						<a href="javascript:;" class="btn-edit" data-name="{{$allevents->name}}" data-startdate="{{$start_date}}" data-enddate="{{$end_date }}" data-detail="{{$allevents->details}}"  data-action="{{ route('events.update', $allevents->id) }}" onclick="events(this, '#inlineForm')">

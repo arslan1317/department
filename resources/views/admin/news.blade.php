@@ -150,7 +150,12 @@
 		                            					<img src="{{asset('images')}}/{{$allnews->image}}" alt="" width="200">
 		                            				</td>
 		                            				<td>{{$allnews->headline}}</td>
-		                            				<td>{!!$allnews->body!!}</td>
+		                            				<td>
+													@php
+														$content = strip_tags($allnews->body);
+													@endphp
+													{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+													</td>
 		                            				<td>
 		                            					<div class="table-action-button">
 		                            						<a href="javascript:;" class="btn-edit" data-department_id="{{$allnews->department->id}}" data-image="{{$allnews->image}}" data-headline="{{$allnews->headline}}" data-body="{{$allnews->body}}"  data-action="{{ route('news.admin.update', $allnews->id) }}" onclick="news(this, '#inlineForm')">

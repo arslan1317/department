@@ -117,5 +117,5 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('admin/basic/info/update/{id}', 'BasicSettingController@updateinfobox')->name('basic.infobox.update');
 
     // basic settings post
-    Route::post('admin/basic', 'BasicSettingController@setting')->name('basic.setting');
+    Route::post('admin/basic/{id}', 'BasicSettingController@setting')->name('basic.setting');
 });

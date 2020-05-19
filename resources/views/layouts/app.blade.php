@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Energy</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/animate.css') }}" /> 
@@ -45,7 +45,7 @@
                                 </ul>
                             </div>
                             <ul class="top-contact ttm-highlight">
-                                <li><strong><i class="fa fa-phone"></i>Talk To Expert :</strong> <span class="tel-no">0 (143) 456 7897</span></li>
+                                <li><strong><i class="fa fa-phone"></i>Talk To Expert :</strong> <span class="tel-no">{{$basic_info->phone}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                                 <div class="widget widget-out-link clearfix">
                                     <i class="fa fa-phone"></i>
                                     <h3 class="widget-title">Have a question? call us now</h3>
-                                    <p>Office 1: +(03) 0106 387 4456</p>
+                                    <p>{{$basic_info->phone}}</p>
                                     <a class="ttm-btn btn-inline style2" href="#">Contact Us</a>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                                 <div class="widget widget-out-link clearfix">
                                     <i class="fa fa-envelope-o"></i>
                                     <h3 class="widget-title">Need support? Drop us an email</h3>
-                                    <p>info@domainname.com</p>
+                                    <p>{{$basic_info->email}}</p>
                                     <a class="ttm-btn btn-inline style2" href="#">Fill Our Form</a>
                                 </div>
                             </div>
@@ -162,11 +162,11 @@
                                         Footer Logo
                                     </div>
                                     <br>
-                                    <p>Tectxon has very good strength in innovative technology and tools with over 35 years of experience. We makes long-term investments goal in global companies in different sectors, mainly in Europe and other countries.</p>
+                                    <p>{{$basic_info->footer_text}}</p>
                                     <ul class="widget-contact mt-25">
-                                        <li><i class="ti ti-mobile"></i>(+01) 123 456 7890</li>
-                                        <li><i class="ti ti-comment"></i><a href="#">info@example.com</a></li>
-                                        <li><i class="ti ti-location-pin"></i>Evanto HQ 24 Fifth st., Los Angeles, USA</li>
+                                        <li><i class="ti ti-mobile"></i>{{$basic_info->phone}}</li>
+                                        <li><i class="ti ti-comment"></i><a href="#">{{$basic_info->email}}</a></li>
+                                        <li><i class="ti ti-location-pin"></i>{{$basic_info->address}}</li>
                                     </ul>
                                     <div class="social-icons social-hover mt-15">
                                         <ul class="list-inline">
@@ -231,7 +231,7 @@
                         <div class="row copyright">
                             <div class="col-md-6">
                                 <div class=" ttm-footer2-left">
-                                    <span>Copyright © 2019&nbsp;<a href="#">Tectxon</a>. All rights reserved.</span></div>
+                                    <span>{{$basic_info->copyright}}</span></div>
                             </div>
                             <div class="col-md-6 ttm-footer2-right">
                                 <ul id="menu-footer-menu" class="footer-nav-menu">

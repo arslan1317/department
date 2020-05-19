@@ -29,10 +29,11 @@ class BasicSettingController extends Controller
     {
         $title = 'Basic Setting';
         $lefttitle = '<li class="breadcrumb-item active"><a>Basic Setting</a></li></ol>';
+        $basic_info = BasicSetting::where('section_type', 1)->first();
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $slider_lower = BasicSetting::where('section_type', 4)->first();
         $info_box = BasicSetting::where('section_type', 5)->get();
-        return view('admin.basic', compact('title', 'lefttitle', 'social_icons', 'slider_lower', 'info_box'));
+        return view('admin.basic', compact('title', 'lefttitle', 'social_icons', 'slider_lower', 'info_box', 'basic_info'));
     }
 
     public function social(Request $request){
@@ -83,9 +84,9 @@ class BasicSettingController extends Controller
         return redirect()->back()->with('notifysuccess', 'Info Box Successfully Added');
     }
 
-    public function setting(Request $request) {
+    public function setting(Request $request, $id) {
 
-        $basic_setting = new BasicSetting();
+        $basic_setting = BasicSetting::find($id);
         $basic_setting->phone = $request->input('phone');
         $basic_setting->email = $request->input('email');
         $basic_setting->address = $request->input('address');

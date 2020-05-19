@@ -153,7 +153,12 @@
 		                                			<td>{{$allevents->name}}</td>
 		                                			<td>{{date('M, d D Y h:m:s A', strtotime($allevents->start_date))}}</td>
 		                                			<td>{{date('M, d D Y h:m:s A', strtotime($allevents->end_date))}}</td>
-		                                			<td>{!!substr($allevents->details, 0, 15)!!}</td>
+		                                			<td>
+													@php
+														$content = strip_tags($allevents->details);
+													@endphp
+													{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+													</td>
 		                                			<td>{{$allevents->user->name}} ({{$allevents->user->email}})</td>  
 		                                			<td>
 		                                				@php
@@ -169,7 +174,7 @@
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('events.destroy', $allevents->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('events.admin.destroy', $allevents->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
@@ -240,7 +245,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-outline-primary" value="Update News">
+                        <input type="submit" class="btn btn-outline-primary" value="Update Event">
                     </div>
                 </form>
             </div>
@@ -251,7 +256,7 @@
 	    <div class="modal-dialog" role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h4 class="modal-title" id="myModalLabel1">News Delete</h4>
+	                <h4 class="modal-title" id="myModalLabel1">Event Delete</h4>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">&times;</span>
 	                </button>

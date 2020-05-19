@@ -21,7 +21,7 @@
 					</div>
 					<div class="card-content collapse show" style="">
 						<div class="card-body">
-							<form method="post" action="{{route('basic.setting')}}">
+							<form method="post" action="{{route('basic.setting', $basic_info->id)}}">
                             @csrf
 								<div class="form-body">
 									<div class="row">
@@ -46,31 +46,31 @@
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Phone</label>
-												<input type="text" class="form-control" name="phone">
+												<input type="text" class="form-control" name="phone" value="{{$basic_info->phone}}">
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Email</label>
-												<input type="email" class="form-control" name="email">
+												<input type="email" class="form-control" name="email" value="{{$basic_info->email}}">
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Address</label>
-												<input type="text" class="form-control" name="address">
+												<input type="text" class="form-control" name="address" value="{{$basic_info->address}}">
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Footer Text</label>
-												<textarea name="footertext" class="form-control"></textarea>
+												<textarea name="footertext" class="form-control">{{$basic_info->footer_text}}</textarea>
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Copyright</label>
-												<input type="text" class="form-control" name="copyright">
+												<input type="text" class="form-control" name="copyright" value="{{$basic_info->copyright}}">
 											</div>
 										</div>
 									</div>

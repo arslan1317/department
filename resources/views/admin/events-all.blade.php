@@ -38,7 +38,12 @@
 	                                			<td>{{$allevents->name}}</td>
 	                                			<td>{{date('M, d D Y h:m:s A', strtotime($allevents->start_date))}}</td>
 	                                			<td>{{date('M, d D Y h:m:s A', strtotime($allevents->end_date))}}</td>
-	                                			<td>{!!substr($allevents->details, 0, 15)!!}</td>
+												<td>
+												@php
+													$content = strip_tags($allevents->details);
+												@endphp
+												{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+												</td>
 	                                			<td>{{$allevents->user->name}} ({{$allevents->user->email}})</td>  
 	                                			<td>
 	                                				@if($allevents->sub_dep_id == null)

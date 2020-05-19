@@ -38,7 +38,12 @@
 	                                			<td>{{$allevents->name}}</td>			
 	                                			<td>{{$allevents->start_date}}</td>   			
 	                                			<td>{{$allevents->end_date}}</td>
-	                                			<td>{!!substr($allevents->details, 0, 15)!!}</td>  
+												<td>
+												@php
+													$content = strip_tags($allevents->details);
+												@endphp
+												{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+												</td>
 	                                			<td>{{$allevents->user->name}} ({{$allevents->user->email}})</td>  
 	                                			<td>
 	                                				<a href="" class="btn btn-info btn-min-width mr-1 mb-0">

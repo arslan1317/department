@@ -38,7 +38,12 @@
 	                                				<img src="{{asset('images')}}/{{$news->image}}" alt="" width="200">
 	                                			</td>			
 	                                			<td>{{$news->headline}}</td>
-	                                			<td>{!!substr($news->body, 0, 15)!!}</td>
+												<td>
+												@php
+													$content = strip_tags($news->body);
+												@endphp
+												{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+												</td>
 	                                			<td>{{$news->user->name}} ({{$news->user->email}})</td>  
 	                                			<td>
 	                                				@if($news->sub_dep_id == null)

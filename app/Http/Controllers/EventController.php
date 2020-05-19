@@ -8,6 +8,7 @@ use App\UserCategory;
 use Auth;
 use App\SubDepartment;
 use App\Department;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class EventController extends Controller
 {
@@ -66,9 +67,33 @@ class EventController extends Controller
 
         $dateRange = $request->input('datetime');
         $dates = explode("-", $dateRange);
+        $message = $request->input('details');
+        $dom = new \DOMDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach($images as $img){
+			$src = $img->getAttribute('src');
+
+			if(preg_match('/data:image/', $src)){
+
+				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+				$mimetype = $groups['mime'];
+			
+				$filename = uniqid();
+				$filepath = "/images/$filename.$mimetype";
+
+				$image = Image::make($src)
+				  ->encode($mimetype, 100)
+				  ->save(public_path($filepath));
+				
+				$new_src = asset($filepath);
+				$img->removeAttribute('src');
+				$img->setAttribute('src', $new_src);
+			}
+        }
         $events = new Event();
         $events->name = $request->input('name');
-        $events->details = $request->input('details');
+        $events->details = $dom->saveHTML();
         $events->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
         $events->end_date = date("Y-m-d H:i:s", strtotime(trim($dates[1])));
         $events->sub_dep_id = $request->input('sub_dep_id');
@@ -87,9 +112,33 @@ class EventController extends Controller
 
         $dateRange = $request->input('datetime');
         $dates = explode("-", $dateRange);
+        $message = $request->input('details');
+        $dom = new \DOMDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach($images as $img){
+			$src = $img->getAttribute('src');
+
+			if(preg_match('/data:image/', $src)){
+
+				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+				$mimetype = $groups['mime'];
+			
+				$filename = uniqid();
+				$filepath = "/images/$filename.$mimetype";
+
+				$image = Image::make($src)
+				  ->encode($mimetype, 100)
+				  ->save(public_path($filepath));
+				
+				$new_src = asset($filepath);
+				$img->removeAttribute('src');
+				$img->setAttribute('src', $new_src);
+			}
+        }
         $events = new Event();
         $events->name = $request->input('name');
-        $events->details = $request->input('details');
+        $events->details = $dom->saveHTML();
         $events->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));
         $events->end_date = date("Y-m-d H:i:s", strtotime(trim($dates[1])));
         $events->department_id = $request->input('department_id');
@@ -175,6 +224,7 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
+        print_r(Event::findOrFail($id));
         $event = Event::findOrFail($id);
         $event->delete();
         return redirect()->back()->with('success', 'Event is successfully Deleted');

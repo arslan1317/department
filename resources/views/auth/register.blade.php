@@ -61,10 +61,15 @@
 
 
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">Sube Department</label>
+                            <label class="col-md-4 col-form-label text-md-right">Sub Department</label>
                             <div class="col-md-6">
                                 <select name="subdepartment" id="subdepartment" class="form-control">
-                                    @foreach($department as $departments)
+                                @foreach($department as $departments)
+                                    @foreach($departments->subdepartment as $subdepartments)
+                                        <option value="{{$subdepartments->id}}">{{$subdepartments->name}}</option>
+                                    @endforeach
+                                @endforeach
+                                    <!-- @foreach($department as $departments)
                                         @foreach($departments->subdepartment as $subdepartments)
                                             @if($subdepartments->status != 0)
                                                 @foreach($approved_user_request as $approved)
@@ -75,7 +80,7 @@
                                             @endif
                                         @endforeach
                                         @break
-                                    @endforeach
+                                    @endforeach -->
                                 </select>
                             </div>
                         </div>
