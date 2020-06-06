@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- page-title -->
-<div class="ttm-page-title-row news-bg">
+<div class="ttm-page-title-row" style="background-color: #008a07;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">

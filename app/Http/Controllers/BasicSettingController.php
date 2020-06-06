@@ -85,8 +85,25 @@ class BasicSettingController extends Controller
     }
 
     public function setting(Request $request, $id) {
-
         $basic_setting = BasicSetting::find($id);
+        if ($request->hasFile('logo')) {
+            $image = $request->file('logo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $request->file('logo')->move(public_path('images'), $name);
+            $basic_setting->logo = $name;
+        }
+        if ($request->hasFile('footerlogo')) {
+            $image = $request->file('footerlogo');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $request->file('footerlogo')->move(public_path('images'), $name);
+            $basic_setting->footer_logo = $name;
+        }
+        if ($request->hasFile('favicon')) {
+            $image = $request->file('favicon');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $request->file('favicon')->move(public_path('images'), $name);
+            $basic_setting->favicon = $name;
+        }
         $basic_setting->phone = $request->input('phone');
         $basic_setting->email = $request->input('email');
         $basic_setting->address = $request->input('address');

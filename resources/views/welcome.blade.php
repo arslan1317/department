@@ -144,7 +144,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12">
-                            <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0 float-right" href="#">More Services</a>
+                            <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0 float-right" href="{{url('subdepartment')}}">More Sub Departments</a>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                             <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-white mt-30 mb-35 res-991-mt-0 float-right" href="{{url('/events')}}">More Events</a>
                         </div>
                     </div>
-                    <div class="row mb_224">
+                    <div class="row">
                         @foreach($events as $event)
                         <div class="col-lg-4 col-md-4">
                             <div class="featured-item ttm-portfolio-view-topimage">

@@ -10,18 +10,33 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
+Route::get('/clear-config', function() {
+   	Artisan::call('config:cache');
+    return "Config is cleared";
+});
 Route::get('admin/login', 'Auth\LoginController@showAdminLoginForm')->name('adminlogin');
 
 Route::get('/', 'FrontEndController@index');
 Route::get('/news', 'FrontEndController@news');
 Route::get('/events', 'FrontEndController@events');
+Route::get('/sources', 'FrontEndController@sources');
 Route::get('/news/department/{id}', 'FrontEndController@news_department');
 Route::get('/events/department/{id}', 'FrontEndController@events_department');
+Route::get('/sources/department/{id}', 'FrontEndController@sources_department');
 Route::get('/news/main-department/{id}', 'FrontEndController@news_main_department');
 Route::get('/events/main-department/{id}', 'FrontEndController@events_main_department');
+Route::get('/sources/main-department/{id}', 'FrontEndController@sources_main_department');
 Route::get('/news/single/{id}', 'FrontEndController@news_single');
 Route::get('/events/single/{id}', 'FrontEndController@events_single');
-Route::get('/all/{id}', 'FrontEndController@all_data');
+Route::get('/sources/single/{id}', 'FrontEndController@sources_single');
+Route::get('/subdepartment/{id}', 'FrontEndController@all_data')->name('subdepartment.all');
+Route::get('/subdepartment', 'FrontEndController@subdepartment');
+Route::get('/contact', 'FrontEndController@contact');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -118,4 +133,27 @@ Route::group(['middleware' => ['admin']], function () {
 
     // basic settings post
     Route::post('admin/basic/{id}', 'BasicSettingController@setting')->name('basic.setting');
+
+    //About Us
+    Route::get('admin/aboutus', 'AboutUsController@index')->name('aboutus.index');
+    Route::post('admin/aboutus/update/{id}', 'AboutUsController@update')->name('aboutus.admin.update');
+
+    // Business
+    Route::get('admin/business/add', 'BusinessController@index')->name('business.index');
+    Route::get('admin/business/all', 'BusinessController@all')->name('business.all');
+    Route::get('admin/business/store', 'BusinessController@add')->name('business.add');
+
+    //Geography
+    Route::get('admin/geography/add', 'GeographyController@index')->name('geography.index');
+    Route::get('admin/geography/all', 'GeographyController@all')->name('geography.all');
+    Route::get('admin/geography/store', 'GeographyController@add')->name('geography.add');
+
+    // Career
+    Route::get('admin/career/add', 'CareerController@index')->name('career.index');
+    Route::get('admin/career/all', 'CareerController@all')->name('career.all');
+    Route::get('admin/career/store', 'CareerController@add')->name('career.add');
+
+
+    // Gallery
+    Route::get('admin/gallery', 'GalleryController@index')->name('gallery.index');
 });

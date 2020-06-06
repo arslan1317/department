@@ -20,4 +20,9 @@ class Department extends Model
     {
         return $this->hasMany('App\Event');
     }
+
+    public function sources()
+    {
+        return $this->hasMany('App\Source', 'sub_dep_id');
+    }
 }

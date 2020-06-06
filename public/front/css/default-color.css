@@ -66,7 +66,7 @@ article.post blockquote:before,
 .ttm-team-member-single-position,
 .ttm-btn.ttm-btn-color-skincolor.ttm-btn-style-border,
 section.error-404 .ttm-big-icon{
-    color: #3263f1;
+    color: #008a07;
 }
 
 
@@ -133,7 +133,7 @@ ul.products li.product .ttm-shop-icon a:hover,
 a.checkout-button:hover, .coupon button:hover, 
 .ttm-cart-form button:hover, .place-order button:hover,
 .color-trigger{
-    background-color: #3263f1;
+    background-color: #008a07;
 }
 .ttm-video-btn:hover .ttm-btn-play{ background-color: rgba(20, 65, 133, 0.95); }
  a.highlight-skin-button:hover{ background-color: rgba(20, 65, 133, 0.65); color: #fff; }
@@ -164,7 +164,7 @@ a.tp-caption,
 .ttm-search-overlay,
 .featured-box .featured-icon.icon-shape-square.ttm-icon_element-border i,
 .ttm-video-btn .ttm-btn-play, .ttm-btn-play:after, .ttm-btn-play:before{
-    border-color: #3263f1 ;
+    border-color: #008a07 ;
 
 }
 .comment-form textarea:focus,
@@ -173,7 +173,7 @@ a.tp-caption,
 .comment-form input[type="url"]:focus,
 .heading-seperator:after,
 .ttm-search-overlay .w-search-form-row:before {
-    border-bottom-color: #3263f1 ;
+    border-bottom-color: #008a07 ;
 }
 .ttm-search-overlay{
   border-top-color: #3263f1!important;
@@ -185,5 +185,5 @@ ul.products li.product .onsale:after {
     border-color: #3263f1 transparent transparent;
 }
 div.product ul.tabs li.active:before{ border-top: 8px solid #3263f1;}
-.tp-caption.tp-shape.tp-shapewrapper{ background-color: rgba(20, 65, 133, 0.8) ; border-color: rgba(20, 65, 133, 0.6);}
+.tp-caption.tp-shape.tp-shapewrapper{ background-color: rgba(0, 138, 7, 0.8) ; border-color: rgba(20, 65, 133, 0.6);}
 .tp-caption.ttm_prettyphoto:hover{ background-color:  rgba(20, 65, 133, 0.6);}

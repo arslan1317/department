@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/color-switcher.css') }}">
     <link id="switcher-color" href="{{ asset('front/css/default-color.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/responsive.css') }}" />
+    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/js/chart.min.js') }}"></script>
 </head>
 <body>
     <div class="page ttm-sidebar-true">
@@ -57,8 +59,9 @@
                     <div class="ttm-header-top-wrapper clearfix">
                         <div class="site-branding">
                             <a class="home-link" href="{{url('/')}}" title="Tectxon" rel="home">
-                                <!-- <img id="logo-img" class="img-center" src="" alt="logo-img"> -->
-                                YOUR LOGO
+                            @if($basic_info->logo != null)
+                                <img id="logo-img" class="img-center" src="{{asset('images')}}/{{$basic_info->logo}}" alt="logo-img">
+                            @endif
                             </a>
                         </div>
                         <div id="ttm-stickable-header-w" class="ttm-stickable-header-w clearfix">
@@ -76,22 +79,33 @@
                                             </div>
                                             <nav id="menu" class="menu">
                                                 <ul class="dropdown">
-                                                    <li class="active"><a href="{{url('/')}}">Home</a>
+                                                    <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="{{url('/')}}">Home</a>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="{{url('/')}}">Who we are</a>
+                                                        <ul class="sub-menu ">
+                                                            <li>
+                                                                <a href="">About Us</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">Business</a>
+                                                            </li>
+                                                        </ul>
                                                     </li>
                                                     @foreach($all_department as $all_departments)
                                                     <li class="has-submenu"><a href="#">{{$all_departments->name}}</a>
                                                         <ul class="sub-menu">
                                                         @foreach($all_departments->subdepartment as $subdepartments)
-                                                            <li><a href="#">{{$subdepartments->name}}</a></li>
+                                                            <li><a href="{{route('subdepartment.all', $subdepartments->id)}}">{{$subdepartments->name}}</a></li>
                                                         @endforeach
                                                         </ul>
                                                     </li>
                                                     @endforeach
-                                                    <li class=""><a href="{{url('/news')}}">News</a>
+                                                    <li class="{{ (request()->is('news')) ? 'active' : '' }}"><a href="{{url('/news')}}">News</a>
                                                     </li>
-                                                    <li class=""><a href="{{url('/events')}}">Events</a>
+                                                    <li class="{{ (request()->is('events')) ? 'active' : '' }}"><a href="{{url('/events')}}">Events</a>
                                                     </li>
-                                                    <li class=""><a href="element.html">Sources</a></li>
+                                                    <li class="{{ (request()->is('sources')) ? 'active' : '' }}"><a href="{{url('/sources')}}">Source & Uses</a></li>
+                                                    <li class="{{ (request()->is('sources')) ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact Us</a></li>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -138,7 +152,6 @@
                                     <i class="fa fa-phone"></i>
                                     <h3 class="widget-title">Have a question? call us now</h3>
                                     <p>{{$basic_info->phone}}</p>
-                                    <a class="ttm-btn btn-inline style2" href="#">Contact Us</a>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 widget-area">
@@ -146,7 +159,6 @@
                                     <i class="fa fa-envelope-o"></i>
                                     <h3 class="widget-title">Need support? Drop us an email</h3>
                                     <p>{{$basic_info->email}}</p>
-                                    <a class="ttm-btn btn-inline style2" href="#">Fill Our Form</a>
                                 </div>
                             </div>
                         </div>
@@ -158,8 +170,10 @@
                             <div class="col-xs-12 col-sm-12 col-md-4 widget-area">
                                 <div class="widget style2 widget-out-link clearfix">
                                     <div class="footer-logo">
+                                    @if($basic_info->footer_logo != null)
+                                        <img id="logo-img" class="img-center" src="{{asset('images')}}/{{$basic_info->footer_logo}}" alt="logo-img">
+                                    @endif
                                         <!-- <img id="footer-logo-img" class="img-center" src="images/footer-logo.png" alt=""> -->
-                                        Footer Logo
                                     </div>
                                     <br>
                                     <p>{{$basic_info->footer_text}}</p>
@@ -236,8 +250,7 @@
                             <div class="col-md-6 ttm-footer2-right">
                                 <ul id="menu-footer-menu" class="footer-nav-menu">
                                     <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Supplier</a></li>
+                                    <li><a href="{{url('/contact')}}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -251,7 +264,6 @@
 
         </div>
 
-    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
     <script src="{{ asset('front/js/tether.min.js') }}"></script>
     <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('front/js/jquery.easing.js') }}"></script>
@@ -275,7 +287,7 @@
     <script>
         $(document).ready(function(){
             $('#department').on('change', function() {
-              alert( this.value );
+             
             });
         })
     </script>

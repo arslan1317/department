@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- page-title -->
-<div class="ttm-page-title-row news-bg">
+<div class="ttm-page-title-row " style="background-color: #008a07;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
@@ -98,7 +98,7 @@
                                             @if($news->subdepartment != null)
                                             {{$news->subdepartment->name}}
                                             @else
-
+                                            {{$news->department->name}}
                                             @endif
                                             </li>
                                             <li><i class="fa fa-calendar"></i>{{$news->created_at->format('M d, Y')}}</li>

@@ -41,6 +41,7 @@ class NewsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'headline' => 'required',
             'body' => 'required',
+            'author' => 'required',
         ]);
 
         $imageName = time().'.'.$request->image->extension(); 
@@ -71,6 +72,7 @@ class NewsController extends Controller
         }
         $new = new News();
         $new->headline = $request->input('headline');
+        $new->author = $request->input('author');
         $new->body = $dom->saveHTML();
         $new->image = $imageName;
         $new->sub_dep_id = $request->input('sub_dep_id');
@@ -86,6 +88,7 @@ class NewsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'headline' => 'required',
             'body' => 'required',
+            'author' => 'required',
         ]);
 
         $imageName = time().'.'.$request->image->extension(); 
@@ -119,6 +122,7 @@ class NewsController extends Controller
         $new->headline = $request->input('headline');
         $new->body = $dom->saveHTML();
         $new->image = $imageName;
+        $new->author = $request->input('image');
         $new->department_id = $request->input('department_id');
         $new->user_id = Auth::id();
         $new->status = 1;
@@ -133,6 +137,7 @@ class NewsController extends Controller
         $validatedData = $request->validate([
             'headline' => 'required',
             'body' => 'required',
+            'author' => 'required',
         ]);
         if (request()->hasFile('image') && request('image') != '') {
             $imagePath = public_path('images/'.$news->image);
@@ -145,6 +150,7 @@ class NewsController extends Controller
         }
         $news->headline = $request->input('headline');
         $news->body = $request->input('body');
+        $news->author = $request->input('author');
         $news->update();
         return redirect()->back()->with('success', 'News is successfully updated');
 
@@ -155,6 +161,7 @@ class NewsController extends Controller
         $validatedData = $request->validate([
             'headline' => 'required',
             'body' => 'required',
+            'author' => 'required',
         ]);
         if (request()->hasFile('image') && request('image') != '') {
             $imagePath = public_path('images/'.$news->image);
@@ -167,6 +174,7 @@ class NewsController extends Controller
         }
         $news->headline = $request->input('headline');
         $news->body = $request->input('body');
+        $news->author = $request->input('author');
         $news->department_id = $request->input('department_id');
         $news->update();
         return redirect()->back()->with('success', 'News is successfully updated');

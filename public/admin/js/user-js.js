@@ -17,11 +17,13 @@
 function news(ele, formName){
 	var image = $(ele).data('image');
 	var headline = $(ele).data('headline');
+	var author = $(ele).data('author');
 	var body = $(ele).data('body');
 	var action = $(ele).data('action');
 	$(formName).find('.image-show').attr('src', '../images/' + image);
 	$(formName).find('form').attr('action', action);
 	$(formName).find('input[name=headline]').val(headline);
+	$(formName).find('input[name=author]').val(author);
 	$('#summernote-code-edit').summernote('reset');
 	$('#summernote-code-edit').summernote('editor.pasteHTML', body);
 	$(formName).modal('show');

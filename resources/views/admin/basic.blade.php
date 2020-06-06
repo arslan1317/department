@@ -21,25 +21,34 @@
 					</div>
 					<div class="card-content collapse show" style="">
 						<div class="card-body">
-							<form method="post" action="{{route('basic.setting', $basic_info->id)}}">
+							<form method="post" action="{{route('basic.setting', $basic_info->id)}}" enctype="multipart/form-data">
                             @csrf
 								<div class="form-body">
 									<div class="row">
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Logo</label><br>
+												@if($basic_info->logo != null)
+													<img src="{{asset('images')}}/{{$basic_info->logo}}" alt="" class="mb-2 mt-1">
+												@endif
 												<input type="file" name="logo">
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Footer Logo</label><br>
+												@if($basic_info->footer_logo != null)
+													<img src="{{asset('images')}}/{{$basic_info->footer_logo}}" alt="" class="mb-2 mt-1">
+												@endif
 												<input type="file" name="footerlogo">
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Favicon</label><br>
+												@if($basic_info->favicon != null)
+													<img src="{{asset('images')}}/{{$basic_info->favicon}}" alt="" class="mb-2 mt-1">
+												@endif
 												<input type="file" name="favicon">
 											</div>
 										</div>

@@ -688,12 +688,11 @@ h2.title strong{
     border-color: #fff;
     background: transparent;
 }
-.ttm-btn.ttm-btn-color-white.ttm-btn-style-border:hover{ 
-    color: #020d26;
-    border-color: #FFF;
-    background-color: #FFF;
+.ttm-btn.ttm-btn-color-white.ttm-btn-style-border:hover {
+    color: white;
+    border-color: #008a07;
+    background-color: #008a07;
 }
-
 /** btn-style-fill **/
 .ttm-btn.ttm-btn-color-black.ttm-btn-style-fill {
     color: #fff;

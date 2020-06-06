@@ -334,6 +334,63 @@
                         <i class="la la-gear"></i><span class="menu-title" data-i18n="Dashboard">Basic Setting</span>
                     </a>
                 </li>
+                <li class="nav-item {{ (request()->is('admin/aboutus')) ? 'active' : '' }}">
+                    <a href="{{route('aboutus.index')}}">
+                        <i class="la la-info-circle"></i><span class="menu-title" data-i18n="Dashboard">About Us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('aboutus.index')}}">
+                        <i class="la la-money"></i><span class="menu-title" data-i18n="Dashboard">Business</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li class="{{ (request()->is('admin/business/add')) ? 'active' : '' }}">
+                            <a class="menu-item" href="{{route('business.index')}}"><i></i><span data-i18n="eCommerce">Add Business Pages</span>
+                            </a>
+                        </li>
+                        <li class="{{ (request()->is('admin/business/all')) ? 'active' : '' }}">
+                            <a class="menu-item" href="{{route('business.all')}}"><i></i><span data-i18n="eCommerce">View Business Pages</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('geography.index')}}">
+                        <i class="la la-map-marker"></i><span class="menu-title" data-i18n="Dashboard">Geography</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li class="{{ (request()->is('admin/geography/add')) ? 'active' : '' }}">
+                            <a class="menu-item" href="{{route('geography.index')}}"><i></i><span data-i18n="eCommerce">Add Geography Pages</span>
+                            </a>
+                        </li>
+                        <li class="{{ (request()->is('admin/geography/all')) ? 'active' : '' }}">
+                            <a class="menu-item" href="{{route('geography.all')}}"><i></i><span data-i18n="eCommerce">View Geography Pages</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/gallery')) ? 'active' : '' }}">
+                    <a href="{{route('gallery.index')}}">
+                        <i class="la la-image"></i><span class="menu-title" data-i18n="Dashboard">Gallery</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="{{route('career.index')}}">
+                        <i class="la la-street-view"></i><span class="menu-title" data-i18n="Dashboard">Career</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li class="{{ (request()->is('admin/career/add')) ? 'active' : '' }}">
+                            <a class="menu-item" href="{{route('career.index')}}"><i></i><span data-i18n="eCommerce">Add Career</span>
+                            </a>
+                        </li>
+                        <li class="{{ (request()->is('admin/career/all')) ? 'active' : '' }}">
+                            <a class="menu-item" href="{{route('career.all')}}"><i></i><span data-i18n="eCommerce">View Career</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

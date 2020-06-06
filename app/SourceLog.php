@@ -10,6 +10,6 @@ class SourceLog extends Model
 
     public function source()
     {
-        return $this->belongsTo('App\Source');
+        return $this->belongsTo('App\Source', 'source_id');
     }
 }

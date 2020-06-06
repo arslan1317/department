@@ -41,6 +41,12 @@
 													<input type="text" class="form-control" name="headline">
 												</div>
 											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Author Name</label>
+													<input type="text" class="form-control" name="author">
+												</div>
+											</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<label>News Body</label>
@@ -147,7 +153,7 @@
 													</td>
 		                            				<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allnews->image}}" data-headline="{{$allnews->headline}}" data-body="{{$allnews->body}}"  data-action="{{ route('news.update', $allnews->id) }}" onclick="news(this, '#inlineForm')">
+		                            						<a href="javascript:;" class="btn-edit" data-image="{{$allnews->image}}" data-headline="{{$allnews->headline}}" data-body="{{$allnews->body}}" data-author="{{$allnews->author}}"  data-action="{{ route('news.update', $allnews->id) }}" onclick="news(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
@@ -199,6 +205,11 @@
                         <label>Headline</label>
                         <div class="form-group">
                             <input type="text" class="form-control" name="headline">
+						</div>
+						
+						<label>Author Name</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="author">
                         </div>
 
                         <label>News Body</label>

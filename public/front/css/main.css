@@ -486,7 +486,7 @@ a.checkout-button,
 .coupon button,
 .ttm-cart-form button,
 .place-order button{
-    background-color: #020d26;
+    background-color: #008a07;
 }
 .tp-caption.tp-dark-shape.tp-shapewrapper{ background-color: rgba(2, 13, 38, 0.46); }
 
@@ -494,7 +494,8 @@ a.checkout-button,
 .featured-box.style5:hover,
 .ttm-btn.ttm-btn-color-black.ttm-btn-style-border,
 .ttm-icon.ttm-icon-color-black.ttm-icon-style-border{
-  border-color: #020d26;
+  border-color: #008a07;
+  color: #008a07;
 }
 
 
@@ -685,7 +686,7 @@ article.post blockquote,
       color: rgba(2,13,38,1);
 }
 a.ttm-btn.ttm-btn-color-skincolor.btn-inline:hover{
-  color: #313131 !important;
+  color: #313131;
 }
 .ttm-bgcolor-darkgrey .ttm-custombutton:hover a{
     color: #202020;
@@ -1619,16 +1620,17 @@ section.ttm-row.bg-layer-section.bg-layer.break-1199-colum.clearfix{
 }
 .featured-desc a.ttm-btn {
     width: 49%;
-    background-color: #3263f1;
+    background-color: #008a07;
     text-align: center;
     padding-right: 0px !important;
     padding-top: 10px;
     padding-bottom: 10px;
     color: white;
+    border: 2px solid #008a07;
 }
 .featured-desc a.ttm-btn:hover {
-    background-color: #020d26;
-    color: white !important;
+    background-color: transparent;
+    color: #008a07 !important;
 }
 section.ttm-row.blog-section2.mt_92 {
     padding-bottom: 50px;
@@ -1678,12 +1680,12 @@ hr.new-hr {
     display: block;
     font-weight: 600;
     font-size: 20px;
-    background-color: #3262f1;
+    background-color: #008a07;
     text-align: center;
     margin-bottom: 10px;
 }
 .event-timer span {
-    background-color: #3262f1;
+    background-color: #008a07;
     display: block;
     color: white;
 }
@@ -1702,5 +1704,30 @@ hr.new-hr {
     margin-bottom: 15px;
 }
 .featured-desc a.ttm-btn.ttm-btn-color-skincolor.btn-inline:hover {
-    color: #ffffff !important;
+    color: #ffffff;
+}
+.ttm-bgcolor-darkgrey.first-footer .widget .widget-title{
+    color: white !important;
+}
+.ttm-bgcolor-darkgrey, .ttm-topbar-wrapper.ttm-bgcolor-darkgrey{
+    background-color: #282a2b;
+}
+.custom-alert-info {
+    padding: 10px !important;
+}
+.limited-text canvas {
+    background-color: White !important;
+}
+.title-box .page-title-heading .title:before{
+    background-color: #ffffff !important;
+}
+.breadcrumb-wrapper span span {
+    color: black !important;
+    font-weight: 600;
+}
+.color-dark-blue{
+    background-color: #282a2b !important;
+}
+.contact-icon a:hover{
+    border: 1px solid black !important;
 }

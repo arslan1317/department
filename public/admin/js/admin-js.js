@@ -20,12 +20,14 @@ function news(ele, formName){
 	var image = $(ele).data('image');
 	var headline = $(ele).data('headline');
 	var body = $(ele).data('body');
+	var author = $(ele).data('author');
 	var action = $(ele).data('action');
 	var department_id = $(ele).data('department_id');
 	$(formName).find("option:selected").val(department_id);
 	$(formName).find('.image-show').attr('src', '../images/' + image);
 	$(formName).find('form').attr('action', action);
 	$(formName).find('input[name=headline]').val(headline);
+	$(formName).find('input[name=author]').val(author);
 	$('#summernote-code-edit').summernote('editor.pasteHTML', body);
 	$(formName).modal('show');
 }

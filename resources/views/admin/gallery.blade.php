@@ -20,46 +20,27 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="{{route('news.admin.store')}}" enctype="multipart/form-data">
+								<form class="form" method="post" action="" enctype="multipart/form-data">
 									@csrf
+									<input type="hidden" value="5" name="section_type">
 									<div class="form-body">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="projectinput1">Department Name</label>
-													<select class="select2 form-control" name="department_id">
-														@foreach($department as $departments)
-															<option value="{{$departments->id}}">{{$departments->name}}</option>
-														@endforeach
-													</select>
+                                                    <label for="projectinput1">Title</label>
+                                                    <input type="text" class="form-control" name="title">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="projectinput1">News Image</label>
-													<label class="file center-block">
-														<input type="file" name="image">
-														<span class="file-custom"></span>
-													</label>
-
+													<label>Images</label>
+													<input type="file" class="form-control" name="gallery">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Headline</label>
-													<input type="text" class="form-control" name="headline">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Author Name</label>
-													<input type="text" class="form-control" name="author">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label>News Body</label>
-													<textarea name="body" id="summernote-code" class="summernote-code"></textarea>
+                                                    <label for="projectinput1">Caption</label>
+                                                    <input type="text" class="form-control" name="caption">
 												</div>
 											</div>
 										</div>
@@ -141,47 +122,26 @@
 		                            <table class="table table-striped table-bordered  dataex-html5-export dom-jQuery-events">
 		                                <thead>
 		                                    <tr>
-		                                    	<th>Department</th>
-		                                        <th>Image</th>
-		                                        <th>Headline</th>
-		                                        <th>Body</th>
+		                                        <th>Title</th>
+		                                        <th>Images</th>
+		                                        <th>Caption</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </thead>
 		                                <tbody>
-		                                	@foreach($news as $allnews)
+		                                	@foreach($gallery as $galleries)
 		                                		<tr>
-		                                			<td>{{$allnews->department->name}}</td>
-		                            				<td>
-		                            					<img src="{{asset('images')}}/{{$allnews->image}}" alt="" width="200">
-		                            				</td>
-		                            				<td>{{$allnews->headline}}</td>
-		                            				<td>
-													@php
-														$content = strip_tags($allnews->body);
-													@endphp
-													{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
-													</td>
-		                            				<td>
-		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-department_id="{{$allnews->department->id}}" data-image="{{$allnews->image}}" data-headline="{{$allnews->headline}}" data-body="{{$allnews->body}}" data-author="{{$allnews->author}}" data-action="{{ route('news.admin.update', $allnews->id) }}" onclick="news(this, '#inlineForm')">
-		                            							<i class="la la-edit"></i>
-		                            						</a>
-
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allnews->id}}" data-action="{{ route('news.admin.destroy', $allnews->id)}}">
-		                            							<i class="la la-trash"></i>
-		                            						</a>
-		                            					</div>
-		                            				</td>
-		                            			</tr>
+                                                    <td>{{$galleries->title}}</td>
+                                                    <td>{{$galleries->gallery}}</td>
+                                                    <td>{{$galleries->caption}}</td>
+		                                		</tr>
 		                            		@endforeach
 		                                </tbody>
 		                                <tfoot>
-		                                    <tr>
-		                                    	<th>Department</th>
-		                                        <th>Image</th>
-		                                        <th>Headline</th>
-		                                        <th>Body</th>
+                                            <tr>
+		                                        <th>Title</th>
+		                                        <th>Images</th>
+		                                        <th>Caption</th>
 		                                        <th>Action</th>
 		                                    </tr>
 		                                </tfoot>
@@ -200,7 +160,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit News</label>
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Event</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -208,37 +168,35 @@
                 <form action="#" method="post" enctype="multipart/form-data">
                 	@csrf
                     <div class="modal-body">
-                    	<label>Department</label>
-                    	<select class="select2 form-control" name="department_id">
-							@foreach($department as $departments)
-								<option value="{{$departments->id}}">{{$departments->name}}</option>
-							@endforeach
-						</select>
-
-                    	<img src="" alt="" class="image-show mt-2">
-                        <label>News Image</label>
+                    	<div class="form-group">
+                    		<label>Department</label>
+	                    	<select class="select2 form-control" name="department_id">
+								
+							</select>
+                    	</div>
                         <div class="form-group">
-                            <input type="file" class="form-control" name="image">
+                        	<label>Event Name</label>
+                            <input type="text" class="form-control" name="name">
                         </div>
-
-                        <label>Headline</label>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="headline">
-						</div>
-						
-						<label>Author Name</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="author">
+                        	<label>Event Start & End Date</label>
+	                        <div class='input-group'>
+	                            <input type='text' class="form-control editdatetime" name="datetime" />
+	                            <div class="input-group-append">
+	                                <span class="input-group-text">
+	                                    <span class="la la-calendar"></span>
+	                                </span>
+	                            </div>
+							</div>
                         </div>
-
-                        <label>News Body</label>
+                        <label>Event Details</label>
                         <div class="form-group">
-                            <textarea name="body" id="summernote-code-edit" class="summernote-code"></textarea>
-						</div>
+                            <textarea name="details" id="summernote-code-edit" class="summernote-code"></textarea>
+                        </div>
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-outline-primary" value="Update News">
+                        <input type="submit" class="btn btn-outline-primary" value="Update Event">
                     </div>
                 </form>
             </div>
@@ -249,7 +207,7 @@
 	    <div class="modal-dialog" role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h4 class="modal-title" id="myModalLabel1">News Delete</h4>
+	                <h4 class="modal-title" id="myModalLabel1">Event Delete</h4>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">&times;</span>
 	                </button>
