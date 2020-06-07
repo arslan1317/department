@@ -391,6 +391,25 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item {{ (request()->is('admin/tendor')) ? 'active' : '' }}">
+                    <a href="{{route('tendor.index')}}">
+                        <i class="la la-truck"></i><span class="menu-title" data-i18n="Dashboard">Tendor</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/project')) ? 'active' : '' }}">
+                    <a href="{{route('project.index')}}">
+                        <i class="la la-folder"></i><span class="menu-title" data-i18n="Dashboard">Our Projects</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ (request()->is('admin/award')) ? 'active' : '' }}">
+                    <a href="{{route('awards.index')}}">
+                        <i class="la la-trophy"></i><span class="menu-title" data-i18n="Dashboard">Awards & Achievements</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 06, 2020 at 10:58 AM
+-- Generation Time: Jun 07, 2020 at 01:00 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -206,6 +206,9 @@ CREATE TABLE `pages` (
   `title` varchar(100) DEFAULT NULL,
   `gallery` varchar(100) DEFAULT NULL,
   `caption` varchar(100) DEFAULT NULL,
+  `tendorno` text,
+  `advertised_date` varchar(100) DEFAULT NULL,
+  `closing_date` varchar(100) DEFAULT NULL,
   `section_type` int(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -215,8 +218,10 @@ CREATE TABLE `pages` (
 -- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`id`, `banner_image`, `heading`, `details`, `jobtitle`, `level`, `duration`, `title`, `gallery`, `caption`, `section_type`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'About Us', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `pages` (`id`, `banner_image`, `heading`, `details`, `jobtitle`, `level`, `duration`, `title`, `gallery`, `caption`, `tendorno`, `advertised_date`, `closing_date`, `section_type`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'About Us', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(2, NULL, 'Our Projects', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL, NULL),
+(3, NULL, 'Awards & Achievements', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -531,7 +536,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`

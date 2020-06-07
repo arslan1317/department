@@ -156,4 +156,15 @@ Route::group(['middleware' => ['admin']], function () {
 
     // Gallery
     Route::get('admin/gallery', 'GalleryController@index')->name('gallery.index');
+
+    // Tendor
+    Route::get('admin/tendor', 'TendorController@index')->name('tendor.index');
+
+    // Project
+    Route::get('admin/project', 'ProjectController@index')->name('project.index');
+    Route::post('admin/project/update/{id}', 'ProjectController@update')->name('project.admin.update');
+
+    // Award
+    Route::get('admin/award', 'AwardController@index')->name('awards.index');
+    Route::post('admin/award/update/{id}', 'AwardController@update')->name('awards.admin.update');
 });
