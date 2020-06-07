@@ -78,6 +78,18 @@ function events(ele, formName){
 	$(formName).modal('show');
 }
 
+function gallery(ele, formName){
+	var title = $(ele).data('title');
+	var gallery = $(ele).data('gallery');
+	var caption = $(ele).data('caption');
+	var action = $(ele).data('action');
+	$(formName).find('form').attr('action', action);
+	$(formName).find("option:selected").val(title);
+	$(formName).find('input[name=caption]').val(caption);
+	$(formName).find('.image-show').attr('src', '../images/' + gallery);
+	$(formName).modal('show');
+}
+
 $(document).ready(function(){
 	$('.btn-basic-delete').click(function(){
 		var route = $(this).data('route');

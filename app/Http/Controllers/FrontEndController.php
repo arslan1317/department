@@ -6,7 +6,9 @@ use App\Department;
 use App\SubDepartment;
 use App\News;
 use App\Event;
+use App\AboutUs;
 use App\Source;
+use DB;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -187,6 +189,17 @@ class FrontEndController extends Controller
         $all_department = Department::all();
         $latest_news = News::orderBy('id', 'desc')->take(3)->get();
         return view('contact',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info'));
+    }
+
+    public function gallery(){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $things = AboutUs::where('section_type', 5)->get();
+        $gellery = $things->groupBy('title');
+        return view('gallery',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info', 'gellery'));
     }
 
 }

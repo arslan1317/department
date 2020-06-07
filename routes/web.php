@@ -37,6 +37,8 @@ Route::get('/sources/single/{id}', 'FrontEndController@sources_single');
 Route::get('/subdepartment/{id}', 'FrontEndController@all_data')->name('subdepartment.all');
 Route::get('/subdepartment', 'FrontEndController@subdepartment');
 Route::get('/contact', 'FrontEndController@contact');
+Route::get('/gallery', 'FrontEndController@gallery');
+
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -156,6 +158,12 @@ Route::group(['middleware' => ['admin']], function () {
 
     // Gallery
     Route::get('admin/gallery', 'GalleryController@index')->name('gallery.index');
+    Route::post('admin/gallery/add', 'GalleryController@add')->name('gallery.add');
+    Route::post('admin/gallery/update/{id}', 'GalleryController@update')->name('gallery.update');
+    Route::post('admin/gallery/delete/{id}', 'GalleryController@destroy')->name('gallery.destroy');
+
+    // Gallery Collection
+    Route::post('admin/gallery/collect/add', 'GalleryController@addcollecttion')->name('gallery.collection.add');
 
     // Tendor
     Route::get('admin/tendor', 'TendorController@index')->name('tendor.index');

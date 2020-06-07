@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 07, 2020 at 01:00 AM
+-- Generation Time: Jun 07, 2020 at 11:23 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -55,7 +55,7 @@ INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `ic
 (7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-29 22:36:03', '2020-03-29 22:36:03', NULL, NULL, NULL, NULL, ''),
 (8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-29 22:45:06', '2020-03-29 22:45:06', NULL, NULL, NULL, NULL, ''),
 (9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-29 22:45:55', '2020-03-29 22:45:55', NULL, NULL, NULL, NULL, ''),
-(10, '1590306431.png', '1590306650.png', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, '2020-05-17 13:14:12', '2020-05-24 02:55:08', '021-99207134/32/33', 'info@example.com', 'Evanto HQ 24 Fifth st., Los Angeles, USA', 'Department has very good strength in innovative technology and tools with over 35 years of experience. We makes long-term investments goal in global companies in different sectors, mainly in Europe and other countries.', 'Copyright © 2019 Tectxon. All rights reserved.');
+(10, '1591528461.png', '1590306650.png', '1591527681.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, '2020-05-17 13:14:12', '2020-06-07 06:14:21', '021-99207134/32/33', 'info@example.com', 'Evanto HQ 24 Fifth st., Los Angeles, USA', 'Department has very good strength in innovative technology and tools with over 35 years of experience. We makes long-term investments goal in global companies in different sectors, mainly in Europe and other countries.', 'Copyright © 2019 Tectxon. All rights reserved.');
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ CREATE TABLE `pages` (
   `heading` varchar(100) DEFAULT NULL,
   `details` longtext,
   `jobtitle` varchar(100) DEFAULT NULL,
-  `level` varchar(100) NOT NULL,
+  `level` varchar(100) DEFAULT NULL,
   `duration` varchar(100) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `gallery` varchar(100) DEFAULT NULL,
@@ -221,7 +221,18 @@ CREATE TABLE `pages` (
 INSERT INTO `pages` (`id`, `banner_image`, `heading`, `details`, `jobtitle`, `level`, `duration`, `title`, `gallery`, `caption`, `tendorno`, `advertised_date`, `closing_date`, `section_type`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'About Us', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
 (2, NULL, 'Our Projects', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL, NULL),
-(3, NULL, 'Awards & Achievements', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, NULL, NULL);
+(3, NULL, 'Awards & Achievements', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, NULL, NULL),
+(4, NULL, NULL, NULL, NULL, NULL, NULL, 'Energy Secretary', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:00:18', '2020-06-07 04:00:18'),
+(5, NULL, NULL, NULL, NULL, NULL, NULL, 'Energy Secretary', '1591521039.jpeg', 'WhatsApp Image 2018-11-28 at 1.05.17 PM', NULL, NULL, NULL, 5, '2020-06-07 04:10:39', '2020-06-07 05:32:19'),
+(6, NULL, NULL, NULL, NULL, NULL, NULL, 'Energy Secretary', '1591522022.jpeg', 'WhatsApp Image 2018-11-28 at 1.05.17 PM (2)', NULL, NULL, NULL, 5, '2020-06-07 04:27:02', '2020-06-07 04:27:02'),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, 'Village Electrification', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:27:27', '2020-06-07 04:27:27'),
+(8, NULL, NULL, NULL, NULL, NULL, NULL, 'Village Electrification', '1591522099.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:28:19', '2020-06-07 04:28:19'),
+(9, NULL, NULL, NULL, NULL, NULL, NULL, 'STDC', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:28:49', '2020-06-07 04:28:49'),
+(10, NULL, NULL, NULL, NULL, NULL, NULL, 'STDC', '1591526047.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:29:26', '2020-06-07 05:34:07'),
+(11, NULL, NULL, NULL, NULL, NULL, NULL, 'SLMC', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:29:46', '2020-06-07 04:29:46'),
+(12, NULL, NULL, NULL, NULL, NULL, NULL, 'SLMC', '1591522225.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:30:25', '2020-06-07 04:30:25'),
+(13, NULL, NULL, NULL, NULL, NULL, NULL, 'Inspectorate of Coal Mines', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:30:54', '2020-06-07 04:30:54'),
+(14, NULL, NULL, NULL, NULL, NULL, NULL, 'Inspectorate of Coal Mines', '1591522308.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:31:48', '2020-06-07 04:31:48');
 
 -- --------------------------------------------------------
 
@@ -536,7 +547,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`

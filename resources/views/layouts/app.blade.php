@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Energy</title>
+    <link rel="shortcut icon" href="{{asset('images')}}/{{$basic_info->favicon}}" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/animate.css') }}" /> 
@@ -79,15 +80,18 @@
                                             </div>
                                             <nav id="menu" class="menu">
                                                 <ul class="dropdown">
-                                                    <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="{{url('/')}}">Home</a>
-                                                    </li>
                                                     <li class="has-submenu"><a href="{{url('/')}}">Who we are</a>
                                                         <ul class="sub-menu ">
                                                             <li>
                                                                 <a href="">About Us</a>
                                                             </li>
-                                                            <li>
+                                                            <li class="has-submenu">
                                                                 <a href="">Business</a>
+                                                                <ul class="sub-menu">
+                                                                    @foreach($global_business as $global_businesses)
+                                                                        <li><a href="#">{{$global_businesses->heading}}</a></li>
+                                                                    @endforeach
+                                                                </ul>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -105,6 +109,7 @@
                                                     <li class="{{ (request()->is('events')) ? 'active' : '' }}"><a href="{{url('/events')}}">Events</a>
                                                     </li>
                                                     <li class="{{ (request()->is('sources')) ? 'active' : '' }}"><a href="{{url('/sources')}}">Source & Uses</a></li>
+                                                    <li class="{{ (request()->is('gallery')) ? 'active' : '' }}"><a href="{{url('/gallery')}}">Gallery</a></li>
                                                     <li class="{{ (request()->is('sources')) ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact Us</a></li>
                                                 </ul>
                                             </nav>

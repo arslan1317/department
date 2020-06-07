@@ -47,7 +47,7 @@
 											<div class="form-group">
 												<label>Favicon</label><br>
 												@if($basic_info->favicon != null)
-													<img src="{{asset('images')}}/{{$basic_info->favicon}}" alt="" class="mb-2 mt-1">
+													<img src="{{asset('images')}}/{{$basic_info->favicon}}" alt="" class="mb-2 mt-1"><br>
 												@endif
 												<input type="file" name="favicon">
 											</div>

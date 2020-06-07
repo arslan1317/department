@@ -7,7 +7,7 @@
 				<div class="col-md-8">
 					<div class="card" data-height="">
 						<div class="card-header">
-							<h4 class="card-title" id="basic-layout-form">Add {{$title}}</h4>
+							<h4 class="card-title" id="basic-layout-form">Add Gallery Collection Name</h4>
 							<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
 							<div class="heading-elements">
 								<ul class="list-inline mb-0">
@@ -20,7 +20,32 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="" enctype="multipart/form-data">
+								<form class="form" method="post" action="{{route('gallery.collection.add')}}" enctype="multipart/form-data">
+									@csrf
+									<input type="hidden" value="9" name="section_type">
+									<div class="form-body">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+                                                    <label for="projectinput1">Name</label>
+                                                    <input type="text" class="form-control" name="name">
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="form-actions text-right">
+										<button type="submit" class="btn btn-primary">
+											<i class="la la-check-square-o"></i> Save Gallery Collection Name
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="card-content collapse show" style="">
+							<div class="card-body">
+								<form class="form" method="post" action="{{route('gallery.add')}}" enctype="multipart/form-data">
 									@csrf
 									<input type="hidden" value="5" name="section_type">
 									<div class="form-body">
@@ -28,13 +53,17 @@
 											<div class="col-md-6">
 												<div class="form-group">
                                                     <label for="projectinput1">Title</label>
-                                                    <input type="text" class="form-control" name="title">
+													<select class="select2 form-control" name="name">
+														@foreach($collection_name as $collection_names)
+															<option value="{{$collection_names->title}}">{{$collection_names->title}}</option>
+														@endforeach
+													</select>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Images</label>
-													<input type="file" class="form-control" name="gallery">
+													<input type="file" class="form-control" name="image">
 												</div>
 											</div>
 											<div class="col-md-6">
@@ -132,8 +161,21 @@
 		                                	@foreach($gallery as $galleries)
 		                                		<tr>
                                                     <td>{{$galleries->title}}</td>
-                                                    <td>{{$galleries->gallery}}</td>
+                                                    <td>
+		                            					<img src="{{asset('images')}}/{{$galleries->gallery}}" alt="" width="200">
+		                            				</td>
                                                     <td>{{$galleries->caption}}</td>
+													<td>
+		                            					<div class="table-action-button">
+		                            						<a href="javascript:;" class="btn-edit" data-title="{{$galleries->title}}" data-gallery="{{$galleries->gallery}}" data-caption="{{$galleries->caption}}"  data-action="{{ route('gallery.update', $galleries->id) }}" onclick="gallery(this, '#inlineForm')">
+		                            							<i class="la la-edit"></i>
+		                            						</a>
+
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$galleries->id}}" data-action="{{ route('gallery.destroy', $galleries->id)}}">
+		                            							<i class="la la-trash"></i>
+		                            						</a>
+		                            					</div>
+		                            				</td>
 		                                		</tr>
 		                            		@endforeach
 		                                </tbody>
@@ -160,7 +202,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Event</label>
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Gallery</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -169,34 +211,25 @@
                 	@csrf
                     <div class="modal-body">
                     	<div class="form-group">
-                    		<label>Department</label>
-	                    	<select class="select2 form-control" name="department_id">
-								
+							<label for="projectinput1">Title</label>
+							<select class="select2 form-control" name="name">
+								@foreach($collection_name as $collection_names)
+									<option value="{{$collection_names->title}}">{{$collection_names->title}}</option>
+								@endforeach
 							</select>
                     	</div>
+						<img src="" alt="" class="image-show">
+                        <label>Gallery Image</label>
                         <div class="form-group">
-                        	<label>Event Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="file" class="form-control" name="image">
                         </div>
-                        <div class="form-group">
-                        	<label>Event Start & End Date</label>
-	                        <div class='input-group'>
-	                            <input type='text' class="form-control editdatetime" name="datetime" />
-	                            <div class="input-group-append">
-	                                <span class="input-group-text">
-	                                    <span class="la la-calendar"></span>
-	                                </span>
-	                            </div>
-							</div>
-                        </div>
-                        <label>Event Details</label>
-                        <div class="form-group">
-                            <textarea name="details" id="summernote-code-edit" class="summernote-code"></textarea>
-                        </div>
-
+						<div class="form-group">
+							<label for="projectinput1">Caption</label>
+							<input type="text" class="form-control" name="caption">
+						</div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-outline-primary" value="Update Event">
+                        <input type="submit" class="btn btn-outline-primary" value="Update Gallery">
                     </div>
                 </form>
             </div>

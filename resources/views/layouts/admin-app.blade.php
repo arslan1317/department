@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
-    
+    <link rel="shortcut icon" href="{{asset('images')}}/{{$basic_info->favicon}}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/toastr.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/bootstrap.css') }}">
@@ -30,11 +30,11 @@
         <div class="navbar-wrapper">
             <div class="navbar-header">
                 <ul class="nav navbar-nav flex-row">
-                    <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
-                    <li class="nav-item mr-auto">
+                    <li class="nav-item mobile-menu d-lg-none m-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                    <li class="nav-item m-auto">
                         <a class="navbar-brand" href="{{url('admin/dashboard')}}">
-                            <!-- <img class="brand-logo" alt="modern admin logo" src="../../../app-assets/images/logo/logo.png"> -->
-                            <h3 class="brand-text">YOUR LOGO</h3></a>
+                            <img class="brand-logo" alt="modern admin logo" src="{{asset('images')}}/{{$basic_info->logo}}">
+                        </a>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a></li>
                 </ul>

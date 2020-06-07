@@ -73,3 +73,22 @@ img.image-show {
 .edit-box .form-group {
     margin-bottom: 12px;
 }
+body.vertical-layout.vertical-menu-modern .navbar .navbar-header {
+    background-color: white;
+    border: 2px solid transparent;
+    border-right-color: #2d343b;
+}
+.header-navbar .navbar-header .navbar-brand .brand-logo {
+    width: 130px;
+    margin: 0 auto;
+    text-align: CENTER;
+    display: block;
+}
+body.vertical-layout.vertical-menu-modern.menu-expanded .navbar .navbar-header {
+    float: left;
+    width: 260px;
+    padding: 0px;
+}
+a.navbar-brand {
+    padding: 12px 0px !important;
+}
