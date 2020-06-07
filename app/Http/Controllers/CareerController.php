@@ -35,6 +35,19 @@ class CareerController extends Controller
     }
 
     public function add(Request $request){
-        //send section_type = 3 when adding the business details
+        $validatedData = $request->validate([
+            'jobtitle' => 'required',
+            'details' => 'required',
+            'level' => 'required',
+            'duration' => 'required',
+        ]);
+        $page = new AboutUs();
+        $page->jobtitle = $request->input('jobtitle');
+        $page->details = $request->input('details');
+        $page->level = $request->input('level');
+        $page->duration = $request->input('duration');
+        $page->section_type = $request->input('section_type');
+        $page->save();
+        return redirect()->back()->with('success', 'Career is successfully Added');
     }
 }

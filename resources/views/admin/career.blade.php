@@ -20,9 +20,9 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="{{route('geography.add')}}" enctype="multipart/form-data">
+								<form class="form" method="post" action="{{route('career.add')}}" enctype="multipart/form-data">
 									@csrf
-                                    <input type="hidden" value="4" name="section_type">
+                                    <input type="hidden" value="3" name="section_type">
 									<div class="form-body">
 										<div class="row">
 											<div class="col-md-12">

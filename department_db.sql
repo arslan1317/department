@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Jun 07, 2020 at 11:23 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Jun 07, 2020 at 07:43 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `department_db`
@@ -28,17 +36,17 @@ CREATE TABLE `basic_setting` (
   `link` varchar(100) DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `section_type` int(11) DEFAULT NULL,
-  `slider_lower_heading` text,
+  `slider_lower_heading` text DEFAULT NULL,
   `slider_lower_paragraph` varchar(100) DEFAULT NULL,
   `info_image` varchar(100) DEFAULT NULL,
   `info_heading` varchar(100) DEFAULT NULL,
-  `info_paragraph` text,
+  `info_paragraph` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `footer_text` text,
+  `footer_text` text DEFAULT NULL,
   `copyright` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -92,7 +100,7 @@ CREATE TABLE `events` (
   `department_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -118,7 +126,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -165,13 +173,13 @@ CREATE TABLE `news` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `headline` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` text COLLATE utf8mb4_unicode_ci,
+  `author` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `department_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0'
+  `status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -199,14 +207,14 @@ CREATE TABLE `pages` (
   `id` int(100) NOT NULL,
   `banner_image` varchar(100) DEFAULT NULL,
   `heading` varchar(100) DEFAULT NULL,
-  `details` longtext,
+  `details` longtext DEFAULT NULL,
   `jobtitle` varchar(100) DEFAULT NULL,
   `level` varchar(100) DEFAULT NULL,
   `duration` varchar(100) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `gallery` varchar(100) DEFAULT NULL,
   `caption` varchar(100) DEFAULT NULL,
-  `tendorno` text,
+  `tendorno` text DEFAULT NULL,
   `advertised_date` varchar(100) DEFAULT NULL,
   `closing_date` varchar(100) DEFAULT NULL,
   `section_type` int(100) NOT NULL,
@@ -219,7 +227,7 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `banner_image`, `heading`, `details`, `jobtitle`, `level`, `duration`, `title`, `gallery`, `caption`, `tendorno`, `advertised_date`, `closing_date`, `section_type`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'About Us', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL),
+(1, NULL, 'About Us', '<h3 style=\"margin-top: 1em; margin-bottom: 1em; font-family: Poppins; line-height: 1.5; font-size: 16px; color: rgb(51, 51, 51);\">Introduction</h3><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Energy Department, Government of Sindh is to solve matters relating to development, generation, supply and distribution of hydro and thermal power. It also determines of rates of supply to consumers in bulk and otherwise and may prescribe tariffs within the province except where entrusted to WAPDA. Energy Department is also responsible for perspective planning, policy formulation, processing of power projects and enactment of legislation with regard to thermal and hydro power generation and distribution.</p><h3 style=\"margin-top: 1em; margin-bottom: 1em; font-family: Poppins; line-height: 1.5; font-size: 16px; color: rgb(51, 51, 51);\">Functions</h3><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li type=\"circle\">Administration of the Electricity Act, 1910 and other Acts on the subjects.</li><li type=\"circle\">Assessment and collection of taxes on electricity under the Sindh Finance Act, 1964.</li><li type=\"circle\">All relevant matters under laws relating to Petroleum, Power, energy and gas.</li><li type=\"circle\">Development of Power Generation by exploiting oil, gas and hydel resources.</li><li type=\"circle\">Development of power policy in consultation with other allied Departments.</li><li type=\"circle\">Review and updating of regulatory framework to promote fast-track investment in energy projects.</li><li type=\"circle\">Public Private partnership for energy production, conservation, efficiency and audit.</li><li type=\"circle\">Close coordination with the Federal Government in respect of grant of licenses for oil and gas exploration and cooperation with such companies and organizations undertaking such ventures.</li><li type=\"circle\">Grant and renovation of license of Electric Supply Companies and acquisition of electric undertakings.</li><li type=\"circle\">Monitoring of electricity tariff.</li><li type=\"circle\">Determination of rates of supply to consumers in bulk and otherwise and prescribed tariffs except where entrusted to WAPDA.</li><li type=\"circle\">Matters connected with Tube well electrification.</li><li type=\"circle\">All matters pertaining and auxiliary to hydel power stations of WAPDA or any other public/private sector agency located.</li><li type=\"circle\">Electrical accidents in connection with generating, transmission, distribution and use of electric energy.</li><li type=\"circle\">Standardization of Specification in respect of electric appliances, machinery and installations.</li><li type=\"circle\">Conservation of energy.</li><li type=\"circle\">Development of Coal Resources.</li><li type=\"circle\">Grant of Licenses, Permits, Leases for Coal Mining.</li><li type=\"circle\">Inspection of Coal Mines.</li><li type=\"circle\">Regulation &amp; Monitoring of Coal Mining Operations, Coal Gasification, Coal Gas extraction, Coal to Liquids &amp; other auxiliary activities and collection of royalties thereof.</li><li type=\"circle\">Negotiation of Agreements and consultations with the Federal Govt. if and when considered necessary.</li><li type=\"circle\">Negotiations/Consultations with Private Investors.</li><li type=\"circle\">Maintenance of up to date master Plans of Exploration Licenses, Permits and leases granted renewed, assignment and surrenders including their publication in the official Gazette.</li><li type=\"circle\">Serves as Secretariat of Mineral Investment Facilitation Authority (MIFA) and Thar Coal &amp; Energy Board.</li><li type=\"circle\">Geological Surveys.</li><li type=\"circle\">Notifying rules and regulations.</li><li type=\"circle\">Import, purchase, distribution and price fixation of coal &amp; coke.</li><li type=\"circle\">Coal based Energy Development Coal Based power generation.</li><li type=\"circle\">All matter relating to Alternate of Renewable Energy.</li><li type=\"circle\">Research, Development and Training in Alternate Energy field.</li><li type=\"circle\">Directorate of Alternate Energy — functional and administrative matters.</li><li type=\"circle\">Implementation of alternate Energy Policy framed by the Government of Pakistan.</li><li type=\"circle\">Propagation of wind, solar and other renewable energy generation.</li><li type=\"circle\">Technical assistance to private investors.</li><li type=\"circle\">Dissemination of Alternate Energy Technologies.</li><li type=\"circle\">Service matters, except those entrusted to the Services, Genera! Administration &amp; coordination Department)</li></ul><h3 style=\"margin-top: 1em; margin-bottom: 1em; font-family: Poppins; line-height: 1.5; font-size: 16px; color: rgb(51, 51, 51);\">Organogram</h3><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\"><img class=\"size-full wp-image-130 aligncenter\" src=\"http://2becreative.net/sindhenergy/wp-content/uploads/2018/10/org1.png\" alt=\"\" width=\"625\" height=\"474\" srcset=\"http://sindhenergy.gov.pk/wp-content/uploads/2018/10/org1-200x152.png 200w, http://sindhenergy.gov.pk/wp-content/uploads/2018/10/org1-300x228.png 300w, http://sindhenergy.gov.pk/wp-content/uploads/2018/10/org1-400x303.png 400w, http://sindhenergy.gov.pk/wp-content/uploads/2018/10/org1-600x455.png 600w, http://sindhenergy.gov.pk/wp-content/uploads/2018/10/org1.png 625w\" sizes=\"(max-width: 625px) 100vw, 625px\" style=\"vertical-align: top; max-width: 100%; height: auto; clear: both; display: block; margin-left: auto; margin-right: auto; text-align: center;\"></p><h3 style=\"margin-top: 1em; margin-bottom: 1em; font-family: Poppins; line-height: 1.5; font-size: 16px; color: rgb(51, 51, 51);\">Achievements</h3><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Pakistan’s energy shortage is a prevalent stigma that hinders the national growth, progress and prosperity.&nbsp; For industrial and economic development, it is imperative that the country is able to sustain the requisite energy demand. The exploration in south-eastern region (Tharparkar) has led to the discovery of large deposits of mineral coal that should fuel the nation’s industrial engine over the long term.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">The Government considers Thar coal development as a flagship project and believes in it as a means to Energy Security.&nbsp; &nbsp;In order to convert the dream into reality, the Government of Sindh took many initiatives to make Thar happen. &nbsp;Approval of historic incentive package, commissioning of large scale infrastructure projects such as construction of Airport, improvement and widening of roads for movement of heavy machinery and equipment from seaport upto Thar Coalfield, provision of water and construction of effluent disposal channel besides technical studies have today helped to reach the stage when we can proudly announce that physical work on ground at Thar has started.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">For the development of Thar Coal, the Government of Sindh has in last six years incurred more than Rs.30 billion on various mega projects and studies. &nbsp;In current financial year &nbsp;Government of Sindh earmarked Rs. 21 billion for coal, wind and other energy projects, which reflects the commitment of Sindh Government towards energy projects.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Physical work on Sindh Engro Coal Mining Company’s Project at Thar Block-II has been started and about 3Mn BCM overburden has been removed. Use of a local contractor is helping to expedite the work before the Chinese EPC contractors are mobilized; it will save&nbsp; 3-4 months of construction time.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">This is just the beginning and once the first mine is operational it will usher into a new era of sustainable, affordable, and assured energy for Pakistan.&nbsp;&nbsp; It will be a game changer for the country and the Province of Sindh.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Thar Coal Projects have been enlisted as early harvest projects &nbsp;by the CPEC (China-Pakistan Economic Corridor).&nbsp; SECMC and Sino Sindh Resources have been prioritized as top priority projects to be financed by Chinese institutions. There is a complete synergy between the Government of Pakistan and Government of Sindh</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Besides SECMC, other lease holders have completed their bankable feasibilities and are actively working to achieve financial close. &nbsp;Total power generation anticipated from these three projects is 2400 MW by 2018.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">The Government of Sindh has completed process for allocation of additional blocks to potential investors.&nbsp; MOUs with some investors have been signed and remaining in process.&nbsp; Hopefully Feasibility Study by new investors would be complete within one year. &nbsp;This reflects success of the Government policies for development of Thar Coal resources to overcome the energy crisis in near future.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">In addition to Thar Coal resources, the Energy Department had worked on other sources of energy and established two special purpose companies namely M/s Sindh Nooriabad Power Company (Pvt) Limited (SNPCL) and Sindh Nooriabad Power Company (Pvt.) Limited Phase-II &nbsp;with a lead partner M/s Technomen Kenetics Pvt Limited for installation of 100 MW Gas power generation facility. &nbsp;It is in very advance stage and commissioning is expected in early of 2016.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">The Government of Sindh has established “Sindh Transmission and Dispatch Company (STDC)” to cadre its power generation projects. &nbsp;Initially, the STDC is considering a power dispatch line of 75 km from Nooriabad upto KDA Scheme 33 Grid Station of K-Electric at Karachi. &nbsp;K-Electric has sent LoI for getting 100 MW power through the suggested transmission line.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">As far as alternate energy sources are concerned, Province of Sindh is well rich is receiving solar energy throughout the year.&nbsp; After receiving Expression of Interest in PPP mode from interested parties, Letter of Intent has been issued to successful bidders for installation of 4×20 MW for solar based power generation facility at four districts of Sindh i.e. Jhampir/ Thatta, Shaheed Benazirabad, Sukkur and Larkana. Two other independent solar based power generation projects of 50 MW by M/s Metro Solar Power Company Limited and 30 MW by M/s Asia Petroleum Limited have been issued LoI.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Nature has blessed Sindh Province with Wind Corridor with exploitable potential to generate about 60,000 MW electricity. &nbsp;The Government of Sindh has issued three LoI for installation of Wind Power Generation facility at Jhampir to M/s NBT Wind Power Pakistan (Pvt.) Limited for 500 MW, M/s Harvey Energy (Pvt.) Limited for 100 MW and M/s DHA City Karachi Wind Power Project for 50 MW. &nbsp;It is expected that power generation from these wind power projects will be by 2016/2017.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">Worth to know that, various international agencies has identified about 190 MW hydropower potential on various Canal falls in the Province. The Government of Sindh has issued LoI to a private firm for construction of 9 MW and 15 MW power generation facilities at Rohri Canal and Nara Canal downstream. &nbsp;Power generation from these two projects is expected by 2017.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">After 18<sup>th</sup>&nbsp;amendment, an Oil and Gas Directorate has been established in Energy Department to cope up with the growing requirements i.e. development of policy, regulatory framework and devising procedure to resolve technical matters related to Oil and Gas Sector. The Directorate will also be responsible to ensure that the Oil &amp; Gas activities in Sindh are carried out smoothly.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">In this connection, to boost commercial activities, a company namely Sindh Energy Holding Company Ltd (SEHCL) has been established. The company has agreed with PPL and OGDCL on the Assignment Agreements for assigning it 2.5% Working Interest (WI) in various Blocks in Sindh. Similarly, Sindh Petroleum Ltd (SPL) a sister concern of SEHCL has also been established. SPL is planning to participate in Oil &amp; Gas exploration activities in the country.</p><h3 style=\"margin-top: 1em; margin-bottom: 1em; font-family: Poppins; line-height: 1.5; font-size: 16px; color: rgb(51, 51, 51);\">Future Plans</h3><h4 style=\"margin-top: 1.33em; margin-bottom: 1.33em; font-family: Poppins; line-height: 1.5; font-size: 13px; color: rgb(51, 51, 51);\"><span style=\"font-weight: 700;\"><span class=\"headingSUB\">Power Wing</span><span class=\"headingSUB\"><br></span></span></h4><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>The Power Development Cell would be taken on non-development side and titled as permanent Directorate of Power Development in Sindh at Karachi.</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>More Power Development Projects (all types) particularly hydropower projects being cheapest source of power generation would be initiated in PPP Mode, with the assistance of PPP Unit, Finance Department.</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>On completion of the Feasibility Study on RoR, during current financial year, the approved scheme namely “Feasibility Study for identification &amp; establishment of small &amp; Mini Power Generation Units on various Perennial Canals, Lakes and Falls in Sindh” amounting to Rs. 49.00 (M), would be initiated by revising its PC-II to complete the remaining objects / tasks.</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>On availability of Sindh Power Policy, the Private Sector would be encouraged to invest in Power Sector Projects (all types), to overcome the energy crisis and to create path for the betterment of the Province in respect of creating employment opportunities.</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>Energy Conservation activity within Province has been got included with estimated Cost of Rs. 55.00 (M), in the current year’s PSDP, and is pending for resolving the dispute between Energy &amp; Alternate Energy Departments, GoS, over duplication of Rules of Business.</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>Automation of Electric Inspectorates in Sindh, through ADP Scheme amounting to Rs. 90.00 (M), has been got included during current year’s PSDP, but was not initiated due to the establishment of Regional Offices of newly created two Electric Inspectorates at Larkana &amp; Mirpurkhas.</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>Research Study for Development of Power Sector Projects (Generation, Transmission &amp; Utilization of Electric Power within Province), has been proposed in the next year’s ADP with an estimated cost of Rs. 45.00 (M).</li></ul><ul style=\"color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px;\"><li>Development of Policy, Regulatory Framework and devicing procedure to resolve technical matters relating to Oil &amp; Gas Sector has also been proposed in next year’s ADP with an estimated cost of Rs. 80.00 (M) for Oil &amp; Gas Wing of Energy Department.</li></ul><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; color: rgb(116, 116, 116); font-family: Poppins; font-size: 13px; letter-spacing: normal;\">&nbsp;</p><h4 style=\"margin-top: 1.33em; margin-bottom: 1.33em; font-family: Poppins; line-height: 1.5; font-size: 13px; color: rgb(51, 51, 51);\"><span style=\"font-weight: 700;\">Oil &amp; Gas Wing</span></h4><h4 style=\"margin-top: 1.33em; margin-bottom: 1.33em; font-family: Poppins; line-height: 1.5; font-size: 13px; color: rgb(51, 51, 51);\"><span style=\"font-weight: 700;\">Alternate Energy Wing</span></h4><h4 style=\"margin-top: 1.33em; margin-bottom: 1.33em; font-family: Poppins; line-height: 1.5; font-size: 13px; color: rgb(51, 51, 51);\"><span style=\"font-weight: 700;\">Sindh Coal Wing</span></h4><h4 style=\"margin-top: 1.33em; margin-bottom: 1.33em; font-family: Poppins; line-height: 1.5; font-size: 13px; color: rgb(51, 51, 51);\"><span style=\"font-weight: 700;\">Coal Mine Wing</span></h4><h4 style=\"margin-top: 1.33em; margin-bottom: 1.33em; font-family: Poppins; line-height: 1.5; font-size: 13px; color: rgb(51, 51, 51);\"><span style=\"font-weight: 700;\">Coal Energy Wing</span></h4>', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-06-07 09:47:12'),
 (2, NULL, 'Our Projects', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL, NULL),
 (3, NULL, 'Awards & Achievements', 'asfsfasf', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, NULL, NULL),
 (4, NULL, NULL, NULL, NULL, NULL, NULL, 'Energy Secretary', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:00:18', '2020-06-07 04:00:18'),
@@ -232,7 +240,13 @@ INSERT INTO `pages` (`id`, `banner_image`, `heading`, `details`, `jobtitle`, `le
 (11, NULL, NULL, NULL, NULL, NULL, NULL, 'SLMC', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:29:46', '2020-06-07 04:29:46'),
 (12, NULL, NULL, NULL, NULL, NULL, NULL, 'SLMC', '1591522225.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:30:25', '2020-06-07 04:30:25'),
 (13, NULL, NULL, NULL, NULL, NULL, NULL, 'Inspectorate of Coal Mines', NULL, NULL, NULL, NULL, NULL, 9, '2020-06-07 04:30:54', '2020-06-07 04:30:54'),
-(14, NULL, NULL, NULL, NULL, NULL, NULL, 'Inspectorate of Coal Mines', '1591522308.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:31:48', '2020-06-07 04:31:48');
+(14, NULL, NULL, NULL, NULL, NULL, NULL, 'Inspectorate of Coal Mines', '1591522308.jpeg', NULL, NULL, NULL, NULL, 5, '2020-06-07 04:31:48', '2020-06-07 04:31:48'),
+(16, NULL, NULL, '<p><span style=\"color: rgba(0, 0, 0, 0.87); font-family: Roboto, arial, sans-serif; letter-spacing: normal; white-space: pre-line;\">The Ideal candidate will have:\r\n• JavaScript\r\n• Type Script\r\n• Node.js\r\n• Experience with SQL and NoSQL Databases (MySQL, PostgreSQL</span><span class=\"WbZuDe\" style=\"display: inline; color: rgba(0, 0, 0, 0.87); font-family: Roboto, arial, sans-serif; letter-spacing: normal; white-space: pre-line;\"> MongoDB)\r\n• Web. App frameworks such as React, Nest.js, Next.js, Angular\r\n• REST APIs\r\n• Front-end / UI development in a Linux-based environment\r\n• Bonus (nice to have): Any Visual Programming Framework on React like Storm, Retejs and React Flow Chart\r\n• Bonus (nice to have): C++\r\n\r\nEducation and Qualification\r\nA Bachelor or higher degree in Computer Science, Engineering or related disciplines. Masters degree holders will be preferred.\r\n\r\nSalary &amp; Package\r\nBesides a competitive base salary dependent on the number of years of experience, we also offer corporate benefits</span><br></p>', 'Software Developer', 'Intermediate', '2020-06-27', NULL, NULL, NULL, NULL, NULL, NULL, 3, '2020-06-07 10:04:16', '2020-06-07 10:04:16'),
+(17, NULL, 'World Map', '<p>Testing geography.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2020-06-07 12:31:37', '2020-06-07 12:31:37'),
+(18, '1591551566.png', 'Demo Business', 'Dummy Text', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-06-07 12:39:27', '2020-06-07 12:39:27'),
+(19, '1591551581.png', 'Demo Business', 'Dummy Text', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-06-07 12:39:41', '2020-06-07 12:39:41'),
+(20, '1591551637.png', 'Demo Business', 'Dummy Text', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-06-07 12:40:37', '2020-06-07 12:40:37'),
+(21, NULL, 'Testing', '<p>It\'s testing for business</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-06-07 12:41:58', '2020-06-07 12:41:58');
 
 -- --------------------------------------------------------
 
@@ -318,7 +332,7 @@ CREATE TABLE `sub_departments` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fax` int(11) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1'
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -393,7 +407,7 @@ CREATE TABLE `user_request` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -547,10 +561,15 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
 --
 ALTER TABLE `sub_departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

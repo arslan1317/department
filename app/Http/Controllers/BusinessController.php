@@ -35,6 +35,20 @@ class BusinessController extends Controller
     }
 
     public function add(Request $request){
-        //send section_type = 2 when adding the business details
+        $validatedData = $request->validate([
+            'heading' => 'required',
+            'details' => 'required'
+        ]);
+        $page = new AboutUs();
+        if (request()->hasFile('banner_image') && request('banner_image') != '') {
+            $imageName = time().'.'.$request->banner_image->extension();
+            $request->banner_image->move(public_path('images'), $imageName);
+            $page->banner_image = $imageName;
+        }
+        $page->heading = $request->input('heading');
+        $page->details = $request->input('details');
+        $page->section_type = $request->input('section_type');
+        $page->save();
+        return redirect()->back()->with('success', 'Business is successfully Added');
     }
 }
