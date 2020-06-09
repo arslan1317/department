@@ -24,4 +24,8 @@ class ProjectController extends Controller
         $project = AboutUs::where('section_type' , 7)->first();        
         return view('admin.project', compact('title', 'lefttitle', 'social_icons', 'basic_info', 'project'));
     }
+
+    public function update(Request $request, $id){
+        
+    }
 }

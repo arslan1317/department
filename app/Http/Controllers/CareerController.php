@@ -26,8 +26,8 @@ class CareerController extends Controller
     }
 
     public function all(){
-        $title = 'All Business Pages';
-        $lefttitle = '<li class="breadcrumb-item active"><a>All Business Pages</a></li></ol>';
+        $title = 'All Career';
+        $lefttitle = '<li class="breadcrumb-item active"><a>All Career</a></li></ol>';
         $basic_info = BasicSetting::where('section_type', 1)->first();
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $business = AboutUs::where('section_type', 4)->get();

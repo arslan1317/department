@@ -90,6 +90,19 @@ function gallery(ele, formName){
 	$(formName).modal('show');
 }
 
+function business(ele, formName){
+	var heading = $(ele).data('heading');
+	var details = $(ele).data('details');
+	var banner_image = $(ele).data('banner_image');
+	var action = $(ele).data('action');
+	$(formName).find('form').attr('action', action);
+	$(formName).find("input[name=heading]").val(heading);
+	$(formName).find('.image-show').attr('src', '/images/' + banner_image);
+	$('#summernote-code-edit').summernote('reset');
+	$('#summernote-code-edit').summernote('editor.pasteHTML', details);
+	$(formName).modal('show');
+}
+
 $(document).ready(function(){
 	$('.btn-basic-delete').click(function(){
 		var route = $(this).data('route');

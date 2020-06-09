@@ -26,7 +26,7 @@ class BusinessController extends Controller
     }
 
     public function all(){
-        $title = 'All Business Pages';
+        $title = 'Business Pages';
         $lefttitle = '<li class="breadcrumb-item active"><a>All Business Pages</a></li></ol>';
         $basic_info = BasicSetting::where('section_type', 1)->first();
         $social_icons = BasicSetting::where('section_type', 2)->get();
@@ -50,5 +50,13 @@ class BusinessController extends Controller
         $page->section_type = $request->input('section_type');
         $page->save();
         return redirect()->back()->with('success', 'Business is successfully Added');
+    }
+
+    public function update(Request $request, $id){
+
+    }
+
+    public function destroy($id){
+        
     }
 }

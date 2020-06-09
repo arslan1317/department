@@ -69,9 +69,8 @@
 		                            <table class="table table-striped table-bordered  dataex-html5-export dom-jQuery-events">
 		                                <thead>
 		                                    <tr>
-		                                        <th>Name</th>
-                                                <th>Banner Image</th>
 		                                        <th>Page Name</th>
+                                                <th>Banner Image</th>
 		                                        <th>Details</th>
 		                                        <th>Action</th>
 		                                    </tr>
@@ -80,22 +79,24 @@
 		                                	@foreach($business as $businesses)
 		                                		<tr>
 		                                			<td>{{$businesses->heading}}</td>
-                                                    @if($about->banner_image != null)
-                                                        <img src="{{asset('images')}}/{{$businesses->banner_image}}" alt="">
+													<td>
+                                                    @if($businesses->banner_image != null)
+                                                        <img src="{{asset('images')}}/{{$businesses->banner_image}}" alt="" width="100">
                                                     @endif
-                                                    <td>{{$businesses->heading}}</td>
-		                                			<td>
+													</td>
+													<td>
 													@php
 														$content = strip_tags($businesses->details);
 													@endphp
 													{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
 													</td>
+													<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit">
+		                            						<a href="javascript:;" class="btn-edit" data-heading="{{$businesses->heading}}" data-details="{{$businesses->details}}" data-banner_image="{{$businesses->banner_image}}"  data-action="{{ route('business.update', $businesses->id) }}" onclick="business(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('events.admin.destroy', $businesses->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$businesses->id}}" data-action="{{ route('business.admin.destroy', $businesses->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
@@ -104,10 +105,9 @@
 		                            		@endforeach
 		                                </tbody>
 		                                <tfoot>
-		                                    <tr>
-		                                        <th>Name</th>
-                                                <th>Banner Image</th>
+											<tr>
 		                                        <th>Page Name</th>
+                                                <th>Banner Image</th>
 		                                        <th>Details</th>
 		                                        <th>Action</th>
 		                                    </tr>
@@ -127,7 +127,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Event</label>
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit {{$title}}</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -135,35 +135,23 @@
                 <form action="#" method="post" enctype="multipart/form-data">
                 	@csrf
                     <div class="modal-body">
+						<img src="" alt="" class="image-show">
+						<label>News Image</label>
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="banner_image">
+                        </div>
                     	<div class="form-group">
-                    		<label>Department</label>
-	                    	<select class="select2 form-control" name="department_id">
-								
-							</select>
+                    		<label>Page Heading / Page Name</label>
+	                    	<input type="text" class="form-control" name="heading">
                     	</div>
-                        <div class="form-group">
-                        	<label>Event Name</label>
-                            <input type="text" class="form-control" name="name">
-                        </div>
-                        <div class="form-group">
-                        	<label>Event Start & End Date</label>
-	                        <div class='input-group'>
-	                            <input type='text' class="form-control editdatetime" name="datetime" />
-	                            <div class="input-group-append">
-	                                <span class="input-group-text">
-	                                    <span class="la la-calendar"></span>
-	                                </span>
-	                            </div>
-							</div>
-                        </div>
-                        <label>Event Details</label>
+                        <label>Details</label>
                         <div class="form-group">
                             <textarea name="details" id="summernote-code-edit" class="summernote-code"></textarea>
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-outline-primary" value="Update Event">
+                        <input type="submit" class="btn btn-outline-primary" value="Update {{$title}}">
                     </div>
                 </form>
             </div>
@@ -174,7 +162,7 @@
 	    <div class="modal-dialog" role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h4 class="modal-title" id="myModalLabel1">Event Delete</h4>
+	                <h4 class="modal-title" id="myModalLabel1">{{$title}} Delete</h4>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">&times;</span>
 	                </button>

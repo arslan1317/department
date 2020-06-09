@@ -24,4 +24,8 @@ class AwardController extends Controller
         $award = AboutUs::where('section_type' , 8)->first();        
         return view('admin.award', compact('title', 'lefttitle', 'social_icons', 'basic_info', 'award'));
     }
+
+    public function update(Request $request){
+        
+    }
 }

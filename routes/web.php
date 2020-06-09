@@ -144,11 +144,15 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/business/add', 'BusinessController@index')->name('business.index');
     Route::get('admin/business/all', 'BusinessController@all')->name('business.all');
     Route::post('admin/business/store', 'BusinessController@add')->name('business.add');
+    Route::post('admin/business/update/{id}', 'BusinessController@update')->name('business.update');
+    Route::post('admin/business/delete/{id}', 'BusinessController@destroy')->name('business.admin.destroy');
 
     //Geography
     Route::get('admin/geography/add', 'GeographyController@index')->name('geography.index');
     Route::get('admin/geography/all', 'GeographyController@all')->name('geography.all');
     Route::post('admin/geography/store', 'GeographyController@add')->name('geography.add');
+    Route::post('admin/geography/update/{id}', 'GeographyController@update')->name('geography.update');
+    Route::post('admin/geography/delete/{id}', 'GeographyController@destroy')->name('geography.admin.destroy');
 
     // Career
     Route::get('admin/career/add', 'CareerController@index')->name('career.index');

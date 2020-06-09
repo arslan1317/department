@@ -26,12 +26,12 @@ class GeographyController extends Controller
     }
 
     public function all(){
-        $title = 'All Business Pages';
-        $lefttitle = '<li class="breadcrumb-item active"><a>All Business Pages</a></li></ol>';
+        $title = 'Geography Pages';
+        $lefttitle = '<li class="breadcrumb-item active"><a>Geography Pages</a></li></ol>';
         $basic_info = BasicSetting::where('section_type', 1)->first();
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $business = AboutUs::where('section_type', 3)->get();
-        return view('admin.businessall', compact('title', 'lefttitle', 'social_icons', 'basic_info','business'));
+        return view('admin.geographyall', compact('title', 'lefttitle', 'social_icons', 'basic_info','business'));
     }
 
     public function add(Request $request){
@@ -51,5 +51,13 @@ class GeographyController extends Controller
         $page->save();
 
         return redirect()->back()->with('success', 'Geography is successfully Added');
+    }
+
+    public function update(Request $request, $id){
+
+    }
+
+    public function destroy($id){
+        
     }
 }

@@ -20,7 +20,7 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="{{route('aboutus.admin.update', $award->id)}}" enctype="multipart/form-data">
+								<form class="form" method="post" action="{{route('awards.admin.update', $award->id)}}" enctype="multipart/form-data">
 									@csrf
 									<input type="hidden" value="{{$award->section_type}}" name="section_type">
 									<div class="form-body">
