@@ -83,13 +83,13 @@
                                                     <li class="has-submenu"><a href="{{url('/')}}">Who we are</a>
                                                         <ul class="sub-menu ">
                                                             <li>
-                                                                <a href="">About Us</a>
+                                                                <a href="{{url('/about')}}">About Us</a>
                                                             </li>
                                                             <li class="has-submenu">
                                                                 <a href="">Business</a>
                                                                 <ul class="sub-menu">
                                                                     @foreach($global_business as $global_businesses)
-                                                                        <li><a href="#">{{$global_businesses->heading}}</a></li>
+                                                                        <li><a href="{{url('/business')}}/{{$global_businesses->id}}">{{$global_businesses->heading}}</a></li>
                                                                     @endforeach
                                                                 </ul>
                                                             </li>

@@ -103,6 +103,21 @@ function business(ele, formName){
 	$(formName).modal('show');
 }
 
+function career(ele, formName){
+	var jobtitle = $(ele).data('jobtitle');
+	var details = $(ele).data('details');
+	var level = $(ele).data('level');
+	var duration = $(ele).data('duration');
+	var action = $(ele).data('action');
+	$(formName).find('form').attr('action', action);
+	$(formName).find("input[name=jobtitle]").val(jobtitle);
+	$('#summernote-code-edit').summernote('reset');
+	$('#summernote-code-edit').summernote('editor.pasteHTML', details);
+	$(formName).find("input[name=level]").val(level);
+	$(formName).find("input[name=duration]").val(duration);
+	$(formName).modal('show');
+}
+
 $(document).ready(function(){
 	$('.btn-basic-delete').click(function(){
 		var route = $(this).data('route');

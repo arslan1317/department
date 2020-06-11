@@ -41,4 +41,12 @@ class TendorController extends Controller
 
         return redirect()->back()->with('success', 'Tendor is successfully Added');
     }
+
+    public function update(Request $request){
+
+    }
+
+    public function destroy($id){
+        
+    }
 }

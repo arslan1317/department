@@ -38,6 +38,8 @@ Route::get('/subdepartment/{id}', 'FrontEndController@all_data')->name('subdepar
 Route::get('/subdepartment', 'FrontEndController@subdepartment');
 Route::get('/contact', 'FrontEndController@contact');
 Route::get('/gallery', 'FrontEndController@gallery');
+Route::get('/about', 'FrontEndController@about');
+Route::get('/business/{id}', 'FrontEndController@business');
 
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -158,7 +160,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin/career/add', 'CareerController@index')->name('career.index');
     Route::get('admin/career/all', 'CareerController@all')->name('career.all');
     Route::post('admin/career/store', 'CareerController@add')->name('career.add');
-
+    Route::post('admin/career/update/{id}', 'CareerController@update')->name('career.update');
+    Route::post('admin/career/delete/{id}', 'CareerController@destroy')->name('career.admin.destroy');
 
     // Gallery
     Route::get('admin/gallery', 'GalleryController@index')->name('gallery.index');
@@ -172,6 +175,8 @@ Route::group(['middleware' => ['admin']], function () {
     // Tendor
     Route::get('admin/tendor', 'TendorController@index')->name('tendor.index');
     Route::post('admin/tendor/add', 'TendorController@add')->name('tendor.add');
+    Route::post('admin/tendor/update/{id}', 'TendorController@update')->name('tendor.update');
+    Route::post('admin/tendor/delete/{id}', 'TendorController@destroy')->name('tendor.destroy');
 
     // Project
     Route::get('admin/project', 'ProjectController@index')->name('project.index');

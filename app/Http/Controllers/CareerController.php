@@ -50,4 +50,12 @@ class CareerController extends Controller
         $page->save();
         return redirect()->back()->with('success', 'Career is successfully Added');
     }
+    
+    public function update(Request $request){
+
+    }
+    
+    public function destroy($id){
+
+    }
 }

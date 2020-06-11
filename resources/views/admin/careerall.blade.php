@@ -88,12 +88,13 @@
                                                     </td>
                                                     <td>{{$businesses->level}}</td>
                                                     <td>{{$businesses->duration}}</td>
+													<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit">
+		                            						<a href="javascript:;" class="btn-edit" data-jobtitle="{{$businesses->jobtitle}}" data-details="{{$businesses->details}}" data-level="{{$businesses->level}}" data-duration="{{$businesses->duration}}"  data-action="{{ route('career.update', $businesses->id) }}" onclick="career(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$businesses->id}}" data-action="{{ route('events.admin.destroy', $businesses->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$businesses->id}}" data-action="{{ route('career.admin.destroy', $businesses->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
@@ -125,7 +126,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Event</label>
+                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit Career</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -134,34 +135,24 @@
                 	@csrf
                     <div class="modal-body">
                     	<div class="form-group">
-                    		<label>Department</label>
-	                    	<select class="select2 form-control" name="department_id">
-
-							</select>
+                    		<label>Job Title</label>
+	                    	<input type="text" class="form-control" name="jobtitle">
                     	</div>
-                        <div class="form-group">
-                        	<label>Event Name</label>
-                            <input type="text" class="form-control" name="name">
-                        </div>
-                        <div class="form-group">
-                        	<label>Event Start & End Date</label>
-	                        <div class='input-group'>
-	                            <input type='text' class="form-control editdatetime" name="datetime" />
-	                            <div class="input-group-append">
-	                                <span class="input-group-text">
-	                                    <span class="la la-calendar"></span>
-	                                </span>
-	                            </div>
-							</div>
-                        </div>
-                        <label>Event Details</label>
+                        <label>Details</label>
                         <div class="form-group">
                             <textarea name="details" id="summernote-code-edit" class="summernote-code"></textarea>
-                        </div>
-
+						</div>
+						<div class="form-group">
+                    		<label>Level</label>
+	                    	<input type="text" class="form-control" name="level">
+						</div>
+						<div class="form-group">
+                    		<label>Duration of application</label>
+	                    	<input type="date" class="form-control" name="duration">
+                    	</div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-outline-primary" value="Update Event">
+                        <input type="submit" class="btn btn-outline-primary" value="Update Career">
                     </div>
                 </form>
             </div>
@@ -172,7 +163,7 @@
 	    <div class="modal-dialog" role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h4 class="modal-title" id="myModalLabel1">Event Delete</h4>
+	                <h4 class="modal-title" id="myModalLabel1">Career Delete</h4>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">&times;</span>
 	                </button>

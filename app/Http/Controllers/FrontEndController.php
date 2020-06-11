@@ -202,4 +202,24 @@ class FrontEndController extends Controller
         return view('gallery',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info', 'gellery'));
     }
 
+    public function about(){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $about = AboutUs::where('section_type', 1)->first();
+        return view('about',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','about'));
+    }
+
+    public function business($id){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $business = AboutUs::where('id', $id)->first();
+        return view('business',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','business'));
+    }
+
 }
