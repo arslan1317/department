@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Admin\BasicSetting;
 use Illuminate\Http\Request;
 use App\AboutUs;
+use File;
 
 class GeographyController extends Controller
 {
@@ -54,10 +55,33 @@ class GeographyController extends Controller
     }
 
     public function update(Request $request, $id){
-
+        $validatedData = $request->validate([
+            'heading' => 'required',
+            'details' => 'required'
+        ]);
+        $page = AboutUs::find($id);
+        if (request()->hasFile('banner_image') && request('banner_image') != '') {
+            $imagePath = public_path('images/'.$page->banner_image);
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+            $newimageName = time().'.'.$request->banner_image->extension();
+            $request->banner_image->move(public_path('images'), $newimageName);
+            $page->banner_image = $newimageName;
+        }
+        $page->heading = $request->input('heading');
+        $page->details = $request->input('details');
+        $page->update();
+        return redirect()->back()->with('success', 'Geography is successfully updated');
     }
 
     public function destroy($id){
-        
+        $page = AboutUs::findOrFail($id);
+        // $imagePath = public_path('images/'.$page->banner_image);
+        // if(File::exists($imagePath)){
+        //     unlink($imagePath);
+        // }
+        $page->delete();
+        return redirect()->back()->with('success', 'Geography is successfully Deleted');
     }
 }

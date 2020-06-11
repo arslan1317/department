@@ -100,7 +100,7 @@
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
-		                            				</td>		
+		                            				</td>
 		                                		</tr>
 		                            		@endforeach
 		                                </tbody>

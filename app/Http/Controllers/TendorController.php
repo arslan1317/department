@@ -25,4 +25,20 @@ class TendorController extends Controller
         $tendor = AboutUs::where('section_type', 6)->get();
         return view('admin.tendor', compact('title', 'lefttitle', 'social_icons', 'basic_info', 'tendor'));
     }
+
+    public function add(Request $request){
+        $validatedData = $request->validate([
+            'tendorno' => 'required',
+            'details' => 'required',
+            'datetime' => 'required'
+        ]);
+        $page = new AboutUs();
+        $page->heading = $request->input('tendorno');
+        $page->details = $request->input('details');
+        $page->details = $request->input('datetime');
+        $page->section_type = $request->input('section_type');
+        $page->save();
+
+        return redirect()->back()->with('success', 'Tendor is successfully Added');
+    }
 }

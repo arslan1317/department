@@ -93,11 +93,11 @@
 		                            							<i class="la la-edit"></i>
 		                            						</a>
 
-		                            						<a href="javascript:;" class="btn-delete" data-id="{{$allevents->id}}" data-action="{{ route('events.admin.destroy', $businesses->id)}}">
+		                            						<a href="javascript:;" class="btn-delete" data-id="{{$businesses->id}}" data-action="{{ route('events.admin.destroy', $businesses->id)}}">
 		                            							<i class="la la-trash"></i>
 		                            						</a>
 		                            					</div>
-		                            				</td>		
+		                            				</td>
 		                                		</tr>
 		                            		@endforeach
 		                                </tbody>
@@ -136,7 +136,7 @@
                     	<div class="form-group">
                     		<label>Department</label>
 	                    	<select class="select2 form-control" name="department_id">
-								
+
 							</select>
                     	</div>
                         <div class="form-group">

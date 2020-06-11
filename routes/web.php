@@ -171,6 +171,7 @@ Route::group(['middleware' => ['admin']], function () {
 
     // Tendor
     Route::get('admin/tendor', 'TendorController@index')->name('tendor.index');
+    Route::post('admin/tendor/add', 'TendorController@add')->name('tendor.add');
 
     // Project
     Route::get('admin/project', 'ProjectController@index')->name('project.index');

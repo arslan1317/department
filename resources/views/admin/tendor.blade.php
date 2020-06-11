@@ -20,7 +20,7 @@
 						</div>
 						<div class="card-content collapse show" style="">
 							<div class="card-body">
-								<form class="form" method="post" action="" enctype="multipart/form-data">
+								<form class="form" method="post" action="{{route('tendor.add')}}" enctype="multipart/form-data">
 									@csrf
 									<input type="hidden" value="6" name="section_type">
 									<div class="form-body">
@@ -178,7 +178,7 @@
                     	<div class="form-group">
                     		<label>Department</label>
 	                    	<select class="select2 form-control" name="department_id">
-								
+
 							</select>
                     	</div>
                         <div class="form-group">
