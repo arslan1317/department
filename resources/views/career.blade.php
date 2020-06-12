@@ -10,14 +10,14 @@
                     <div class="col-md-12"> 
                         <div class="title-box">
                             <div class="page-title-heading">
-                                <h1 class="title">About</h1>
+                                <h1 class="title">Career</h1>
                             </div>
                             <div class="breadcrumb-wrapper">
                                 <span>
                                     <a title="Homepage" href="{{url('/')}}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                                 </span>
                                 <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
-                                <span><span>About</span></span>
+                                <span><span>Career</span></span>
                             </div>  
                         </div>
                     </div>
@@ -35,14 +35,16 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            <div class="col-lg-12 p-0">
-                <div class="ttm-tabs full-width style2 details" data-effect="fadeIn">
-                    @if($about->banner_image != null)
-                        <img src="{{asset('images')}}/{{$about->banner_image}}" alt="" class="w-100 mb-4">
-                    @endif
-                    {!! $about->details !!}
+            @foreach($career as $careers)
+                <div class="col-lg-12 p-0 pt-4">
+                    <div class="ttm-tabs full-width style2" data-effect="fadeIn">
+                        <h1>{{$careers->jobtitle}}</h1>
+                        <h5>Level: {{$careers->level}}</h5>
+                        <h5>Duration: {{$careers->duration}}</h5>
+                        {!! $careers->details !!}
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div><!-- row end -->
     </div>
 </section>

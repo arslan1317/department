@@ -1523,10 +1523,10 @@ ul.footer-nav-menu li:last-child:after{
     background-repeat: no-repeat;
     background-position: center;
 }
-.ttm-page-title-row { 
+.ttm-page-title-row {
     display: block;
-    padding-top: 165px; 
-    padding-bottom: 158px;
+    padding-top: 60px;
+    padding-bottom: 70px;
 }
 .title-box .page-title-heading h1 {
     font-family: "Titillium Web",Arial,Helvetica,sans-serif;
@@ -1730,4 +1730,42 @@ hr.new-hr {
 }
 .contact-icon a:hover{
     border: 1px solid black !important;
+}
+.details p {
+    font-family: "Open Sans",Tahoma,Geneva,sans-serif !important;
+    font-weight: 400;
+    font-size: 15px !important;
+    line-height: 28px !important;
+    color: #5d6576 !important;
+    background-color: #f3f7f9;
+    letter-spacing: 0px;
+}
+.details ul {
+    padding-left: 30px;
+}
+.details ul li{
+    font-family: "Open Sans",Tahoma,Geneva,sans-serif !important;
+    font-weight: 400;
+    font-size: 15px !important;
+    line-height: 28px !important;
+    color: #5d6576 !important;
+    background-color: #f3f7f9;
+    letter-spacing: 0px;
+}
+.details h3 {
+    font-family: "Titillium Web",Arial,Helvetica,sans-serif !important;
+    font-size: 35px !important;
+    line-height: inherit !important;
+    margin-bottom: 15px !important;
+    font-weight: bold;
+    color: #020d26 !important;
+}
+.details h4 {
+    font-family: "Titillium Web",Arial,Helvetica,sans-serif !important;
+    font-size: 30px !important;
+    line-height: inherit !important;
+    margin-bottom: 20px !important;
+    font-weight: bold;
+    color: #020d26 !important;
+    margin-top: 0px !important;
 }

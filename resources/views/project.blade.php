@@ -10,14 +10,14 @@
                     <div class="col-md-12"> 
                         <div class="title-box">
                             <div class="page-title-heading">
-                                <h1 class="title">About</h1>
+                                <h1 class="title">{{$business->heading}}</h1>
                             </div>
                             <div class="breadcrumb-wrapper">
                                 <span>
                                     <a title="Homepage" href="{{url('/')}}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                                 </span>
                                 <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
-                                <span><span>About</span></span>
+                                <span><span>{{$business->heading}}</span></span>
                             </div>  
                         </div>
                     </div>
@@ -37,10 +37,10 @@
         <div class="row">
             <div class="col-lg-12 p-0">
                 <div class="ttm-tabs full-width style2 details" data-effect="fadeIn">
-                    @if($about->banner_image != null)
-                        <img src="{{asset('images')}}/{{$about->banner_image}}" alt="" class="w-100 mb-4">
+                    @if($business->banner_image != null)
+                        <img src="{{asset('images')}}/{{$business->banner_image}}" alt="" class="w-100 mb-4">
                     @endif
-                    {!! $about->details !!}
+                    {!! $business->details !!}
                 </div>
             </div>
         </div><!-- row end -->

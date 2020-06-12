@@ -222,4 +222,44 @@ class FrontEndController extends Controller
         return view('business',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','business'));
     }
 
+    public function projects(){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $business = AboutUs::where('section_type', 7)->first();
+        return view('project',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','business'));
+    }
+
+    public function awards(){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $business = AboutUs::where('section_type', 8)->first();
+        return view('awards',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','business'));
+    }
+
+    public function career(){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $career = AboutUs::where('section_type', 4)->orderBy('id', 'desc')->get();
+        return view('career',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','career'));
+    }
+
+    public function tendor(){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $career = AboutUs::where('section_type', 6)->orderBy('id', 'desc')->get();
+        return view('tendor',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','career'));
+    }
+
 }

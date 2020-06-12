@@ -40,7 +40,10 @@ Route::get('/contact', 'FrontEndController@contact');
 Route::get('/gallery', 'FrontEndController@gallery');
 Route::get('/about', 'FrontEndController@about');
 Route::get('/business/{id}', 'FrontEndController@business');
-
+Route::get('/projects', 'FrontEndController@projects');
+Route::get('/awards', 'FrontEndController@awards');
+Route::get('/career', 'FrontEndController@career');
+Route::get('/tendor', 'FrontEndController@tendor');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

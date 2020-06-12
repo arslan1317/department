@@ -339,7 +339,7 @@
         display: inline-block;
     }
     #site-header-menu #site-navigation .menu > ul > li:last-child:after{ display: none; }
-    .ttm-header-style-infostack #site-header-menu #site-navigation .menu > ul > li > a { margin: 0px 27px 0px 27px; }
+    .ttm-header-style-infostack #site-header-menu #site-navigation .menu > ul > li > a { margin: 0px 15px 0px 15px; }
     #site-header-menu #site-navigation > ul li > a, 
     #site-header-menu #site-navigation .menu ul > li ul li > a {
         margin: 0;

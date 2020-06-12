@@ -38,7 +38,7 @@
         <!-- row -->
         <div class="row">
             <div class="col-lg-12 p-0">
-                <div class="ttm-tabs full-width style2" data-effect="fadeIn">
+                <div class="ttm-tabs full-width style2 details" data-effect="fadeIn">
                     @if($business->banner_image != null)
                         <img src="{{asset('images')}}/{{$business->banner_image}}" alt="" class="w-100 mb-4">
                     @endif

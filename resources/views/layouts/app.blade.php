@@ -110,7 +110,21 @@
                                                     </li>
                                                     <li class="{{ (request()->is('sources')) ? 'active' : '' }}"><a href="{{url('/sources')}}">Source & Uses</a></li>
                                                     <li class="{{ (request()->is('gallery')) ? 'active' : '' }}"><a href="{{url('/gallery')}}">Gallery</a></li>
-                                                    <li class="{{ (request()->is('sources')) ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact Us</a></li>
+                                                    <li class="has-submenu">
+                                                        <a href="#">Success Stories</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="{{ (request()->is('projects')) ? 'active' : '' }}"><a href="{{url('/projects')}}">Projects</a></li>
+                                                            <li class="{{ (request()->is('awards')) ? 'active' : '' }}"><a href="{{url('/awards')}}">Awards & Achievements</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="#">Notice</a>
+                                                        <ul class="sub-menu">
+                                                            <li class="{{ (request()->is('career')) ? 'active' : '' }}"><a href="{{url('/career')}}">Career</a></li>
+                                                            <li class="{{ (request()->is('tendor')) ? 'active' : '' }}"><a href="{{url('/tendor')}}">Tendor</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact Us</a></li>
                                                 </ul>
                                             </nav>
                                         </div>
