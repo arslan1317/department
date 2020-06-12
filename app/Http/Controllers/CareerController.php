@@ -50,12 +50,26 @@ class CareerController extends Controller
         $page->save();
         return redirect()->back()->with('success', 'Career is successfully Added');
     }
-    
-    public function update(Request $request){
 
+    public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'jobtitle' => 'required',
+            'details' => 'required',
+            'level' => 'required',
+            'duration' => 'required',
+        ]);
+        $page = AboutUs::find($id);
+        $page->jobtitle = $request->input('jobtitle');
+        $page->details = $request->input('details');
+        $page->level = $request->input('level');
+        $page->duration = $request->input('duration');
+        $page->update();
+        return redirect()->back()->with('success', 'Career is successfully updated');
     }
-    
-    public function destroy($id){
 
+    public function destroy($id){
+        $page = AboutUs::findOrFail($id);
+        $page->delete();
+        return redirect()->back()->with('success', 'Career is successfully Deleted');
     }
 }
