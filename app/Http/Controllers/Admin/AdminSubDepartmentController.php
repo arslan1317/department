@@ -9,6 +9,7 @@ use App\SubDepartment;
 use App\UserRequest;
 use App\UserCategory;
 use App\Company;
+use File;
 
 class AdminSubDepartmentController extends Controller
 {
@@ -37,7 +38,7 @@ class AdminSubDepartmentController extends Controller
         ]);
 
         SubDepartment::create($request->input());
-   
+
         return redirect()->back()->with('success', 'Subdepartment is successfully saved');
     }
 
@@ -85,7 +86,7 @@ class AdminSubDepartmentController extends Controller
     }
 
     public function companystore(Request $request){
-        
+
         $validatedData = $request->validate([
             'name' => 'required',
             'website' => 'required',
@@ -112,14 +113,14 @@ class AdminSubDepartmentController extends Controller
 
 				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
 				$mimetype = $groups['mime'];
-			
+
 				$filename = uniqid();
 				$filepath = "/images/$filename.$mimetype";
 
 				$image = Image::make($src)
 				  ->encode($mimetype, 100)
 				  ->save(public_path($filepath));
-				
+
 				$new_src = asset($filepath);
 				$img->removeAttribute('src');
 				$img->setAttribute('src', $new_src);
@@ -137,6 +138,12 @@ class AdminSubDepartmentController extends Controller
     }
 
     public function companydestroy($id){
-        
+        $company = Company::findOrFail($id);
+        $imagePath = public_path('images/'.$company->image);
+        // if(File::exists($imagePath)){
+        //     unlink($imagePath);
+        // }
+        $company->delete();
+        return redirect()->back()->with('success', 'Company is successfully Deleted');
     }
 }

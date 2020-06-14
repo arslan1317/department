@@ -39,14 +39,28 @@ class TendorController extends Controller
         $page->section_type = $request->input('section_type');
         $page->save();
 
-        return redirect()->back()->with('success', 'Tendor is successfully Added');
+        return redirect()->back()->with('success', 'Tendor is successfully added.');
     }
 
-    public function update(Request $request){
-
+    public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'tendorno' => 'required',
+            'details' => 'required',
+            'datetime' => 'required'
+        ]);
+        $page = AboutUs::find($id);
+        $page->tendorno = $request->input('tendorno');
+        $page->details = $request->input('details');
+        $page->advertised_date = $request->input('datetime');
+        $page->update();
+        return redirect()->back()->with('success', 'Tendor is successfully updated.');
     }
 
     public function destroy($id){
-        
+
+        $page = AboutUs::findOrFail($id);
+        $page->delete();
+        return redirect()->back()->with('success', 'Tendor is successfully deleted.');
+
     }
 }
