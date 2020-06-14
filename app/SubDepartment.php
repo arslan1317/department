@@ -32,4 +32,9 @@ class SubDepartment extends Model
     {
         return $this->hasMany('App\Source', 'sub_dep_id');
     }
+
+    public function company()
+    {
+        return $this->hasMany('App\Company', 'sub_id');
+    }
 }

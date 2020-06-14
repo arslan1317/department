@@ -256,6 +256,8 @@
                     <ul class="menu-content">
                         <li class="{{ (request()->is('admin/subdepartment')) ? 'active' : '' }}"><a class="menu-item" href="{{url('admin/subdepartment')}}"><i></i><span data-i18n="Subdepartment">Subdepartment</span></a>
                         </li>
+                        <li class="{{ (request()->is('admin/company')) ? 'active' : '' }}"><a class="menu-item" href="{{url('admin/company')}}"><i></i><span data-i18n="Subdepartment">Company Info</span></a>
+                        </li>
                     </ul>
                 </li>
 

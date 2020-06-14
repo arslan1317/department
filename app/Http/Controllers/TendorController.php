@@ -33,9 +33,9 @@ class TendorController extends Controller
             'datetime' => 'required'
         ]);
         $page = new AboutUs();
-        $page->heading = $request->input('tendorno');
+        $page->tendorno = $request->input('tendorno');
         $page->details = $request->input('details');
-        $page->details = $request->input('datetime');
+        $page->advertised_date = $request->input('datetime');
         $page->section_type = $request->input('section_type');
         $page->save();
 

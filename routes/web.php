@@ -188,4 +188,9 @@ Route::group(['middleware' => ['admin']], function () {
     // Award
     Route::get('admin/award', 'AwardController@index')->name('awards.index');
     Route::post('admin/award/update/{id}', 'AwardController@update')->name('awards.admin.update');
+
+    Route::get('admin/company', 'Admin\AdminSubDepartmentController@company')->name('company.index');
+    Route::post('admin/company/add', 'Admin\AdminSubDepartmentController@companystore')->name('company.store');
+    Route::post('admin/company/update/{id}', 'Admin\AdminSubDepartmentController@companyupdate')->name('company.update');
+    Route::post('admin/company/delete/{id}', 'Admin\AdminSubDepartmentController@companydestroy')->name('company.destroy');
 });

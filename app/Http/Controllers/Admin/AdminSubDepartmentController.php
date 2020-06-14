@@ -8,6 +8,7 @@ use App\Department;
 use App\SubDepartment;
 use App\UserRequest;
 use App\UserCategory;
+use App\Company;
 
 class AdminSubDepartmentController extends Controller
 {
@@ -73,5 +74,69 @@ class AdminSubDepartmentController extends Controller
         ]);
         $user_request->save();
         return redirect()->back()->with('notifysuccess', 'Successfully Approved');
+    }
+
+    public function company(){
+        $title = 'Company Info';
+    	$lefttitle = '<li class="breadcrumb-item"><a href="javascript:;">Department</a></li><li class="breadcrumb-item active">Company Info</li></ol>';
+        $department = SubDepartment::orderBy('id', 'desc')->get();
+        $compnay = Company::all();
+        return view('admin.company', compact('department', 'title', 'lefttitle', 'compnay'));
+    }
+
+    public function companystore(Request $request){
+        
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'website' => 'required',
+            'details' => 'required'
+        ]);
+
+        $compnay = new Company();
+
+        if (request()->hasFile('image') && request('image') != '') {
+            $newimageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $newimageName);
+            $compnay->image = $newimageName;
+        }
+        $compnay->name = $request->input('name');
+        $compnay->website = $request->input('website');
+        $message = $request->input('details');
+        $dom = new \DOMDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach($images as $img){
+			$src = $img->getAttribute('src');
+
+			if(preg_match('/data:image/', $src)){
+
+				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+				$mimetype = $groups['mime'];
+			
+				$filename = uniqid();
+				$filepath = "/images/$filename.$mimetype";
+
+				$image = Image::make($src)
+				  ->encode($mimetype, 100)
+				  ->save(public_path($filepath));
+				
+				$new_src = asset($filepath);
+				$img->removeAttribute('src');
+				$img->setAttribute('src', $new_src);
+			}
+        }
+        $compnay->details = $dom->saveHTML();
+        $compnay->sub_id = $request->input('sub_id');
+        $compnay->telephone = $request->input('telephone');
+        $compnay->save();
+        return redirect()->back()->with('success', 'Company is successfully Added');
+    }
+
+    public function companyupdate(Request $request, $id){
+
+    }
+
+    public function companydestroy($id){
+        
     }
 }

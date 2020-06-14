@@ -118,6 +118,39 @@ function career(ele, formName){
 	$(formName).modal('show');
 }
 
+function tendors(ele, formName){
+	var tendorno = $(ele).data('tendorno');
+	var details = $(ele).data('details');
+	var advertised_date = $(ele).data('advertised_date');
+	var action = $(ele).data('action');
+	$(formName).find('form').attr('action', action);
+	$(formName).find("input[name=tendorno]").val(tendorno);
+	$('#summernote-code-edit').summernote('reset');
+	$('#summernote-code-edit').summernote('editor.pasteHTML', details);
+	$(formName).find("input[name=advertised_date]").val(advertised_date);
+	$(formName).modal('show');
+}
+
+function company(ele, formName){
+	var image = $(ele).data('image');
+	var sub_id = $(ele).data('sub_id');
+	var name = $(ele).data('name');
+	var website = $(ele).data('website');
+	var telephone = $(ele).data('telephone');
+	var details = $(ele).data('details');
+	var action = $(ele).data('action');
+	$(formName).find('form').attr('action', action);
+	$(formName).find('.image-show').attr('src', '/images/' + image);
+	$(formName).find("input[name=name]").val(name);
+	$(formName).find("option:selected").val(sub_id);
+	$(formName).find("input[name=name]").val(name);
+	$(formName).find("input[name=website]").val(website);
+	$(formName).find("input[name=telephone]").val(telephone);
+	$('#summernote-code-edit').summernote('reset');
+	$('#summernote-code-edit').summernote('editor.pasteHTML', details);
+	$(formName).modal('show');
+}
+
 $(document).ready(function(){
 	$('.btn-basic-delete').click(function(){
 		var route = $(this).data('route');
