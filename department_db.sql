@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 14, 2020 at 04:38 AM
+-- Generation Time: Jun 17, 2020 at 06:00 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -39,23 +39,25 @@ CREATE TABLE `basic_setting` (
   `email` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `footer_text` text,
-  `copyright` varchar(100) NOT NULL
+  `copyright` varchar(100) NOT NULL,
+  `about_us` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `basic_setting`
 --
 
-INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `icon`, `section_type`, `slider_lower_heading`, `slider_lower_paragraph`, `info_image`, `info_heading`, `info_paragraph`, `created_at`, `updated_at`, `phone`, `email`, `address`, `footer_text`, `copyright`) VALUES
-(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:14:25', '2020-03-29 20:36:53', NULL, NULL, NULL, NULL, ''),
-(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:32:33', '2020-03-29 20:32:33', NULL, NULL, NULL, NULL, ''),
-(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:33:27', '2020-03-29 20:33:27', NULL, NULL, NULL, NULL, ''),
-(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:47:13', '2020-03-29 20:47:13', NULL, NULL, NULL, NULL, ''),
-(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1986', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-29 20:47:13', '2020-05-17 12:49:47', NULL, NULL, NULL, NULL, ''),
-(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-29 22:36:03', '2020-03-29 22:36:03', NULL, NULL, NULL, NULL, ''),
-(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-29 22:45:06', '2020-03-29 22:45:06', NULL, NULL, NULL, NULL, ''),
-(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-29 22:45:55', '2020-03-29 22:45:55', NULL, NULL, NULL, NULL, ''),
-(10, '1591528461.png', '1590306650.png', '1591527681.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, '2020-05-17 13:14:12', '2020-06-07 06:14:21', '021-99207134/32/33', 'info@example.com', 'Evanto HQ 24 Fifth st., Los Angeles, USA', 'Department has very good strength in innovative technology and tools with over 35 years of experience. We makes long-term investments goal in global companies in different sectors, mainly in Europe and other countries.', 'Copyright © 2019 Tectxon. All rights reserved.');
+INSERT INTO `basic_setting` (`id`, `logo`, `footer_logo`, `favicon`, `link`, `icon`, `section_type`, `slider_lower_heading`, `slider_lower_paragraph`, `info_image`, `info_heading`, `info_paragraph`, `created_at`, `updated_at`, `phone`, `email`, `address`, `footer_text`, `copyright`, `about_us`) VALUES
+(1, NULL, NULL, NULL, '##', '<i class=\"fa fa-facebook\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:14:25', '2020-03-29 20:36:53', NULL, NULL, NULL, NULL, '', NULL),
+(2, NULL, NULL, NULL, '#', '<i class=\"fa fa-twitter\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:32:33', '2020-03-29 20:32:33', NULL, NULL, NULL, NULL, '', NULL),
+(3, NULL, NULL, NULL, '#', '<i class=\"fa fa-google-plus\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:33:27', '2020-03-29 20:33:27', NULL, NULL, NULL, NULL, '', NULL),
+(5, NULL, NULL, NULL, '#', '<i class=\"fa fa-linkedin\"></i>', 2, NULL, NULL, NULL, NULL, NULL, '2020-03-29 20:47:13', '2020-03-29 20:47:13', NULL, NULL, NULL, NULL, '', NULL),
+(6, NULL, NULL, NULL, '', '', 4, 'Making the World Since 1986', 'We provides best industry and company services', NULL, NULL, NULL, '2020-03-29 20:47:13', '2020-05-17 12:49:47', NULL, NULL, NULL, NULL, '', NULL),
+(7, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557363.png', 'Petrolium Refinery', 'We are providing different services in this sector to wide area of world with cleanest line of services. Customised cleaning line system.', '2020-03-29 22:36:03', '2020-03-29 22:36:03', NULL, NULL, NULL, NULL, '', NULL),
+(8, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557906.png', 'Power & Energy', 'Tectxon is committed to developing solutions that reduced operating costs and alignment with electronic products and instrument.', '2020-03-29 22:45:06', '2020-03-29 22:45:06', NULL, NULL, NULL, NULL, '', NULL),
+(9, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, '1585557955.png', 'Mechanical Works', 'We provide embedded technology with innovation and digital capabilities to transform your functions in our latest products.', '2020-03-29 22:45:55', '2020-03-29 22:45:55', NULL, NULL, NULL, NULL, '', NULL),
+(10, '1591528461.png', '1590306650.png', '1591527681.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, '2020-05-17 13:14:12', '2020-06-07 06:14:21', '021-99207134/32/33', 'info@example.com', 'Evanto HQ 24 Fifth st., Los Angeles, USA', 'Department has very good strength in innovative technology and tools with over 35 years of experience. We makes long-term investments goal in global companies in different sectors, mainly in Europe and other countries.', 'Copyright © 2019 Tectxon. All rights reserved.', NULL),
+(11, '', '', '', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, '2020-05-17 13:14:12', '2020-06-15 01:46:54', '', '', '', '', '', 'Energy Department, Government of Sindh is to solve matters relating to development, generation, supply and distribution of hydro and thermal power. It also determines of rates of supply to consumers in bulk and otherwise and may prescribe tariffs within the province except where entrusted to WAPDA. Energy Department is also responsible for perspective planning, policy formulation, processing of power projects and enactment of legislation with regard to thermal and hydro power generation and distribution.');
 
 -- --------------------------------------------------------
 
@@ -326,9 +328,9 @@ CREATE TABLE `source_logs` (
 --
 
 INSERT INTO `source_logs` (`id`, `area`, `price`, `date`, `source`, `source_id`, `created_at`, `updated_at`) VALUES
-(1, 'asff', '123', '2019-03-01', 'soo', NULL, '2020-03-26 03:01:48', '2020-03-26 03:01:48'),
-(2, 'asff', '123', '2019-03-01', 'soo', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
-(3, 'asff2', '300', '2018-03-01', 'so2', NULL, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(1, 'asff', '123', '2019-03-01', 'soo', 1, '2020-03-26 03:01:48', '2020-03-26 03:01:48'),
+(2, 'asff', '123', '2019-03-01', 'soo', 2, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(3, 'asff2', '300', '2018-03-01', 'so2', 3, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
 (4, 'asff', '123', '2019-03-01', 'soo', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
 (5, 'asff2', '300', '2018-03-01', 'so2', 4, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
 (6, 'youarea', '1234', '2018-03-01', 'yoursource', 5, '2020-03-29 23:59:36', '2020-03-29 23:59:36'),
@@ -549,7 +551,7 @@ ALTER TABLE `user_request`
 -- AUTO_INCREMENT for table `basic_setting`
 --
 ALTER TABLE `basic_setting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -592,6 +594,12 @@ ALTER TABLE `news`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `source_logs`
+--
+ALTER TABLE `source_logs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sub_departments`
