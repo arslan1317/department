@@ -97,9 +97,17 @@
                                                     </li>
                                                     @foreach($all_department as $all_departments)
                                                     <li class="has-submenu"><a href="#">{{$all_departments->name}}</a>
-                                                        <ul class="sub-menu">
+                                                        <ul class="sub-menu sub-department-menu">
                                                         @foreach($all_departments->subdepartment as $subdepartments)
-                                                            <li><a href="{{route('subdepartment.all', $subdepartments->id)}}">{{$subdepartments->name}}</a></li>
+                                                            <li><a href="{{route('subdepartment.all', $subdepartments->id)}}">{{$subdepartments->name}}</a>
+                                                            @if(count($subdepartments->company) != 0)
+                                                                <ul class="sub-menu">
+                                                                    @foreach($subdepartments->company as $company)
+                                                                    <li><a href="{{route('company.info', $company->id)}}">{{$company->name}}</a></li>
+                                                                    @endforeach                                                                    
+                                                                </ul>
+                                                            @endif
+                                                            </li>                                                            
                                                         @endforeach
                                                         </ul>
                                                     </li>
@@ -217,11 +225,9 @@
                                     <h3 class="widget-title">Our Services</h3>
                                     <ul id="menu-footer-services">
                                     @foreach($all_department as $all_departments)
-                                    <li><a href="#" class="main">{{$all_departments->name}}</a></li>
                                         @foreach($all_departments->subdepartment as $subdepartments)
-                                            <li><a href="#">{{$subdepartments->name}}</a></li>
+                                            <li class="w-100"><a href="#">{{$subdepartments->name}}</a></li>
                                         @endforeach
-                                    </li>
                                     @endforeach
                                     </ul>
                                 </div>

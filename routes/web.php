@@ -44,6 +44,7 @@ Route::get('/projects', 'FrontEndController@projects');
 Route::get('/awards', 'FrontEndController@awards');
 Route::get('/career', 'FrontEndController@career');
 Route::get('/tendor', 'FrontEndController@tendor');
+Route::get('/company/{id}', 'FrontEndController@company')->name('company.info');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -140,6 +141,9 @@ Route::group(['middleware' => ['admin']], function () {
 
     // basic settings post
     Route::post('admin/basic/{id}', 'BasicSettingController@setting')->name('basic.setting');
+
+    // basic setting aboutus
+    Route::post('admin/basic/about/update/{id}', 'BasicSettingController@updatabout')->name('basic.aboutus');
 
     //About Us
     Route::get('admin/aboutus', 'AboutUsController@index')->name('aboutus.index');

@@ -119,9 +119,7 @@
                                         </ul>
                                         <div class="content-tab ttm-bgcolor-white">
                                             <div class="content-inner active">
-                                                <h4>Offering you Endless Possibilities to Grow</h4>
-                                                <p><strong>We are one of leading company in manufacturing &amp; petro chemical products. We makes long-term investments goal in global companies in different sectors, mainly in Europe.</strong></p>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                            {{$about->about_us}}
                                             </div>
                                         </div>
                                     </div>
@@ -130,6 +128,40 @@
                         </div>
                     </div>
                     <!--row end-->
+                </div>
+            </section>
+
+            <section class="ttm-row ttm-bgcolor-grey bt-g-1">
+                <div class="container">
+                    <div class="row">
+                        @foreach($source_table as $source_tables)
+                        <div class="col-lg-6">
+                            <div class="source-table">
+                            <h2 class="title">{{$source_tables->name}}</h2>
+                                <table class="table table-resposnive table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>Date</td>
+                                            <td>Area</td>
+                                            <td>Source</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($source_tables->sourcelog as $sourcelogs)
+                                        <tr>
+                                            <td>RS. {{$sourcelogs->price}}</td>
+                                            <td>{{$sourcelogs->date}}</td>
+                                            <td>{{$sourcelogs->area}}</td>
+                                            <td>{{$sourcelogs->source}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </section>
 

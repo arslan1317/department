@@ -8,6 +8,7 @@ use App\News;
 use App\Event;
 use App\AboutUs;
 use App\Source;
+use App\Company;
 use DB;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class FrontEndController extends Controller
         if(count($events) == 0){
             $events = Event::orderBy('id', 'desc')->take(3)->get();
         }
-        return view('welcome',compact('social_icons', 'subdeparment', 'slider_lower', 'info_box', 'all_department', 'latest_news', 'news', 'events', 'basic_info'));
+        $source_table = Source::inRandomOrder()->limit(2)->get();
+        $about = BasicSetting::where('section_type', 6)->first();
+        return view('welcome',compact('social_icons', 'subdeparment', 'slider_lower', 'info_box', 'all_department', 'latest_news', 'news', 'events', 'basic_info','about', 'source_table'));
     }
 
     public function news(){
@@ -261,5 +264,16 @@ class FrontEndController extends Controller
         $career = AboutUs::where('section_type', 6)->orderBy('id', 'desc')->get();
         return view('tendor',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','career'));
     }
+
+    public function company($id){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $company = Company::where('id', $id)->first();
+        return view('company',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','company'));
+    }
+
 
 }

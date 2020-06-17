@@ -123,8 +123,12 @@ $(window).scroll(function(){
     });
 
     $menuTrigger.click(function (e) {
-        e.preventDefault();
         var t = $(this);
+        if(t.parent().parent().hasClass('sub-department-menu')){
+
+        }else{
+            e.preventDefault();
+        }
         t.toggleClass('active').next('ul').toggleClass('active');
     });
 

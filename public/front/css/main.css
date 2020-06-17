@@ -1405,15 +1405,13 @@ ul.widget-post.ttm-recent-post-list li:not(:last-child){
 .widget ul#menu-footer-services li:nth-last-child(4) a:after, .widget ul#menu-footer-services li:nth-last-child(3) a:after {
       height: 55px;
   }
-.widget ul#menu-footer-services li:nth-child(even) {
-    width: 40%;
-    margin-left: 5%;
-}
+
 .widget ul#menu-footer-services li {
     display: inline-block;
     width: calc(50% - 2px);
     float: none;
     padding: 0 0 8px 0;
+    padding-bottom: 0px;
     position: relative;
     text-align: left;
 }
@@ -1768,4 +1766,12 @@ hr.new-hr {
     font-weight: bold;
     color: #020d26 !important;
     margin-top: 0px !important;
+}
+
+.bt-g-1 {
+    border-bottom: 1px solid #008a07;
+}
+.source-table thead {
+    background-color: #008a07;
+    color: white;
 }

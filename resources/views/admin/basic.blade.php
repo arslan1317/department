@@ -337,6 +337,52 @@
 			</div>
 		</div>
 	</section>
+
+	<section id="basic-form-layouts">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title" id="basic-layout-form">Home About Us</h4>
+						<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+						<div class="heading-elements">
+							<ul class="list-inline mb-0">
+								<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+								<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+								<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+								<li><a data-action="close"><i class="ft-x"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="card-content collapse show" style="">
+						<div class="card-body">
+							<form action="{{route('basic.aboutus', $about->id)}}" method="post">
+								@csrf
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label>About Us Paragraph</label>
+												<textarea rows="10" class="form-control" name="about_us">{{$about->about_us}}</textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-actions text-right">
+									<button type="submit" class="btn btn-primary">
+										<i class="la la-check-square-o"></i> Update About Us Paragraph
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
 </div>
 
 

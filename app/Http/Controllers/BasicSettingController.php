@@ -14,6 +14,7 @@ class BasicSettingController extends Controller
         section_type = 3 (Slider Info)
         section_type = 4 (Slider Lower Info)
         section_type = 5 (Info Box)
+        section_type = 6 (About Paragraph)
     */
 
     public function __construct()
@@ -33,7 +34,8 @@ class BasicSettingController extends Controller
         $social_icons = BasicSetting::where('section_type', 2)->get();
         $slider_lower = BasicSetting::where('section_type', 4)->first();
         $info_box = BasicSetting::where('section_type', 5)->get();
-        return view('admin.basic', compact('title', 'lefttitle', 'social_icons', 'slider_lower', 'info_box', 'basic_info'));
+        $about = BasicSetting::where('section_type', 6)->first();
+        return view('admin.basic', compact('title', 'lefttitle', 'social_icons', 'slider_lower', 'info_box', 'basic_info', 'about'));
     }
 
     public function social(Request $request){
@@ -111,5 +113,12 @@ class BasicSettingController extends Controller
         $basic_setting->copyright = $request->input('copyright');
         $basic_setting->save();
         return redirect()->back()->with('notifysuccess', 'Basic Setting is successfully Added');
+    }
+
+    public function updatabout(Request $request, $id){
+        $basic_setting = BasicSetting::find($id);
+        $basic_setting->about_us = $request->input('about_us');
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'About Us is successfully Updated');
     }
 }
