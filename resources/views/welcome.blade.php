@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-            
+
             <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container slide-overlay" data-alias="classic4export" data-source="gallery">
 
                 <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.4.8">
@@ -38,7 +38,7 @@
                             </div>
 
                             <a class="tp-caption highlight-skin-button " href="{{url('/sources/single')}}/{{$source_onslider[1]->id}}" target="_self" id="slide-12-layer-6" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['middle','middle','middle','middle']" data-voffset="['123','123','101','82']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1800,"speed":500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[16,16,16,16]" data-paddingright="[30,30,30,30]" data-paddingbottom="[16,16,16,16]" data-paddingleft="[30,30,30,30]">
-                                Learn More Details 
+                                Learn More Details
                             </a>
                         </li>
                     </ul>
@@ -106,6 +106,7 @@
                                             <div class="content-inner active">
                                             {{$about->about_us}}
                                             </div>
+                                            <a class="d-block ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/about')}}">Read More<i class="ti ti-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +193,7 @@
                                 </div>
                                 <div class="featured-box style5 box-shadow">
                                     <div class="featured-icon icon-shape-square icon-size-md">
-                                        
+
                                     </div>
                                     <div class="featured-content">
                                         <div class="featured-title">
@@ -235,7 +236,7 @@
                                 @php
                                     $old_date = date($event->start_date);
                                     $old_date_timestamp = strtotime($old_date);
-                                    $new_date = date('d M Y H:i:s', $old_date_timestamp);   
+                                    $new_date = date('d M Y H:i:s', $old_date_timestamp);
                                 @endphp
                                 <div class="timer" data-timer="{{$new_date}}">
                                 <span>Started At:</span>
@@ -289,7 +290,7 @@
                                             <div class="post-meta">
                                                 <ul class="list-inline">
                                                     <li><i class="fa fa-list"></i>
-                                                    @if($new->subdepartment != null)                                                    
+                                                    @if($new->subdepartment != null)
                                                         {{$new->subdepartment->name}}
                                                     @else
                                                         @if($new->department != null)
