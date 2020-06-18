@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 17, 2020 at 06:00 PM
+-- Generation Time: Jun 18, 2020 at 05:02 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -289,6 +289,7 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `sources` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `sub_dep_id` bigint(20) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -299,12 +300,12 @@ CREATE TABLE `sources` (
 -- Dumping data for table `sources`
 --
 
-INSERT INTO `sources` (`id`, `name`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Kennan Schultz', 1, 18, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
-(2, 'Oleg Dalton', 1, 18, '2020-03-26 03:15:54', '2020-03-26 03:15:54'),
-(3, 'Oleg Dalton', 1, 18, '2020-03-26 03:16:09', '2020-03-26 03:16:09'),
-(4, 'Oleg Dalton', 1, 18, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
-(5, 'Odysseus Schmidt', 4, 19, '2020-03-29 23:59:36', '2020-03-29 23:59:36');
+INSERT INTO `sources` (`id`, `name`, `description`, `sub_dep_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Kennan Schultz', NULL, 1, 18, '2020-03-26 03:15:10', '2020-03-26 03:15:10'),
+(2, 'Oleg Dalton', NULL, 1, 18, '2020-03-26 03:15:54', '2020-03-26 03:15:54'),
+(3, 'Oleg Dalton', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,', 1, 18, '2020-03-26 03:16:09', '2020-03-26 03:16:09'),
+(4, 'Oleg Dalton', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,', 1, 18, '2020-03-26 03:16:41', '2020-03-26 03:16:41'),
+(5, 'Odysseus Schmidt', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,', 4, 19, '2020-03-29 23:59:36', '2020-03-29 23:59:36');
 
 -- --------------------------------------------------------
 

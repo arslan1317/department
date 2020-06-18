@@ -21,7 +21,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/color-switcher.css') }}">
     <link id="switcher-color" href="{{ asset('front/css/default-color.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/responsive.css') }}" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="{{ asset('front/js/jquery.min.js') }}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{{ asset('admin/js/chart.min.js') }}"></script>
 </head>
 <body>
@@ -174,14 +176,14 @@
                     <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 widget-area">
+                            <div class="col-xs-12 col-sm-12 col-md-6 widget-area" data-aos="fade-left" data-aos-duration="1500">
                                 <div class="widget widget-out-link clearfix">
                                     <i class="fa fa-phone"></i>
                                     <h3 class="widget-title">Have a question? call us now</h3>
                                     <p>{{$basic_info->phone}}</p>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 widget-area">
+                            <div class="col-xs-12 col-sm-12 col-md-6 widget-area" data-aos="fade-right" data-aos-duration="1500">
                                 <div class="widget widget-out-link clearfix">
                                     <i class="fa fa-envelope-o"></i>
                                     <h3 class="widget-title">Need support? Drop us an email</h3>
@@ -315,6 +317,9 @@
              
             });
         })
+    </script>
+    <script>
+        AOS.init();
     </script>
 </body>
 </html>

@@ -14,48 +14,30 @@
                             <div class="tp-caption" id="slide-4-layer-7" data-x="['left','left','left','left']" data-hoffset="['-275','-355','-507','-483']" data-y="['top','top','top','top']" data-voffset="['168','168','50','50']" data-width="none" data-height="none" data-whitespace="nowrap" data-visibility="['on','on','off','off']" data-type="image" data-responsive_offset="on" data-frames='[{"delay":240,"speed":490,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
                                 <img src="{{ asset('front/images/slider-plan-image01.png') }}" alt="" data-ww="['889px','889px','755px','552px']" data-hh="['557px','557px','473px','346px']" width="889" height="557" data-no-retina>
                             </div>
-
-                            <div class="tp-caption tp-shape tp-shapewrapper" id="slide-4-layer-1" data-x="['center','center','center','center']" data-hoffset="['101','101','-79','-102']" data-y="['middle','middle','middle','middle']" data-voffset="['-39','-39','-49','-35']" data-width="['52','52','52','35']" data-height="['327','327','280','215']" data-whitespace="nowrap" data-type="shape" data-responsive_offset="on" data-frames='[{"delay":260,"speed":1000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                            </div>
-
-                            <div class="tp-caption heading-dark-slide" id="slide-4-layer-2" data-x="['center','center','center','center']" data-hoffset="['160','160','-35','-69']" data-y="['middle','middle','middle','middle']" data-voffset="['-154','-154','-143','-109']" data-fontsize="['90','90','70','55']" data-lineheight="['95','95','80','60']" data-fontweight="['700','700','700','700']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":450,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                <span class="heilight-white-text">W</span>E
-                            </div>
-
-                            <div class="tp-caption heading-dark-slide" id="slide-4-layer-3" data-x="['center','center','center','center']" data-hoffset="['259','259','42','-20']" data-y="['middle','middle','middle','middle']" data-voffset="['-72','-72','-75','-59']" data-fontsize="['90','90','70','50']" data-lineheight="['95','95','80','60']" data-fontweight="['700','700','700','700']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":800,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                <span class="heilight-white-text">M</span>AKE IT
-                            </div>
-
-                            <div class="tp-caption heading-dark-slide" id="slide-4-layer-4" data-x="['center','center','center','center']" data-hoffset="['261','261','44','-19']" data-y="['middle','middle','middle','middle']" data-voffset="['10','10','-7','-10']" data-fontsize="['90','90','70','50']" data-lineheight="['95','95','80','60']" data-fontweight="['700','700','700','700']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1080,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                <span class="heilight-white-text">H</span>APPEN
-                            </div>
-
-                            <div class="tp-caption simple-dark-text" id="slide-4-layer-5" data-x="['center','center','center','center']" data-hoffset="['260','260','49','-2']" data-y="['middle','middle','middle','middle']" data-voffset="['93','93','57','41']" data-fontsize="['30','30','25','20']" data-lineheight="['35','35','30','25']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1440,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                Our Project Worldwide
-                            </div>
-
-                            <a class="tp-caption highlight-skin-button " href="#" target="_self" id="slide-4-layer-6" data-x="['center','center','center','center']" data-hoffset="['151','151','-30','-43']" data-y="['middle','middle','middle','middle']" data-voffset="['199','199','156','125']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-actions='' data-responsive_offset="on" data-frames='[{"delay":2160,"speed":660,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[16,16,16,16]" data-paddingright="[30,30,30,30]" data-paddingbottom="[16,16,16,16]" data-paddingleft="[30,30,30,30]">Read More 
-                                <span class="left-space-3px">
-                                <i class="ti ti-angle-right"></i></span>
+                            <a href="{{url('/sources/single')}}/{{$source_onslider[0]->id}}" >
+                                <div class="tp-caption heading-dark-slide" id="slide-4-layer-2" data-x="['center','center','center','center']" data-hoffset="['160','160','-35','-69']" data-y="['middle','middle','middle','middle']" data-voffset="['-154','-154','-143','-109']" data-fontsize="['90','90','70','55']" data-lineheight="['95','95','80','60']" data-fontweight="['700','700','700','700']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":450,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
+                                    {{$source_onslider[0]->name}}
+                                </div>
+                            </a>
+                            <a href="{{url('/sources/single')}}/{{$source_onslider[0]->id}}" >
+                                <div class="tp-caption heading-dark-slide" id="slide-4-layer-5" data-x="['center','center','center','center']" data-hoffset="['259','259','42','-20']" data-y="['middle','middle','middle','middle']" data-voffset="['-72','-72','-75','-59']" data-fontsize="['90','90','70','50']" data-lineheight="['95','95','80','60']" data-fontweight="['700','700','700','700']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":800,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
+                                    {{$source_onslider[0]->subdepartment->name}}
+                                </div>
                             </a>
                         </li>
                         <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                             <img src="{{ asset('front/images/slider-mainbg-004.jpg') }}" alt="" title="slider-mainbg-004" width="1920" height="725" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
 
-                            <div class="tp-caption haeding-slide" id="slide-12-layer-9" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['top','top','top','middle']" data-voffset="['206','206','86','-90']" data-fontsize="['55','55','45','30']" data-lineheight="['65','65','50','40']" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":300,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                Factory
-                            </div>
-
                             <div class="tp-caption haeding-slide" id="slide-12-layer-10" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['top','top','top','middle']" data-voffset="['260','260','130','-40']" data-fontsize="['90','90','80','50']" data-lineheight="['100','100','90','60']" data-fontweight="['600','600','600','600']" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":100,"speed":3000,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                Company<span class="ttm-textcolor-skincolor"> Solution</span>
+                                {{$source_onslider[1]->name}}
                             </div>
 
                             <div class="tp-caption simple-text" id="slide-12-layer-11" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['top','top','top','middle']" data-voffset="['374','374','232','15']" data-fontsize="['35','35','30','20']" data-lineheight="['45','45','40','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1470,"speed":1000,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
-                                For all Industrial Business
+                                {{$source_onslider[1]->subdepartment->name}}
                             </div>
 
-                            <a class="tp-caption highlight-skin-button " href="#" target="_self" id="slide-12-layer-6" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['middle','middle','middle','middle']" data-voffset="['123','123','101','82']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1800,"speed":500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[16,16,16,16]" data-paddingright="[30,30,30,30]" data-paddingbottom="[16,16,16,16]" data-paddingleft="[30,30,30,30]">
+                            <a class="tp-caption highlight-skin-button " href="{{url('/sources/single')}}/{{$source_onslider[1]->id}}" target="_self" id="slide-12-layer-6" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['middle','middle','middle','middle']" data-voffset="['123','123','101','82']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-actions='' data-responsive_offset="on" data-frames='[{"delay":1800,"speed":500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[16,16,16,16]" data-paddingright="[30,30,30,30]" data-paddingbottom="[16,16,16,16]" data-paddingleft="[30,30,30,30]">
                                 Learn More Details 
                             </a>
                         </li>
@@ -82,8 +64,11 @@
                     <div class="row">
                         <div class="ttm-section-info_box ttm-bgcolor-white clearfix">
                             <div class="row box-shadow row-equal-height ttm-box-seperator">
+                            @php
+                                $counter = 0;
+                            @endphp
                                 @foreach($info_box as $info_boxes)
-                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="col-lg-4 col-md-4 col-sm-12" data-aos="fade-up" data-aos-duration="{{++$counter}}000">
                                     <div class="featured-box style3 text-center">
                                         <div class="featured-icon icon-shape-square icon-bgcolor-grey">
                                             <img src="{{asset('images')}}/{{$info_boxes->info_image}}" alt="" width="80" height="80">
@@ -134,8 +119,11 @@
             <section class="ttm-row ttm-bgcolor-grey bt-g-1">
                 <div class="container">
                     <div class="row">
+                        @php
+                            $counter = 0;
+                        @endphp
                         @foreach($source_table as $source_tables)
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="{{++$counter}}000">
                             <div class="source-table">
                             <h2 class="title">{{$source_tables->name}}</h2>
                                 <table class="table table-resposnive table-striped">
@@ -185,8 +173,11 @@
             <section class="ttm-row blog-section2 mt_92">
                 <div class="container">
                     <div class="row">
+                        @php
+                            $counter = 0;
+                        @endphp
                         @foreach($subdeparment as $subdeparments)
-                        <div class="col-md-4 mb-30">
+                        <div class="col-md-4 mb-30" data-aos="zoom-in" data-aos-duration="1500">
                             <div class="featured-item">
                                 <div class="featured-thumbnail">
                                     @if(count($subdeparments->news) != 0)
@@ -239,7 +230,7 @@
                     </div>
                     <div class="row">
                         @foreach($events as $event)
-                        <div class="col-lg-4 col-md-4">
+                        <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1500">
                             <div class="featured-item ttm-portfolio-view-topimage">
                                 @php
                                     $old_date = date($event->start_date);
@@ -287,7 +278,7 @@
                                         <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0 float-right" href="{{url('/news')}}">More News</a>
                                     </div>
                                     @foreach($news as $new)
-                                    <div class="post row m-0 res-991-mb-30 col-md-6">
+                                    <div class="post row m-0 res-991-mb-30 col-md-6" data-aos="zoom-out-up" data-aos-duration="1500">
                                         <div class="post-image col-sm-4">
                                             <img class="img-fluid" src="{{ asset('images') }}/{{$new->image}}" alt="{{$new->headline}}">
                                         </div>

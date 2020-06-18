@@ -27,9 +27,10 @@ class FrontEndController extends Controller
         if(count($events) == 0){
             $events = Event::orderBy('id', 'desc')->take(3)->get();
         }
+        $source_onslider = Source::orderBy('id', 'desc')->take(2)->get();
         $source_table = Source::inRandomOrder()->limit(2)->get();
         $about = BasicSetting::where('section_type', 6)->first();
-        return view('welcome',compact('social_icons', 'subdeparment', 'slider_lower', 'info_box', 'all_department', 'latest_news', 'news', 'events', 'basic_info','about', 'source_table'));
+        return view('welcome',compact('social_icons', 'subdeparment', 'slider_lower', 'info_box', 'all_department', 'latest_news', 'news', 'events', 'basic_info','about', 'source_table', 'source_onslider'));
     }
 
     public function news(){
