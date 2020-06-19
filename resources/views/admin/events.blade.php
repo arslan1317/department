@@ -37,11 +37,21 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
+													<label for="projectinput1">Event Image</label>
+													<label class="file center-block">
+														<input type="file" name="image">
+														<span class="file-custom"></span>
+													</label>
+
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
 													<label>Event Name</label>
 													<input type="text" class="form-control" name="name">
 												</div>
 											</div>
-											<div class="col-md-12">
+											<div class="col-md-6">
 												<div class="form-group">
 													<label>Start & End Date</label>
 													<div class='input-group'>

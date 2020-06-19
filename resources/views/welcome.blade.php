@@ -94,7 +94,7 @@
             <section class="ttm-row bg-layer-section bg-layer break-1199-colum clearfix">
                 <div class="container">
                     <div class="row row-equal-height">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="col-bg-img-four ttm-col-bgimage-yes ttm-bg padding-12">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                                 <div class="layer-content">
@@ -112,45 +112,35 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--row end-->
-                </div>
-            </section>
-
-            <section class="ttm-row ttm-bgcolor-grey bt-g-1">
-                <div class="container">
-                    <div class="row">
-                        @php
-                            $counter = 0;
-                        @endphp
-                        @foreach($source_table as $source_tables)
-                        <div class="col-lg-6" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="{{++$counter}}000">
-                            <div class="source-table">
-                            <h2 class="title">{{$source_tables->name}}</h2>
-                                <table class="table table-resposnive table-striped">
-                                    <thead>
-                                        <tr>
-                                            <td>Price</td>
-                                            <td>Date</td>
-                                            <td>Area</td>
-                                            <td>Source</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($source_tables->sourcelog as $sourcelogs)
-                                        <tr>
-                                            <td>RS. {{$sourcelogs->price}}</td>
-                                            <td>{{$sourcelogs->date}}</td>
-                                            <td>{{$sourcelogs->area}}</td>
-                                            <td>{{$sourcelogs->source}}</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                        <div class="col-lg-6">
+                            <div class="col-bg-img-four ttm-col-bgimage-yes ttm-bg padding-12">
+                                <div class="source-table">
+                                    <h2 class="title"></h2>
+                                    <table class="table table-resposnive table-striped">
+                                        <thead>
+                                            <tr>
+                                                <td>Department</td>
+                                                <td>Price</td>
+                                                <td>Area</td>
+                                                <td>Date</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($source_onslider as $sourcelogs)
+                                            <tr>
+                                                <td>{{$sourcelogs->subdepartment->name}}</td>
+                                                <td>RS. {{$sourcelogs->sourcelogdecs[0]->price}}</td>
+                                                <td>{{$sourcelogs->sourcelogdecs[0]->area}}</td>
+                                                <td>{{$sourcelogs->sourcelogdecs[0]->date}}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
+                    <!--row end-->
                 </div>
             </section>
 

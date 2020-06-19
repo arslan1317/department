@@ -32,9 +32,10 @@
                 <ul class="nav navbar-nav flex-row">
                     <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
                     <li class="nav-item mr-auto">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="nav-item m-auto" href="{{url('/')}}">
                             <!-- <img class="brand-logo" alt="modern admin logo" src="../../../app-assets/images/logo/logo.png"> -->
-                            <h3 class="brand-text">YOUR LOGO</h3></a>
+                            <img class="brand-logo" alt="modern admin logo" src="{{asset('images')}}/{{$basic_info->logo}}">
+                        </a>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a></li>
                 </ul>

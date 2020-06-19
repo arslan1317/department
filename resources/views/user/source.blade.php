@@ -38,6 +38,12 @@
 													<a href="{{asset('sample.csv')}}" download>Download Sample CSV File</a>
 												</div>
 											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>Description</label>
+													<textarea name="details" id="summernote-code" class="summernote-code"></textarea>
+												</div>
+											</div>
 										</div>
 
 									</div>
@@ -119,6 +125,7 @@
 		                                    <tr>
 		                                        <th>Name</th>
 		                                        <th>Created At</th>
+												<th>Details</th>
 		                                        <th>View Source Data</th>
 		                                        <th>Action</th>
 		                                    </tr>
@@ -130,6 +137,12 @@
 		                                			<td>
 		                                				{{ date('M d, Y - h:m:s A', strtotime($sources->created_at))}}
 		                                			</td>
+													<td>
+													@php
+														$content = strip_tags($sources->body);
+													@endphp
+													{!! \Illuminate\Support\Str::limit($content, $limit = 120, $end = '...') !!}
+													</td>
 		                                			<td>
 		                                				<div class="table-action-button">
 		                                					<a href="" class="btn btn-primary btn-view btn-view-graph" data-name="{{$sources->name}}" data-source-log="{{$sources->sourcelog}}">View In Graphical form</a>
@@ -137,9 +150,9 @@
 		                                			</td>
 		                                			<td>
 		                            					<div class="table-action-button">
-		                            						<a href="javascript:;" class="btn-edit" data-image="{{$sources->image}}" data-headline="{{$sources->headline}}" data-body="{{$sources->body}}"  data-action="{{ route('news.update', $sources->id) }}" onclick="source(this, '#inlineForm')">
+		                            						<!-- <a href="javascript:;" class="btn-edit" data-name="{{$sources->name}}" data-headline="{{$sources->headline}}" data-body="{{$sources->body}}"  data-action="{{ route('news.update', $sources->id) }}" onclick="source(this, '#inlineForm')">
 		                            							<i class="la la-edit"></i>
-		                            						</a>
+		                            						</a> -->
 
 		                            						<a href="javascript:;" class="btn-delete" data-id="{{$sources->id}}" data-action="{{ route('news.destroy', $sources->id)}}">
 		                            							<i class="la la-trash"></i>
@@ -153,6 +166,7 @@
 		                                    <tr>
 		                                        <th>Name</th>
 		                                        <th>Created At</th>
+												<th>Details</th>
 		                                        <th>View Source Data</th>
 		                                        <th>Action</th>
 		                                    </tr>

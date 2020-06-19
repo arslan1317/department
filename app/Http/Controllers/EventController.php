@@ -137,6 +137,15 @@ class EventController extends Controller
 			}
         }
         $events = new Event();
+        if (request()->hasFile('image') && request('image') != '') {
+            $imagePath = public_path('images/'.$events->image);
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+            $newimageName = time().'.'.$request->image->extension(); 
+            $request->image->move(public_path('images'), $newimageName);
+            $events->image = $newimageName;
+        }
         $events->name = $request->input('name');
         $events->details = $dom->saveHTML();
         $events->start_date = date("Y-m-d H:i:s", strtotime(trim($dates[0])));

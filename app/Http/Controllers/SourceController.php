@@ -43,6 +43,32 @@ class SourceController extends Controller
         $source = new Source();
         $source->name = $request->input('name');
         $source->sub_dep_id = $request->input('sub_dep_id');
+        $message = $request->input('details');
+        $dom = new \DOMDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach($images as $img){
+			$src = $img->getAttribute('src');
+
+			if(preg_match('/data:image/', $src)){
+
+				preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+				$mimetype = $groups['mime'];
+			
+				$filename = uniqid();
+				$filepath = "/images/$filename.$mimetype";
+
+				$image = Image::make($src)
+				  ->encode($mimetype, 100)
+				  ->save(public_path($filepath));
+				
+				$new_src = asset($filepath);
+				$img->removeAttribute('src');
+				$img->setAttribute('src', $new_src);
+			}
+        }
+
+        $source->details = $dom->saveHTML();
         $source->user_id = Auth::id();
         $source->save();
         $id = $source->id;
