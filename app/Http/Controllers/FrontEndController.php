@@ -276,5 +276,10 @@ class FrontEndController extends Controller
         return view('company',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','company'));
     }
 
+    public function search(Request $request){
+        $keyword = $request->input('s');
+        print_r($keyword);
+    }
+
 
 }

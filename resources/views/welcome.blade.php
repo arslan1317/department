@@ -94,7 +94,7 @@
             <section class="ttm-row bg-layer-section bg-layer break-1199-colum clearfix">
                 <div class="container">
                     <div class="row row-equal-height">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="col-bg-img-four ttm-col-bgimage-yes ttm-bg padding-12">
                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                                 <div class="layer-content">
@@ -112,7 +112,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                    </div>
+                    <!--row end-->
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                    <div class="col-lg-12">
                             <div class="col-bg-img-four ttm-col-bgimage-yes ttm-bg padding-12">
                                 <div class="source-table">
                                     <h2 class="title"></h2>
@@ -128,7 +136,7 @@
                                         <tbody>
                                             @foreach($source_onslider as $sourcelogs)
                                             <tr>
-                                                <td>{{$sourcelogs->subdepartment->name}}</td>
+                                                <td>{{$sourcelogs->name}}</td>
                                                 <td>RS. {{$sourcelogs->sourcelogdecs[0]->price}}</td>
                                                 <td>{{$sourcelogs->sourcelogdecs[0]->area}}</td>
                                                 <td>{{$sourcelogs->sourcelogdecs[0]->date}}</td>
@@ -140,10 +148,8 @@
                             </div>
                         </div>
                     </div>
-                    <!--row end-->
                 </div>
             </section>
-
             <!--ttm-row -->
             <section class="ttm-row ttm-bgcolor-grey">
                 <div class="container">

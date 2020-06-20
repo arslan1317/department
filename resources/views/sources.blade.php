@@ -128,6 +128,26 @@
                                     printChart({!! $sources->sourcelog !!});
                                 </script>
                                 </div>
+                                <table class="table table-resposnive table-striped source-table">
+                                    <thead>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>Area</td>
+                                            <td>Date</td>
+                                            <td>Created At</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($sources->sourcelog as $sourcelogs)
+                                        <tr>
+                                            <td>RS. {{$sourcelogs->price}}</td>
+                                            <td>{{$sourcelogs->area}}</td>
+                                            <td>{{$sourcelogs->date}}</td>
+                                            <td>{{$sourcelogs->created_at}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                                 @endif
                             </div>
                         </div><!-- post end -->
@@ -237,6 +257,26 @@
                                     printChart({!! $sources->sourcelog !!});
                                 </script>
                                 </div>
+                                <table class="table table-resposnive table-striped source-table">
+                                    <thead>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>Area</td>
+                                            <td>Date</td>
+                                            <td>Created At</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($sources->sourcelog as $sourcelogs)
+                                        <tr>
+                                            <td>RS. {{$sourcelogs->price}}</td>
+                                            <td>{{$sourcelogs->area}}</td>
+                                            <td>{{$sourcelogs->date}}</td>
+                                            <td>{{$sourcelogs->created_at}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                                 @endif
                             </div>
                         </div><!-- post end -->
@@ -349,6 +389,26 @@
                                             printChart({!! $sources->sourcelog !!});
                                         </script>
                                         </div>
+                                        <table class="table table-resposnive table-striped source-table">
+                                            <thead>
+                                                <tr>
+                                                    <td>Price</td>
+                                                    <td>Area</td>
+                                                    <td>Date</td>
+                                                    <td>Created At</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($sources->sourcelog as $sourcelogs)
+                                                <tr>
+                                                    <td>RS. {{$sourcelogs->price}}</td>
+                                                    <td>{{$sourcelogs->area}}</td>
+                                                    <td>{{$sourcelogs->date}}</td>
+                                                    <td>{{$sourcelogs->created_at}}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                         @endif
                                     </div>
                                 </div><!-- post end -->

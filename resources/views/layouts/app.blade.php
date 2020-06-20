@@ -143,7 +143,7 @@
                                             <div class="ttm-header-icons ">
                                                 <div class="ttm-header-icon ttm-header-search-link"><a href="#" class="sclose"><i class="fa fa-search"></i></a>
                                                     <div class="ttm-search-overlay">
-                                                        <form method="get" class="ttm-site-searchform" action="#">
+                                                        <form method="get" class="ttm-site-searchform" action="{{route('search.keyword')}}">
                                                             <div class="w-search-form-h">
                                                                 <div class="w-search-form-row">
                                                                     <div class="w-search-input">

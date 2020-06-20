@@ -45,6 +45,7 @@ Route::get('/awards', 'FrontEndController@awards');
 Route::get('/career', 'FrontEndController@career');
 Route::get('/tendor', 'FrontEndController@tendor');
 Route::get('/company/{id}', 'FrontEndController@company')->name('company.info');
+Route::get('/search', 'FrontEndController@search')->name('search.keyword');
 
 Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
