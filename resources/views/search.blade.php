@@ -3,11 +3,11 @@
 @section('content')
 
 <!-- page-title -->
-<div class="ttm-page-title-row " style="background-color: #008a07;">
+<div class="ttm-page-title-row " style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">Search Result</h1>
@@ -18,11 +18,11 @@
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>{{$keyword}}</span></span>
-                    </div>  
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>                   
+    </div>
 </div><!-- page-title end-->
 
 <div class="site-main all-news-div">
@@ -94,8 +94,8 @@
                                     $old_date_end = date($events->end_date);
                                     $old_date_timestamp = strtotime($old_date);
                                     $old_date_end_timestamp = strtotime($old_date_end);
-                                    $new_date = date('d M Y H:i:s', $old_date_timestamp);   
-                                    $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);   
+                                    $new_date = date('d M Y H:i:s', $old_date_timestamp);
+                                    $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);
                                 @endphp
                                 <div class="row" data-timer="{{$new_date}}">
                                     <div class="col-md-6 pr-0">
@@ -117,7 +117,7 @@
                                         @if($events->subdepartment != null)
                                             {{$events->subdepartment->name}}
                                         @else
-                                        
+
                                         @endif
                                         </li>
                                         <li><i class="fa fa-calendar"></i>{{$events->created_at->format('M d, Y')}}</li>
@@ -130,7 +130,7 @@
                                     </div>
                                     <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/events/single')}}/{{$events->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                                 </div>
-                                
+
                             </div>
                         </div><!-- post end -->
                     </div>

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">{{$subdepartment_name->name}}</h1>
@@ -18,11 +18,11 @@
                         <span><span>{{$subdepartment_name->department->name}}</span></span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>{{$subdepartment_name->name}}</span></span>
-                    </div>  
+                    </div>
                 </div>
             </div>
-        </div> 
-    </div>                     
+        </div>
+    </div>
 </div>
 <section class="ttm-row blog-section2 mt-100">
     <div class="container">
@@ -68,7 +68,7 @@
                 </div>
             @endforeach
             <div class="col-12 text-center mb-30">
-                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor" href="{{url('news/department')}}/{{$news->sub_dep_id}}">View All News</a>
+                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0" href="{{url('news/department')}}/{{$news->sub_dep_id}}">View All News</a>
             </div>
         @else
             <div class="col-12">
@@ -100,8 +100,8 @@
                                 $old_date_end = date($events->end_date);
                                 $old_date_timestamp = strtotime($old_date);
                                 $old_date_end_timestamp = strtotime($old_date_end);
-                                $new_date = date('d M Y H:i:s', $old_date_timestamp);   
-                                $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);   
+                                $new_date = date('d M Y H:i:s', $old_date_timestamp);
+                                $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);
                             @endphp
                             <div class="row" data-timer="{{$new_date}}">
                                 <div class="col-md-6 pr-0">
@@ -141,7 +141,7 @@
                 </div>
             @endforeach
             <div class="col-12 text-center mb-30">
-                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor" href="{{url('events/department')}}/{{$events->sub_dep_id}}">View All Events</a>
+                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0" href="{{url('events/department')}}/{{$events->sub_dep_id}}">View All Events</a>
             </div>
         @else
             <div class="col-12">
@@ -259,7 +259,7 @@
                     </div>
                 @endforeach
             <div class="col-12 text-center mb-30">
-                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor" href="{{url('sources/department')}}/{{$sources->sub_dep_id}}">View All Sources</a>
+                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0" href="{{url('sources/department')}}/{{$sources->sub_dep_id}}">View All Sources</a>
             </div>
         @else
             <div class="col-12">

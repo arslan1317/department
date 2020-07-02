@@ -5,7 +5,7 @@
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         @if(count($get_news) != 0)
@@ -34,17 +34,17 @@
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>Events</span></span>
-                    </div>  
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>                   
+    </div>
 </div>
 
 <div class="site-main all-news-div">
 
     <!-- intro-section -->
-    <section class="ttm-row pt-100 pb-80 ttm-bgcolor-grey break-991-colum clearfix">
+    <section class="ttm-bgcolor-grey break-991-colum clearfix">
         <div class="container">
         <div class="row">
         @foreach($get_news as $events)
@@ -53,15 +53,15 @@
             <div class="post post-topimage">
                 <div class="post-desc style2">
                     <div class="post-title">
-                        <h5><a href="#">{{$events->name}}</a> </h5>
+                        <h5><a href="{{url('/events/single')}}/{{$events->id}}">{{$events->name}}</a> </h5>
                     </div>
                     @php
                         $old_date = date($events->start_date);
                         $old_date_end = date($events->end_date);
                         $old_date_timestamp = strtotime($old_date);
                         $old_date_end_timestamp = strtotime($old_date_end);
-                        $new_date = date('d M Y H:i:s', $old_date_timestamp);   
-                        $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);   
+                        $new_date = date('d M Y H:i:s', $old_date_timestamp);
+                        $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);
                     @endphp
                     <div class="row" data-timer="{{$new_date}}">
                         <div class="col-md-6 pr-0">

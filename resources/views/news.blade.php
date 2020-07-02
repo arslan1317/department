@@ -2,11 +2,11 @@
 
 @section('content')
 <!-- page-title -->
-<div class="ttm-page-title-row " style="background-color: #008a07;">
+<div class="ttm-page-title-row " style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">News</h1>
@@ -17,16 +17,16 @@
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>News</span></span>
-                    </div>  
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>                   
+    </div>
 </div><!-- page-title end-->
 <div class="site-main all-news-div">
 
 <!-- intro-section -->
-<section class="ttm-row pt-100 pb-80 ttm-bgcolor-grey break-991-colum clearfix">
+<section class="ttm-bgcolor-grey break-991-colum clearfix">
     <div class="container">
         @if(count($last_7_days) != 0)
             <div class="row mb-2">
@@ -52,7 +52,7 @@
                                             @if($news->subdepartment != null)
                                                 {{$news->subdepartment->name}}
                                             @else
-                                            
+
                                             @endif
                                             </li>
                                             <li><i class="fa fa-calendar"></i>{{$news->created_at->format('M d, Y')}}</li>
@@ -65,7 +65,7 @@
                                         </div>
                                         <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor" href="{{url('/news/single')}}/{{$news->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                                     </div>
-                                    
+
                                 </div>
                             </div><!-- post end -->
                         </div>
@@ -162,7 +162,7 @@
                 @endforeach
                 </div>
                 <div class="col-12 text-center mb-30">
-                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor" href="{{url('news/main-department')}}/{{$all_departments->id}}">View All {{$all_departments->name}}  News</a>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0" href="{{url('news/main-department')}}/{{$all_departments->id}}">View All {{$all_departments->name}}  News</a>
                 </div>
             @endif
         @endforeach
@@ -213,7 +213,7 @@
                         @endforeach
                     </div>
                     <div class="col-12 text-center mb-30">
-                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor" href="{{url('news/department')}}/{{$news->subdepartment->id}}">View All {{$news->subdepartment->name}} News</a>
+                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0" href="{{url('news/department')}}/{{$news->subdepartment->id}}">View All {{$news->subdepartment->name}} News</a>
                     </div>
                 @endif
             @endforeach

@@ -27,7 +27,7 @@
                         </li>
                         <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
-                            <img src="{{ asset('front/images/slider-mainbg-004.jpg') }}" alt="" title="slider-mainbg-004" width="1920" height="725" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                            <img src="{{ asset('front/images/Admin-Final-1-copy.jpg') }}" alt="" title="slider-mainbg-004" width="1920" height="725" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
 
                             <div class="tp-caption haeding-slide" id="slide-12-layer-10" data-x="['left','left','left','center']" data-hoffset="['50','40','30','0']" data-y="['top','top','top','middle']" data-voffset="['260','260','130','-40']" data-fontsize="['90','90','80','50']" data-lineheight="['100','100','90','60']" data-fontweight="['600','600','600','600']" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":100,"speed":3000,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">
                                 {{$source_onslider[1]->name}}
@@ -239,7 +239,7 @@
                                     <p>{{$new_date}}</p>
                                 </div>
                                 <div class="content-post">
-                                    <h2 class="title-post"><a href="">{{$event->name}}</a></h2>
+                                    <h2 class="title-post">{{$event->name}}</h2>
                                     <span class="category">
                                         <div class="limited-text">
                                         @php
@@ -281,7 +281,7 @@
                                         </div>
                                         <div class="post-desc style3 col-sm-8">
                                             <div class="post-title">
-                                                <h5><a href="#">{{$new->headline}}</a> </h5>
+                                                <h5>{{$new->headline}}</h5>
                                             </div>
                                             <div class="post-meta">
                                                 <ul class="list-inline">

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">Energy</h1>
@@ -14,11 +14,11 @@
                         <span>
                             <a title="Homepage" href="{{url('/')}}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                         </span>
-                    </div>  
+                    </div>
                 </div>
             </div>
-        </div> 
-    </div>                     
+        </div>
+    </div>
 </div>
 <section class="ttm-row blog-section2 mt-100">
     <div class="container">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="featured-box style5 box-shadow">
                         <div class="featured-icon icon-shape-square icon-size-md">
-                            
+
                         </div>
                         <div class="featured-content">
                             <div class="featured-title">

@@ -262,7 +262,7 @@ body .site-main {
 body .page.ttm-sidebar-true .site-main{
   padding-top: 65px;
   padding-bottom: 40px;
-  background-color: transparent;
+  background-color: #ffffff;
 }
 .alignleft {
     float: left;
@@ -479,7 +479,8 @@ button, input[type="submit"], input[type="button"], input[type="reset"],
 .mailchimp-inputbox button[type="submit"]:hover,
 .ttm-btn.ttm-btn-color-black.ttm-btn-style-border:hover ,
 .ttm-btn.ttm-btn-color-skincolor.ttm-btn-style-fill:hover,
-.featured-box.style5:hover .featured-icon i,
+/* .featured-box.style5:hover, */
+.featured-icon i,
 .accordion .toggle .toggle-title,
 .ttm-tabs.element-tab-style-horizontal ul.tabs li a,
 a.checkout-button,
@@ -491,7 +492,7 @@ a.checkout-button,
 .tp-caption.tp-dark-shape.tp-shapewrapper{ background-color: rgba(2, 13, 38, 0.46); }
 
 /** DarkGrey-border-color **/
-.featured-box.style5:hover,
+/* .featured-box.style5:hover, */
 .ttm-btn.ttm-btn-color-black.ttm-btn-style-border,
 .ttm-icon.ttm-icon-color-black.ttm-icon-style-border{
   border-color: #008a07;
@@ -671,7 +672,7 @@ a.checkout-button,
 .featured-item.ttm-team-view-topimage .content-post.content-team-post,
 article.post blockquote,
 .comment-body {
-    background-color: #f3f7f9;
+    background-color: #ffffff;
 }
 .featured-box.style2{ border-color: #f3f7f9; }
 .ttm-bgcolor-darkgrey .featured-box.style2:not(:hover){ border-color: transparent; }
@@ -1246,7 +1247,7 @@ ul li .icon-box.icon-style-border i{
 
 /** FirstFooter **/
 .footer .first-footer {
-    padding: 52px 0 55px;
+    padding: 25px 0 28px;
 }
 .widget-footer .first-footer .widget p{ margin: 0 0 12px; }
 .widget-footer .first-footer .widget .widget-title {
@@ -1278,8 +1279,8 @@ ul li .icon-box.icon-style-border i{
 /** SecondFooter **/
 .footer .second-footer{
     padding: 35px 0 50px;
-    background-image: url(../images/map-footer.png);
-    background-color: #fbfbfb;
+    /* background-image: url(../images/map-footer.png); */
+    background-color: #ffffff;
     background-position: right center;
     background-size: auto;
     background-repeat: no-repeat;
@@ -1523,15 +1524,15 @@ ul.footer-nav-menu li:last-child:after{
 }
 .ttm-page-title-row {
     display: block;
-    padding-top: 60px;
-    padding-bottom: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .title-box .page-title-heading h1 {
     font-family: "Titillium Web",Arial,Helvetica,sans-serif;
     font-weight: 600;
     font-size: 53px;
     line-height: 58px;
-    color: #fff;
+    color: #282a2b;
     padding-left: 25px;
     margin-bottom: 10px;
     text-transform: capitalize;
@@ -1552,7 +1553,7 @@ ul.footer-nav-menu li:last-child:after{
     text-transform: capitalize;
     font-size: 15px;
     line-height: 20px;
-    color: #ffffff;
+    color: #008a07;
 }
 
 
@@ -1618,17 +1619,17 @@ section.ttm-row.bg-layer-section.bg-layer.break-1199-colum.clearfix{
 }
 .featured-desc a.ttm-btn {
     width: 49%;
-    background-color: #008a07;
+    background-color: transparent;
     text-align: center;
     padding-right: 0px !important;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: white;
-    border: 2px solid #008a07;
+    color: #008a07;
+    border: 1px solid #008a07;
 }
 .featured-desc a.ttm-btn:hover {
-    background-color: transparent;
-    color: #008a07 !important;
+    background-color: #008a07;
+    color: #ffffff !important;
 }
 section.ttm-row.blog-section2.mt_92 {
     padding-bottom: 50px;
@@ -1683,7 +1684,7 @@ hr.new-hr {
     margin-bottom: 10px;
 }
 .event-timer span {
-    background-color: #008a07;
+    background-color: #282a2b;
     display: block;
     color: white;
 }
@@ -1717,7 +1718,7 @@ hr.new-hr {
     background-color: White !important;
 }
 .title-box .page-title-heading .title:before{
-    background-color: #ffffff !important;
+    background-color: #282a2b !important
 }
 .breadcrumb-wrapper span span {
     color: black !important;

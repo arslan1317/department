@@ -3,11 +3,11 @@
 @section('content')
 
 <!-- page-title -->
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
             <div class="section-overlay"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12"> 
+                    <div class="col-md-12">
                         <div class="title-box">
                             <div class="page-title-heading">
                                 <h1 class="title">Gallery</h1>
@@ -18,11 +18,11 @@
                                 </span>
                                 <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                                 <span><span>Gallery</span></span>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>                     
+            </div>
         </div><!-- page-title end-->
 
 <!--site-main start-->
@@ -31,8 +31,8 @@
 <div class="site-main">
 
 <!-- intro-section -->
-<section class="ttm-row pt-65 pb-60 ttm-bgcolor-grey clearfix">
-    <div class="container-fluid">
+<section class="ttm-bgcolor-grey clearfix">
+    <div class="container">
         <!-- row -->
         <div class="row">
             <div class="col-lg-12 p-0">
@@ -41,7 +41,7 @@
                         @php
                             $count = 0;
                         @endphp
-                        @foreach($gellery as $key => $value) 
+                        @foreach($gellery as $key => $value)
                             @if($count == 0)
                                 <li class="tab active"><a href="#">{{$key}}</a></li>
                             @else
@@ -71,7 +71,7 @@
                                             <div class="content-post content-portfolio-post">
                                                 <span class="category">
                                                     @if($values->caption != null)
-                                                        <a href="javascript:;">{{$values->caption}}</a> 
+                                                        <a href="javascript:;">{{$values->caption}}</a>
                                                     @endif
                                                 </span>
                                             </div>

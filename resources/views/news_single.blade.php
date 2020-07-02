@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">{{$get_news->headline}}</h1>
@@ -14,11 +14,11 @@
                         <span>
                             <a title="Homepage" href="{{url('/')}}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                         </span>
-                    </div>  
+                    </div>
                 </div>
             </div>
-        </div> 
-    </div>                     
+        </div>
+    </div>
 </div>
 
 <div class="site-main">
@@ -54,7 +54,7 @@
                         </div>
                         {!! $get_news->body !!}
                     </article><!-- post end -->
-                    
+
                     @if(count($realted_news) != 0)
                     <article class="post ttm-blog-classic">
                         <h2 class="title text-center mb-30"><strong>Related News</strong></h2>
@@ -97,12 +97,12 @@
                     </article>
                     @endif
                 </div>
-                
+
             </div><!-- row end -->
         </div>
     </div>
     <!-- ttm-sidebar end -->
-    
+
 </div>
 
 @endsection

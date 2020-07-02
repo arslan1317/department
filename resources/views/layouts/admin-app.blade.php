@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Energy</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('images')}}/{{$basic_info->favicon}}" />
@@ -62,10 +62,10 @@
                                 <li class="dropdown-menu-header">
                                     <h6 class="dropdown-header m-0"><span class="grey darken-2">News</span></h6><span class="notification-tag badge badge-info float-right m-0">{{count($new_global_notify)}} New</span>
                                 </li>
-                                <li class="scrollable-container media-list w-100">                                
+                                <li class="scrollable-container media-list w-100">
                                     @foreach($new_global_notify as $new_global_notifys)
-                                    <div class="media">                                    
-                                        <div class="media-body"> 
+                                    <div class="media">
+                                        <div class="media-body">
                                             <h6 class="media-heading"><a href="{{route('news.single', ['depart'=>$new_global_notifys->subdepartment->department->name,'name'=>$new_global_notifys->subdepartment->name,'id'=>$new_global_notifys->id])}}">{{$new_global_notifys->headline}}</a></h6>
                                             <p class="notification-text font-small-3 text-muted">
                                             @php
@@ -176,7 +176,7 @@
                                 <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="{{route('notification.show')}}">Read all notifications</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i></a>
+                        <!-- <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i></a>
                             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                 <li class="dropdown-menu-header">
                                     <h6 class="dropdown-header m-0"><span class="grey darken-2">Messages</span></h6><span class="notification-tag badge badge-warning float-right m-0">4 New</span>
@@ -225,7 +225,7 @@
                                 </li>
                                 <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all messages</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700">{{ Auth::user()->name }}</span><span class="avatar avatar-online"><img src="{{ asset('admin/images/avatar-s-19.png') }}" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{route('admin.profile.home')}}"><i class="ft-user"></i> Edit Profile</a>
@@ -378,7 +378,7 @@
                         <i class="la la-image"></i><span class="menu-title" data-i18n="Dashboard">Gallery</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a href="{{route('career.index')}}">
                         <i class="la la-street-view"></i><span class="menu-title" data-i18n="Dashboard">Career</span>

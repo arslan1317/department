@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{asset('images')}}/{{$basic_info->favicon}}" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/animate.css') }}" /> 
+    <link rel="stylesheet" type="text/css" href="{{ asset('front/css/animate.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-awesome.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/themify-icons.css') }}" />
@@ -106,10 +106,10 @@
                                                                 <ul class="sub-menu">
                                                                     @foreach($subdepartments->company as $company)
                                                                     <li><a href="{{route('company.info', $company->id)}}">{{$company->name}}</a></li>
-                                                                    @endforeach                                                                    
+                                                                    @endforeach
                                                                 </ul>
                                                             @endif
-                                                            </li>                                                            
+                                                            </li>
                                                         @endforeach
                                                         </ul>
                                                     </li>
@@ -167,7 +167,7 @@
                                                 </div>
                                             </div>
                                             <!-- header-icons end -->
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@
                                     @endforeach
                                     </ul>
                                 </div>
-                                <div class="widget style2 widget-out-link clearfix">
+                                <!-- <div class="widget style2 widget-out-link clearfix">
                                     <h3 class="widget-title">Newsletter</h3>
                                     <p>Subscribe to our newsletter to receive latest news on our services.</p>
                                     <form id="subscribe-form" method="post" action="#" data-mailchimp="true">
@@ -256,7 +256,7 @@
                                         </div>
                                         <div id="subscribe-msg"></div>
                                     </form>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 widget-area">
                                 <div class="widget style2 widget-out-link clearfix">
@@ -264,8 +264,8 @@
                                     <ul class="widget-post ttm-recent-post-list mt-15">
                                         @foreach($latest_news as $latest_new)
                                         <li>
-                                            <a href="#"><img class="img-fluid" src="{{ asset('images') }}/{{$latest_new->image}}" alt="{{$latest_new->headline}}"></a>
-                                            <a href="#">{{$latest_new->headline}}</a>
+                                            <a href="{{url('/news/single')}}/{{$latest_new->id}}"><img class="img-fluid" src="{{ asset('images') }}/{{$latest_new->image}}" alt="{{$latest_new->headline}}"></a>
+                                            <a href="{{url('/news/single')}}/{{$latest_new->id}}">{{$latest_new->headline}}</a>
                                             <span class="post-date clearfix">{{$latest_new->created_at->format('M d, Y')}}</span>
                                         </li>
                                         @endforeach
@@ -284,7 +284,7 @@
                             </div>
                             <div class="col-md-6 ttm-footer2-right">
                                 <ul id="menu-footer-menu" class="footer-nav-menu">
-                                    <li><a href="{{url('/contact')}}">Contact</a></li>
+                                    <!-- <li><a href="{{url('/contact')}}">Contact</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -321,7 +321,7 @@
     <script>
         $(document).ready(function(){
             $('#department').on('change', function() {
-             
+
             });
         })
     </script>

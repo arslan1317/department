@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ttm-page-title-row" style="background-color:#008a07">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">{{$get_news->name}}</h1>
@@ -14,11 +14,11 @@
                         <span>
                             <a title="Homepage" href="{{url('/')}}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                         </span>
-                    </div>  
+                    </div>
                 </div>
             </div>
-        </div> 
-    </div>                     
+        </div>
+    </div>
 </div>
 
 <div class="site-main">
@@ -43,8 +43,8 @@
                                         $old_date_end = date($get_news->end_date);
                                         $old_date_timestamp = strtotime($old_date);
                                         $old_date_end_timestamp = strtotime($old_date_end);
-                                        $new_date = date('d M Y H:i:s', $old_date_timestamp);   
-                                        $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);   
+                                        $new_date = date('d M Y H:i:s', $old_date_timestamp);
+                                        $new_date_end = date('d M Y H:i:s', $old_date_end_timestamp);
                                     @endphp
                                     {{$new_date}}
                                     </li>
@@ -69,12 +69,12 @@
                         {!! $get_news->details !!}
                     </article><!-- post end -->
                 </div>
-                
+
             </div><!-- row end -->
         </div>
     </div>
     <!-- ttm-sidebar end -->
-    
+
 </div>
 
 @endsection

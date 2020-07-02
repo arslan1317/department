@@ -3,11 +3,11 @@
 @section('content')
 
 <!-- page-title -->
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">Contact Us</h1>
@@ -18,11 +18,11 @@
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>Contact Us 1</span></span>
-                    </div>  
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>                   
+    </div>
 </div><!-- page-title end-->
 
 <!--site-main start-->
@@ -76,7 +76,7 @@
                         <h2 class="ttm-textcolor-white mb-20">Drop in our office</h2>
                         <!--featured-box-->
                         <div class="featured-box style9 left-icon">
-                            <div class="featured-icon icon-white"> 
+                            <div class="featured-icon icon-white">
                                 <i class="ti ti-mobile"></i>
                             </div>
                             <div class="featured-content">
@@ -90,8 +90,8 @@
                         </div><!-- featured-box end-->
                         <!--featured-box-->
                         <div class="featured-box style9 left-icon">
-                            <div class="featured-icon icon-white"> 
-                                <i class="ti ti-email"></i>    
+                            <div class="featured-icon icon-white">
+                                <i class="ti ti-email"></i>
                             </div>
                             <div class="featured-content">
                                 <div class="featured-title">
@@ -104,8 +104,8 @@
                         </div><!-- featured-box end-->
                         <!--featured-box-->
                         <div class="featured-box style9 left-icon">
-                            <div class="featured-icon icon-white"> 
-                                <i class="ti ti-location-pin"></i>        
+                            <div class="featured-icon icon-white">
+                                <i class="ti ti-location-pin"></i>
                             </div>
                             <div class="featured-content">
                                 <div class="featured-title">

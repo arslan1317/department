@@ -7,7 +7,7 @@
             <div class="section-overlay"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12"> 
+                    <div class="col-md-12">
                         <div class="title-box">
                             <div class="page-title-heading">
                                 <h1 class="title">{{$business->heading}}</h1>
@@ -18,11 +18,11 @@
                                 </span>
                                 <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                                 <span><span>{{$business->heading}}</span></span>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>                     
+            </div>
         </div><!-- page-title end-->
 
 <!--site-main start-->

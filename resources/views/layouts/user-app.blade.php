@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Energy</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
-    
+
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/toastr.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/bootstrap.css') }}">

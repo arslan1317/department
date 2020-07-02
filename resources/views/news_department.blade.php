@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         @if(count($get_news) != 0)
@@ -34,17 +34,17 @@
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>News</span></span>
-                    </div>  
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>                   
+    </div>
 </div>
 
 <div class="site-main all-news-div">
 
     <!-- intro-section -->
-    <section class="ttm-row pt-100 pb-80 ttm-bgcolor-grey break-991-colum clearfix">
+    <section class="ttm-bgcolor-grey break-991-colum clearfix">
         <div class="container">
         <div class="row">
         @foreach($get_news as $news)
@@ -56,7 +56,7 @@
                         </div>
                         <div class="post-desc style2">
                             <div class="post-title">
-                                <h5><a href="#">{{$news->headline}}</a> </h5>
+                                <h5><a href="{{url('/news/single')}}/{{$news->id}}">{{$news->headline}}</a> </h5>
                             </div>
                             <div class="post-meta">
                                 <ul class="list-inline">

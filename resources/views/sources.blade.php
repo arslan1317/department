@@ -2,11 +2,11 @@
 
 @section('content')
 <!-- page-title -->
-<div class="ttm-page-title-row" style="background-color: #008a07;">
+<div class="ttm-page-title-row" style="background-color: #f1f1f1;border-color: #9d9d9d !important;border-top: 1px solid #d2d3d4;border-bottom: 1px solid #d2d3d4;">
     <div class="section-overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12"> 
+            <div class="col-md-12">
                 <div class="title-box">
                     <div class="page-title-heading">
                         <h1 class="title">Source & Uses</h1>
@@ -17,16 +17,16 @@
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
                         <span><span>Source & Uses</span></span>
-                    </div>  
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>                   
+    </div>
 </div><!-- page-title end-->
 <div class="site-main all-news-div">
 
 <!-- intro-section -->
-<section class="ttm-row pt-100 pb-80 ttm-bgcolor-grey break-991-colum clearfix">
+<section class="ttm-bgcolor-grey break-991-colum clearfix">
     <div class="container">
         @if(count($last_7_days) != 0)
             <div class="row mb-2">
@@ -359,7 +359,7 @@
                         @endforeach
                     </div>
                     <div class="col-12 text-center mb-30">
-                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor" href="{{url('sources/department')}}/{{$sources->subdepartment->id}}">View All {{$sources->subdepartment->name}} Sources</a>
+                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-black mt-30 mb-35 res-991-mtb-0" href="{{url('sources/department')}}/{{$sources->subdepartment->id}}">View All {{$sources->subdepartment->name}} Sources</a>
                     </div>
                 @endif
             @endforeach
