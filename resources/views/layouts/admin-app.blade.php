@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/datatables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/daterangepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style.css') }}">
+    <title>Energy</title>
 
 </head>
 <body class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">

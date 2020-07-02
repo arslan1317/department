@@ -35,11 +35,13 @@ class AppServiceProvider extends ServiceProvider
         $new_global_notify = News::where('status', '=', 0)->orderby('id', 'ASC')->get();                
         $event_global_notify = Event::where('status', '=', 0)->orderby('id', 'ASC')->get();
         $global_business = AboutUs::where('section_type', 2)->get();
+        $global_geo = AboutUs::where('section_type', 3)->get();
         View::share('basic_info', $basic_info);
         View::share('user_request', $user_request);
         View::share('department_global', $department_global);
         View::share('new_global_notify', $new_global_notify);
         View::share('event_global_notify', $event_global_notify);
         View::share('global_business', $global_business);
+        View::share('global_geo', $global_geo);
     }
 }

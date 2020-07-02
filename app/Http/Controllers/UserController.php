@@ -10,6 +10,7 @@ use App\News;
 use App\Event;
 use App\Source;
 use App\SubDepartment;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {

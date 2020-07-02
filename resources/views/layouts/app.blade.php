@@ -58,7 +58,7 @@
             </div>
 
             <div class="ttm-header-wrap">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="ttm-header-top-wrapper clearfix">
                         <div class="site-branding">
                             <a class="home-link" href="{{url('/')}}" title="Tectxon" rel="home">
@@ -132,6 +132,14 @@
                                                         <ul class="sub-menu">
                                                             <li class="{{ (request()->is('career')) ? 'active' : '' }}"><a href="{{url('/career')}}">Career</a></li>
                                                             <li class="{{ (request()->is('tendor')) ? 'active' : '' }}"><a href="{{url('/tendor')}}">Tendor</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="#">Geography</a>
+                                                        <ul class="sub-menu">
+                                                            @foreach($global_geo as $global_geos)
+                                                                <li class="{{ (request()->is('career')) ? 'active' : '' }}"><a href="{{url('/geography')}}/{{$global_geos->id}}">{{$global_geos->heading}}</a></li>
+                                                            @endforeach
                                                         </ul>
                                                     </li>
                                                     <li class="{{ (request()->is('contact')) ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact Us</a></li>
@@ -272,11 +280,10 @@
                         <div class="row copyright">
                             <div class="col-md-6">
                                 <div class=" ttm-footer2-left">
-                                    <span>{{$basic_info->copyright}}</span></div>
+                                    <span>{!! $basic_info->copyright !!}</span></div>
                             </div>
                             <div class="col-md-6 ttm-footer2-right">
                                 <ul id="menu-footer-menu" class="footer-nav-menu">
-                                    <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="{{url('/contact')}}">Contact</a></li>
                                 </ul>
                             </div>

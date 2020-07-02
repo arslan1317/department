@@ -1,0 +1,94 @@
+.btn-primary {
+    display: flex;
+    justify-content: right;
+    margin-left: auto;
+}
+.btn-primary i{
+    margin-right: 4px;
+}
+.btn-delete {
+    background-color: red;
+    border-radius: 4px;
+    color: white;
+    padding: 2px 4px;
+    display: inline-block;
+}
+.btn-edit {
+    background-color: #1e9ff2;
+    color: white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    display: inline-block;
+    margin-right: 4px;
+}
+.modal-title{
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+.table .alert{
+    padding: 9px;
+}
+.dropdown-notification h6.media-heading {
+    color: #1e9ff2;
+}
+.dropdown-notification .btn-primary{
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 17px;
+}
+.header-navbar .navbar-container .dropdown-menu-media .media-list .media {
+    padding: 1rem 20px;
+}
+.file.center-block{
+    margin-top: 5px;
+}
+img.image-show {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.table .btn {
+    padding: 9px;
+}
+.media-body p {
+    margin-bottom: 8px;
+}
+.btn-view {
+    display: inline-block;
+    padding: 6px 20px !important;
+}
+.edit-box {
+    border: 2px solid #2d343b;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 30px;
+}
+.edit-box .icon{
+    text-align: center;
+}
+.edit-box .icon i {
+    font-size: 39px;
+    color: black;
+}
+.edit-box .form-group {
+    margin-bottom: 12px;
+}
+body.vertical-layout.vertical-menu-modern .navbar .navbar-header {
+    background-color: white;
+    border: 2px solid transparent;
+    border-right-color: #2d343b;
+}
+.header-navbar .navbar-header .navbar-brand .brand-logo {
+    width: 130px;
+    margin: 0 auto;
+    text-align: CENTER;
+    display: block;
+}
+body.vertical-layout.vertical-menu-modern.menu-expanded .navbar .navbar-header {
+    float: left;
+    width: 260px;
+    padding: 0px;
+}
+a.navbar-brand {
+    padding: 12px 0px !important;
+}

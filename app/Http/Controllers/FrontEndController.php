@@ -275,10 +275,37 @@ class FrontEndController extends Controller
         $company = Company::where('id', $id)->first();
         return view('company',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','company'));
     }
+    
+    public function geography($id){
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
+        $all_department = Department::all();
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $geography = AboutUs::where('id', $id)->first();
+        return view('geography',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'basic_info','geography'));
+    }
 
     public function search(Request $request){
+        $latest_news = News::orderBy('id', 'desc')->take(3)->get();
+        $all_department = Department::all();
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $subdeparment = SubDepartment::where('department_id', 1)->get();
         $keyword = $request->input('s');
-        print_r($keyword);
+        $new = News::query()
+           ->where('headline', 'LIKE', "%{$keyword}%") 
+           ->orWhere('body', 'LIKE', "%{$keyword}%") 
+           ->get();
+        $event = Event::query()
+           ->where('name', 'LIKE', "%{$keyword}%") 
+           ->orWhere('details', 'LIKE', "%{$keyword}%") 
+           ->get();
+        $source = Source::query()
+           ->where('name', 'LIKE', "%{$keyword}%") 
+           ->orWhere('description', 'LIKE', "%{$keyword}%") 
+           ->get();
+        return view('search',compact('social_icons', 'subdeparment', 'all_department', 'latest_news', 'keyword','new','event','source'));
     }
 
 

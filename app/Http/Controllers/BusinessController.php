@@ -77,10 +77,6 @@ class BusinessController extends Controller
 
     public function destroy($id){
         $page = AboutUs::findOrFail($id);
-        $imagePath = public_path('images/'.$page->banner_image);
-        if(File::exists($imagePath)){
-            unlink($imagePath);
-        }
         $page->delete();
         return redirect()->back()->with('success', 'Business is successfully Deleted');
     }

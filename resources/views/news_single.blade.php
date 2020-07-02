@@ -48,11 +48,14 @@
                                     @endif
                                     </li>
                                     <li><i class="fa fa-calendar"></i>{{$get_news->created_at->format('M d, Y')}}</li>
+                                    <li><i class="fa fa-user" aria-hidden="true"></i>{{$get_news->author}}</li>
                                 </ul>
                             </div>
                         </div>
                         {!! $get_news->body !!}
                     </article><!-- post end -->
+                    
+                    @if(count($realted_news) != 0)
                     <article class="post ttm-blog-classic">
                         <h2 class="title text-center mb-30"><strong>Related News</strong></h2>
                         <div class="row">
@@ -92,6 +95,7 @@
                         @endforeach
                         </div>
                     </article>
+                    @endif
                 </div>
                 
             </div><!-- row end -->

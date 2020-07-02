@@ -60,6 +60,8 @@ class BasicSettingController extends Controller
         $status = '';
         if($basic_setting->section_type == 2){
             $status = 'Social Icon';
+        }else if($basic_setting->section_type == 5){
+            $status = 'Info Box';
         }
         $basic_setting->delete();
         return redirect()->back()->with('notifysuccess', $status .' Successfully Deleted');
@@ -80,10 +82,23 @@ class BasicSettingController extends Controller
         $basic_setting->info_image = $imageName;
         $basic_setting->info_heading = $request->input('info_heading');
         $basic_setting->info_paragraph = $request->input('info_paragraph');
-        $basic_setting->info_paragraph = $request->input('info_paragraph');
         $basic_setting->section_type = 5;
         $basic_setting->save();
         return redirect()->back()->with('notifysuccess', 'Info Box Successfully Added');
+    }
+    
+    public function updateinfobox(Request $request, $id){
+        $basic_setting = BasicSetting::find($id);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $request->file('image')->move(public_path('images'), $name);
+            $basic_setting->info_image = $name;
+        }
+        $basic_setting->info_heading = $request->input('info_heading');
+        $basic_setting->info_paragraph = $request->input('info_paragraph');
+        $basic_setting->save();
+        return redirect()->back()->with('notifysuccess', 'Info Box Successfully Updated');
     }
 
     public function setting(Request $request, $id) {

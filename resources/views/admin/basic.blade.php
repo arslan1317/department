@@ -295,7 +295,7 @@
 							<div class="row">
 								@foreach($info_box as $info_boxs)
 								<div class="col-md-4">
-									<form method="post" action="{{route('basic.infobox.update', $info_boxs->id)}}">
+									<form method="post" action="{{route('basic.infobox.update', $info_boxs->id)}}" enctype="multipart/form-data">
 										@csrf
 										<div class="edit-box">
 											<div class="icon mb-1">
@@ -390,7 +390,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="myModalLabel1">News Delete</h4>
+				<h4 class="modal-title" id="myModalLabel1">Delete this record?</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>

@@ -9,14 +9,14 @@
             <div class="col-md-12"> 
                 <div class="title-box">
                     <div class="page-title-heading">
-                        <h1 class="title">Sources</h1>
+                        <h1 class="title">Source & Uses</h1>
                     </div>
                     <div class="breadcrumb-wrapper">
                         <span>
                             <a title="Homepage" href="{{url('/')}}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
                         </span>
                         <span class="ttm-bread-sep"> &nbsp; ⁄ &nbsp;</span>
-                        <span><span>Sources</span></span>
+                        <span><span>Source & Uses</span></span>
                     </div>  
                 </div>
             </div>  
@@ -128,28 +128,9 @@
                                     printChart({!! $sources->sourcelog !!});
                                 </script>
                                 </div>
-                                <table class="table table-resposnive table-striped source-table">
-                                    <thead>
-                                        <tr>
-                                            <td>Price</td>
-                                            <td>Area</td>
-                                            <td>Date</td>
-                                            <td>Created At</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($sources->sourcelog as $sourcelogs)
-                                        <tr>
-                                            <td>RS. {{$sourcelogs->price}}</td>
-                                            <td>{{$sourcelogs->area}}</td>
-                                            <td>{{$sourcelogs->date}}</td>
-                                            <td>{{$sourcelogs->created_at}}</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                                 @endif
                             </div>
+                            <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor mt-2" href="{{url('/sources/single')}}/{{$sources->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                         </div><!-- post end -->
                     </div>
                 @endforeach
@@ -174,7 +155,7 @@
                                 </div>
                                 <div class="post-meta">
                                     <ul class="list-inline">
-                                        <li><i class="fa fa-calendar"></i>{{$news->created_at->format('M d, Y')}}</li>
+                                        <li><i class="fa fa-calendar"></i>{{$sources->created_at->format('M d, Y')}}</li>
                                     </ul>
                                 </div>
                                 @if(count($sources->sourcelog) == 0)
@@ -257,26 +238,7 @@
                                     printChart({!! $sources->sourcelog !!});
                                 </script>
                                 </div>
-                                <table class="table table-resposnive table-striped source-table">
-                                    <thead>
-                                        <tr>
-                                            <td>Price</td>
-                                            <td>Area</td>
-                                            <td>Date</td>
-                                            <td>Created At</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($sources->sourcelog as $sourcelogs)
-                                        <tr>
-                                            <td>RS. {{$sourcelogs->price}}</td>
-                                            <td>{{$sourcelogs->area}}</td>
-                                            <td>{{$sourcelogs->date}}</td>
-                                            <td>{{$sourcelogs->created_at}}</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor mt-2" href="{{url('/sources/single')}}/{{$sources->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                                 @endif
                             </div>
                         </div><!-- post end -->
@@ -389,26 +351,7 @@
                                             printChart({!! $sources->sourcelog !!});
                                         </script>
                                         </div>
-                                        <table class="table table-resposnive table-striped source-table">
-                                            <thead>
-                                                <tr>
-                                                    <td>Price</td>
-                                                    <td>Area</td>
-                                                    <td>Date</td>
-                                                    <td>Created At</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($sources->sourcelog as $sourcelogs)
-                                                <tr>
-                                                    <td>RS. {{$sourcelogs->price}}</td>
-                                                    <td>{{$sourcelogs->area}}</td>
-                                                    <td>{{$sourcelogs->date}}</td>
-                                                    <td>{{$sourcelogs->created_at}}</td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                        <a class="ttm-btn btn-inline ttm-icon-btn-right ttm-btn-color-skincolor mt-2" href="{{url('/sources/single')}}/{{$sources->id}}">Read More<i class="ti ti-arrow-right"></i></a>
                                         @endif
                                     </div>
                                 </div><!-- post end -->

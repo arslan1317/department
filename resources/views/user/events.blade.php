@@ -223,7 +223,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-outline-primary" value="Update News">
+                        <input type="submit" class="btn btn-outline-primary" value="Update Event">
                     </div>
                 </form>
             </div>
@@ -234,7 +234,7 @@
 	    <div class="modal-dialog" role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h4 class="modal-title" id="myModalLabel1">News Delete</h4>
+	                <h4 class="modal-title" id="myModalLabel1">Event Delete</h4>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">&times;</span>
 	                </button>

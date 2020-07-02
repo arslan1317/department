@@ -129,6 +129,30 @@
                                 </div>
                                 @endif
                         </div>
+                        <table class="table table-resposnive table-striped source-table mt-5">
+                                    <thead>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>Area</td>
+                                            <td>Date</td>
+                                            <td>Created At</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($get_news->sourcelog as $sourcelogs)
+                                        <tr>
+                                            <td>RS. {{$sourcelogs->price}}</td>
+                                            <td>{{$sourcelogs->area}}</td>
+                                            <td>{{$sourcelogs->date}}</td>
+                                            <td>{{$sourcelogs->created_at}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                        <div>
+                            <h2 class="title"><strong>Description</strong></h2>
+                            {!! $get_news->description !!}
+                        </div>
                     </article><!-- post end -->
                 </div>
                 

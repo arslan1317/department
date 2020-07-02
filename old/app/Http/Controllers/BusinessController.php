@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Admin\BasicSetting;
+use Illuminate\Http\Request;
+use App\AboutUs;
+use File;
+
+class BusinessController extends Controller
+{
+    // Start Note
+    // Pages Table For Business is section_type = 2
+    // End Note
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $title = 'Business Pages';
+        $lefttitle = '<li class="breadcrumb-item active"><a>Business Pages</a></li></ol>';
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        return view('admin.business', compact('title', 'lefttitle', 'social_icons', 'basic_info'));
+    }
+
+    public function all(){
+        $title = 'Business Pages';
+        $lefttitle = '<li class="breadcrumb-item active"><a>All Business Pages</a></li></ol>';
+        $basic_info = BasicSetting::where('section_type', 1)->first();
+        $social_icons = BasicSetting::where('section_type', 2)->get();
+        $business = AboutUs::where('section_type', 2)->get();
+        return view('admin.businessall', compact('title', 'lefttitle', 'social_icons', 'basic_info','business'));
+    }
+
+    public function add(Request $request){
+        $validatedData = $request->validate([
+            'heading' => 'required',
+            'details' => 'required'
+        ]);
+        $page = new AboutUs();
+        if (request()->hasFile('banner_image') && request('banner_image') != '') {
+            $imageName = time().'.'.$request->banner_image->extension();
+            $request->banner_image->move(public_path('images'), $imageName);
+            $page->banner_image = $imageName;
+        }
+        $page->heading = $request->input('heading');
+        $page->details = $request->input('details');
+        $page->section_type = $request->input('section_type');
+        $page->save();
+        return redirect()->back()->with('success', 'Business is successfully Added');
+    }
+
+    public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'heading' => 'required',
+            'details' => 'required'
+        ]);
+        $page = AboutUs::find($id);
+        if (request()->hasFile('banner_image') && request('banner_image') != '') {
+            $imagePath = public_path('images/'.$page->banner_image);
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+            $newimageName = time().'.'.$request->banner_image->extension();
+            $request->banner_image->move(public_path('images'), $newimageName);
+            $page->banner_image = $newimageName;
+        }
+        $page->heading = $request->input('heading');
+        $page->details = $request->input('details');
+        $page->update();
+        return redirect()->back()->with('success', 'Business is successfully updated');
+
+    }
+
+    public function destroy($id){
+        $page = AboutUs::findOrFail($id);
+        $imagePath = public_path('images/'.$page->banner_image);
+        if(File::exists($imagePath)){
+            unlink($imagePath);
+        }
+        $page->delete();
+        return redirect()->back()->with('success', 'Business is successfully Deleted');
+    }
+}

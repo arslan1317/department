@@ -1,7 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+    div#accordion button {
+        background-color: #008a07;
+        color: white;
+        border-radius: 0px;
+        padding: 10px 20px;
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    div#accordion .card-header {
+        padding: 0px;
+        border-radius: 0px;
+    }
+</style>
 <!-- page-title -->
 <div class="ttm-page-title-row" style="background-color: #008a07;">
             <div class="section-overlay"></div>
@@ -35,16 +49,43 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            @foreach($career as $careers)
-                <div class="col-lg-12 p-0 pt-4">
-                    <div class="ttm-tabs full-width style2" data-effect="fadeIn">
-                        <h1>{{$careers->jobtitle}}</h1>
+            <div id="accordion" class="col-12">
+                @php
+                    $count = 0;
+                @endphp
+                @foreach($career as $careers)
+                @if($count == 0)
+                    @php
+                        $class = 'show';
+                    @endphp
+                @else
+                    @php
+                        $class = '';
+                    @endphp
+                @endif
+                <div class="card">
+                    <div class="card-header" id="heading-{{$careers->id}}">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#collapse-{{$careers->id}}" aria-expanded="true" aria-controls="collapseOne">
+                          {{$careers->jobtitle}}
+                        </button>
+                      </h5>
+                    </div>
+                
+                    <div id="collapse-{{$careers->id}}" class="collapse {{$class}}" aria-labelledby="heading-{{$careers->id}}" data-parent="#accordion">
+                      <div class="card-body">
                         <h5>Level: {{$careers->level}}</h5>
                         <h5>Duration: {{$careers->duration}}</h5>
                         {!! $careers->details !!}
+                      </div>
                     </div>
-                </div>
-            @endforeach
+                  </div>
+                    @php
+                    $count++;
+                    @endphp
+                @endforeach
+            </div>
+            
         </div><!-- row end -->
     </div>
 </section>
